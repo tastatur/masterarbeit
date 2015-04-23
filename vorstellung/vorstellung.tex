@@ -1,0 +1,79 @@
+\documentclass{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+% Schriftart
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{verbatim}   % useful for program listings
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, shapes.arrows}
+
+% Design wählen
+\usetheme[secheader]{Boadilla}
+
+\useinnertheme{rectangles} % Vierecke
+\setbeamercovered{invisible} % verdeckten Text komplett ausblenden.
+
+% weitere Einstellungen
+\setbeamertemplate{mini frames}[box] % shows small rectangles as mini frames.
+%\setbeamersize{text margin left=2em,text margin right=2em}
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{bibliography item}[default]
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{enumerate items}[square]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+% Navigation ausblenden
+\beamertemplatenavigationsymbolsempty
+
+% Nummerierung bei frame breaks
+\setbeamertemplate{frametitle continuation}{(\insertcontinuationcount)}
+
+% Trennfolie vor jedem neuen Kapitel
+\AtBeginSection{
+  \begin{frame}
+    \begin{center}
+      \structure{\huge \textsf{\insertsection}}
+    \end{center}
+  \end{frame}
+}
+
+% Zentrierung innerhalb einer Aufzählung
+\def\MLine#1{\par\hspace*{-\leftmargin}\parbox{\textwidth}{\[#1\]}}
+\def\CLine#1{\par\hspace*{-\leftmargin}\parbox{\textwidth}{#1}}
+
+\title[Extraktion von Entitäten aus Suchergebnisseiten]{Extraktion von Entitäten aus Suchergebnisseiten}
+\subtitle{Arbeitsgruppe Informationssysteme}
+%\author{GRUPPENBEZEICHNUNG\_kurz}
+\institute[Intelligente Systeme]{
+  Universität Duisburg-Essen\\
+  Fakultät für Ingenieurwissenschaften\\
+  Abteilung Informatik und Angewandte Kognitionswissenschaft\\
+  Arbeitsgruppe Informationssysteme 
+}
+\date{XX.\,Mai 2015}
+
+
+\begin{document}
+  \maketitle
+
+  \begin{frame}[c]{Übersicht}
+    \hfill
+    \parbox[t][.55\textheight][c]{0.95\textwidth}{%
+      \centering %%% oder vergleichbares
+      \tableofcontents
+    }
+  \end{frame}
+  
+  \section{Aufgabenstellung}
+  \section{Grundlagen}
+  \section{Lösungskonzept}
+  \section{Evaluierungskonzept}
+  \section{Zeitplan}
+  \section{Zusammenfassung}
+\end{document}
