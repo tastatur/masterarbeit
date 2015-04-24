@@ -1,0 +1,13 @@
+@startuml
+
+partition Extraktion {
+"Extraktion von Entitäten" -->[Sprache als Metadata] "Satzerkennung"
+"Satzerkennung" -->[Sätze] "Tokenizer"
+"Tokenizer" -->[Tokens] "POS-Tagging"
+"POS-Tagging" -->[POS-Annotationen] "NER"
+"NER" --right>[fise:TextAnnotation] "Verlinkung von Entitäten"
+"Verlinkung von Entitäten" --right>[enchancer:EntityAnnotation] "Entitäten dereferenzieren"
+--> "Ontologien in einer Datenbank speichern und an den Benutzer weiterleiten"
+--> (*)
+}
+@enduml

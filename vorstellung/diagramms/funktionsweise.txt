@@ -1,0 +1,16 @@
+@startuml
+
+partition Initialisierung {
+(*) -->[Suchanfrage] "Sucnanfrage des Benutzers wurde erhalten"
+"Sucnanfrage des Benutzers wurde erhalten" --> "Die Anfrage an Suchproxy schicken"
+"Die Anfrage an Suchproxy schicken" -->[Ergebnisse] "Enchancement-Prozess starten"
+"Enchancement-Prozess starten" --> "Text aus HTML extrahieren (tika)"
+"Text aus HTML extrahieren (tika)" --right> "Sprache erkennen"
+if "Sprache wird unterstützt" then
+-->[false] "Fehlermeldung an den Benutzer senden"
+-->(*)
+else
+-->[true] "Extraktion von Entitäten"
+endif
+}
+@enduml
