@@ -1,0 +1,24 @@
+@startuml
+autonumber
+actor Benutzer as user
+participant "API-Klient" as apiclient
+participant "Stanbol" as enchancer
+participant "DBpedia" as dbpedia
+participant "Suchproxy" as searchproxy
+participant "Bing" as bing
+
+== [1] Endbenutzer sendet seine Anfrage ==
+user -[#red]> apiclient: Suchanfrage
+apiclient -[#red]> enchancer: an API angepasste Suchanfrage
+== [2] Stanbol leitet die Anfrage an Bing weiter ==
+enchancer -[#red]> searchproxy: Suchanfrage
+searchproxy -[#red]> bing: Suchanfrage
+bing -[#blue]> searchproxy: Menge der Suchergebnissen
+searchproxy -[#blue]> enchancer: Formatierte Ergebnisse
+== [3] Stanbol extrahiert die Entitäten und verlinkt die mit den Daten aus Dbpedia ==
+enchancer -[#red]> dbpedia: Abfrage der Informationen über die gefundene Entitäten
+dbpedia -[#blue]> enchancer: Informationen über Entitäten als RDF
+== [4] Stanbol leitet die gefundene Ontologien an API-Klient weiter, der die Daten visualisiern soll ==
+enchancer -[#blue]> apiclient: Gefundene Ontologien
+apiclient -[#blue]> user: Visualisierte Informationen
+@enduml
