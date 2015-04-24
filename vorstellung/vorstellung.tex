@@ -75,19 +75,23 @@
   \begin{itemize}
   \item Suchmaschinen bieten keine Übersicht über die gefundene Webseiten.
   \item Die Ergebnismenge besteht aus unstrukturierten Daten.
-  \item Es findet keine Extraktion von Entitäten statt.
+  \item Es gibt zwar Services, die in der Lage sind, Entitäten zu extrahieren (wie GSA\footnote{\url{http://www.google.com/support/enterprise/static/gsa/docs/admin/70/admin_console_help/crawl_entity_recognition.htm}}
+   oder DBpedia spotlight\footnote{\url{http://dbpedia-spotlight.github.io/demo/}}), aber diese Systeme haben folgende Nachteile:
+   \begin{itemize}
+      \item Die wurden hauptsächlich für englische Sprache entwickelt.
+      \item Die Unterstützung des Benutzers bei der Suche wird nicht geleistet.   
+   \end{itemize}
   \end{itemize}
-  Alle diese Faktoren führen dazu, dass der Benutzer alle vorgeschlagene Ergebnisse durchsuchen muss, was eine negative Auswirkung auf Benutzerfreundlichkeit und Suchqualität hat.
   \end{frame}
   
   \begin{frame}[c]{Aufgabenstellung}
-  Es soll ein Framework entwickelt werden, der
+  Es soll ein Framework entwickelt werden, das
   \begin{itemize}
   \item Die Extraktion von Entitäten aus deutschen Texten ermöglicht.
   \item Die extrahierte Entitäten mit den Daten aus DBpedia verlinkt.
-  \item Die verlinkte Entitäten mithilfe von einem API anderen Programmen zur Verfügung stellt
+  \item Die verlinkten Entitäten mithilfe von einer API anderen Programmen zur Verfügung stellt
   \end{itemize}
-  Der Zweite Schritt lässt uns eine Ontologie aufzubauen, und der letzte Schritt gibt uns die Möglichkeit, verschiedene Benutzerinterfaces zur Datenvisualisierung zu verwenden.
+  Dieses System soll die Benutzerunterstützung bei der Suche ermöglichen.
   \end{frame}
   \section{Lösungskonzept}
   \begin{frame}[c]{Kommunikationsdiagramm}
