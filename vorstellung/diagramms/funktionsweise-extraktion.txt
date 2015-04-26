@@ -5,9 +5,10 @@ partition Extraktion {
 "Satzerkennung" -->[Sätze] "Tokenizer"
 "Tokenizer" -->[Tokens] "POS-Tagging"
 "POS-Tagging" -->[POS-Annotationen] "NER"
-"NER" --right>[fise:TextAnnotation] "Verlinkung von Entitäten"
+"NER" -->[fise:TextAnnotation] "Verlinkung von Entitäten"
 "Verlinkung von Entitäten" --right>[enchancer:EntityAnnotation] "Entitäten dereferenzieren"
---> "Ontologien in einer Datenbank speichern und an den Benutzer weiterleiten"
+--right>[Ontologien] "Suchergebnisse mit den Ontologien erweitern"
+-->[Ontologien + Infos] "An den Benutzer weiterleiten und visualisieren"
 --> (*)
 }
 @enduml

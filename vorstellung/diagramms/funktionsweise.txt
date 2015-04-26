@@ -1,9 +1,10 @@
 @startuml
 
 partition Initialisierung {
-(*) -->[Suchanfrage] "Sucnanfrage des Benutzers wurde erhalten"
-"Sucnanfrage des Benutzers wurde erhalten" --> "Die Anfrage an Suchproxy schicken"
-"Die Anfrage an Suchproxy schicken" -->[Ergebnisse] "Enchancement-Prozess starten"
+(*) -->[Suchanfrage] "Suchanfrage des Benutzers wurde erhalten"
+"Suchanfrage des Benutzers wurde erhalten" --> "Die Anfrage an Suchproxy schicken"
+"Die Anfrage an Suchproxy schicken" -->[Ergebnisse (JSON oder XML)] "Ergebnisse für die Analyse an Stanbol weiterleiten"
+"Ergebnisse für die Analyse an Stanbol weiterleiten" --> "Enchancement-Prozess starten"
 "Enchancement-Prozess starten" --> "Text aus HTML extrahieren (tika)"
 "Text aus HTML extrahieren (tika)" --right> "Sprache erkennen"
 if "Sprache wird unterstützt" then
