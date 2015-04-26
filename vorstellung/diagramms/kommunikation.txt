@@ -1,24 +1,24 @@
 @startuml
 autonumber
 actor Benutzer as user
-participant "API-Klient" as apiclient
-participant "Stanbol" as enchancer
+participant "Zwischenserver" as apiclient
+participant "Stanbol" as stanbol
 participant "DBpedia" as dbpedia
 participant "Suchproxy" as searchproxy
 participant "Bing" as bing
 
-== [1] Endbenutzer sendet seine Anfrage ==
+== [1] Die Anfrage des Endbenutzers wird über Suchproxy an Bing weitergeleitet ==
 user -[#red]> apiclient: Suchanfrage
-apiclient -[#red]> enchancer: an API angepasste Suchanfrage
-== [2] Stanbol leitet die Anfrage an Bing weiter ==
-enchancer -[#red]> searchproxy: Suchanfrage
+apiclient -[#red]> searchproxy: an Suchproxy-API angepasste Anfrage
 searchproxy -[#red]> bing: Suchanfrage
-bing -[#blue]> searchproxy: Menge der Suchergebnissen
-searchproxy -[#blue]> enchancer: Formatierte Ergebnisse
-== [3] Stanbol extrahiert die Entitäten und verlinkt die mit den Daten aus Dbpedia ==
-enchancer -[#red]> dbpedia: Abfrage der Informationen über die gefundene Entitäten
-dbpedia -[#blue]> enchancer: Informationen über Entitäten als RDF
-== [4] Stanbol leitet die gefundene Ontologien an API-Klient weiter, der die Daten visualisiern soll ==
-enchancer -[#blue]> apiclient: Gefundene Ontologien
-apiclient -[#blue]> user: Visualisierte Informationen
+bing -[#blue]> searchproxy: Menge der Suchergebnisse
+searchproxy -[#blue]> apiclient: Suchergebnissen als JSON oder XML
+== [2] Zwischenserver leitet die Suchergebnisse (als JSON oder XML) an Stanbol für die Analyse weiter ==
+apiclient -[#red]> stanbol: Suchergebnisse als JSON oder XML (für die Analyse)
+hnote over stanbol : Die Entitäten werden extrahiert
+stanbol -[#red]> dbpedia: Abfrage der Informationen über die gefundene Entitäten
+dbpedia -[#blue]> stanbol: Informationen über die Entitäten als RDF
+== [3] Stanbol leitet Analyseergebnisse an den Zwischenserver weiter, damit die mit den Ontologien angereicherte Infos auf dem Endgerät visualisiert werden könnten ==
+stanbol -[#blue]> apiclient: Gefundene Ontologien
+apiclient -[#blue]> user: Mit den Ontologien angereicherte Informationen
 @enduml
