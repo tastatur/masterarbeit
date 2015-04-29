@@ -112,13 +112,24 @@
   
   \section{Lösungskonzept}
   \begin{frame}[c]{Kommunikationsdiagramm}
-  \includegraphics[width=0.94\linewidth]{diagramms/kommunikation.png}
+  \includegraphics[width=0.94\linewidth]{diagramms/kommunikation.png}\\
+  Der Zwischenserver kann auch als Erweiterung des Suchproxys implementiert werden.
   \end{frame}
   
   \begin{frame}[c]{Funktionsdiagramm des Enchancers}
   \includegraphics[width=0.45\linewidth]{diagramms/funktionsweise.png}
   \includegraphics[width=0.55\linewidth]{diagramms/funktionsweise-extraktion.png}
   \end{frame}
+  
+  \begin{frame}[c]{Offene Fragen}
+  \begin{itemize}
+  \item Wie werden Tippfehler auf der Webseiten behandelt?
+  \item Wie werden Tippfehler in den Anfragen behandelt?
+  \item Wie skalierbar ist das System?
+  \item Wie hoch ist der Leistungsunterschied zu den herkömmlichen Systemen?
+  \end{itemize}
+  \end{frame}    
+  
   \section{Zeitplan}
   \begin{frame}[c]
   \begin{center}
@@ -126,11 +137,17 @@
   \hline 
   \textbf{Aufgabe} & \textbf{Zeit} \\ 
   \hline 
-  Entwicklung der Stanbol-Erweiterung & 14 Wochen \\ 
+  Entwicklung der Stanbol-Erweiterung & 14 Wochen \\
+  Das Schreiben & 25-30 Stunden pro Woche \\
+  Die Entwicklung & 10-15 Stunden pro Woche \\
   \hline 
   Entwicklung des Zwischenservers & 5 Wochen \\ 
+  Das Schreiben & 25-30 Stunden pro Woche \\
+  Das Programmieren & 10-15 Stunden pro Woche \\
   \hline 
   Evaluierung und Abschlusspräsentation & 7 Wochen \\ 
+  Das Schreiben & 30-38 Stunden pro Woche \\
+  Das Austesten & 2-10 Stunden pro Woche \\
   \hline 
   \end{tabular} 
   \end{center}
@@ -140,10 +157,6 @@
   \begin{itemize}
   \item Der Hauptziel dieser Arbeit besteht darin, die Extraktion von deutschsprachigen Entitäten zu ermöglichen.
   \item Die Visualisierung von Daten auf dem Endgerät gehört dagegen nicht zu den Hauptaufgaben.
-  \item Wie werden Tippfehler auf der Webseiten behandelt?
-  \item Wie werden Tippfehler in den Anfragen behandelt?
-  \item Wie skalierbar ist das System?
-  \item Wie hoch ist der Leistungsunterschied zu den herkömmlichen Systemen?
   \end{itemize}
   \end{frame}
 \end{document}
