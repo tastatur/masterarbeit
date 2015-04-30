@@ -1,0 +1,15 @@
+@startuml
+(*) --> "TikaEngine"
+note left
+Extrahiert Texte aus verschiedenen Eingabeformaten (PDF/HTML)
+end note
+"TikaEngine" --> "LanguageDetectionEnhancementEngine"
+--> "OpenNlpSentenceDetectionEngine"
+--> "OpenNlpTokenizerEngine"
+--> "OpenNlpPosTaggingEngine"
+--left> "NamedEntityExtractionEnhancementEngine"
+--left> "NamedEntityTaggingEngine"
+--> "EntityLinkingEngine"
+--> "EntityDereferenceEngine"
+--> (*)
+@enduml
