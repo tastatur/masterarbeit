@@ -122,21 +122,42 @@
   
   \begin{frame}[c]{Beispiel}
   \begin{center}
-  \includegraphics[width=0.6\linewidth]{pics/google-enchanced.png}
+  \includegraphics[width=0.7\linewidth]{pics/google-enchanced.png}
   \end{center}
   \end{frame}
   
   \section{Apache Stanbol}
   
-  \begin{frame}[c]{Einführung}
-  
-  \end{frame}
-  
-  \begin{frame}[c]{Funktionsdiagramm}
-  
+  \begin{frame}[c]{Eigenschaften und Anwendung}
+  \begin{itemize}
+  \item Kontentanreicherung\footnote{\url{http://stanbol.apache.org/docs/trunk/components/enhancer/}} (content enhancement):
+  \begin{itemize}
+  \item REST Service und Java API für die Extraktion von Verschiedenen Eigenschaften (Features) aus dem Text.
+  \item Unterstützt verschiedene Funktionseinheiten (Engines), die miteinander in einer Kette verbunden sind.
+  \item Aus der Plaintext-Eingabe wird RDF-Ausgabe erzeugt. 
+  \end{itemize}
+  \item Interner Speicher für Informationen über Entitäten(Entityhub)\footnote{\url{http://stanbol.apache.org/docs/trunk/components/entityhub/}}.
+  \begin{itemize}
+  \item Wird benutzt, um verschiedene Wörterbücher und Daten aus DBpedia zu verwalten.
+  \item Die Informationen können sowohl lokal gespeichert als auch referenziert werden.
+  \end{itemize}
+  \end{itemize}
   \end{frame}
   
   \begin{frame}[c]{Beispiel}
+  \begin{center}
+  \includegraphics[width=0.7\linewidth]{pics/stanbol-enchancer.png}
+  \end{center}
+  \end{frame}
+  
+  \begin{frame}{Anmerkungen zum Beispiel}
+  \begin{itemize}
+  \item Es werden nur Personen, Organisationen und geographische Entitäten gefunden und verlinkt.
+  \item Deutsche Sprache wird nicht unterstützt (für deutsche Version dieses Textes wird nur die Sprache erkannt).
+  \end{itemize}
+  \end{frame}
+  
+  \begin{frame}[c]{Funktionsdiagramm}
   
   \end{frame}
   
@@ -169,15 +190,15 @@
   \hline 
   Entwicklung der Stanbol-Erweiterung & 14 Wochen \\
   Das Schreiben & 25-30 Stunden pro Woche \\
-  Die Entwicklung & 10-15 Stunden pro Woche \\
+  Die Entwicklung & 10-20 Stunden pro Woche \\
   \hline 
   Entwicklung des Zwischenservers & 5 Wochen \\ 
   Das Schreiben & 25-30 Stunden pro Woche \\
-  Das Programmieren & 10-15 Stunden pro Woche \\
+  Das Programmieren & 10-20 Stunden pro Woche \\
   \hline 
   Evaluierung und Abschlusspräsentation & 7 Wochen \\ 
   Das Schreiben & 30-38 Stunden pro Woche \\
-  Das Austesten & 2-10 Stunden pro Woche \\
+  Das Austesten & 5-10 Stunden pro Woche \\
   \hline 
   \end{tabular} 
   \end{center}
