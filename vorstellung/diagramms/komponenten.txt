@@ -1,0 +1,16 @@
+@startuml
+package RESTful {
+   () "/enchancer/" as ench
+   () "/entityhub/" as enth
+   () "/contenthub/" as cth
+   () "/ontonet/" as ontm
+}
+
+[Enchancer] - ench
+[EntityHub] - enth
+[ContentHub] - cth
+[Enchancement engines] --> [Enchancer]
+[CMS Adapter] --> [ContentHub]
+[OntologyManager] - ontm
+
+@enduml
