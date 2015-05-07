@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="644px"
+   style="width:1497px;height:644px;"
+   version="1.1"
+   viewBox="0 0 1497 644"
+   width="1497px"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="kommunikation.svg"
+   inkscape:export-filename="/home/strah/masterarbeit/work/vorstellung/diagramms/kommunikation.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata197">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="719"
+     id="namedview195"
+     showgrid="false"
+     inkscape:snap-global="true"
+     inkscape:zoom="1.0768203"
+     inkscape:cx="506.99811"
+     inkscape:cy="167.98003"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g15" />
+  <defs
+     id="defs4">
+    <filter
+       height="300%"
+       id="f1"
+       width="300%"
+       x="-1"
+       y="-1">
+      <feGaussianBlur
+         result="blurOut"
+         stdDeviation="2.0"
+         id="feGaussianBlur7" />
+      <feColorMatrix
+         in="blurOut"
+         result="blurOut2"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"
+         id="feColorMatrix9" />
+      <feOffset
+         dx="4.0"
+         dy="4.0"
+         in="blurOut2"
+         result="blurOut3"
+         id="feOffset11" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut3"
+         mode="normal"
+         id="feBlend13" />
+    </filter>
+    <filter
+       height="3"
+       id="f1-7"
+       width="3"
+       x="-1"
+       y="-1">
+      <feGaussianBlur
+         result="blurOut"
+         stdDeviation="2.0"
+         id="feGaussianBlur7-6" />
+      <feColorMatrix
+         in="blurOut"
+         result="blurOut2"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"
+         id="feColorMatrix9-0" />
+      <feOffset
+         dx="4.0"
+         dy="4.0"
+         in="blurOut2"
+         result="blurOut3"
+         id="feOffset11-0" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut3"
+         mode="normal"
+         id="feBlend13-1" />
+    </filter>
+  </defs>
+  <g
+     id="g15">
+    <line
+       style="stroke:#a80036;stroke-width:1.08123279;stroke-dasharray:5.406164, 5.406164"
+       x1="43"
+       x2="43"
+       y1="86.296898"
+       y2="640.26904"
+       id="line17"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke:#a80036;stroke-width:1.11405766;stroke-dasharray:5.57028857, 5.57028857"
+       x1="395"
+       x2="395"
+       y1="86.296898"
+       y2="674.41547"
+       id="line19"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke:#a80036;stroke-width:1.12025988;stroke-dasharray:5.60129968, 5.60129968"
+       x1="763"
+       x2="763"
+       y1="86.296898"
+       y2="680.98206"
+       id="line21"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke:#a80036;stroke-width:1.10782075;stroke-dasharray:5.53910384, 5.53910384"
+       x1="1149.6201"
+       x2="1149.6201"
+       y1="86.296898"
+       y2="667.84888"
+       id="line23"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke:#a80036;stroke-width:1.11530089;stroke-dasharray:5.57650459, 5.57650459"
+       x1="1254.1266"
+       x2="1254.1266"
+       y1="86.296898"
+       y2="675.72882"
+       id="line25"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke:#a80036;stroke-width:1.10907102;stroke-dasharray:5.54535482, 5.54535482"
+       x1="1462"
+       x2="1462"
+       y1="86.296898"
+       y2="669.16217"
+       id="line27"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="64"
+       x="8"
+       y="82.9951"
+       id="text29"
+       font-family="sans-serif"
+       fill="#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3575">Benutzer</tspan>
+    </text>
+    <circle
+       cx="43"
+       cy="13"
+       style="stroke: #A80036; stroke-width: 2.0;"
+       id="ellipse31"
+       filter="url(#f1)"
+       fill="#FEFECE"
+       ry="8"
+       rx="8"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="M43,21 L43,48 M30,29 L56,29 M43,48 L30,63 M43,48 L56,63 "
+       style="stroke: #A80036; stroke-width: 2.0;"
+       id="path33"
+       filter="url(#f1)"
+       fill="#FEFECE"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="64"
+       x="-2.5065892"
+       y="664.08411"
+       id="text35"
+       style="font-size:14px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3577">Benutzer</tspan>
+    </text>
+    <circle
+       cx="43"
+       cy="678.6991"
+       style="fill:#fefece;stroke:#a80036;stroke-width:2;filter:url(#f1)"
+       id="ellipse37"
+       r="8"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 43,688.0124 0,27 m -13,-19 26,0 m -13,19 -13,15 m 13,-15 13,15"
+       style="fill:#fefece;stroke:#a80036;stroke-width:2;filter:url(#f1)"
+       id="path39"
+       inkscape:connector-curvature="0" />
+    <rect
+       height="32.923546"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1)"
+       width="205.42607"
+       x="331"
+       y="51"
+       id="rect41"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="110"
+       x="338"
+       y="70.9951"
+       id="text43"
+       font-family="sans-serif"
+       fill="#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3527">Zwischenserver</tspan>
+    </text>
+    <rect
+       height="40.803463"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1)"
+       width="202.79942"
+       x="327.06003"
+       y="674.72882"
+       id="rect45" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="110"
+       x="334.06003"
+       y="705.23047"
+       id="text47"
+       style="font-size:14px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3543">Zwischenserver</tspan>
+    </text>
+    <rect
+       height="36.863518"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1)"
+       width="109.33968"
+       x="728"
+       y="51"
+       id="rect49"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="52"
+       x="735"
+       y="70.9951"
+       id="text51"
+       font-family="sans-serif"
+       fill="#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3529">Stanbol</tspan>
+    </text>
+    <rect
+       height="32.923523"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1)"
+       width="105.39971"
+       x="712.24011"
+       y="677.35547"
+       id="rect53"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="52"
+       x="727.12006"
+       y="699.97717"
+       id="text55"
+       style="font-size:14px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3545">Stanbol</tspan>
+    </text>
+    <rect
+       height="38.176838"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1)"
+       width="112.39971"
+       x="1080.1003"
+       y="43.12006"
+       id="rect57"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="59"
+       x="1092.3536"
+       y="67.05513"
+       id="text59"
+       style="font-size:14px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3531">DBpedia</tspan>
+    </text>
+    <rect
+       height="36.863556"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1)"
+       width="96.639824"
+       x="1090.6069"
+       y="677.35547"
+       id="rect61" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="59"
+       x="1092.3536"
+       y="705.23047"
+       id="text63"
+       style="font-size:14px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3541">DBpedia</tspan>
+    </text>
+    <rect
+       height="32.923546"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1)"
+       width="142.47292"
+       x="1206.5"
+       y="51"
+       id="rect65"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="72"
+       x="1213.5"
+       y="70.9951"
+       id="text67"
+       font-family="sans-serif"
+       fill="#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3533">Suchproxy</tspan>
+    </text>
+    <rect
+       height="28.983551"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1)"
+       width="137.21962"
+       x="1227.5132"
+       y="678.66876"
+       id="rect69"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="72"
+       x="1233.1998"
+       y="699.97717"
+       id="text71"
+       style="font-size:14px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3539">Suchproxy</tspan>
+    </text>
+    <rect
+       height="30.296898"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1)"
+       width="79.146416"
+       x="1403.8536"
+       y="51"
+       id="rect73"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="31"
+       x="1420.0469"
+       y="72.308426"
+       id="text75"
+       style="font-size:14px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3535">Bing</tspan>
+    </text>
+    <rect
+       height="36.863556"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1)"
+       width="67.3265"
+       x="1419.6134"
+       y="666.84888"
+       id="rect77"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="14"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="31"
+       x="1426.6134"
+       y="698.66388"
+       id="text79"
+       style="font-size:14px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3537">Bing</tspan>
+    </text>
+    <rect
+       height="3"
+       style="stroke: #EEEEEE; stroke-width: 1.0;"
+       width="1489"
+       x="3"
+       y="116.8633"
+       id="rect81"
+       filter="url(#f1)"
+       fill="#EEEEEE" />
+    <line
+       style="stroke: #000000; stroke-width: 1.0;"
+       x1="3"
+       x2="1492"
+       y1="116.8633"
+       y2="116.8633"
+       id="line83"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke: #000000; stroke-width: 1.0;"
+       x1="3"
+       x2="1492"
+       y1="119.8633"
+       y2="119.8633"
+       id="line85"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       height="23.1328"
+       style="stroke: #000000; stroke-width: 2.0;"
+       width="598"
+       x="448.5"
+       y="106.2969"
+       id="rect87"
+       filter="url(#f1)"
+       fill="#EEEEEE" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="579"
+       x="454.5"
+       y="122.3638"
+       id="text89"
+       font-family="sans-serif"
+       fill="#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">[1] Die Anfrage des Endbenutzers wird über Suchproxy an Bing weitergeleitet</text>
+    <polygon
+       points="383,156.4297,393,160.4297,383,164.4297,387,160.4297"
+       style="stroke: #FF0000; stroke-width: 1.0;"
+       id="polygon91"
+       fill="#FF0000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke: #FF0000; stroke-width: 1.0;"
+       x1="43"
+       x2="389"
+       y1="160.4297"
+       y2="160.4297"
+       id="line93"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="9"
+       x="50"
+       y="155.4966"
+       id="text95"
+       font-family="sans-serif"
+       fill="#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px;-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+         id="tspan3551">1</tspan>
+    </text>
+    <text
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="81"
+       x="63"
+       y="155.4966"
+       id="text97"
+       style="font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3549">.Suchanfrage</tspan>
+    </text>
+    <polygon
+       points="1239.5,185.5625,1249.5,189.5625,1239.5,193.5625,1243.5,189.5625"
+       style="stroke: #FF0000; stroke-width: 1.0;"
+       id="polygon99"
+       fill="#FF0000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke: #FF0000; stroke-width: 1.0;"
+       x1="395"
+       x2="1245.5"
+       y1="189.5625"
+       y2="189.5625"
+       id="line101"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="9"
+       x="402"
+       y="184.6294"
+       id="text103"
+       font-family="sans-serif"
+       fill="#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px;-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+         id="tspan3555">2</tspan>
+    </text>
+    <text
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="245"
+       x="415"
+       y="184.62939"
+       id="text105"
+       style="font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3553">.an Suchproxy-API angepasste Anfrage</tspan>
+    </text>
+    <polygon
+       points="1450.5,214.6953,1460.5,218.6953,1450.5,222.6953,1454.5,218.6953"
+       style="stroke: #FF0000; stroke-width: 1.0;"
+       id="polygon107"
+       fill="#FF0000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke: #FF0000; stroke-width: 1.0;"
+       x1="1251.5"
+       x2="1456.5"
+       y1="218.6953"
+       y2="218.6953"
+       id="line109"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="9"
+       x="1258.5"
+       y="213.76221"
+       id="text111"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+         id="tspan3565">3.</tspan>
+    </text>
+    <text
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="81"
+       x="1271.5"
+       y="213.76221"
+       id="text113"
+       style="font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3561">.Suchanfrage</tspan>
+    </text>
+    <polygon
+       points="1262.5,243.8281,1252.5,247.8281,1262.5,251.8281,1258.5,247.8281"
+       style="stroke: #0000FF; stroke-width: 1.0;"
+       id="polygon115"
+       fill="#0000FF"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke: #0000FF; stroke-width: 1.0;"
+       x1="1256.5"
+       x2="1461.5"
+       y1="247.8281"
+       y2="247.8281"
+       id="line117"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="9"
+       x="1268.5"
+       y="242.895"
+       id="text119"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+         id="tspan3567">4.</tspan>
+    </text>
+    <text
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="174"
+       x="1281.5"
+       y="242.895"
+       id="text121"
+       style="font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3563">.Suchergebnisse</tspan>
+    </text>
+    <polygon
+       points="406,272.9609,396,276.9609,406,280.9609,402,276.9609"
+       style="stroke: #0000FF; stroke-width: 1.0;"
+       id="polygon123"
+       fill="#0000FF"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke: #0000FF; stroke-width: 1.0;"
+       x1="400"
+       x2="1250.5"
+       y1="276.9609"
+       y2="276.9609"
+       id="line125"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="9"
+       x="412"
+       y="272.0278"
+       id="text127"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+         id="tspan3559">5..</tspan>
+    </text>
+    <text
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="231"
+       x="425"
+       y="272.0278"
+       id="text129"
+       style="font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3557">.Suchergebnisse als JSON oder XML</tspan>
+    </text>
+    <rect
+       height="3"
+       style="stroke: #EEEEEE; stroke-width: 1.0;"
+       width="1489"
+       x="3"
+       y="305.6602"
+       id="rect131"
+       filter="url(#f1)"
+       fill="#EEEEEE" />
+    <line
+       style="stroke: #000000; stroke-width: 1.0;"
+       x1="3"
+       x2="1492"
+       y1="305.6602"
+       y2="305.6602"
+       id="line133"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke: #000000; stroke-width: 1.0;"
+       x1="3"
+       x2="1492"
+       y1="308.6602"
+       y2="308.6602"
+       id="line135"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       height="23.1328"
+       style="stroke: #000000; stroke-width: 2.0;"
+       width="757"
+       x="369"
+       y="295.0938"
+       id="rect137"
+       filter="url(#f1)"
+       fill="#EEEEEE" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="738"
+       x="375"
+       y="311.1606"
+       id="text139"
+       font-family="sans-serif"
+       fill="#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">[2] Zwischenserver leitet die Suchergebnisse (als JSON oder XML) an Stanbol für die Analyse weiter</text>
+    <polygon
+       points="751,345.2266,761,349.2266,751,353.2266,755,349.2266"
+       style="stroke: #FF0000; stroke-width: 1.0;"
+       id="polygon141"
+       fill="#FF0000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke: #FF0000; stroke-width: 1.0;"
+       x1="395"
+       x2="757"
+       y1="349.2266"
+       y2="349.2266"
+       id="line143"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="9"
+       x="402"
+       y="344.2935"
+       id="text145"
+       font-family="sans-serif"
+       fill="#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px;-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+         id="tspan3571">6</tspan>
+    </text>
+    <text
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="331"
+       x="415"
+       y="344.29349"
+       id="text147"
+       style="font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3569">.Suchergebnisse als JSON oder XML (für die Analyse)</tspan>
+    </text>
+    <polygon
+       points="1156,411.4922 1146,415.4922 1150,411.4922 1146,407.4922 "
+       style="fill:#ff0000;stroke:#ff0000;stroke-width:1"
+       id="polygon153"
+       transform="translate(0,36.773062)"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke:#ff0000;stroke-width:1"
+       x1="761.68671"
+       x2="1150.6866"
+       y1="446.95193"
+       y2="446.95193"
+       id="line155"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="9"
+       x="760.80676"
+       y="443.33218"
+       id="text157"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+         id="tspan3579">7</tspan>
+    </text>
+    <text
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="358"
+       x="775.12006"
+       y="443.33218"
+       id="text159"
+       style="font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3581">.Abfrage der Informationen über die gefundene Entitäten</tspan>
+    </text>
+    <polygon
+       points="764,440.625 774,444.625 770,440.625 774,436.625 "
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:1"
+       id="polygon161"
+       transform="translate(-2.6266473,51.219622)"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke:#0000ff;stroke-width:1"
+       x1="768"
+       x2="1157"
+       y1="491.84464"
+       y2="491.84464"
+       id="line163"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="9"
+       x="770.80676"
+       y="476.40494"
+       id="text165"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+         id="tspan3583">8.</tspan>
+    </text>
+    <text
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="258"
+       x="797.61664"
+       y="474.96835"
+       id="text167"
+       transform="scale(0.99424372,1.0057896)"
+       style="font-size:12.92516804px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.3704834px"
+         id="tspan3585">Informationen über die Entitäten als RDF</tspan>
+    </text>
+    <rect
+       height="3"
+       style="fill:#eeeeee;stroke:#eeeeee;stroke-width:1;filter:url(#f1)"
+       width="1489"
+       x="-8.8199129"
+       y="523.17047"
+       id="rect169" />
+    <line
+       style="stroke:#000000;stroke-width:1"
+       x1="-6.1932654"
+       x2="1482.8068"
+       y1="524.48376"
+       y2="524.48376"
+       id="line171"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke:#000000;stroke-width:1"
+       x1="-0.93997091"
+       x2="1488.0601"
+       y1="522.23047"
+       y2="522.23047"
+       id="line173"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       height="23.132799"
+       style="fill:#eeeeee;stroke:#000000;stroke-width:2;filter:url(#f1)"
+       width="1241"
+       x="117.80673"
+       y="511.29077"
+       id="rect175" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="1222"
+       x="119.86676"
+       y="529.98431"
+       id="text177"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">[3] Stanbol leitet Analyseergebnisse an den Zwischenserver weiter, damit die mit den Ontologien angereicherte Infos auf dem Endgerät visualisiert werden könnten</text>
+    <polygon
+       points="396,512.8906 406,516.8906 402,512.8906 406,508.8906 "
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:1"
+       id="polygon179"
+       transform="translate(-3.9399709,56.472916)"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke:#0000ff;stroke-width:1"
+       x1="394.7467"
+       x2="756.7467"
+       y1="569.99017"
+       y2="569.99017"
+       id="line181"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="9"
+       x="412"
+       y="563.92383"
+       id="text183"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+         id="tspan3625">9</tspan>
+    </text>
+    <text
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="143"
+       x="428.93997"
+       y="560.49042"
+       id="text185"
+       style="font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan3623">.Gefundene Ontologien</tspan>
+    </text>
+    <polygon
+       points="54,546.0234 50,542.0234 54,538.0234 44,542.0234 "
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:1"
+       id="polygon187"
+       transform="translate(-2.6266473,82.052713)"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <line
+       style="stroke:#0000ff;stroke-width:1"
+       x1="42.746704"
+       x2="388.7467"
+       y1="624.76276"
+       y2="624.76276"
+       id="line189"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="18"
+       x="56.060028"
+       y="612.00977"
+       id="text191"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+         id="tspan4429">10.</tspan>
+    </text>
+    <text
+       font-size="13"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="306"
+       x="90.517273"
+       y="611.56506"
+       id="text193"
+       style="font-size:13px;font-family:sans-serif;fill:#000000"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <tspan
+         style="font-size:22.5px"
+         id="tspan4427">Mit den Ontologien angereicherte Informationen</tspan>
+    </text>
+    <rect
+       height="63.992664"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1-7)"
+       width="173.46721"
+       x="700.71649"
+       y="352.84756"
+       id="rect49-4"
+       ry="0"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:22.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="717.07471"
+       y="377.39529"
+       id="text3617"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3619"
+         x="717.07471"
+         y="377.39529">Extraktion</tspan><tspan
+         sodipodi:role="line"
+         x="717.07471"
+         y="405.52029"
+         id="tspan3621">von Entitäten</tspan></text>
+  </g>
+</svg>
