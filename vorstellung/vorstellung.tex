@@ -3,6 +3,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{changepage}
 
 % Schriftart
 \usepackage{mathptmx}
@@ -43,6 +45,14 @@
   \end{frame}
 }
 
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
 % Zentrierung innerhalb einer Aufzählung
 \def\MLine#1{\par\hspace*{-\leftmargin}\parbox{\textwidth}{\[#1\]}}
 \def\CLine#1{\par\hspace*{-\leftmargin}\parbox{\textwidth}{#1}}
@@ -56,8 +66,19 @@
   Abteilung Informatik und Angewandte Kognitionswissenschaft\\
   Arbeitsgruppe Informationssysteme 
 }
-\date{XX.\,Mai 2015}
+\date{13.\,Mai 2015}
 
+\newcommand<>{\fullsizegraphic}[1]{%
+  \begin{textblock}{0}(0,0)%
+    \only#2{%
+      \begin{tikzpicture}%
+        \fill [white] (current page.north west) rectangle (current page.south east);
+        \node[overlay] at (current page.center)
+          {\includegraphics[keepaspectratio,width=\paperwidth,height=\paperheight]{#1}};
+      \end{tikzpicture}%
+    }%
+  \end{textblock}%
+}
 
 \begin{document}
   \maketitle
@@ -96,7 +117,7 @@
   
   \begin{frame}[c]{Extraktion der Entitäten für englische Sprache}
   \begin{center}
-   \includegraphics[width=0.8\linewidth]{pics/spotlight-english-1.png}
+   \includegraphics[width=0.95\linewidth]{pics/spotlight-english-12.png}
   \end{center}
   Das Extrahieren von englischsprachigen Entitäten funktioniert schon jetzt gut. 
   \end{frame}
@@ -104,7 +125,7 @@
   \begin{frame}[c]{Extraktion der Entitäten für deutsche Sprache}
   \begin{center}
     \begin{center}
-      \includegraphics[width=0.8\linewidth]{pics/spotlight-deutsch.png}
+      \includegraphics[width=0.95\linewidth]{pics/spotlight-deutsch-12.png}
     \end{center}
   \end{center}
   Es wurden keine Entitäten extrahiert.  
@@ -118,7 +139,7 @@
   \item Relationen zu anderen Objekten.
   \item Beschreibung.
   \end{itemize}
-  \item Diese Informationen können dem Benutzer helfen, Suchanfrage zu verfeinern.
+  \item Diese Informationen können dem Benutzer helfen, die Suchanfrage zu verfeinern.
   \end{itemize}
   \end{frame}
   
@@ -134,7 +155,7 @@
   
   \begin{frame}[c]{Beispiel}
   \begin{center}
-  \includegraphics[width=0.7\linewidth]{pics/google-enchanced.png}
+  \includegraphics[width=0.9\linewidth]{pics/google-enchanced.png}
   \end{center}
   \end{frame}
   
@@ -158,19 +179,19 @@
   
   \begin{frame}[c]{Beispiel}
   \begin{center}
-  \includegraphics[width=0.7\linewidth]{pics/stanbol-enchancer.png}
+  \includegraphics[width=0.95\linewidth]{pics/stanbol-enchancer.png}
   \end{center}
   \end{frame}
   
   \begin{frame}[c]{Annotation}
   \begin{center}
-  \includegraphics[width=0.7\linewidth]{pics/enchancement-billgates-annotation.png}
+  \includegraphics[width=0.95\linewidth]{pics/enchancement-billgates-annotation.png}
   \end{center}
   \end{frame}
   
     \begin{frame}[c]{Entität}
   \begin{center}
-  \includegraphics[width=0.7\linewidth]{pics/enchancemend-gates-extrahiert.png}
+  \includegraphics[width=0.95\linewidth]{pics/enchancemend-gates-extrahiert.png}
   \end{center}
   \end{frame}
   
@@ -187,7 +208,7 @@
   \end{center}
   \end{frame}
   
-  \begin{frame}[c]{Standarte Engine-Kette für englische Sprache}
+  \begin{frame}[c]{Engine-Kette für Englisch}
   \begin{center}
   \includegraphics[width=0.7\linewidth]{diagramms/enchancer.png}
   \end{center}
@@ -195,14 +216,18 @@
   
   \section{Lösungskonzept}
   \begin{frame}[c]{Kommunikationsdiagramm}
-  \includegraphics[width=0.94\linewidth]{diagramms/kommunikation.png}\\
+  \includegraphics[width=1\linewidth]{diagramms/kommunikation.png}\\
   Der Zwischenserver kann auch als Erweiterung des Suchproxys implementiert werden.
   \end{frame}
   
-  \begin{frame}[c]{Funktionsdiagramm des Enchancers}
-  \includegraphics[width=0.45\linewidth]{diagramms/funktionsweise.png}
-  \includegraphics[width=0.55\linewidth]{diagramms/funktionsweise-extraktion.png}
+  \begin{frame}[c]{Funktionsdiagramm des Enchancers (Initialisierung)}
+  \includegraphics[width=1\linewidth]{diagramms/funktionsweise.png}
   \end{frame}
+  
+  \begin{frame}[c]{Funktionsdiagramm des Enchancers (Extraktion)}
+    \includegraphics[width=0.9\linewidth]{diagramms/funktionsweise-extraktion.png}
+  \end{frame}
+
   
   \begin{frame}[c]{Offene Fragen}
   \begin{itemize}

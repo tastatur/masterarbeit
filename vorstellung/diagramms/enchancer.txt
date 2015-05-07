@@ -1,15 +1,15 @@
 @startuml
-(*) --> "TikaEngine"
+(*) --> "TikaEngine.java"
 note left
-Extrahiert Texte aus verschiedenen Eingabeformaten (PDF/HTML)
+TikaEngine.java exrahiert Plaintext aus HTML.
 end note
-"TikaEngine" --> "LanguageDetectionEnhancementEngine"
---> "OpenNlpSentenceDetectionEngine"
---> "OpenNlpTokenizerEngine"
---> "OpenNlpPosTaggingEngine"
---left> "NamedEntityExtractionEnhancementEngine"
---left> "NamedEntityTaggingEngine"
---> "EntityLinkingEngine"
---> "EntityDereferenceEngine"
+"TikaEngine.java" --> "LanguageDetectionEnhancementEngine.java"
+--> "OpenNlpSentenceDetectionEngine.java"
+--> "OpenNlpTokenizerEngine.java"
+--> "OpenNlpPosTaggingEngine.java"
+--left> "NamedEntityExtractionEnhancementEngine.java"
+--left> "NamedEntityTaggingEngine.java"
+--> "EntityLinkingEngine.java"
+--> "EntityDereferenceEngine.java"
 --> (*)
 @enduml

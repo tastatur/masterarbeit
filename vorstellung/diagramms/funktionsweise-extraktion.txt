@@ -1,6 +1,5 @@
 @startuml
 
-partition Extraktion {
 "Extraktion von Entitäten" -->[Sprache als Metadata] "Satzerkennung"
 "Satzerkennung" -->[Sätze] "Tokenizer"
 "Tokenizer" -->[Tokens] "POS-Tagging"
@@ -10,5 +9,4 @@ partition Extraktion {
 --right>[Ontologien] "Suchergebnisse mit den Ontologien erweitern"
 -->[Ontologien + Infos] "An den Benutzer weiterleiten und visualisieren"
 --> (*)
-}
 @enduml
