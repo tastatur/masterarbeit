@@ -1,0 +1,53 @@
+The German chunker was trained on the Negra corpus and uses the
+following chunk labels:
+
+NC for noun chunks
+PC for prepositional phrase chunks (NC + preposition/postposition)
+VC verb chunk
+
+Verb (complexes) in verb-first, verb-second, and verb-final position
+are all marked as verb chunks. If the "Mittelfeld" of the sentence is
+empty, as in the following example, the chunker nevertheless prints
+two verb chunks.
+
+<NC>
+Er	PPER	er
+</NC>
+# finite verb in verb-second position
+<VC>
+soll	VMFIN	sollen
+</VC>
+# verb complex in verb-final position
+<VC>
+geraucht	VVPP	rauchen
+haben	VAINF	haben
+wollen	VMFIN	wollen
+</VC>
+.	$.	.
+
+A noun chunk is a non-recursive noun phrase. Recursive noun phrases
+such as "die Königin von Schweden" are analysed as an NC plus a PC.
+
+A noun phrase with an embedded noun phrase in pre-head position is
+split into two NCs plus the embedded NC(s) and/or PC(s) as the folling
+example shows:
+
+# first part of the matrix NP
+<NC>
+Das	ART	d
+</NC>
+# embedded NP
+<NC>
+sich	PRF	er|es|sie
+</NC>
+# embedded PP
+<PC>
+in	APPR	in
+die	ART	d
+Länge	NN	Länge
+</PC>
+# second part of the matrix NP
+<NC>
+ziehende	ADJA	ziehend
+Treffen	NN	Treffen
+</NC>
