@@ -1,0 +1,11 @@
+<!ELEMENT ticket (date, from, subject, body, attachement, meta)>
+<!ATTLIST ticket id ID #REQUIRED>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT from (#PCDATA)>
+<!ELEMENT subject (#PCDATA)>
+<!ELEMENT body (#PCDATA)>
+<!ELEMENT attachement (#PCDATA)>
+<!ELEMENT meta (topic, supportType, priority)>
+<!ELEMENT topic (#PCDATA)>
+<!ELEMENT supportType (#PCDATA)>
+<!ELEMENT priority (#PCDATA)>
