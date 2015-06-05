@@ -1,24 +1,5 @@
 \chapter{Implementierung}
 \label{sec:Implementierung}
-Dieses Kapitel beschreibt die Implementierung.
 
-\section{Das XYZ-Framework}
-\subsection{Standarte Engine-Kette von Stanbol}
-\paragraph{}
-\begin{enumerate}
-\item TextAnnotation:
-\begin{itemize}
-\item NEREngineCore.computeEnhancements
-\item NEREngineCore.findNamedEntities
-\item NEREngineCore.extractNameOccurrences gibt uns NameOccurences zurück (Map String -> List<NameOccurence>)
-\item Für die gefundene NameOccurences wird eine TextAnnotation erzeugt: UriRef textAnnotation = EnhancementEngineHelper.createTextEnhancement(ci, this);
-\item Außerdem wird der MGrap ci.getMetadata() wie folgt erweitert: g.add(new TripleImpl(textAnnotation, ENHANCER_SELECTED_TEXT, new PlainLiteralImpl(name, language)));, 
-                       g.add(new TripleImpl(textAnnotation, ENHANCER_SELECTION_CONTEXT, new PlainLiteralImpl(occurrence.context, language))); 
-                       
-\end{itemize}
-\item Entity Tagging:
-\begin{itemize}
-
-\end{itemize}
-\end{enumerate}
+\section{Stanford NER}
 
