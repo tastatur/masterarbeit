@@ -12,9 +12,15 @@ Um den Benutzer bei der Verfeinerung seiner Suchanfragen zu unterstützen, wäre
 Dabei soll beachtet werden, dass jede natürliche Sprache einen besonderen an dieser Sprache angepassten Verfahren braucht, um erkennen zu können, welche Entitäten in dem Text vorkommen. Für englische Sprache existieren schon jetzt Verfahren und Modellen, mit deren Hilfe die englischsprachige Entitäten extrahiert werden können. Allerdings fällt das Modell für die deutsche Sprache, deswegen findet die Extraktion von deutschsprachigen Entitäten zur Zeit nicht statt.
 
 \paragraph{}
+Eine reine Extraktion von Entitäten ist aber nicht ausreichend - der Extraktionschritt sagt nur, welche Tokens in dem Text möglicherweise eine Entität darstellen, die Informationen über die Entität - die dazugehörige Ontologie - fehlt nach dem Extraktionschritt noch. Um die entsprechende Ontologien mit den extrahierten Entitäten verlinken zu können, muss noch EntityLinking durchgeführt werden. Dafür wird für jede extrahierte Entität eine Suche in einer Wissendatenbank durchgeführt. Eine Wissendatenbank ist eine Datenbank, wo Ontologien für diverse Entitäten gespeichert werden. Für die Websuche kann DBpedia als Wissenbasis verwendet werden, allerdings für weniger generische Aufgaben, wie z.B. ein Suchsystem für Ärzte, wo der Suchdomain klar definiert ist, können andere Datenbanken verwendet werden.
 
 \section{Aufgabenstellung}
 \label{sec:Aufgabenstellung}
+\paragraph{}
+Die Arbeit umfasst zwei große Abschnitte: Zuerst soll ein Framework entwickelt werden, der die Extraktion und Verlinkung von Ontologien für deutschsprachige Webseiten ermöglicht. Die Webseiten werden dabei nicht im PlainText ins System eingegeben, sondern als HTML. Deswegen soll der Framework auch rohe Textdaten aus dem HTML extrahieren können. Danach soll ein Proxyserver  entwickelt werden, der die Suchanfragen des Benutzers zuerst an eine herkömmliche Suchmaschine weiterleitet, deren Antwort aber nicht direkt an den Benutzer sendet, sondern an den im ersten Abschnitt entwickelten Framework, und deren Ausgabedaten (Extrahierte Entitäten mit den verlinkten Ontologien zusammen) an die Suchergebnisse anhängt, und mit den Ontologien angereicherte Ergebnisse an den Benutzer sendet.
+
+\paragraph{}
+
 
 \section{Aufbau der Arbeit}
 \label{sec:Aufbau der Arbeit}
