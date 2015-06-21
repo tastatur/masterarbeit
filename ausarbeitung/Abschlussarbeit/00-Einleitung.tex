@@ -17,10 +17,28 @@ Eine reine Extraktion von Entitäten ist aber nicht ausreichend - der Extraktion
 \section{Aufgabenstellung}
 \label{sec:Aufgabenstellung}
 \paragraph{}
-Die Arbeit umfasst zwei große Abschnitte: Zuerst soll ein Framework entwickelt werden, der die Extraktion und Verlinkung von Ontologien für deutschsprachige Webseiten ermöglicht. Die Webseiten werden dabei nicht im PlainText ins System eingegeben, sondern als HTML. Deswegen soll der Framework auch rohe Textdaten aus dem HTML extrahieren können. Danach soll ein Proxyserver  entwickelt werden, der die Suchanfragen des Benutzers zuerst an eine herkömmliche Suchmaschine weiterleitet, deren Antwort aber nicht direkt an den Benutzer sendet, sondern an den im ersten Abschnitt entwickelten Framework, und deren Ausgabedaten (Extrahierte Entitäten mit den verlinkten Ontologien zusammen) an die Suchergebnisse anhängt, und mit den Ontologien angereicherte Ergebnisse an den Benutzer sendet.
+Die Arbeit umfasst zwei große Abschnitte: Zuerst soll ein Framework entwickelt werden, der die Extraktion und Verlinkung von Ontologien für deutschsprachige Webseiten ermöglicht. Die Webseiten werden dabei nicht im PlainText ins System eingegeben, sondern als HTML. Deswegen soll der Framework auch rohe Textdaten aus dem HTML extrahieren können. Danach soll ein Proxyserver  entwickelt werden, der die Suchanfragen des Benutzers zuerst an eine herkömmliche Suchmaschine weiterleitet, deren Antwort aber nicht direkt an den Benutzer sendet, sondern an den im ersten Schritt entwickelten Framework, und deren Ausgabedaten (Extrahierte Entitäten mit den verlinkten Ontologien zusammen) an die Suchergebnisse anhängt, und mit den Ontologien angereicherte Ergebnisse an den Benutzer sendet.
+
+Der Extraktionsframework soll auf Basis von Apache Stanbol entwickelt werden, der dem Entwickler eine API für die Manipulation mit Ontologien und für die Anreicherung von Textdaten zur Verfügung stellt. Als Wissendatenbank für die Ontologien soll deutsche Version von DBpedia verwendet werden. Der Proxyserver soll als eine Erweiterung des auf dem Lehrstuhl entwickelten Suchproxys implementiert werden.
 
 \paragraph{}
+Die Entwicklung der Stanbol-Erweiterung umfasst folgende Schritte:
+\begin{enumerate}
+\item Zuerst soll ein Plugin implementiert werden (sogenannter \"Enhancer\"), der markiert, welche Tokens möglicherweise einer Entität entsprechen. Dabei wird für jede Mögliche Entität eine grobe Typeinschätzung gemacht (ob das eine Person, eine Organisation, eine geographische Entität oder \"MISC\" - eine Entität, die zu keinem anderen Typ passt, ist). Die erkannte Entitäten werden mit bestimmten Annotationen versehen, die für spätere Bearbeitungsschritte benötigt werden. Die Erkennung von Entitäten kann grundsätzlich auf zwei unterschiedliche Art und Weisen implementiert werden:  
+\begin{itemize}
+\item 
+\end{itemize}
+\item Danach soll die Erweiterung, die die gefundene Entitäten mit passenden Ontologien verlinkt, implementiert werden. Hier können zwei Lösungen eingesetzt werden:
+\begin{itemize}
+\item Man kann den in Stanbol eingebetteten Plugin verwenden, der den internen Solr-Index verwendet, um die Ontologien mit den entsprechenden Entitäten zu verliken. In diesem Fall muss man einen eigenen Index für deutsche DBpedia aufbauen, und den an den Stanbol anbinden.
+\item Man kann auch eine eigene Erweiterung schreiben, die SPARQL-Anfragen verwendet, um die Ontologien aus Online-Version von DBpedia lädt.
+\end{itemize}
+\end{enumerate}
 
+Die Implementiuerung eines Proxyservers umfasst folgende Schritte:
+\begin{enumerate}
+\item TODO: Zuerst die Quelltexte/Dokumentation des existierenden Proxys angucken, dann genauere Schritte definieren!
+\end{enumerate}
 
-\section{Aufbau der Arbeit}
-\label{sec:Aufbau der Arbeit}
+%\section{Aufbau der Arbeit}
+%\label{sec:Aufbau der Arbeit}
