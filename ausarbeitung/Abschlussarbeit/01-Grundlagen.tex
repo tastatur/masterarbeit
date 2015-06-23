@@ -1,34 +1,11 @@
 \chapter{Grundlagen}
 \label{sec:Grundlagen}
 
+\section{Extraktion von Entitäten}
+\paragraph{}
+Vijay Krishnan hat in seiner Arbeit\cite{Vijay/Vignesh:05} die Extraktion von Entitäten als Suche nach atomaren Elementen im Text und ihre Zuordnung bestimmten vordefinierten Klassen wie Person, Organisation, geographische Lokation usw. definiert. Zum Beispiel betrachten wir folgenden Text aus Wikipedia: ,,Seit dem 1. Januar 2014 ist Bill de Blasio neuer Bürgermeister von New York.``. Dabei soll der Framework, der die Entitäten aus dem Text extrahiert, die Entität \textit{Bill de Blasio} als eine Person erkennen, die Entität \textit{New York} als ein geographisches Objekt, und \textit{1. Januar 2014} als ein Datum.
 
-\section{Grundlagen von E-Mails}
-\label{sec:Grundlagen von E-Mails}
-
-Abbildung \ref{fig:E-Mail} zeigt eine einfache E-Mail \cite{Aas/Eikvil:99}.
-
-\begin{figure}[ht]
-\setbox0\vbox{\small
-\begin{verbatim}
-Message-ID: <480DEBCA.8040607@uni-due.de>
-Date: Tue, 22 Apr 2008 15:44:42 +0200
-From: Bob <bob@uni-due.de>
-User-Agent: Thunderbird 2.0.0.12 (Windows/20080213)
-To: alice@uni-due.de
-Content-Type: text/plain; charset=ISO-8859-15
-Content-Transfer-Encoding: 7bit
-Subject: Frage
-
-Hallo Alice,
-
-wie geht es Dir?
-
-Gruß
-Bob
-\end{verbatim}
-}
-\centerline{\fbox{\box0}}
-\caption{Beispiel für eine einfache E-Mail}
-\label{fig:E-Mail}
-\end{figure}
-
+\paragraph{}
+Aber wie genau können die Entitäten aus dem Text extrahiert werden? In dieser Arbeit wird zwei verschiedenen Einsätzen zur Extraktion von Entitäten verwendet: Conditional Random Field (CRF) als Teil des Stanford NER Frameworks, und Maximum Entropy based NER, implementiert im OpenNLP Framework.
+\section{Wissendatenbanke}
+\subsection{SPARQL}

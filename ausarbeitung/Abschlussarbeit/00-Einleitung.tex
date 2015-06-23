@@ -24,7 +24,7 @@ Der Extraktionsframework soll auf Basis von Apache Stanbol entwickelt werden, de
 \paragraph{}
 Die Entwicklung der Stanbol-Erweiterung umfasst folgende Schritte:
 \begin{enumerate}
-\item Zuerst soll ein Plugin implementiert werden (sogenannter \"Enhancer\"), der markiert, welche Tokens möglicherweise einer Entität entsprechen. Dabei wird für jede Mögliche Entität eine grobe Typeinschätzung gemacht (ob das eine Person, eine Organisation, eine geographische Entität oder \"MISC\" - eine Entität, die zu keinem anderen Typ passt, ist). Die erkannte Entitäten werden mit bestimmten Annotationen versehen, die für spätere Bearbeitungsschritte benötigt werden. Die Erkennung von Entitäten kann grundsätzlich auf zwei unterschiedliche Art und Weisen implementiert werden:  
+\item Zuerst soll ein Plugin implementiert werden (sogenannter Enhancer), der markiert, welche Tokens möglicherweise einer Entität entsprechen. Dabei wird für jede Mögliche Entität eine grobe Typeinschätzung gemacht (ob das eine Person, eine Organisation, eine geographische Entität oder MISC - eine Entität, die zu keinem anderen Typ passt, ist). Die erkannte Entitäten werden mit bestimmten Annotationen versehen, die für spätere Bearbeitungsschritte benötigt werden. Die Erkennung von Entitäten kann grundsätzlich auf zwei unterschiedliche Art und Weisen implementiert werden:  
 \begin{itemize}
 \item Es kann ein existierendes Modell für die Erkennung von Entitäten in deutschen Texten benutzt werden (wie Stanford NER).
 \item Man kann eigenes Modell mithilfe von OpenNLP trainieren, auf Basis von einem mit Annotationen versehenen Trainingkorpora.
