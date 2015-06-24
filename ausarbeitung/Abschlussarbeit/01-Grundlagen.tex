@@ -7,5 +7,18 @@ Vijay Krishnan hat in seiner Arbeit\cite{Vijay/Vignesh:05} die Extraktion von En
 
 \paragraph{}
 Aber wie genau können die Entitäten aus dem Text extrahiert werden? In dieser Arbeit wird zwei verschiedenen Einsätzen zur Extraktion von Entitäten verwendet: Conditional Random Field (CRF) als Teil des Stanford NER Frameworks, und Maximum Entropy based NER, implementiert im OpenNLP Framework.
+
+\paragraph{}
+CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/Andrew:10} beschrieben. CRF hilft, die Verteilung $p(y|x)$ mithilfe eines Graph direkt zu modellieren. Dabei soll jedem Element (Token in unserem Fall) aus dem Eingabevektor $x$ ein entsprechendes Ausgabewert (Label, die die Klasse der Entität beschreibt) aus dem Vektor $y$ zugeordnet werden. CRF basiert auf demselben Basis wie Hidden Markov Models, hat aber den Vorteil, dass die Features nicht als unabhängig betrachtet werden - CRF nimmt an, dass es Abhängigkeiten zwischen Features existieren. Der Nachteil ist, dass CRF langsamer, als HMM ist. 
+
+\paragraph{}
+Aber wie definiert man Features?  Jenny Finkel\cite{Jenny/etal:07} hat folgende Eigenschaften definiert:
+\begin{enumerate}
+\item Nachbarnwörter: vorheriges Wort, nächstes Wort, alle Wörter innerhalb eines Fensters.
+\item Orthographische Eigenschaften.
+\item Präfixe und Suffixe.
+\item Labelsequenzen.
+\end{enumerate}
+
 \section{Wissendatenbanke}
 \subsection{SPARQL}
