@@ -42,5 +42,16 @@ Aber wie definiert man Features? Jenny Finkel\cite{Jenny/etal:07} hat folgende E
 
 \subsection{Maximum Entropy based NER}
 
+\paragraph{}
+Dieser Framework wurde in der Arbeit von Andrew Borthwick\cite{Andrew:99} vorgestellt. In diesem Modell wird auch wie im CRF mit der Wahrscheinlichkeit $p(y|x)$ gearbeitet, allerdings ist ME NER kein graphischer Framework. Die Formell, die die Verteilung für ME-Modell beschreibt, sieht wie folgt aus:
+$$
+P(y|x) = \frac{1}{Z(x)}\prod_i \alpha_i^{g_i(x,y)}
+$$
+$g_i$ ist eine binäre Funktion, die eine bestimmte Feature beschreibt, und $\alpha_i$ ist das Parameter, der mit der Eigenschaft assoziiert wird. $Z(x)$ ist eine Normalisierungsfunktion, die wie folgt aussieht:
+$$
+Z(x) = \Sum_y \prod_i \alpha_i^{g_i(x,y)}
+$$
+Eigenschaften $g_i$ können in zwei Klassen geteilt werden: lokale und globale Features. Hai und Hwee\cite{{Hai/Hwee:02} definieren unter anderem folgende Eigenschaften, die auch im OpenNLP-Framework eingesetzt werden:
+
 \section{Wissendatenbanke}
 \subsection{SPARQL}
