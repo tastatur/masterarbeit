@@ -51,7 +51,24 @@ $g_i$ ist eine binäre Funktion, die eine bestimmte Feature beschreibt, und $\al
 $$
 Z(x) = \Sum_y \prod_i \alpha_i^{g_i(x,y)}
 $$
-Eigenschaften $g_i$ können in zwei Klassen geteilt werden: lokale und globale Features. Hai und Hwee\cite{{Hai/Hwee:02} definieren unter anderem folgende Eigenschaften, die auch im OpenNLP-Framework eingesetzt werden:
+Eigenschaften $g_i$ können in zwei Klassen geteilt werden: lokale und globale Features. Hai und Hwee\cite{Hai/Hwee:02} definieren unter anderem folgende Eigenschaften, die auch im OpenNLP-Framework eingesetzt werden:
+\begin{enumerate}
+\item Globale Eigenschaften:
+\begin{enumerate}
+\item Personenpräfixe für bestimmtes Wort in anderen Sätzen des Dokumentes: z.B. wenn wir im Text zuerst die Tokens ,,Frau Sony`` treffen, und dann einfach ,,Sony``, dann soll angenommen werden, dass ,,Sony`` eine Entität mit dem Typ ,,Person`` ist.
+\item Abkürzungen: wenn in einem Satz mehr Wörter nacheinander groß geschrieben werden, wie z.B. ,,Deutsche Demokratische Republik``, dann wird in dem Text nach entsprechender Abkürzung gesucht: ,,DDR``, und wenn Abkürzung eine Entität ist, können auch alle entsprechende Tokens als eine Entität markiert werden.
+\end{enumerate}
+\item Lokale Eigenschaften:
+\begin{enumerate}
+\item Ob das Wort großgeschrieben wird.
+\item Ob vorheriges oder nächstes Wort großgeschrieben wird.
+\item Ob alle Zeichen im Token großgeschrieben werden.
+\item Ob es ein Punkt am Ende des Wortes steht.
+\item Ob der Token Zahlen beinhaltet, und falls ja, wie viel.
+\item Ob das Wort das Prozent- oder Dollarzeichen beinhaltet.
+\item Suffixe und Präfixe (wie ,,Frau`` oder ,,GmbH``).
+\end{enumerate}
+\end{enumerate}
 
 \section{Wissendatenbanke}
 \subsection{SPARQL}
