@@ -1,0 +1,15 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="c"
+    xmlns:j.1="http://schema.org/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:j.2="l" > 
+  <rdf:Description rdf:about="http://de.dbpedia.org/resource/Duisburg">
+    <j.0:categories rdf:resource="http://de.dbpedia.org/resource/Kategorie:Reichsstadt"/>
+    <j.0:categories rdf:resource="http://de.dbpedia.org/resource/Kategorie:Rheinland"/>
+    <j.1:name xml:lang="de">Duisburg</j.1:name>
+    <j.1:url rdf:resource="http://www.duisburg.de/"/>
+    <rdfs:label xml:lang="de">Duisburg</rdfs:label>
+    <j.2:location>[51.0,6.0]</j.2:location>
+  </rdf:Description>
+</rdf:RDF>

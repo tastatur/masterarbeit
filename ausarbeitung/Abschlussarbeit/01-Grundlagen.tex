@@ -49,7 +49,7 @@ P(y|x) = \frac{1}{Z(x)}\prod_i \alpha_i^{g_i(x,y)}
 $$
 $g_i$ ist eine binäre Funktion, die eine bestimmte Feature beschreibt, und $\alpha_i$ ist das Parameter, der mit der Eigenschaft assoziiert wird. $Z(x)$ ist eine Normalisierungsfunktion, die wie folgt aussieht:
 $$
-Z(x) = \Sum_y \prod_i \alpha_i^{g_i(x,y)}
+Z(x) = \sum_y \prod_i \alpha_i^{g_i(x,y)}
 $$
 Eigenschaften $g_i$ können in zwei Klassen geteilt werden: lokale und globale Features. Hai und Hwee\cite{Hai/Hwee:02} definieren unter anderem folgende Eigenschaften, die auch im OpenNLP-Framework eingesetzt werden:
 \begin{enumerate}
@@ -70,5 +70,12 @@ Eigenschaften $g_i$ können in zwei Klassen geteilt werden: lokale und globale F
 \end{enumerate}
 \end{enumerate}
 
-\section{Wissendatenbanke}
-\subsection{SPARQL}
+\section{Wissendatenbanken}
+
+\paragraph{}
+Um die extrahierte Entitäten mit Ontologien anzureichern, braucht man selbstverständlich eine Datenbank, wo alle Informationen zu den Entitäten gespeichert werden. Solche Datenbanken nennt man ,,Wissendatenbanken``. Solche Datenbanke sind keine herkömmliche relationale Datenbanke, da man die Ontologien mit ihrer hierarchischen Struktur zwar auf ein relationales Modell abbilden lassen kann, aber es gibt bessere Datenstrukturen und Anfragesprachen, die die Arbeit mit Ontologien für die Entwickler einfacher machen.
+
+\paragraph{}
+Zur Beschreibung von Ontologien dient das RDF-Format\footnote{\url{http://www.w3.org/2001/sw/wiki/RDF}}. Dieses Format basiert auf XML, und gibt dem Entwickler eine einfache Möglichkeit, Hierarchische Daten zu beschrieben. Die Ontologie im RDF-Format kann z.B. wie folgt aussehen:
+\lstset{language=XML}
+\lstinputlisting[captionpos=b,label={lst:RDFBEISPIEL},caption={Beispiel einer Ontologie im RDF-Format}]{Listings/examplerdf.xml}
