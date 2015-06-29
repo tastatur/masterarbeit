@@ -79,3 +79,14 @@ Um die extrahierte Entitäten mit Ontologien anzureichern, braucht man selbstver
 Zur Beschreibung von Ontologien dient das RDF-Format\footnote{\url{http://www.w3.org/2001/sw/wiki/RDF}}. Dieses Format basiert auf XML, und gibt dem Entwickler eine einfache Möglichkeit, Hierarchische Daten zu beschrieben. Die Ontologie im RDF-Format kann z.B. wie folgt aussehen:
 \lstset{language=XML}
 \lstinputlisting[captionpos=b,label={lst:RDFBEISPIEL},caption={Beispiel einer Ontologie im RDF-Format}]{Listings/examplerdf.xml}
+
+\paragraph{}
+Als Anfragesprache für RDF wird SPARQL\footnote{\url{http://www.w3.org/2001/sw/wiki/SPARQL}} eingesetzt. Diese Sprache sieht SQL ähnlich aus, operiert allerdings nicht auf relationalen Daten, sondern auf RDF-Graphen. 
+
+Zum Beispiel, wenn die Fläche der Stadt Duisburg und das Bundesland, wo die Stadt liegt, gebraucht werden, kann die SPARQL-Anfrage wie folgt aussehen:
+\lstset{language=SPARQL}
+\lstinputlisting[captionpos=b,label={lst:SPARQLBEISPIEL},caption={Beispiel einer SPARQL-Anfrage}]{Listings/sparqlexample.sql}
+
+Die Antwort wird dann als RDF-Datensatz geliefert:
+\lstset{language=XML}
+\lstinputlisting[captionpos=b,label={lst:SPARQLRESULT},caption={Beispiel der Antwort auf eine SPARQL-Anfrage}]{Listings/sparqlresult.xml}
