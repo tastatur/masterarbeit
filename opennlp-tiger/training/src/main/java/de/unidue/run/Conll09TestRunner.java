@@ -2,6 +2,8 @@ package de.unidue.run;
 
 import de.unidue.converters.Converter;
 import de.unidue.converters.impl.Conll09ToOpenNlpNerConverter;
+import de.unidue.training.Train;
+import de.unidue.training.impl.MeTrain;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,16 +17,21 @@ public class Conll09TestRunner {
 
     private static final Logger log = LoggerFactory.getLogger(Conll09TestRunner.class);
 
+    private static final String compressedConll09 = Conll09ToOpenNlpNerConverter.class.getClassLoader().getResource("tiger_release_aug07.corrected.16012013.conll09.gz").getPath();
+    private static final String uncompressedConll09 = "/tmp/tiger.conll";
+    private static final String openNlpModel = "/tmp/tiger.train";
+    private static final String trainedModel = "/tmp/tiger.bin";
+
+
     @SuppressWarnings("all")
     public static void main(String[] argc) throws IOException {
-        final String compressedConll09 = Conll09ToOpenNlpNerConverter.class.getClassLoader().getResource("tiger_release_aug07.corrected.16012013.conll09.gz").getPath();
-        final String uncompressedConll09 = "/tmp/tiger.conll";
-        final String openNlpModel = "/tmp/tiger.train";
-
         uncompress(compressedConll09, uncompressedConll09);
 
         final Converter conllCoNverter = new Conll09ToOpenNlpNerConverter(uncompressedConll09, openNlpModel);
         conllCoNverter.convert();
+
+        Train meTrain = new MeTrain(openNlpModel, trainedModel);
+        meTrain.train();
     }
 
     private static void uncompress(String compressedConll09, String uncompressedConll09) throws IOException {
