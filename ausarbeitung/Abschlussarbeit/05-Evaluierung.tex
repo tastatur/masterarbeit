@@ -1,32 +1,22 @@
 \chapter{Evaluierung}
 
+\section{Benutzerevaluierung}
+Die Idee:
+\begin{itemize}
+\item Man baut eine einfache Webschnitstelle zum unserem System, wo der Benutzer Suchanfragen angeben kann.
+\item Für jeden gefundenen Sniplet wird der Text des Sniplets und Liste von Ontologien (wie im Webinterface von Stanbol) geliefert.
+\item Der Benutzer kann jeden verfügbaren Engine(TIGER/Stanford/Wiki) bewerten (ob der Engine hilfreich war, oder nicht, mit einer Note von 1 bis 10)
+\item Der Benutzer soll in den Suchafragen nicht eingeschränkt werden, da es nicht um pure Qualität (Anzahl von Ontologien), sondern darum, was der Benutzer denkt. Nicht besonders wissenschaftlich, aber in dieser Arbeit geht es um die Benutzerunterstützung.
+\item Als Erweiterung:
+\begin{enumerate}
+\item Gebe dem Benutzer den Auswahlmöglichkeit zwischen 'nur Sniplets untersuchen' und 'volle Webseiten untersuchen'.
+\item Neben der Bewertung 'Ein Engine - eine Note' die Bewertung 'Ein Engine + Snipletsuntersuchung/Webseiteuntersuchung' einzuführen.
+\end{enumerate}
+\end{itemize}
 
-
-\section{Bla bla}
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|c|c||c|c|c|c|c|}
-		\hline
-		\multicolumn{2}{|c||}{Kosten-} & \multicolumn{5}{c|}{\textbf{tatsächlich}} \\ 
-		\cline{3-7}
-		\multicolumn{2}{|c||}{matrix} & $c_1$ & $c_2$ & \ldots & $c_{n-1}$ & $c_n$ \\ 
-		\hline
-		\hline
-		 & $c_1$ & $cost_1^1$ & $cost_1^2$ & \ldots & $cost_1^{n-1}$ & $cost_1^n$ \\ 
-		\cline{2-7}
-		 & $c_2$ & $cost_2^1$ & $cost_2^2$ & \ldots & $cost_2^{n-1}$ & $cost_2^n$ \\ 
-		\cline{2-7}
-		\textbf{vorhergesagt} & \ldots &  \ldots &  \ldots &  \ldots &  \ldots & 
-		\ldots \\
-		\cline{2-7}
- 		& $c_{n-1}$ & $cost_{n-1}^1$ & $cost_{n-1}^2$ &  \ldots & $cost_{n-1}^{n-1}$ &
- 		$cost_{n-1}^n$ \\
-		\cline{2-7}
- 		& $c_n$ & $cost_n^1$ & $cost_n^2$ &  \ldots & $cost_n^{n-1}$ & $cost_n^n$ \\ 
-		\hline
-	\end{tabular}
-	\caption{Kostenmatrix für die Klassen $c_1$ bis $c_n$}
-	\label{tab:Kostenmatrix}
-\end{table}
-
+\section{Automatische Evaluierung}{
+\begin{itemize}
+\item TIGER Korpus (oder Wiki?) als Evaluierungskorpus nehmen.
+\item Recall/Precision/F-Measure berechnen
+\item Gucken, ob es Korrelationen zwischen der Benutzer- und Autoevaluierung gibt - ob man anhand der o.g. Bewertungen (Precision/Recall) sagen kann, ob der Engine für den Benutzer hilfreich sein kann, oder nicht?
+\end{itemize}

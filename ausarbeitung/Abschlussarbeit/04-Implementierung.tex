@@ -2,7 +2,28 @@
 \label{sec:Implementierung}
 
 \section{Apache stanbol}
+Beschreibung von Stanbol. Schema aus der Präsentation. Was genau muss erweitert werden? Warum verwenden wir Stanbol überhaupt?
 
-\paragraph{}
+\section{Extraktion von Entitäten}
+Kurze Einleitung, wie genau die Annotationen für die Entitäten erzeugt werden, unabhängig von dem benutzten Einsatz.
 
+\subsection{StanfordNER} 
+Beschreibung der Implementierung des Einsatzes von StanfordNER. 
 
+\subsection{OpenNLP}
+Beschreibung des OpenNLP-Einsatzes.
+
+\subsection{Training von Modellen}
+Wie genau werden die Modellen für OpenNLP trainiert?
+
+\subsubsection{TIGER Korpus}
+Aufbau von TIGER-Korpus und die entsprechende Implementierung von Training.
+
+\subsubsection{Wikipedia-basiertes Korpus}
+Wie kann Wikipedia als Korpus verwendet werden? Vor- und Nachteile im Bezug auf manuell aufgebaute Korpusse.
+
+\section{Verlinkung von annotierten Entitäten}
+Was ist eine Verlinkung? Wie genau funktioniert die? Aufbau von EntityHub. Indexierung von deutscher DBpedia.
+
+\section{Proxierung von Benutzersuchanfragen}
+Wie genau ist der ProxyServer aufgabaut (@Sebastian, haben wir den Zugang zu den Quelltexten von Proxy, oder zumindest die Login/Password-Daten für Bing-API?)? Schema zeichnen, wie in der Beschreibung von Stanbol. Einleitung in BingAPI, Preis/Leistung-Vergleiche von Google/Bing/Yahoo-API.
