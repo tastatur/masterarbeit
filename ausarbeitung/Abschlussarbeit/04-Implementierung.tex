@@ -24,13 +24,52 @@ TIGER\footnote{\url{http://www.ims.uni-stuttgart.de/forschung/ressourcen/korpora
 
 
 \subsubsection{Wikipedia-basiertes Korpus}
-Wie kann Wikipedia als Korpus verwendet werden? Vor- und Nachteile im Bezug auf manuell aufgebaute Korpusse.
+\paragraph{}
+Leider kann man nicht immer einen manuell aufgebauten Korpus verwenden, entweder aus Lizenz- oder Kostengründen. Viele Korpusse sind nur für Forschung frei verfügbar, was bedeutet, dass 
+die auf keinen Fall in einem Geschäftsprojekt verwendet werden dürfen. Und einen eigenen Korpus aufzubauen ist auch nicht immer möglich, da dazu die Linguisten eingesetzt werden müssen, die nicht jede Firma zur Verfügung hat, und es kann Monaten dauern, bis man ein eigenes Korpus erstellt. Was könnte man in diesem Fall tun?
+
+\paragraph{}
+Oliver Grisel\footnote{\url{http://www.nuxeo.com/blog/mining-wikipedia-with-hadoop-and-pig-for-natural-language-processing/}} hat einen interessanten Einsatz zur automatischer Aufbau von Korpus vorgeschlagen. Es wird vorgeschlagen, Wikipedia als Textbasis zu nehmen, und die interne Links, die auf andere Wikipediaseiten führen, sollen als  Entitäten markiert werden. Es soll anschließlich ein Korpus aufgebaut werden, auf dessen Basis ein OpenNP-Modell trainiert werden soll. Da Wikipedia auch auf deutscher Sprache verfügbar ist, soll dieser Einsatz auch für Zwecke dieser Arbeit nützlich sein.
+
+\paragraph{}
+Um den Korpus aufzubauen, wird Apache Pig verwendet - ein Framework für Big-Data-Analyse, der eine Skript-Sprache und JavaAPI zur Verfügung stellt. Die Aufbau vom Korpus umfasst folgende Schritte:
+\begin{enumerate}
+\item Es wird Dump von Wikipediaartikeln heruntergeladen.
+\item Es werden die Listen von Wikipedia-Links und Typen von Entitäten von DBpedia heruntergeladen. Diese Informationen braucht man später, um jeder Entität in dem erzeugten Korpus die richtige Entitätstyp zuordnen zu können.
+\item Es werden Links auf interne Wikipedia-Artikeln aus Wikipedia-Dump extrahiert, mit der Positionsinformation zusammen.
+\item Jeder Link wird mithilfe von DBpedia-Daten einen Entitätstyp zugeordnet.
+\item Es wird ein Trainingskorpus im OpenNLP-Format erzeugt.
+\end{enumerate}
+
+\paragraph{} 
+Für Korpusaufbau aus deutscher Wikipedia kann im Prinzip die Scripts von Oliver Grisel genommen werden, die müssen allerdings angepasst werden:
+\begin{itemize}
+\item Es soll deutsche Dbpedia, und nicht englische verwendet werden.
+\item Es soll deutsches Modell für Satzerkennung anstatt englisches eingesetzt werden.
+\item Herunterladen von Wikipedia- und Dbpediadaten soll automatisiert werden.
+\end{itemize}
+
+\paragraph{}
+Aber welche Vor- und Nachteile hat automatische Erzeugung vom Korpus? Kann das trainierte Modell später auch tatsächlich für sinnvolle Entitätserkennung eingesetzt werden?
+\begin{itemize}
+\item Vorteile
+\begin{itemize}
+\item Die Erzeugung von Korpus braucht höchstens eine Stunde, im Vergleich zu manuell annotierten Korpussen.
+\item Es werden keine Fachleute gebraucht, um Korpus zu erzeugen.
+\end{itemize}
+\item Nachteile
+\begin{itemize}
+\item Nicht alle interne Links stellen eine Entität dar, und nicht alle Entitäten sind ein Link - als Folge ist die Qualität des Korpusses deutlich niedriger, als die von manuell aufgebauten.
+\item Eine sehr niedrige Varianz - alle Wikipediaartikel sind mehr oder weniger im gleichen Styl geschrieben, was bedeutet, dass wenn man dem trainierten Modell einen Text zeigt, der sich von einem durchschnittlichen Wikipedia-Artikel deutlich unterscheidet, werden da höchstwahrscheinlich keine Entitäten gefunden.
+\end{itemize}
+\end{itemize}
 
 \subsection{Zwischenfazit}
-Vergleich beider Ansätze.
+Vergleich aller Ansätze.
 
-\section{Verlinkung von annotierten Entitäten}
-Was ist eine Verlinkung? Wie genau funktioniert die? Aufbau von EntityHub. Indexierung von deutscher DBpedia.
+\section{Verlinkung und Dereferinzierung von annotierten Entitäten}
+\paragraph{}
+
 
 \section{Proxierung von Benutzersuchanfragen}
 Wie genau ist der ProxyServer aufgabaut (@Sebastian, haben wir den Zugang zu den Quelltexten von Proxy, oder zumindest die Login/Password-Daten für Bing-API?)? Schema zeichnen, wie in der Beschreibung von Stanbol. Einleitung in BingAPI, Preis/Leistung-Vergleiche von Google/Bing/Yahoo-API.
