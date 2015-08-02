@@ -36,6 +36,11 @@ Der Korpus ist wie folgt aufgebaut:
 
 Der Nachteil dieses Korpuses besteht darin, dass es zwischen verschiedenen Typen von Entitäten nicht unterschieden wird, und die alle den Typ \textit{NE} haben.
 
+\paragraph{}
+Um ein MaximumEntropy-Modell mithilfe von OpenNLP auf Basis von TIGER-Korpus aufbauen zu können, muss der Korpus zuerst ins OpenNLP-Format umgewandelt werden. Der Ausschnitt aus dem TIGER-Korpus im OpenNLP-Format findet man in der Auflistung \ref{lst:TIGEROPENBEISPIEL}.
+
+\lstinputlisting[captionpos=b,label={lst:TIGEROPENBEISPIEL},caption={Ausschnitt aus dem TIGER-Korpus im OpenNLP-Format.}]{Listings/tiger-opennlp.txt}
+
 \subsubsection{Wikipedia-basiertes Korpus}
 \paragraph{}
 Leider kann man nicht immer einen manuell aufgebauten Korpus verwenden, entweder aus Lizenz- oder Kostengründen. Viele Korpusse sind nur für Forschung frei verfügbar, was bedeutet, dass 

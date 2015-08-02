@@ -1,0 +1,4 @@
+<START:misc> Ross Perot <END> wäre vielleicht ein prächtiger Diktator . 
+Konzernchefs lehnen den Milliardär als US-Präsidenten ab . 
+Texaner gibt nur vage Auskunft über seine Wirtschaftspolitik .
+Der texanische Milliardär <START:misc> Ross Perot <END> hat das politische Establishment in <START:misc> Washington <END> aufgeschreckt . 
