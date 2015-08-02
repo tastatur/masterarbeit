@@ -18,10 +18,23 @@ Wie genau werden die Modellen für OpenNLP trainiert?
 
 \subsubsection{TIGER Korpus}
 \paragraph{}
-TIGER\footnote{\url{http://www.ims.uni-stuttgart.de/forschung/ressourcen/korpora/tiger.html}} Korpus wurde von dem Institut für Maschinelle Sprachverarbeitung auf der Basis von Zeitungen aufgebaut, und beinhaltet 50474 Sätzen. Außer markierten Entitäten beinhaltet dieser Korpus auch die Informationen über POS (Part Of Speech - ob das Wort ein Verb oder ein Substantiv ist), Lemma (Infinitiv für Verben oder Nominativ Singular für Substantive) und andere Informationen über die annotierte Tokens, wie Kasus oder Genus.
+TIGER\footnote{\url{http://www.ims.uni-stuttgart.de/forschung/ressourcen/korpora/tiger.html}} Korpus wurde von dem Institut für Maschinelle Sprachverarbeitung auf der Basis von Zeitungen aufgebaut, und beinhaltet 50474 Sätzen. Außer markierten Entitäten beinhaltet dieser Korpus auch die Informationen über POS (Part Of Speech - ob das Wort ein Verb oder ein Substantiv ist), Lemma (Infinitiv für Verben oder Nominativ Singular für Substantive) und andere Informationen über die annotierte Tokens, wie Kasus oder Genus. Der Ausschnitt des Korpuses findet man in der Auflistung \ref{lst:TIGERBEISPIEL}.
+
+\lstinputlisting[captionpos=b,label={lst:TIGERBEISPIEL},caption={Ausschnitt aus dem TIGER-Korpus. Die Informationen, die in dieser Arbeit nicht gebraucht werden, wurden wegen Platzmangel weggelassen.}]{Listings/tiger-example.txt}
 
 \paragraph{}
+Der Korpus ist wie folgt aufgebaut:
+\begin{itemize}
+\item Die Sätze werden mit einer leeren Zeile getrennt.
+\item Jeder Token und seine Annotationen werden in einer Zeile geschrieben. Die Spalten werden mit einem Leerzeichen getrennt.
+\item Die erste Spalte beinhaltet ID des Tokens, die aus Nummer des Satzes und Nummer des Tokens innerhalb des Satzes besteht.
+\item Die zweite Spalte ist der Token selbst, so wie er auch im Satz vorkommt.
+\item In der dritten Spalte steht Lemma des Tokens.
+\item Die vierte Spalte wird nicht verwendet.
+\item Und die fünfte Spalte beinhaltet POS-Tag des Tokens. Falls dieser Tag den Typ \textit{NE} hat, ist das eine Entität.
+\end{itemize}
 
+Der Nachteil dieses Korpuses besteht darin, dass es zwischen verschiedenen Typen von Entitäten nicht unterschieden wird, und die alle den Typ \textit{NE} haben.
 
 \subsubsection{Wikipedia-basiertes Korpus}
 \paragraph{}
@@ -69,7 +82,17 @@ Vergleich aller Ansätze.
 
 \section{Verlinkung und Dereferinzierung von annotierten Entitäten}
 \paragraph{}
+Nachdem die Entitätserkennung durchgeführt wurde, hat man die Informationen darüber, ob es Entitäten im Text gefunden wurden, die Position der Entität innerhalb des Satzes und optional den Typ der Entität. Die Ontologie selbst, die Endbenutzer zu sehen braucht, fehlt allerdings noch. Es müssen noch zwei Schritte durchgeführt werden, bis die Informationen komplett sind - Verlinkung von gefundenen Entitäten mit der Entitäten in DBpedia (oder einer anderer Wissendatenbank) und die Dereferinzierung von Eigenschaften der Entität.
 
+\paragraph{}  
+Während der Verlinkung von Entitäten wird für jede erkannte Entität eine Suche nach dieser Entität in einer oder mehreren Wissendatenbanken durchgeführt. Um den Vorgang höchstmöglich zu beschleunigen, soll lokaler Wissendatenbankindex (EntityHub in Terminologie von Stanbol) eingesetzt werden. Dieser Index soll vorher aufgebaut werden, und zumindest die Namen der Entitäten beinhalten. Für spätere Schritte ist aber empfehlenswert, auch diverse Eigenschaften von Entitäten zum Index hinzuzufügen, damit Dereferinzierungschritt auch so schnell wie möglich ausgeführt wird. Es muss aber beachtet werden, dass Index von realen Wissendatenbanken wie DBpedia mehr als 20 Gigabytes wiegen kann, und die Aufbau kann mehrere Tagen in Anspruch nehmen.
+
+\paragraph{}
+Für die Verlinkung von Entitäten wird Engine NamedEntityTaggingEngine verwendet. EntityHub stellt dabei eine Suchschnitstelle zur Verfügung. Alle im Index gefundene Einträge werden nach Levenshtein-Distanz zum Text der Entität und nach Rank der Entität innerhalb EntityHub sortiert.
+
+
+\paragraph{}
+Als Wissendatenbank für die Verlinkung und Dereferinzierung wird in dieser Arbeit lokaler Index von deutscher DBpedia verwendet.
 
 \section{Proxierung von Benutzersuchanfragen}
-Wie genau ist der ProxyServer aufgabaut (@Sebastian, haben wir den Zugang zu den Quelltexten von Proxy, oder zumindest die Login/Password-Daten für Bing-API?)? Schema zeichnen, wie in der Beschreibung von Stanbol. Einleitung in BingAPI, Preis/Leistung-Vergleiche von Google/Bing/Yahoo-API.
+Um dem Endentwickler die Anreicherung von Suchergebnissen so einfach wie möglich zu machen, wurde eine API entwickelt, die man direkt an sein Projekt als eine Bibliothek anbinden kann. Diese Bibliothek wird auch später in der Evaluierung verwendet.

@@ -1,0 +1,18 @@
+1_1     ``              --              _       $( 
+1_2     Ross            Ross            _       NE 
+1_3     Perot           Perot           _       NE 
+1_4     wäre            sein            _       VAFIN 
+1_5     vielleicht      vielleicht      _       ADV 
+1_6     ein             ein             _       ART 
+1_7     prächtiger      prächtig        _       ADJA  
+1_8     Diktator        Diktator        _       NN  
+1_9     ''              --              _       $(
+
+2_1     Konzernchefs    Konzernchef     _       NN
+2_2     lehnen          lehnen          _       VVFIN
+2_3     den             der             _       ART
+2_4     Milliardär      Milliardär      _       NN 
+2_5     als             als             _       APPR
+2_6     US-Präsidenten  US-Präsident    _       NN
+2_7     ab              ab              _       PTKVZ
+2_8     /               --              _       $(
