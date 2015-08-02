@@ -1,0 +1,16 @@
+     "@id": "http://de.dbpedia.org/resource/Deutschland",
+      "@type": [
+        "dbp-ont:Country",
+      ],
+      "dbp-ont:abstract": {
+        "@language": "de",
+        "@value": "Deutschland ist ein bundesstaatlich verfasstes Land in Mitteleuropa" 
+      },
+      "dbp-ont:anthem": "http://de.dbpedia.org/resource/Deutsche_Nationalhymne",
+      "dbp-ont:capital": "http://de.dbpedia.org/resource/Berlin",
+      "geo:lat": 51.165,
+      "geo:long": 10.455277,
+      "rdfs:label": {
+        "@language": "de",
+        "@value": "Deutschland"
+      }

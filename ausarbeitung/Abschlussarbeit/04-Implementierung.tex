@@ -99,5 +99,11 @@ Für die Verlinkung von Entitäten wird Engine NamedEntityTaggingEngine verwende
 \paragraph{}
 Als Wissendatenbank für die Verlinkung und Dereferinzierung wird in dieser Arbeit lokaler Index von deutscher DBpedia verwendet.
 
-\section{Proxierung von Benutzersuchanfragen}
-Um dem Endentwickler die Anreicherung von Suchergebnissen so einfach wie möglich zu machen, wurde eine API entwickelt, die man direkt an sein Projekt als eine Bibliothek anbinden kann. Diese Bibliothek wird auch später in der Evaluierung verwendet.
+\section{API für Anreicherung von Suchergebnissen}
+\paragraph{}
+Um dem Endentwickler die Anreicherung von Suchergebnissen so einfach wie möglich zu machen, wurde eine API entwickelt, die man direkt an sein Projekt als eine Bibliothek anbinden kann. Diese Bibliothek wird auch später in der Evaluierung verwendet. Es wird eine Abstraktionsschicht hinzugefügt, die die Aufrufe der REST-Schnittstelle von Stanbol hinter der Klientklasse verbirgt. Der Entwickler soll nur die Liste von Suchsnippets an API übergeben, für die Verbindungaufbau zum Stanbol und Parsing der Antwort des Servers ist API verantwortlich. Die Beschreibung der API-Schnittstelle findet man in der Auflistung \ref{lst:APISCHNITSTELLE}. 
+
+\lstset{language=Java}
+\lstinputlisting[captionpos=b,label={lst:APISCHNITSTELLE},caption={Die API-Schnittstelle zum Stanbol}]{Listings/api.txt}
+
+Als Eingabedaten übergibt man die Liste von URLs gefundenen Webseiten mit dazugehörigen Texten von Snippets zusammen, und als Ausgabe bekommt man für jede URL die Liste von gefundenen Entitäten. Da in Rahmen dieser Arbeit mehr verschiedenen Engineketten implementiert wurden, muss der Name der erwünschten Kette miteingegeben werden.

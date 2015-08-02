@@ -1,0 +1,3 @@
+public interface EnhancementClient {
+    Map<String, List<Ontology>> getOntologysForSnippets(final Map<String, String> snippets, final EnhancementEngine engine);
+}

@@ -3,8 +3,14 @@
 
 \section{Extraktion von Entitäten}
 \paragraph{}
-Was sind die Entitäten - kurze Einleitung. Wie genau können die Entitäten aus einem Text extrahiert werden? Welche Einsätze gibt es? Wofür kann man Entitäten verwenden?
-%Vijay Krishnan hat in seiner Arbeit\cite{Vijay/Vignesh:05} die Extraktion von Entitäten als Suche nach atomaren Elementen im Text und ihre Zuordnung bestimmten vordefinierten Klassen wie Person, Organisation, geographische Lokation usw. definiert. Zum Beispiel betrachten wir folgenden Text aus Wikipedia: ,,Seit dem 1. Januar 2014 ist Bill de Blasio neuer Bürgermeister von New York.``. Dabei soll der Framework, der die Entitäten aus dem Text extrahiert, die Entität \textit{Bill de Blasio} als eine Person erkennen, die Entität \textit{New York} als ein geographisches Objekt, und \textit{1. Januar 2014} als ein Datum.
+%Was sind die Entitäten - kurze Einleitung. Wie genau können die Entitäten aus einem Text extrahiert werden? Welche Einsätze gibt es? Wofür kann man Entitäten verwenden?
+Vijay Krishnan hat in seiner Arbeit\cite{Vijay/Vignesh:05} die Extraktion von Entitäten als Suche nach atomaren Elementen im Text und ihre Zuordnung bestimmten vordefinierten Klassen wie Person, Organisation, geographische Lokation usw. definiert. Zum Beispiel betrachten wir folgenden Text aus Wikipedia: ,,Seit dem 1. Januar 2014 ist Bill de Blasio neuer Bürgermeister von New York.``. Dabei soll der Framework, der die Entitäten aus dem Text extrahiert, die Entität \textit{Bill de Blasio} als eine Person erkennen, die Entität \textit{New York} als ein geographisches Objekt, und \textit{1. Januar 2014} als ein Datum.
+
+\lstset{language=java}
+\lstinputlisting[captionpos=b,label={lst:ENTITYBEISPIEL},caption={Beispiel einer Entität}]{Listings/entity-beispiel.json}
+
+\paragraph{}
+Es stellt sich die Frage, wie genau können die Entitäten für die Benutzerunterstützung bei der Suche eingesetzt werden? Wenn die einzige Information, die dem Benutzer zur Verfügung stehen würde, nur der Name, das Typ und position der Entität innerhalb des Textes wären, wären Entitäten kaum verwendbar. Aber wenn jeder Entität eine Menge von Eigenschaften (wie Geburtsdatum für eine Person) und Verbindungen zu anderen Entitäten (Z.b. Geburtsort einer Person könnte ein Link auf eine geographische Entität sein) zugeordnet wird, könnte der Benutzer theoretisch die aus der Entität gewonnene Informationen für Präzisierung der Suchanfrage verwendet werden. Ein Beispiel der Entität mit Eigenschaften und Links zu anderen Entitäten findet man in der Auflistung \ref{lst:ENTITYBEISPIEL}.
 
 %\paragraph{}
 %Aber wie genau können die Entitäten aus dem Text extrahiert werden? In dieser Arbeit wird zwei verschiedenen Einsätzen zur Extraktion von Entitäten verwendet: Conditional Random Field (CRF) als Teil des Stanford NER Frameworks, und Maximum Entropy based NER, implementiert im OpenNLP Framework.
