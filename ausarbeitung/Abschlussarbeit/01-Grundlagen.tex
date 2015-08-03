@@ -49,37 +49,37 @@ Was ist CRF? Wie funktioniert dieser Einsatz? Wo wird er verwendet?
 %\end{enumerate}
 
 \subsection{Maximum Entropy based NER}
-Was ist ME NER? Wo wird er verwendet? Welche Vor- und Nachteile hat dieser Einsatz im Vergleich zum CRF?
-%\paragraph{}
-%Dieser Framework wurde in der Arbeit von Andrew Borthwick\cite{Andrew:99} vorgestellt. In diesem Modell wird auch wie im CRF mit der Wahrscheinlichkeit $p(y|x)$ gearbeitet, allerdings ist ME NER kein graphischer Framework. Die Formell, die die Verteilung für ME-Modell beschreibt, sieht wie folgt aus:
-%$$
-%P(y|x) = \frac{1}{Z(x)}\prod_i \alpha_i^{g_i(x,y)}
-%$$
-%$g_i$ ist eine binäre Funktion, die eine bestimmte Feature beschreibt, und $\alpha_i$ ist das Parameter, der mit der Eigenschaft assoziiert wird. $Z(x)$ ist eine Normalisierungsfunktion, die wie folgt aussieht:
-%$$
-%Z(x) = \sum_y \prod_i \alpha_i^{g_i(x,y)}
-%$$
-%Eigenschaften $g_i$ können in zwei Klassen geteilt werden: lokale und globale Features. Hai und Hwee\cite{Hai/Hwee:02} definieren unter anderem folgende Eigenschaften, die auch im OpenNLP-Framework eingesetzt werden:
-%\begin{enumerate}
-%\item Globale Eigenschaften:
-%\begin{enumerate}
-%\item Personenpräfixe für bestimmtes Wort in anderen Sätzen des Dokumentes: z.B. wenn wir im Text zuerst die Tokens ,,Frau Sony`` treffen, und dann einfach ,,Sony``, dann soll angenommen werden, dass ,,Sony`` eine Entität mit dem Typ ,,Person`` ist.
-%\item Abkürzungen: wenn in einem Satz mehr Wörter nacheinander groß geschrieben werden, wie z.B. ,,Deutsche Demokratische Republik``, dann wird in dem Text nach entsprechender Abkürzung gesucht: ,,DDR``, und wenn Abkürzung eine Entität ist, können auch alle entsprechende Tokens als eine Entität markiert werden.
-%\end{enumerate}
-%\item Lokale Eigenschaften:
-%\begin{enumerate}
-%\item Ob das Wort großgeschrieben wird.
-%\item Ob vorheriges oder nächstes Wort großgeschrieben wird.
-%\item Ob alle Zeichen im Token großgeschrieben werden.
-%\item Ob es ein Punkt am Ende des Wortes steht.
-%\item Ob der Token Zahlen beinhaltet, und falls ja, wie viel.
-%\item Ob das Wort das Prozent- oder Dollarzeichen beinhaltet.
-%\item Suffixe und Präfixe (wie ,,Frau`` oder ,,GmbH``).
-%\end{enumerate}
-%\end{enumerate}
+%Was ist ME NER? Wo wird er verwendet? Welche Vor- und Nachteile hat dieser Einsatz im Vergleich zum CRF?
+\paragraph{}
+Dieser Framework wurde in der Arbeit von Andrew Borthwick\cite{Andrew:99} vorgestellt. In diesem Modell wird auch wie im CRF mit der Wahrscheinlichkeit $p(y|x)$ gearbeitet, allerdings ist ME NER kein graphischer Framework. Die Formell, die die Verteilung für ME-Modell beschreibt, sieht wie folgt aus:
+$$
+P(y|x) = \frac{1}{Z(x)}\prod_i \alpha_i^{g_i(x,y)}
+$$
+$g_i$ ist eine binäre Funktion, die eine bestimmte Feature beschreibt, und $\alpha_i$ ist das Parameter, der mit der Eigenschaft assoziiert wird. $Z(x)$ ist eine Normalisierungsfunktion, die wie folgt aussieht:
+$$
+Z(x) = \sum_y \prod_i \alpha_i^{g_i(x,y)}
+$$
+Eigenschaften $g_i$ können in zwei Klassen geteilt werden: lokale und globale Features. Hai und Hwee\cite{Hai/Hwee:02} definieren unter anderem folgende Eigenschaften, die auch im OpenNLP-Framework eingesetzt werden:
+\begin{enumerate}
+\item Globale Eigenschaften:
+\begin{enumerate}
+\item Personenpräfixe für bestimmtes Wort in anderen Sätzen des Dokumentes: z.B. wenn wir im Text zuerst die Tokens ,,Frau Sony`` treffen, und dann einfach ,,Sony``, dann soll angenommen werden, dass ,,Sony`` eine Entität mit dem Typ ,,Person`` ist.
+\item Abkürzungen: wenn in einem Satz mehr Wörter nacheinander groß geschrieben werden, wie z.B. ,,Deutsche Demokratische Republik``, dann wird in dem Text nach entsprechender Abkürzung gesucht: ,,DDR``, und wenn Abkürzung eine Entität ist, können auch alle entsprechende Tokens als eine Entität markiert werden.
+\end{enumerate}
+\item Lokale Eigenschaften:
+\begin{enumerate}
+\item Ob das Wort großgeschrieben wird.
+\item Ob vorheriges oder nächstes Wort großgeschrieben wird.
+\item Ob alle Zeichen im Token großgeschrieben werden.
+\item Ob es ein Punkt am Ende des Wortes steht.
+\item Ob der Token Zahlen beinhaltet, und falls ja, wie viel.
+\item Ob das Wort das Prozent- oder Dollarzeichen beinhaltet.
+\item Suffixe und Präfixe (wie ,,Frau`` oder ,,GmbH``).
+\end{enumerate}
+\end{enumerate}
 
 \section{Wissendatenbanke}
-Was sind Wissendatenbanke? Wieso brauchen wir die in unserer Arbeit? Wie sucht man nach Entitäten in einer Wissendatenbank? Kurze Einleitung in SPARQL+RDF.
+%Was sind Wissendatenbanke? Wieso brauchen wir die in unserer Arbeit? Wie sucht man nach Entitäten in einer Wissendatenbank? Kurze Einleitung in SPARQL+RDF.
 \paragraph{}
 Um die extrahierte Entitäten mit Ontologien anzureichern, braucht man selbstverständlich eine Datenbank, wo alle Informationen zu den Entitäten gespeichert werden. Solche Datenbanken nennt man ,,Wissendatenbanken``. Solche Datenbanke sind keine herkömmliche relationale Datenbanke, da man die Ontologien mit ihrer hierarchischen Struktur zwar auf ein relationales Modell abbilden lassen kann, aber es gibt bessere Datenstrukturen und Anfragesprachen, die die Arbeit mit Ontologien für die Entwickler einfacher machen.
 
