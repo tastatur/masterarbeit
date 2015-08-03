@@ -17,8 +17,16 @@ Eine reine Extraktion von Entitäten ist aber nicht ausreichend - der Extraktion
 \section{Aufgabenstellung}
 \label{sec:Aufgabenstellung}
 \paragraph{}
-Die Arbeit umfasst zwei große Abschnitte: Zuerst soll ein Framework entwickelt werden, der die Extraktion und Verlinkung von Ontologien für deutschsprachige Webseiten ermöglicht. Die Webseiten werden dabei nicht im PlainText ins System eingegeben, sondern als HTML. Deswegen soll der Framework auch rohe Textdaten aus dem HTML extrahieren können. Danach soll ein Proxyserver  entwickelt werden, der die Suchanfragen des Benutzers zuerst an eine herkömmliche Suchmaschine weiterleitet, deren Antwort aber nicht direkt an den Benutzer sendet, sondern an den im ersten Schritt entwickelten Framework, und deren Ausgabedaten (Extrahierte Entitäten mit den verlinkten Ontologien zusammen) an die Suchergebnisse anhängt, und mit den Ontologien angereicherte Ergebnisse an den Benutzer sendet.
+Die Arbeit umfasst drei große Abschnitte: 
+\begin{itemize}
+\item Zuerst soll ein Framework entwickelt werden, der die Extraktion und Verlinkung von Ontologien für deutschsprachige Webseiten ermöglicht. Die Webseiten werden dabei nicht im PlainText ins System eingegeben, sondern als HTML. Deswegen soll der Framework auch rohe Textdaten aus dem HTML extrahieren können. 
 
+\item Danach soll eine Bibliothek entwickelt werden, die dem Entwickler einfache API zur Anreicherung von Suchergebnissen zur Verfügung stellt. Der Entwickler soll idealerweise keine Wissen und Kenntnisse über Extraktion von Entitäten besitzen müssen.
+
+\item Es soll anschließend eine Benutzerevaluierung durchgeführt werden, um feststellen zu können, ob man aus den Suchergebnissen gewonnene Entitäten für den Benutzer tatsächlich relevant sind.
+\end{itemize}
+
+\paragraph{}
 Der Extraktionsframework soll auf Basis von Apache Stanbol entwickelt werden, der dem Entwickler eine API für die Manipulation mit Ontologien und für die Anreicherung von Textdaten zur Verfügung stellt. Als Wissendatenbank für die Ontologien soll deutsche Version von DBpedia verwendet werden. Der Proxyserver soll als eine Erweiterung des auf dem Lehrstuhl entwickelten Suchproxys implementiert werden.
 
 \paragraph{}
@@ -38,7 +46,6 @@ Im Rahmen dieser Arbeit sollen beide Methoden implementiert werden.
 \end{itemize}
 \end{enumerate}
 
-Die Implementiuerung eines Proxyservers umfasst folgende Schritte:
 
 %\section{Aufbau der Arbeit}
 %\label{sec:Aufbau der Arbeit}
