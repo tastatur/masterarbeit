@@ -2,7 +2,24 @@
 \label{sec:Implementierung}
 
 \section{Apache stanbol}
-Beschreibung von Stanbol. Schema aus der Präsentation. Was genau muss erweitert werden? Warum verwenden wir Stanbol überhaupt? Warum nicht AlchemyAPI? (der Grund ist - keine Anpassungsmöglichkeit/Quelltexte + das ist ein BlackBox - wir wissen nicht mal, wie genau die Entitäten dort extrahiert werden + Preis, denke ich).
+%Beschreibung von Stanbol. Schema aus der Präsentation. Was genau muss erweitert werden? Warum verwenden wir Stanbol überhaupt? Warum nicht AlchemyAPI? (der Grund ist - keine Anpassungsmöglichkeit/Quelltexte + das ist ein BlackBox - wir wissen nicht mal, wie genau die Entitäten dort extrahiert werden + Preis, denke ich).
+
+\paragraph{}
+Apache Stanbol \footnote{\url{http://stanbol.apache.org/}} ist ein modulares Framework für semantisches Contentmanagement. Es stellt dem Entwickler eine Plugin-API zur Verfügung, mit deren Hilfe neue Features wie Extraktion von Entitäten aus deutschen Texten leicht implementiert werden können. Die Liste von verfügbaren Modulen ist auf der Abbildung \ref{fig:komponenten} zusammengefasst.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{Bilder/komponenten.png}
+\caption{''Komponentendiagramm vom Stanbol''}
+\label{fig:komponenten}
+\end{figure}
+
+\paragraph{}
+Für die Anreicherung der Suchergebnissen mit aus dem text extrahierten Entitäten sind folgende Module eingesetzt worden:
+\begin{itemize}
+\item EntityHub - 
+\item Enhancer - 
+\end{itemize}
 
 \section{Extraktion von Entitäten}
 Kurze Einleitung, wie genau die Annotationen für die Entitäten erzeugt werden, unabhängig von dem benutzten Einsatz.
