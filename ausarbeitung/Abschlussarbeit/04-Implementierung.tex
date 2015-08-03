@@ -8,7 +8,21 @@ Beschreibung von Stanbol. Schema aus der Präsentation. Was genau muss erweitert
 Kurze Einleitung, wie genau die Annotationen für die Entitäten erzeugt werden, unabhängig von dem benutzten Einsatz.
 
 \subsection{StanfordNER} 
-Beschreibung der Implementierung des Einsatzes von StanfordNER. 
+%Beschreibung der Implementierung des Einsatzes von StanfordNER. 
+\paragraph{}
+Die erste Anreicherungskette wurde auf Basis von StanfordNER aufgebaut. Dieser Framework implementiert CRF-Einsatz zur Extraktion von Entitäten, und stellt ein Modell \footnote{\url{http://www.nlpado.de/~sebastian/software/ner_german.shtml}} für die deutsche Sprache zur Verfügung. Der Nachteil ist, dass es nur ein trainiertes Modell zur Verfügung stellt - das Korpus selbst, auf deren Basis man eigenes Modell trainieren könnte, stehen nicht zur Verfügung. Es stehen insgesamt zwei Modellen zur Verfügung:
+
+\begin{enumerate}
+\item HGC - Huge German Corpus-generalized classifier - dieses Modell wurde auf Texten aus Zeitungen trainiert.
+\item deWac - dieser Klassifikator wurde auf Texten aus Internet trainiert.
+\end{enumerate}
+
+\paragraph{}
+Dieses Framework ist auch für Vorverarbeitung - Zerlegung des Textes in einzelne Sätze und Zerlegung von Sätzen in einzelne Tokens - verantwortlich. Deswegen sind für den auf Stanford-NER basierten Engine nur zwei Engines notwendig:
+\begin{enumerate}
+\item Tika-Engine für Extraktion von rohen Textdaten aus HTML.
+\item Spracherkennungsmodul, mit deren Hilfe sichergestellt wird, dass die Analyse nur für deutsche Sprache gestartet wird.
+\end{enumerate}
 
 \subsection{OpenNLP}
 Beschreibung des OpenNLP-Einsatzes.
