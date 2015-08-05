@@ -17,8 +17,8 @@ Apache Stanbol \footnote{\url{http://stanbol.apache.org/}} ist ein modulares Fra
 \paragraph{}
 Für die Anreicherung der Suchergebnissen mit aus dem text extrahierten Entitäten sind folgende Module eingesetzt worden:
 \begin{itemize}
-\item EntityHub - 
-\item Enhancer - 
+\item Enhancer-Kette - Diese Komponente ist für die Anreicherung von Texten mit Annotationen verantwortlich. Da verschiedene Anreicherungseinsätze teilweise dieselbe Vorverarbeitungsschritte brauchen (z.B. egal ob ein englisches oder deutsches Text analysiert werden muss, zuerst soll auf jeden Fall rohes Text aus HTML extrahiert und die Sprache erkannt werden), wird der Vorgang der Textanreicherung in mehrere kleine Schritte geteilt, und als sogenannte \textit{Engines} implementiert. Jeder Engine soll im Prinzip nur eine kleine Unteraufgabe (nur Extraktion von Sätzen oder nur Verlinkung von Entitäten) ausführen, damit er leicht in verschiedenen Ketten eingesetzt werden könnte, aber es gibt auch Ausnahmen, wo ein Engine für mehrere Verarbeitungsschritte gleichzeitig verantwortlich ist, wie Stanford-NER-Engine, der sowohl für Extraktion von Sätzen und Tokens, als auch für Erkennung von Entitäten verantwortlich ist.
+\item EntityHub - Damit man später für die extrahierte Entitäten auch für den Benutzer interessante Informationen wie Geburtsdatum oder Beschreibung zur Verfügung haben könnte, müssen die Daten aus einer Wissendatenbank (z.B. aus DBpedia) geladen werden. Um den Vorgang zu beschleunigen und zu standardisieren gibt es die Möglichkeit, für eine gewünschte Wissendatenbank einen lokalen Index zu erzeugen. Dazu muss die Wissendatenbank nur den Dump von Daten als RDF zur Verfügung stellen, was im Fall von DBpedia auch der Fall ist. Nachdem die Daten indexiert und in den Entityhub geladen wurden kann man Anfragen an Entityhub stellen, um nach den Eigenschaften von Entitäten zu suchen.
 \end{itemize}
 
 \section{Extraktion von Entitäten}
