@@ -126,6 +126,8 @@ Während der Verlinkung von Entitäten wird für jede erkannte Entität eine Suc
 \paragraph{}
 Für die Verlinkung von Entitäten wird Engine NamedEntityTaggingEngine verwendet. EntityHub stellt dabei eine Suchschnitstelle zur Verfügung. Alle im Index gefundene Einträge werden nach Levenshtein-Distanz zum Text der Entität und nach Rank der Entität innerhalb EntityHub sortiert.
 
+\paragraph{}
+Um die für den Benutzer relevante Informationen (Eigenschaften von Entitäten) zur Verfügung stellen zu können, müssen diese Eigenschaften aus der Datenbank geladen werden. Dazu könnte man auch direkt auf die entsprechende Schnittstelle zugreifen (http://de.dbpedia.org/resource/ für DBpedia, zum Beispiel), so ein Vorgehen würde aber zeitaufwändig und ineffektiv sein. Deswegen soll auch für die Dereferinzierung EntityHub eingesetzt werden. Für diesen Zweck wird Engine \textit{EntityhubDereferenceEngine} eingesetzt, der für jede im Verlinkungsschritt gefundene Entität alle für den Link verfügbare Eigenschaften zu dem Anreicherungsergebnis hinzufügt.
 
 \paragraph{}
 Als Wissendatenbank für die Verlinkung und Dereferinzierung wird in dieser Arbeit lokaler Index von deutscher DBpedia verwendet.
