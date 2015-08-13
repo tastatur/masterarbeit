@@ -15,11 +15,19 @@ Apache Stanbol \footnote{\url{http://stanbol.apache.org/}} ist ein modulares Fra
 \end{figure}
 
 \paragraph{}
-Für die Anreicherung der Suchergebnissen mit aus dem text extrahierten Entitäten sind folgende Module eingesetzt worden:
-\begin{itemize}
-\item Enhancer-Kette - Diese Komponente ist für die Anreicherung von Texten mit Annotationen verantwortlich. Da verschiedene Anreicherungseinsätze teilweise dieselbe Vorverarbeitungsschritte brauchen (z.B. egal ob ein englisches oder deutsches Text analysiert werden muss, zuerst soll auf jeden Fall rohes Text aus HTML extrahiert und die Sprache erkannt werden), wird der Vorgang der Textanreicherung in mehrere kleine Schritte geteilt, und als sogenannte \textit{Engines} implementiert. Jeder Engine soll im Prinzip nur eine kleine Unteraufgabe (nur Extraktion von Sätzen oder nur Verlinkung von Entitäten) ausführen, damit er leicht in verschiedenen Ketten eingesetzt werden könnte, aber es gibt auch Ausnahmen, wo ein Engine für mehrere Verarbeitungsschritte gleichzeitig verantwortlich ist, wie Stanford-NER-Engine, der sowohl für Extraktion von Sätzen und Tokens, als auch für Erkennung von Entitäten verantwortlich ist.
-\item EntityHub - Damit man später für die extrahierte Entitäten auch für den Benutzer interessante Informationen wie Geburtsdatum oder Beschreibung zur Verfügung haben könnte, müssen die Daten aus einer Wissendatenbank (z.B. aus DBpedia) geladen werden. Um den Vorgang zu beschleunigen und zu standardisieren gibt es die Möglichkeit, für eine gewünschte Wissendatenbank einen lokalen Index zu erzeugen. Dazu muss die Wissendatenbank nur den Dump von Daten als RDF zur Verfügung stellen, was im Fall von DBpedia auch der Fall ist. Nachdem die Daten indexiert und in den Entityhub geladen wurden kann man Anfragen an Entityhub stellen, um nach den Eigenschaften von Entitäten zu suchen.
-\end{itemize}
+Die grundlegende Idee, die die Architektur von Stanbol prägt, heißt ``Pipelining`` - ein Fließband, das mehrere Textverarbeitungsschritte miteinander verbindet, und eine flexible Konfiguration von Kontentanreicherung ermöglicht. Jedes Element dieses Fließbandes wird ``Engine`` genannt. Von dem Blickwinkel der Architektur wird jedes Engine als selbstständiges BlackBox implementiert, der am Eingang den Text, der angereichert werden soll, mit den von anderen Engines hinzugefügten Annotationen zusammen, bekommt, und am Ausgang neue Annotationen liefert. 
+
+Die Engines werden in sogenannte Ketten zusammengebunden - der Ausgang von einem Engine wird mit dem Eingang von anderen verbunden, und so wird eine virtuelle Kette gebaut. Der erste Element in dieser Kette bekommt dabei als Eingang den Text von dem Benutzer, und der Ausgang des letztes Element wird zu dem Benutzer geschickt. 
+
+Auf der Abbildung \ref{fig:ENGINEPIPELINE} wird die Aufbau einer Engine-Kette noch einmal graphisch dargestellt.
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{Bilder/enchancer.png}
+\caption{''Graphische Darstellung eines generisches Pipelines''}
+\label{fig:ENGINEPIPELINE}
+\end{figure}
+
+Als Entwickler muss man aber gleich beachten, dass die interne Implementierung von Ketten diese Architektur leider nicht anschaulich abbildet. 
 
 \section{Extraktion von Entitäten}
 Kurze Einleitung, wie genau die Annotationen für die Entitäten erzeugt werden, unabhängig von dem benutzten Einsatz.
@@ -42,7 +50,22 @@ Dieses Framework ist auch für Vorverarbeitung - Zerlegung des Textes in einzeln
 \end{enumerate}
 
 \subsection{OpenNLP}
-Beschreibung des OpenNLP-Einsatzes.
+%Beschreibung des OpenNLP-Einsatzes.
+OpenNLP\footnote{\url{http://opennlp.apache.org/}} ist ein quelltextoffener Framework für maschinelle Sprachverarbeitung. Das Framework ist genau wie Stanbol modular aufgebaut, und stellt folgende Funktionalität zur Verfügung:
+
+\begin{itemize}
+\item Erkennung von Sätzen. Genau wie für die Extraktion von Entitäten wird für die Satzerkennung ein Maximum-Entropy-Modell verwendet, das vorher trainiert werden muss. Ein Modell für die deutsche Sprache, trainiert auf der Basis von TIGER-Korpus, der in nachfolgendem Kapitel beschrieben ist, ist aber bereits ein Teil des Frameworkes.
+\item Zerlegung von Sätzen in Tokens:
+\begin{itemize}
+\item Die Zerlegung ohne Modell, nur anhand in dem Text vorhandenen Leerzeichen erfolgen. Diese Methode soll aber nicht verwendet werden, da die Fehlerwahrscheinlichkeit zu groß ist.
+\item Es kann ein ME-Modell verwendet werden, um Tokens zu erkennen. Der Nachteil dieser Methode ist, dass das Modell zuerst trainiert werden soll, wozu ein Korpus gebraucht wird.
+\end{itemize}
+\item POS-Tagging - die Erkennung und Annotierung von Wortarten - während dieses Vorgangs wird jedem Token eine entsprechende Wortart zugeordnet.
+\item Erkennung von Entitäten.
+\end{itemize}
+
+\paragraph{}
+Dank seiner modularer Struktur lässt sich dieses Framework leicht in den Anreicherung-Pipeline von Stanbol integrieren.
 
 \subsection{Training von Modellen}
 Wie genau werden die Modellen für OpenNLP trainiert?

@@ -1,0 +1,8 @@
+
+@startuml
+(*) -->[Hier wird der vom Benutzer/Entwickler vorgegebener Text zum Eingang des ersten Engine in der Kette weitergeleitet] "Das erste Engine"
+-right-> "Engine2" 
+-right-> "..." 
+-right-> "Das letzte Engine"
+-->[Die Annotationen werden an den Benutzer gesendet] (*)
+@enduml
