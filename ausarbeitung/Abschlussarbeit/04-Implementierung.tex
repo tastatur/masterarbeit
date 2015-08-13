@@ -68,9 +68,13 @@ Der Korpus ist wie folgt aufgebaut:
 Der Nachteil dieses Korpuses besteht darin, dass es zwischen verschiedenen Typen von Entitäten nicht unterschieden wird, und die alle den Typ \textit{NE} haben.
 
 \paragraph{}
-Um ein MaximumEntropy-Modell mithilfe von OpenNLP auf Basis von TIGER-Korpus aufbauen zu können, muss der Korpus zuerst ins OpenNLP-Format umgewandelt werden. Der Ausschnitt aus dem TIGER-Korpus im OpenNLP-Format findet man in der Auflistung \ref{lst:TIGEROPENBEISPIEL}.
+Um ein MaximumEntropy-Modell mithilfe von OpenNLP auf Basis von TIGER-Korpus aufbauen zu können, muss der Korpus zuerst ins OpenNLP-Format umgewandelt werden. Danach kann schließlich ein NE-Modell trainiert werden. Der Ausschnitt aus dem TIGER-Korpus im OpenNLP-Format findet man in der Auflistung \ref{lst:TIGEROPENBEISPIEL}.
 
 \lstinputlisting[captionpos=b,label={lst:TIGEROPENBEISPIEL},caption={Ausschnitt aus dem TIGER-Korpus im OpenNLP-Format.}]{Listings/tiger-opennlp.txt}
+
+\paragraph{}
+Die Logik, die für die Umwandlung von Tiger Korpuseinträgen in OpenNLP-Format verantwortlich ist, sind in der Auflistung \ref{lst:LOGICOFCONVERTER} zu sehen.
+\lstinputlisting[captionpos=b,label={lst:LOGICOFCONVERTER},caption={Ausschnitt aus den Quelltexten des Konverters, der die Logik der Umwandlung beschreibt}]{Listings/tiger-to-onlp.java}
 
 \subsubsection{Wikipedia-basiertes Korpus}
 \paragraph{}
