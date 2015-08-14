@@ -27,7 +27,14 @@ Auf der Abbildung \ref{fig:ENGINEPIPELINE} wird die Aufbau einer Engine-Kette no
 \label{fig:ENGINEPIPELINE}
 \end{figure}
 
-Als Entwickler muss man aber gleich beachten, dass die interne Implementierung von Ketten diese Architektur leider nicht anschaulich abbildet. 
+Als Entwickler muss man aber gleich beachten, dass die interne Implementierung von Ketten diese Architektur leider nicht anschaulich abbildet. Wie es auf der Abbildung \ref{fig:REALPIPELINE} zu sehen ist, gibt es intern kein Pipeline - stattdessen wird es für jeden Text, der angereichert werden soll, eine Instanz der Data-Klasse ``ContentItem`` erzeugt, die zwischen allen Engines der Kette geteilt wird. Die Implementierung eines Engines hat technisch gesehen weder Ein- noch Ausgang, und benutzt diese Instanz von ``ContentItem``, um die Informationen mit anderen Engines auszutauschen. Die Reihenfolge von Elementen in der Engine-Kette bestimmt deswegen eigentlich nicht, wie die Ein- und Ausgänge von Engines verbunden werden soll, sondern die Reihenfolge, in der die ausgeführt werden müssen.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{Bilder/realarch.png}
+\caption{''Interne Implementierung einer Engine-Kette''}
+\label{fig:REALPIPELINE}
+\end{figure}
 
 \section{Extraktion von Entitäten}
 Kurze Einleitung, wie genau die Annotationen für die Entitäten erzeugt werden, unabhängig von dem benutzten Einsatz.

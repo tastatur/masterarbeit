@@ -1,0 +1,10 @@
+@startuml
+interface "Text, der angereichert werden soll" as Text
+interface "Angereicherter Text" as out
+
+[Engine1] <--> ContentItem
+[Engine2] <--> ContentItem
+[Engine3] <--> ContentItem
+Text --> ContentItem
+ContentItem --> out
+@enduml
