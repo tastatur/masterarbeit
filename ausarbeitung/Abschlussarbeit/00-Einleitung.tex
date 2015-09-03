@@ -3,23 +3,23 @@
 \section{Motivation}
 \label{sec:Motivation}
 \paragraph{}
-Wenn man im Web nach einem Begriff sucht, kann die Suchanfrage nicht immer sofort genau definiert werden, besonders wenn das Thema der Suche dem Benutzer nicht bekannt ist. Um eine korrekte Anfrage aufzubauen, die die gewünschte Ergebnisse liefert, braucht man mehr Iterationen - mit jeder Iteration wird die Anfrage präzisiert und verbessert. Da moderne Suchmaschinen allerdings keine strukturierte Informationen über die Suchergebnisse, und auf der Suchergebnisseiten vorhandene Entitäten liefern, wird der Benutzer gezwungen, sich jeden gefundenen Dokument manuell anzuschauen, um die Anregungen für neue Suchiterationen zu gewinnen, was als Folge eine niedrige Arbeitsleistung hat.
+Wenn man im Web nach einem Begriff sucht, kann die Suchanfrage nicht immer sofort genau definiert werden, besonders wenn das Thema der Suche dem Benutzer nicht bekannt ist. Um eine korrekte Anfrage aufzubauen, die die gewünschte Ergebnisse liefert, braucht man mehr Iterationen - mit jeder Iteration wird die Anfrage präzisiert und verbessert. Da moderne Suchmaschinen allerdings keine strukturierte Informationen über die Suchergebnisse, und auf der Suchergebnisseiten vorhandene Entitäten liefern, wird der Benutzer gezwungen, sich jedes Dokument manuell anzuschauen, um die Anregungen für neue Suchiterationen zu gewinnen, was als Folge eine niedrige Arbeitsleistung hat.
 
 \paragraph{}
-Um den Benutzer bei der Verfeinerung seiner Suchanfragen zu unterstützen, wäre die Erkennung und Extraktion von Entitäten aus der Ergebnissdaten sehr hilfreich. Der Benutzer soll von der Suchmaschine die Ontologien mit den Ergebnisseiten zusammen bekommen, dann kann es anhand der Informationen über extrahierte Entitäten, wie z.B. die Klasse der Entität, ihre Beschreibung und Verlinkungen zu anderen Entitäten, entschieden werden, wie genau die Suchanfrage angepasst werden muss, um erwünschte Daten zu finden.
+Um den Benutzer bei der Verfeinerung seiner Suchanfragen zu unterstützen, wäre die Erkennung und Extraktion von Entitäten aus der Ergebnisdaten sehr hilfreich. Der Benutzer soll von der Suchmaschine die Ontologien mit den Ergebnisseiten zusammen bekommen, dann kann es anhand der Informationen über extrahierte Entitäten, wie z.B. die Klasse der Entität, ihre Beschreibung und Verlinkungen zu anderen Entitäten, entschieden werden, wie genau die Suchanfrage angepasst werden muss, um erwünschte Daten zu finden.
 
 \paragraph{}
-Dabei soll beachtet werden, dass jede natürliche Sprache einen besonderen an dieser Sprache angepassten Verfahren braucht, um erkennen zu können, welche Entitäten in dem Text vorkommen. Für englische Sprache existieren schon jetzt Verfahren und Modellen, mit deren Hilfe die englischsprachige Entitäten extrahiert werden können. Allerdings fällt das Modell für die deutsche Sprache, deswegen findet die Extraktion von deutschsprachigen Entitäten zur Zeit nicht statt.
+Dabei soll beachtet werden, dass jede natürliche Sprache ein besonderes an dieser Sprache angepasstes Verfahren braucht, um erkennen zu können, welche Entitäten in dem Text vorkommen. Für englische Sprache existieren schon jetzt Verfahren und Modellen, mit deren Hilfe die englischsprachige Entitäten extrahiert werden können. Allerdings fällt das Modell für die deutsche Sprache, deswegen findet die Extraktion von deutschsprachigen Entitäten zurzeit nicht statt.
 
 \paragraph{}
-Eine reine Extraktion von Entitäten ist aber nicht ausreichend - der Extraktionschritt sagt nur, welche Tokens in dem Text möglicherweise eine Entität darstellen, die Informationen über die Entität - die dazugehörige Ontologie - fehlt nach dem Extraktionschritt noch. Um die entsprechende Ontologien mit den extrahierten Entitäten verlinken zu können, muss noch EntityLinking durchgeführt werden. Dafür wird für jede extrahierte Entität eine Suche in einer Wissendatenbank durchgeführt. Eine Wissendatenbank ist eine Datenbank, wo Ontologien für diverse Entitäten gespeichert werden. Für die Websuche kann DBpedia als Wissenbasis verwendet werden, allerdings für weniger generische Aufgaben, wie z.B. ein Suchsystem für Ärzte, wo der Suchdomain klar definiert ist, können andere Datenbanken verwendet werden.
+Eine reine Extraktion von Entitäten ist aber nicht ausreichend - der Extraktionischritt sagt nur, welche Tokens in dem Text möglicherweise eine Entität darstellen, die Informationen über die Entität - die dazugehörige Ontologien - fehlt nach dem Extraktionschritt noch. Um die entsprechende Ontologien mit den extrahierten Entitäten verlinken zu können, muss noch Entity Linking durchgeführt werden. Dafür wird für jede extrahierte Entität eine Suche in einer Wissendatenbank durchgeführt. Eine Wissendatenbank ist eine Datenbank, wo Ontologien für diverse Entitäten gespeichert werden. Für die Websuche kann DBpedia als Wissenbasis verwendet werden, allerdings für weniger generische Aufgaben, wie z.B. ein Suchsystem für Ärzte, wo der Suchdomain klar definiert ist, können andere Datenbanken verwendet werden.
 
 \section{Aufgabenstellung}
 \label{sec:Aufgabenstellung}
 \paragraph{}
 Die Arbeit umfasst drei große Abschnitte: 
 \begin{itemize}
-\item Zuerst soll ein Framework entwickelt werden, der die Extraktion und Verlinkung von Ontologien für deutschsprachige Webseiten ermöglicht. Die Webseiten werden dabei nicht im PlainText ins System eingegeben, sondern als HTML. Deswegen soll der Framework auch rohe Textdaten aus dem HTML extrahieren können. 
+\item Zuerst soll ein Framework entwickelt werden, der die Extraktion und Verlinkung von Ontologien für deutschsprachige Webseiten ermöglicht. Die Webseiten werden dabei nicht im Plaintext ins System eingegeben, sondern als HTML. Deswegen soll der Framework auch rohe Textdaten aus dem HTML extrahieren können. 
 
 \item Danach soll eine Bibliothek entwickelt werden, die dem Entwickler einfache API zur Anreicherung von Suchergebnissen zur Verfügung stellt. Der Entwickler soll idealerweise keine Wissen und Kenntnisse über Extraktion von Entitäten besitzen müssen.
 
@@ -27,25 +27,22 @@ Die Arbeit umfasst drei große Abschnitte:
 \end{itemize}
 
 \paragraph{}
-Der Extraktionsframework soll auf Basis von Apache Stanbol entwickelt werden, der dem Entwickler eine API für die Manipulation mit Ontologien und für die Anreicherung von Textdaten zur Verfügung stellt. Als Wissendatenbank für die Ontologien soll deutsche Version von DBpedia verwendet werden. Der Proxyserver soll als eine Erweiterung des auf dem Lehrstuhl entwickelten Suchproxys implementiert werden.
+Das Extraktionsframework soll auf Basis von Apache Stanbol entwickelt werden, das dem Entwickler eine API für die Manipulation von Ontologien und für die Anreicherung von Textdaten zur Verfügung stellt. Als Wissendatenbank für die Ontologien soll deutsche Version von DBpedia verwendet werden.
 
 \paragraph{}
 Die Entwicklung der Stanbol-Erweiterung umfasst folgende Schritte:
 \begin{enumerate}
-\item Zuerst soll ein Plugin implementiert werden (sogenannter Enhancer), der markiert, welche Tokens möglicherweise einer Entität entsprechen. Dabei wird für jede Mögliche Entität eine grobe Typeinschätzung gemacht (ob das eine Person, eine Organisation, eine geographische Entität oder MISC - eine Entität, die zu keinem anderen Typ passt, ist). Die erkannte Entitäten werden mit bestimmten Annotationen versehen, die für spätere Bearbeitungsschritte benötigt werden. Die Erkennung von Entitäten kann grundsätzlich auf zwei unterschiedliche Art und Weisen implementiert werden:  
+\item Zuerst soll ein Plugin implementiert werden (sogenannter Enhancer), der markiert, welche Tokens möglicherweise einer Entität entsprechen. Dabei wird für jede Mögliche Entität eine grobe Typeinschätzung gemacht (ob das eine Person, eine Organisation, eine geografische Entität oder eine Entität, die zu keinem anderen Typ passt, ist). Die erkannte Entitäten werden mit bestimmten Annotationen versehen, die für spätere Bearbeitungsschritte benötigt werden. Die Erkennung von Entitäten kann grundsätzlich auf zwei unterschiedliche Arten und Weisen implementiert werden:  
 \begin{itemize}
-\item Es kann ein existierendes Modell für die Erkennung von Entitäten in deutschen Texten benutzt werden (wie Stanford NER).
-\item Man kann eigenes Modell mithilfe von OpenNLP trainieren, auf Basis von einem mit Annotationen versehenen Trainingkorpora.
+\item Es kann ein existierendes Modell für die Erkennung von Entitäten in deutschen Texten benutzt werden (wie deutsches Modell aus dem Stanford NER Framework).
+\item Man kann ein eigenes Modell mithilfe von OpenNLP oder MITIE trainieren, auf Basis von einem mit Annotationen versehenen Trainingkorpora.
 \end{itemize}
 Im Rahmen dieser Arbeit sollen beide Methoden implementiert werden.
 
-\item Danach soll die Erweiterung, die die gefundene Entitäten mit passenden Ontologien verlinkt, implementiert werden. Hier können zwei Lösungen eingesetzt werden:
-\begin{itemize}
-\item Man kann den in Stanbol eingebetteten Plugin verwenden, der den internen Solr-Index verwendet, um die Ontologien mit den entsprechenden Entitäten zu verliken. In diesem Fall muss man einen eigenen Index für deutsche DBpedia aufbauen, und den an den Stanbol anbinden.
-\item Man kann auch eine eigene Erweiterung schreiben, die SPARQL-Anfragen verwendet, um die Ontologien aus Online-Version von DBpedia lädt.
-\end{itemize}
-\end{enumerate}
+\item Danach soll die Erweiterung, die die gefundene Entitäten mit passenden Ontologien verlinkt, implementiert werden. Dafür kann man den in Stanbol eingebetteten Plugin verwenden, der den internen Solr-Index verwendet, um die Ontologien mit den entsprechenden Entitäten zu verliken. In diesem Fall muss man einen eigenen Index für deutsche DBpedia aufbauen, und den an den Stanbol anbinden.
 
+\item Anschließend sollen alle  Entitäten, die für den Benutzer ``unwichtig`` sind, rausgefiltert werden, damit der Benutzer nur die Ontologien bekommt, die auch relevant sind. Ob eine Entität rausgefiltert werden soll wird anhand ihres Gewichtes entschieden.
+\end{enumerate}
 
 %\section{Aufbau der Arbeit}
 %\label{sec:Aufbau der Arbeit}
