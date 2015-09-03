@@ -15,11 +15,11 @@ Apache Stanbol \footnote{\url{http://stanbol.apache.org/}} ist ein modulares Fra
 \end{figure}
 
 \paragraph{}
-Die grundlegende Idee, die die Architektur von Stanbol prägt, heißt ``Pipelining`` - ein Fließband, das mehrere Textverarbeitungsschritte miteinander verbindet, und eine flexible Konfiguration von Kontentanreicherung ermöglicht. Jedes Element dieses Fließbandes wird ``Engine`` genannt. Von dem Blickwinkel der Architektur wird jedes Engine als selbstständiges BlackBox implementiert, der am Eingang den Text, der angereichert werden soll, mit den von anderen Engines hinzugefügten Annotationen zusammen, bekommt, und am Ausgang neue Annotationen liefert. 
+Die grundlegende Idee, die die Architektur von Stanbol prägt, heißt ,,Pipelining`` - ein Fließband, das mehrere Textverarbeitungsschritte miteinander verknüpft, und eine flexible Konfiguration von Kontentanreicherung ermöglicht. Jedes Element dieses Fließbandes wird ,,Engine`` genannt. Von dem Blickwinkel der Architektur wird jedes Engine als selbstständiges BlackBox implementiert, der am Eingang den Text, der angereichert werden soll, mit den von anderen Engines hinzugefügten Annotationen zusammen, bekommt, und am Ausgang neue Annotationen liefert. 
 
-Die Engines werden in sogenannte Ketten zusammengebunden - der Ausgang von einem Engine wird mit dem Eingang von anderen verbunden, und so wird eine virtuelle Kette gebaut. Der erste Element in dieser Kette bekommt dabei als Eingang den Text von dem Benutzer, und der Ausgang des letztes Element wird zu dem Benutzer geschickt. 
+Die Engines werden in sogenannte Ketten zusammengebunden - der Ausgang von einem Engine wird mit dem Eingang von einem anderen Engine verbunden, und so wird eine virtuelle Kette gebaut. Das erste Element in dieser Kette bekommt dabei als Eingang den Text von dem Benutzer, und der Ausgang des letztes Element wird zu dem Benutzer geschickt. 
 
-Auf der Abbildung \ref{fig:ENGINEPIPELINE} wird die Aufbau einer Engine-Kette noch einmal graphisch dargestellt.
+Auf der Abbildung \ref{fig:ENGINEPIPELINE} wird die Aufbau einer Engine-Kette noch einmal grafisch dargestellt.
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{Bilder/enchancer.png}
@@ -27,7 +27,7 @@ Auf der Abbildung \ref{fig:ENGINEPIPELINE} wird die Aufbau einer Engine-Kette no
 \label{fig:ENGINEPIPELINE}
 \end{figure}
 
-Als Entwickler muss man aber gleich beachten, dass die interne Implementierung von Ketten diese Architektur leider nicht anschaulich abbildet. Wie es auf der Abbildung \ref{fig:REALPIPELINE} zu sehen ist, gibt es intern kein Pipeline - stattdessen wird es für jeden Text, der angereichert werden soll, eine Instanz der Data-Klasse ``ContentItem`` erzeugt, die zwischen allen Engines der Kette geteilt wird. Die Implementierung eines Engines hat technisch gesehen weder Ein- noch Ausgang, und benutzt diese Instanz von ``ContentItem``, um die Informationen mit anderen Engines auszutauschen. Die Reihenfolge von Elementen in der Engine-Kette bestimmt deswegen eigentlich nicht, wie die Ein- und Ausgänge von Engines verbunden werden soll, sondern die Reihenfolge, in der die ausgeführt werden müssen.
+Als Entwickler muss man aber gleich beachten, dass die interne Implementierung von Ketten diese Architektur leider nicht anschaulich abbildet. Wie es auf der Abbildung \ref{fig:REALPIPELINE} zu sehen ist, gibt es intern kein Pipeline - stattdessen wird es für jeden Text, der angereichert werden soll, eine Instanz der Data-Klasse ,,ContentItem`` erzeugt, die zwischen allen Engines der Kette geteilt wird. Die Implementierung eines Engines hat technisch gesehen weder Ein- noch Ausgang, und benutzt diese Instanz von ,,ContentItem``, um die Informationen mit anderen Engines auszutauschen. Die Reihenfolge von Elementen in der Engine-Kette bestimmt deswegen eigentlich nicht, wie die Ein- und Ausgänge von Engines verbunden werden soll, sondern die Reihenfolge, in der die ausgeführt werden müssen.
 
 \begin{figure}
 \centering
@@ -42,12 +42,14 @@ Kurze Einleitung, wie genau die Annotationen für die Entitäten erzeugt werden,
 \subsection{StanfordNER} 
 %Beschreibung der Implementierung des Einsatzes von StanfordNER. 
 \paragraph{}
-Die erste Anreicherungskette wurde auf Basis von StanfordNER aufgebaut. Dieser Framework implementiert CRF-Einsatz zur Extraktion von Entitäten, und stellt ein Modell \footnote{\url{http://www.nlpado.de/~sebastian/software/ner_german.shtml}} für die deutsche Sprache zur Verfügung. Der Nachteil ist, dass es nur ein trainiertes Modell zur Verfügung stellt - das Korpus selbst, auf deren Basis man eigenes Modell trainieren könnte, stehen nicht zur Verfügung. Es stehen insgesamt zwei Modellen zur Verfügung:
+Die erste Anreicherungskette wurde auf Basis von StanfordNER aufgebaut. Dieses Framework implementiert CRF-Einsatz zur Extraktion von Entitäten und stellt ein Modell \footnote{\url{http://www.nlpado.de/~sebastian/software/ner_german.shtml}} für die deutsche Sprache zur Verfügung. Der Nachteil ist, dass es nur ein trainiertes Modell zur Verfügung stellt - das Korpus selbst, auf deren Basis man eigenes Modell trainieren könnte, stehen nicht zur Verfügung. Es stehen insgesamt zwei Modellen zur Verfügung:
 
 \begin{enumerate}
 \item HGC - Huge German Corpus-generalized classifier - dieses Modell wurde auf Texten aus Zeitungen trainiert.
 \item deWac - dieser Klassifikator wurde auf Texten aus Internet trainiert.
 \end{enumerate}
+
+Dieses Framework stellt außerdem die Möglichkeit zur Verknüpfung von mehreren Modelle miteinander zur Verfügung. Deswegen kann es im Rahmen dieser Arbeit neben dem Austesten von oben genannten Modellen auch ein kombiniertes Modell getestet werden - es ist möglich, dass ein kombiniertes Modell mehr Entitäten im Text finden könnte, andererseits steigt dabei die Wahrscheinlichkeit von False-Positive.
 
 \paragraph{}
 Dieses Framework ist auch für Vorverarbeitung - Zerlegung des Textes in einzelne Sätze und Zerlegung von Sätzen in einzelne Tokens - verantwortlich. Deswegen sind für den auf Stanford-NER basierten Engine nur zwei Engines notwendig:
@@ -58,7 +60,7 @@ Dieses Framework ist auch für Vorverarbeitung - Zerlegung des Textes in einzeln
 
 \subsection{OpenNLP}
 %Beschreibung des OpenNLP-Einsatzes.
-OpenNLP\footnote{\url{http://opennlp.apache.org/}} ist ein quelltextoffener Framework für maschinelle Sprachverarbeitung. Das Framework ist genau wie Stanbol modular aufgebaut, und stellt folgende Funktionalität zur Verfügung:
+OpenNLP\footnote{\url{http://opennlp.apache.org/}} ist ein quelltextoffenes Framework für maschinelle Sprachverarbeitung. Das Framework ist genau wie Stanbol modular aufgebaut, und stellt folgende Funktionalität zur Verfügung:
 
 \begin{itemize}
 \item Erkennung von Sätzen. Genau wie für die Extraktion von Entitäten wird für die Satzerkennung ein Maximum-Entropy-Modell verwendet, das vorher trainiert werden muss. Ein Modell für die deutsche Sprache, trainiert auf der Basis von TIGER-Korpus, der in nachfolgendem Kapitel beschrieben ist, ist aber bereits ein Teil des Frameworkes.
@@ -75,7 +77,22 @@ OpenNLP\footnote{\url{http://opennlp.apache.org/}} ist ein quelltextoffener Fram
 Dank seiner modularer Struktur lässt sich dieses Framework leicht in den Anreicherung-Pipeline von Stanbol integrieren.
 
 \subsection{Training von Modellen}
-Wie genau werden die Modellen für OpenNLP trainiert?
+
+\subsection{Vor- und Nachteile}
+Wie wird ein Modell für OpenNLP trainiert?
+
+\subsection{MITIE}
+Was ist MITIE? Kurze Einleitung
+
+\subsection{Training von Modellen}
+Wie wird ein Modell für MITIE trainiert?
+
+\subsection{Vor- und Nachteile}
+
+\subsection{Deutcshe Korpora}
+Um ein eigenes Modell für die Erkennung von Entitäten aufbauen zu können, wird ein sogenanntes Korpus gebraucht. Ein Korpus ist eine Sammlung von Texten, die entweder von Linguisten (manuell annotierete Korpora) oder automatisch (maschinell erzeugte Korpora) mit Annotationen versehen wurden. Die Annotationen können im Prinzip beliebig sein (z.B. POS-Tags sind auch Annotationen), aber im Rahmen der Erkennung von Entitäten braucht man ein Korpus, wo die Wörter, die Entitäten darstellen, markiert sind.
+
+Damit das Training eines Modells vereinfacht werden könnte, werden für beide Einsätze (OpenNLP und MITIE) das gleiche Korpusformat verwendet, und alle Korpora werden in dieses Format umgewandelt.
 
 \subsubsection{TIGER Korpus}
 \paragraph{}
