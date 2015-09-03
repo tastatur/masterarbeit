@@ -76,18 +76,23 @@ OpenNLP\footnote{\url{http://opennlp.apache.org/}} ist ein quelltextoffenes Fram
 \paragraph{}
 Dank seiner modularer Struktur lässt sich dieses Framework leicht in den Anreicherung-Pipeline von Stanbol integrieren.
 
-\subsection{Training von Modellen}
-
-\subsection{Vor- und Nachteile}
-Wie wird ein Modell für OpenNLP trainiert?
+\paragraph{Vor- und Nachteile}
 
 \subsection{MITIE}
-Was ist MITIE? Kurze Einleitung
+Was ist MITIE?
 
-\subsection{Training von Modellen}
-Wie wird ein Modell für MITIE trainiert?
-
-\subsection{Vor- und Nachteile}
+\paragraph{Vor- und Nachteile}
+\begin{itemize}
+\item Vorteile des MITIE-Einsatzes:
+\begin{enumerate}
+\item Höhere Qualität der Extraktion, im Vergleich zu Maximum Entropy oder CRF.
+\end{enumerate}
+\item Nachteile des MITIE-Einsatzes:
+\begin{enumerate}
+\item Die Größe des Modells ist im Vergleich zu ME oder CRF-Modellen relativ hoch(323 Mb im Vergleich zu 3 Mb für OpenNLP-Modell)
+\item Das Training eines SVM-Modells kann bis auf mehrere Tage dauern.
+\end{enumerate}
+\end{itemize}
 
 \subsection{Deutcshe Korpora}
 Um ein eigenes Modell für die Erkennung von Entitäten aufbauen zu können, wird ein sogenanntes Korpus gebraucht. Ein Korpus ist eine Sammlung von Texten, die entweder von Linguisten (manuell annotierete Korpora) oder automatisch (maschinell erzeugte Korpora) mit Annotationen versehen wurden. Die Annotationen können im Prinzip beliebig sein (z.B. POS-Tags sind auch Annotationen), aber im Rahmen der Erkennung von Entitäten braucht man ein Korpus, wo die Wörter, die Entitäten darstellen, markiert sind.
@@ -175,13 +180,18 @@ Nachdem die Entitätserkennung durchgeführt wurde, hat man die Informationen da
 Während der Verlinkung von Entitäten wird für jede erkannte Entität eine Suche nach dieser Entität in einer oder mehreren Wissendatenbanken durchgeführt. Um den Vorgang höchstmöglich zu beschleunigen, soll lokaler Wissendatenbankindex (EntityHub in Terminologie von Stanbol) eingesetzt werden. Dieser Index soll vorher aufgebaut werden, und zumindest die Namen der Entitäten beinhalten. Für spätere Schritte ist aber empfehlenswert, auch diverse Eigenschaften von Entitäten zum Index hinzuzufügen, damit Dereferinzierungschritt auch so schnell wie möglich ausgeführt wird. Es muss aber beachtet werden, dass Index von realen Wissendatenbanken wie DBpedia mehr als 20 Gigabytes wiegen kann, und die Aufbau kann mehrere Tagen in Anspruch nehmen.
 
 \paragraph{}
-Für die Verlinkung von Entitäten wird Engine NamedEntityTaggingEngine verwendet. EntityHub stellt dabei eine Suchschnitstelle zur Verfügung. Alle im Index gefundene Einträge werden nach Levenshtein-Distanz zum Text der Entität und nach Rank der Entität innerhalb EntityHub sortiert.
+Für die Verlinkung von Entitäten wird Engine ,,EntityLinkingEngine`` verwendet. 
+
+\paragraph{}
+Bei der Verlinkung von Entitäten kommt es oft vor, dass die Entitäten, die gefunden wurden, eigentlich nur Verlinkungen auf andere Entitäten, und keine selbstständige Objekten sind - z.B. die Entität ,,CDU`` ist nur ein Link auf ,,Christlich_Demokratische_Union_Deutschlands`` ist. Solche Entitäten werden während der Verlinkung anhand der Eigenschaft ,,dbo:wikiPageWikiLink`` erkannt, und anstatt dieser Zwischenentität wird als Ergebnis der Verlinkung die referenzierende Entität verwendet.
 
 \paragraph{}
 Um die für den Benutzer relevante Informationen (Eigenschaften von Entitäten) zur Verfügung stellen zu können, müssen diese Eigenschaften aus der Datenbank geladen werden. Dazu könnte man auch direkt auf die entsprechende Schnittstelle zugreifen (http://de.dbpedia.org/resource/ für DBpedia, zum Beispiel), so ein Vorgehen würde aber zeitaufwändig und ineffektiv sein. Deswegen soll auch für die Dereferinzierung EntityHub eingesetzt werden. Für diesen Zweck wird Engine \textit{EntityhubDereferenceEngine} eingesetzt, der für jede im Verlinkungsschritt gefundene Entität alle für den Link verfügbare Eigenschaften zu dem Anreicherungsergebnis hinzufügt.
 
 \paragraph{}
 Als Wissendatenbank für die Verlinkung und Dereferinzierung wird in dieser Arbeit lokaler Index von deutscher DBpedia verwendet.
+
+\subsection{Rausfielterung von für den Benutzer irrelevanten Entitäten}
 
 \section{API für Anreicherung von Suchergebnissen}
 \paragraph{}
