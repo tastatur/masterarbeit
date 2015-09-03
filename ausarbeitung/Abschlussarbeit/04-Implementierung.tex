@@ -86,11 +86,17 @@ Was ist MITIE?
 \item Vorteile des MITIE-Einsatzes:
 \begin{enumerate}
 \item Höhere Qualität der Extraktion, im Vergleich zu Maximum Entropy oder CRF.
+\item Die Geschwindigkeit der Extraktion ist nicht viel kleiner, als die bei anderen Einsätzen.
 \end{enumerate}
 \item Nachteile des MITIE-Einsatzes:
 \begin{enumerate}
-\item Die Größe des Modells ist im Vergleich zu ME oder CRF-Modellen relativ hoch(323 Mb im Vergleich zu 3 Mb für OpenNLP-Modell)
+\item Die Größe des Modells ist im Vergleich zu ME oder CRF-Modellen relativ hoch(323 Mb im Vergleich zu 3 Mb für ein OpenNLP-Modell)
 \item Das Training eines SVM-Modells kann bis auf mehrere Tage dauern.
+\item Ein rein technischer Nachteil - die MITIE-Implementierung ist in C++ geschrieben und ist außerdem nicht thread-sicher, was zu folgenden Einschränkungen führt:
+\begin{enumerate}
+\item Der Aufruf des Engines muss mit einem Lock gesichert werden, was die Geschwindigkeit bei mehreren gleichzeitigen Benutzer beeinträchtigt.
+\item Jeder Fehler in dem Engine kann potentiell zum Absturz der ganzen JVM-Software führen.
+\end{enumerate}
 \end{enumerate}
 \end{itemize}
 
@@ -183,7 +189,7 @@ Während der Verlinkung von Entitäten wird für jede erkannte Entität eine Suc
 Für die Verlinkung von Entitäten wird Engine ,,EntityLinkingEngine`` verwendet. 
 
 \paragraph{}
-Bei der Verlinkung von Entitäten kommt es oft vor, dass die Entitäten, die gefunden wurden, eigentlich nur Verlinkungen auf andere Entitäten, und keine selbstständige Objekten sind - z.B. die Entität ,,CDU`` ist nur ein Link auf ,,Christlich_Demokratische_Union_Deutschlands`` ist. Solche Entitäten werden während der Verlinkung anhand der Eigenschaft ,,dbo:wikiPageWikiLink`` erkannt, und anstatt dieser Zwischenentität wird als Ergebnis der Verlinkung die referenzierende Entität verwendet.
+Bei der Verlinkung von Entitäten kommt es oft vor, dass die Entitäten, die gefunden wurden, eigentlich nur Verlinkungen auf andere Entitäten, und keine selbstständige Objekten sind - z.B. die Entität ,,CDU`` ist nur ein Link auf ,,Christlich Demokratische Union Deutschlands`` ist. Solche Entitäten werden während der Verlinkung anhand der Eigenschaft ,,dbo:wikiPageWikiLink`` erkannt, und anstatt dieser Zwischenentität wird als Ergebnis der Verlinkung die referenzierende Entität verwendet.
 
 \paragraph{}
 Um die für den Benutzer relevante Informationen (Eigenschaften von Entitäten) zur Verfügung stellen zu können, müssen diese Eigenschaften aus der Datenbank geladen werden. Dazu könnte man auch direkt auf die entsprechende Schnittstelle zugreifen (http://de.dbpedia.org/resource/ für DBpedia, zum Beispiel), so ein Vorgehen würde aber zeitaufwändig und ineffektiv sein. Deswegen soll auch für die Dereferinzierung EntityHub eingesetzt werden. Für diesen Zweck wird Engine \textit{EntityhubDereferenceEngine} eingesetzt, der für jede im Verlinkungsschritt gefundene Entität alle für den Link verfügbare Eigenschaften zu dem Anreicherungsergebnis hinzufügt.
