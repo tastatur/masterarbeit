@@ -66,6 +66,16 @@ Damit so eine Hyperebene aufgebaut werden könnte, ist es wichtig, dass die Date
 
 Allerdings sind meiste Daten, mit denen man in der realen Welt arbeiten muss, nicht linear trennbar, und damit kann das SVM-Algorithmus nicht in seiner ursprünglichen Form verwendet werden. Allerdings gibt es eine Möglichkeit, mit einer Erweiterung von SVM-Einsatz auch nicht linear trennbare Daten zu klassifizieren. Dazu muss das ursprüngliche Eigenschaftensraum auf ein Raum höherer Dimension abgebildet werden, und zwar so, dass die Datenpunkte in neuem Raum linear trennbar wären\cite{Hearst:98}.
 
+Das Verfahren, das solche Abbildung ermöglicht, heißt ,,Kernel``, und ist in der Arbeit von Hsu\cite{hsu2003practical} beschrieben. Ein Kern ist eine Funktion 
+$K(x_i,x_j) = \phi(x_i)^T \phi(x_j)$, die den Punkt im ursprünglichen Raum $R^{n_1}$ auf ein Punkt im Raum $R^{n_2}$ abbildet, so dass $n_1 < n_2$ ist. In der Praxis sind laut Hsu\cite{hsu2003practical} folgende Kernfunktionen etabliert:
+\begin{enumerate}
+\item Lineares Kern: $K(x_i,x_j) = x_i^T x_j$
+\item Polynominales Kern: $K(x_i,x_j) = (\gamma x_i^T x_j + r)^d, \gamma > 0$
+\item Radiale Basisfunktion (RBF): $K(x_i,x_j) = exp(-\gamma \Vert x_i - x_j \Vert^2), \gamma > 0$
+\item Sigmoid : $K(x_i,x_j) = tanh(\gamma x_i^T x_j + r)$
+\end{enumerate}
+Die Variablen $\gamma$, $r$ und $d$ sind benutzerdefinierte Kernelparameter.
+
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth,angle=90]{Bilder/svm-nonlinear-issue.png}
