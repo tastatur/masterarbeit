@@ -66,6 +66,20 @@ Damit so eine Hyperebene aufgebaut werden könnte, ist es wichtig, dass die Date
 
 Allerdings sind meiste Daten, mit denen man in der realen Welt arbeiten muss, nicht linear trennbar, und damit kann das SVM-Algorithmus nicht in seiner ursprünglichen Form verwendet werden. Allerdings gibt es eine Möglichkeit, mit einer Erweiterung von SVM-Einsatz auch nicht linear trennbare Daten zu klassifizieren. Dazu muss das ursprüngliche Eigenschaftensraum auf ein Raum höherer Dimension abgebildet werden, und zwar so, dass die Datenpunkte in neuem Raum linear trennbar wären\cite{Hearst:98}.
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,angle=90]{Bilder/svm-nonlinear-issue.png}
+\caption{''SVM Algorithmus angewandt auf nicht linear trennbare Daten''}
+\label{fig:SVM-NONLINEAR-ISSUE}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,angle=90]{Bilder/svm-nonlinear-rbf.png}
+\caption{''SVM-Algorithmus mit einem RBF-Kern angewandt auf nicht linear trennbare Daten''}
+\label{fig:SVM-NONLINEAR-ISSUE}
+\end{figure}
+
 \subsection{Maximum Entropy based NER}
 %Was ist ME NER? Wo wird er verwendet? Welche Vor- und Nachteile hat dieser Einsatz im Vergleich zum CRF?
 \paragraph{}
