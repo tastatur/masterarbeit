@@ -32,6 +32,26 @@ Wie für jede andere Klassifizierungsaufgabe müssen für die Extraktion von Ent
 \item Numerische Eigenschaften wie die Länge des Wortes.
 \item Nominale Eigenschaften wie Präfix oder Suffix.
 \end{itemize}
+Zusätzlich dazu wurde von Hai\cite{chieu2002named} die Verteilung in lokale und globale Eigenschaften vorgeschlagen:
+
+\begin{enumerate}
+\item Globale Eigenschaften:
+\begin{enumerate}
+\item Personenpräfixe für bestimmtes Wort in anderen Sätzen des Dokumentes: z.B. wenn wir im Text zuerst die Tokens ,,Frau Sony`` treffen, und dann einfach ,,Sony``, dann soll angenommen werden, dass ,,Sony`` eine Entität mit dem Typ ,,Person`` ist.
+\item Abkürzungen: wenn in einem Satz mehr Wörter nacheinander groß geschrieben werden, wie z.B. ,,Deutsche Demokratische Republik``, dann wird in dem Text nach entsprechender Abkürzung gesucht: ,,DDR``, und wenn Abkürzung eine Entität ist, können auch alle entsprechende Tokens als eine Entität markiert werden.
+\end{enumerate}
+\item Lokale Eigenschaften:
+\begin{enumerate}
+\item Ob das Wort groß geschrieben wird.
+\item Ob vorheriges oder nächstes Wort großgeschrieben wird.
+\item Ob alle Zeichen im Token großgeschrieben werden.
+\item Ob es ein Punkt am Ende des Wortes steht.
+\item Ob der Token Zahlen beinhaltet, und falls ja, wie viel.
+\item Ob das Wort das Prozent- oder Dollarzeichen beinhaltet.
+\item Suffixe und Präfixe (wie ,,Frau`` oder ,,GmbH``).
+\end{enumerate}
+\end{enumerate}
+Dabei beschreiben lokale Features die Eigenschaften, die nur die Informationen, die aus dem Token selbst und aus den benachbarten Tokens in demselben Satz gewonnen werden können, brauchen. Globale Eigenschaften benutzen dagegen auch die Vorkommnisse vom Token im ganzen Dokument.
 
 \subsection{Conditional Random Field}
 %Was ist CRF? Wie funktioniert dieser Einsatz? Wo wird er verwendet?
@@ -56,15 +76,6 @@ $$
 Z(x) = \sum_y \prod_{t=1}^T\exp \lbrace \sum_{k=1}^K \theta_k f_k(y_t,y_t-1,x_t) \rbrace
 $$
 Vektor $x_t$ beinhaltet dabei alle Features, die benötigt werden, um Abhängigkeiten zu berechnen. 
-
-\paragraph{}
-Aber wie definiert man Features? Jenny Finkel\cite{Jenny/etal:07} hat folgende Eigenschaften definiert:
-\begin{enumerate}
-\item Nachbarnwörter: vorheriges Wort, nächstes Wort, alle Wörter innerhalb eines Fensters.
-\item Orthographische Eigenschaften.
-\item Präfixe und Suffixe.
-\item Labelsequenzen.
-\end{enumerate}
 
 \subsection{SVM}
 \paragraph{}
