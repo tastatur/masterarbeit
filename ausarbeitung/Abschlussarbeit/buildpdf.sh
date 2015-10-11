@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pdflatex Abschlussarbeit.tex
+lualatex Abschlussarbeit.tex
 bibtex Abschlussarbeit
-pdflatex Abschlussarbeit.tex
-pdflatex Abschlussarbeit.tex
+lualatex Abschlussarbeit.tex
+lualatex Abschlussarbeit.tex

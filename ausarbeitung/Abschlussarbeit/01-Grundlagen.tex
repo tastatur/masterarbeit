@@ -58,12 +58,42 @@ Dabei beschreiben lokale Features die Eigenschaften, die nur die Informationen, 
 
 Das oben genannte Features werden ,,supervised Features`` genannt, weil die von einem Mensch bestimmt wurden. Zusätzlich dazu wird in der Arbeit von Turian \cite{turian2010word} der Einsatz von sogenannten ,,unsupervised Features`` vorgeschlagen, die während des Lernvorganges berechnet werden. Es wird in dieser Arbeit zwischen folgenden Gruppen von ,,unsupervised Features`` unterschieden:
 \begin{enumerate}
-\item Distributional Features - eine Matrix der Größe $W\timesC$, wo $W$ die Anzahl von Wörtern im Wörterbuch beschreibt und $C$ die Anzahl von verschiedenen Kontexten.
+\item Distributional Features - eine Matrix der Größe $W \times C$, wo $W$ die Anzahl von Wörtern im Wörterbuch beschreibt und $C$ die Anzahl von verschiedenen Kontexten.
 \item Auf Cluster basierte Features - es wird versucht, die Wörter automatisch in Clusters zu teilen.
 \item Word Embedding - Dieses Modell wird hauptsächlich in den neuronalen Modellen eingesetzt, und erlernt Eigenschaften aus N-Grammen, mithilfe von Lookup-Tabellen.
 \end{enumerate}
 
-Ein Beispiel für Distributional Features wäre Brown-Algorithmus\cite{sun2011semi}.
+Ein Beispiel für Distributional Features wäre Brown-Algorithmus\cite{sun2011semi}. Dieses Algorithmus funktioniert auf folgende Art und Weise:
+\begin{enumerate}
+\item Zuerst wird jedem Wort ein eigene Klasse zugeordnet
+\item Die Clusters werden paarweise iterativ zusammengefügt.
+\item Dabei werden die Zwischenschritte der Clusterisierung gespeichert, so dass man am Ende alle Schritte nachverfolgen kann, und ein binäres Baum aufbauen könnte, wo jeder Endknoten ein Wort darstellt.  
+\end{enumerate}
+
+Eine graphische Darstellung des Brown-Algorithmus findet man auf der Abbildung \ref{fig:BROWN-CLUSTER}.
+
+\begin{figure}[ht]
+\setbox0\vbox{\small}
+\begin{tikzpicture}[>=Stealth]
+\graph[binary tree layout]{
+  ROOT -> {   
+    C1 -> { 
+      C12 -> { 
+        C123 -> { Wort1, Wort2 },
+        Wort9
+      }, 
+    C2 -> { Wort3, Wort4 }
+    },
+      C3 -> {
+        C31 -> { Wort5, Wort6 },
+        C32 -> { Wort7, Wort8 }
+      }
+  }
+};
+\end{tikzpicture}
+\caption{Brown-Algorithmus}
+\label{fig:BROWN-CLUSTER}
+\end{figure}
 
 Sobald die Eigenschaften bestimmt wurden, können mit ihrer Hilfe die am Anfang des Kapitels erwähnte Algoreithmen die Entitäten zu extrahieren versuchen.
 
