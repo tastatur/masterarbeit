@@ -119,9 +119,9 @@ Eine graphische Darstellung des Brown-Algorithmus findet man auf der Abbildung \
 \end{figure}
 
 \paragraph{}
-Ein sehr interessanter Einsatz fürs ,,Word Embedding`` wird in der Arbeit von Xin\cire{rong2014word2vec} ausführlich erklärt. Wie in ,,Distributional Features``-Modellen wird für die Wörter ein Vektor berechnet, und geometrischer Abstand zwischen zwei Punkten im Feature-Raum bestimmt die Ähnlichkeit von Wörtern, zusätzlich dazu kann auch die Ausrichtung des Vektors im Kauf genommen werden. Die entsprechende Vektoren werden mit einem neuronalem Netz implementiert, das auf zwei verschiedene Art und Weisen implementiert werden kann: \textit{CBOW} und \textit{Skip-gram}\cite{wang2014introduction}:
+Ein sehr interessanter Einsatz fürs ,,Word Embedding`` wird in der Arbeit von Xin\cite{rong2014word2vec} ausführlich erklärt. Wie in ,,Distributional Features``-Modellen wird für die Wörter ein Vektor berechnet, und geometrischer Abstand zwischen zwei Punkten im Feature-Raum bestimmt die Ähnlichkeit von Wörtern, zusätzlich dazu kann auch die Ausrichtung des Vektors im Kauf genommen werden. Die entsprechende Vektoren werden mit einem neuronalem Netz implementiert, das auf zwei verschiedene Art und Weisen implementiert werden kann: \textit{CBOW} und \textit{Skip-gram}\cite{wang2014introduction}:
 
-Die erste Methode - CBOW (Continuous Bag Of Words\cite{garcia2014word) - gibt dem Entwickler die Möglichkeit, 
+Die erste Methode - CBOW (Continuous Bag Of Words\cite{garcia2014word} - gibt dem Entwickler die Möglichkeit, 
 
 \paragraph{}
 Es darf allerdings nicht vergessen werden, dass bei größeren Datenmengen noch weitere Anpassungen an den Algorithmen durchgeführt werden müssen. Sahlgren\cite{sahlgren2006word} spricht unter anderem das Problem von ,,Lücken`` in den Co-occurence-Matrix: es gibt sehr viele Wortpaaren, die im Korpus niemals auftreten, und so beinhalten entsprechende Co-occurence-Vektoren Nullen, was auch auf der Abbildung \ref{fig:COOC-MAT} zu sehen ist. Auch bei der Verwendung von anderen Algorithmen muss die Anzahl von Dimensionen gegebenfalls reduziert werden.  
