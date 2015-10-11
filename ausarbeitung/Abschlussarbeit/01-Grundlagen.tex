@@ -49,9 +49,23 @@ Zusätzlich dazu wurde von Hai\cite{chieu2002named} die Verteilung in lokale und
 \item Ob der Token Zahlen beinhaltet, und falls ja, wie viel.
 \item Ob das Wort das Prozent- oder Dollarzeichen beinhaltet.
 \item Suffixe und Präfixe (wie ,,Frau`` oder ,,GmbH``).
+\item Ob das Token nur aus Zahlen besteht.
+\item POS-Tag des Wortes (ob das Wort ein Substantiv oder ein Verb ist)
+\item POS-Tags der Wörter, die vor dem ausgewählten Wort stehen.
 \end{enumerate}
 \end{enumerate}
 Dabei beschreiben lokale Features die Eigenschaften, die nur die Informationen, die aus dem Token selbst und aus den benachbarten Tokens in demselben Satz gewonnen werden können, brauchen. Globale Eigenschaften benutzen dagegen auch die Vorkommnisse vom Token im ganzen Dokument.
+
+Das oben genannte Features werden ,,supervised Features`` genannt, weil die von einem Mensch bestimmt wurden. Zusätzlich dazu wird in der Arbeit von Turian \cite{turian2010word} der Einsatz von sogenannten ,,unsupervised Features`` vorgeschlagen, die während des Lernvorganges berechnet werden. Es wird in dieser Arbeit zwischen folgenden Gruppen von ,,unsupervised Features`` unterschieden:
+\begin{enumerate}
+\item Distributional Features - eine Matrix der Größe $W\timesC$, wo $W$ die Anzahl von Wörtern im Wörterbuch beschreibt und $C$ die Anzahl von verschiedenen Kontexten.
+\item Auf Cluster basierte Features - es wird versucht, die Wörter automatisch in Clusters zu teilen.
+\item Word Embedding - Dieses Modell wird hauptsächlich in den neuronalen Modellen eingesetzt, und erlernt Eigenschaften aus N-Grammen, mithilfe von Lookup-Tabellen.
+\end{enumerate}
+
+Ein Beispiel für Distributional Features wäre Brown-Algorithmus\cite{sun2011semi}.
+
+Sobald die Eigenschaften bestimmt wurden, können mit ihrer Hilfe die am Anfang des Kapitels erwähnte Algoreithmen die Entitäten zu extrahieren versuchen.
 
 \subsection{Conditional Random Field}
 %Was ist CRF? Wie funktioniert dieser Einsatz? Wo wird er verwendet?
