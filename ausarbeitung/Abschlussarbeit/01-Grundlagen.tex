@@ -63,7 +63,26 @@ Das oben genannte Features werden ,,supervised Features`` genannt, weil die von 
 \item Word Embedding - Dieses Modell wird hauptsächlich in den neuronalen Modellen eingesetzt, und erlernt Eigenschaften aus N-Grammen, mithilfe von Lookup-Tabellen.
 \end{enumerate}
 
-Ein Beispiel für Distributional Features wäre Brown-Algorithmus\cite{sun2011semi}. Dieses Algorithmus funktioniert auf folgende Art und Weise:
+Der Vorgang zum Aufbau eines ,,Distributional Features``-Modells wurde in der Arbeit von Sahlgren\cite{sahlgren2006word} beschrieben. Als Basisdatenstruktur wird die Co-occurence-Matrix verwendet, die beschreibt, welche Wörter zusammen in einem Context gesehen werden. Die Anzahl von Zeilen und Spalten in dieser Matrix ist dabei der Anzahl von Wörtern im zu analysierenden Korpus gleich. Ein Beispiel solcher Matrix für den Satz ,,Leela mag dramatische Filme und Bücher`` finde man in der Abbildung \ref{fig:COOC-MAT}
+
+\begin{figure}[ht]
+\setbox0\vbox{\small}
+$$
+\begin{array}{ccccccc}
+ & Leela & mag & dramatische & Filme & und & B\ddot{u}cher \\ 
+Leela & 0 & 1 & 0 & 0 & 0 & 0 \\ 
+mag & 1 & 0 & 1 & 0 & 0 & 0 \\ 
+dramatische & 0 & 1 & 0 & 1 & 0 & 0 \\ 
+Filme & 0 & 0 & 1 & 0 & 1 & 0 \\ 
+und & 0 & 0 & 0 & 1 & 0 & 1 \\ 
+B\ddot{u}cher & 0 & 0 & 0 & 0 & 1 & 0
+\end{array} 
+$$
+\caption{Beispiel einer Co-occurence-Matrix}
+\label{fig:COOC-MAT}
+\end{figure}
+
+Ein Beispiel für auf Cluster basierte Features wäre Brown-Algorithmus\cite{sun2011semi}. Dieses Algorithmus funktioniert auf folgende Art und Weise:
 \begin{enumerate}
 \item Zuerst wird jedem Wort ein eigene Klasse zugeordnet
 \item Die Clusters werden paarweise iterativ zusammengefügt.
