@@ -1,7 +1,18 @@
 \chapter{Fazit}
 
 \section{Zusammenfassung}
-Was genau haben wir erreichen können? Ist der Einsatz erfolgreich? Was könnte verbessert werden? Wirtschaftliche Perspektiven - 
+Im Rahmen dieser Arbeit wurden verschiedene Einsätze zur Extraktion von Entitäten aus natürlichsprachlichen Texten untersucht und miteinander verglichen. Es wurden außerdem verschiedene Datenquelle für Trainingskorpora verglichen, sowohl mithilfe von Experten als auch automatisch erzeugte. Es wurde anschließend eine Erweiterung fürs Stanbol-Framework entwickelt, die die Extraktion von Entitäten aus Suchergebnisseiten ermöglicht und es wurde eine Benutzerevaluierung durchgeführt, die zeigen sollte, ob die Entitäten den Benutzer bei der Suche tatsächlich unterstützen könnte. 
+
+Die Untersuchung von möglichen Algorithmen zur Extraktion von Entitäten hat gezeigt, dass die Algorithmen, die sonst für Klassifizierung verwendet werden, ihren Einsatz auch bei der NER-Aufgabe finden können - es müssen lediglich korrekte ,,Eigenschaften`` von Wörtern (Features) ausgewählt werden, anhand denen dem Wort eine Klasse zugeordnet werden könnte. Dabei müssen die Eigenschaften nicht unbedingt von Menschen definiert werden (supervised Features), sondern können auch automatisch berechnet werden (unsupervised Features).
+
+Bei der Aufgabe von Erkennung von Entitäten lässt sich die Wichtigkeit von einem richtigen Training-Korpus nicht von der Hand zu weisen - da das Korpus für Training des Modells für den späteren Einsatz verwendet wird, ist es sehr wichtig, dass das verwendete Korpus:
+\begin{enumerate}
+\item Groß genug ist, damit das Modell genug Daten fürs Training hat.
+\item Gute Qualität hat - das bedeutet, dass alle Entitäten, die im Korpus vorkommen, auch wirklich markiert sind, und zwar richtig (eine Person soll als eine Person, und nicht als eine Firma annotiert werden), dass die Sätze korrekt getrennt sind, dass es keine nicht-Entitäten markiert werden.
+\item Aus dem zweiten Punkt folgt, dass das Korpus im besten Fall von Linguisten erstellt wird.
+\end{enumerate}
+
+Leider erfüllen die frei verfügbare Korpora fast immer nur das erste Kriterium - einige von denen sind automatisch generiert, bei anderen fällt die Unterscheidung zwischen verschiedenen Typen von Entitäten komplett aus und es nur bekannt ist, ob ein bestimmtes Token eine Entität ist, die Klasse bleibt aber unbekannt. Diese Einschränkung hat selbstverständlich auch diese Arbeit beeinflusst, und die Qualität von dem Framework war eigentlich schlechter als die sein könnte.
 
 \section{Diskussion}
 
