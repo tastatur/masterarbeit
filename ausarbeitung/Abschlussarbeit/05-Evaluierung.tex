@@ -46,15 +46,6 @@ Für jedes Engine sollen insgesamt drei Charakteristiken bewertet werden:
 \item ,,Hilfreichsgrad`` von dem Ansatz - Damit soll der Benutzer uns mitteilen, ob solch eine Anreicherung von herkömmlichen Suchergebnissen mit den Entitäten und dazugehörigen Informationen wie Geburtstag/Geburtsort/u.s.w. für die Präzision der Suchanfrage hilfreich wäre, und ob der Proband den Einsatz dieser Suchmethode sinnvoll fände.  
 \end{enumerate}
 
-\subsection{Analyse der Ergebnissen}
-\paragraph{}
-Während der Studie wurden insgesamt 44 Bewertungen gesammelt, deren Ergebnisse in der Tabelle \ref{table:RESULTS} zu sehen sind. Es wurden außerdem einige Feedbacks gesammelt, die für die Analyse der Arbeit und als Quelle für Verbesserungsvorschläge verwendet werden können. Die Liste von Feedbacks findet man in der Auflistung \ref{lst:feedbacks}. Aber welche Schlussfolgerungen lassen sich daraus ziehen? Auf den ersten Blick fallen folgende Besonderheiten auf:
-\begin{itemize}
-\item Die Benutzer fanden den Einsatz hilfreich, wünschen sich aber die Verbesserung von dem Benutzerinterface des Systems.
-\item Es werden eventuell zu viel Informationen angezeigt, so dass der Benutzer sich verwirrt fühlen könnte.
-\item Die Probanden fanden die Geschwindigkeit der Suche gut, auch wenn es definitiv länger als eine Suche mit herkömmlichen Suchmaschinen dauert. 
-\end{itemize}
-
 \section{Automatisierte Evaluierung von Qualität der Extraktion}
 \paragraph{}
 Es stellt sich allerdings die Frage, ob die aus der Benutzerstudie gewonnene Ergebnisse mit den in natürsprachlicher Mensch-Computer-Interaktion übliche Evaluierungsmethoden wie 
@@ -65,5 +56,16 @@ Es stellt sich allerdings die Frage, ob die aus der Benutzerstudie gewonnene Erg
 \end{itemize}
 vereinbart werden könnten? Was ist für den Benutzer wichtige - dass das Engine so wenig False-Positiv-Treffer wie möglich liefert, oder ob die FP für den Benutzer ehe keine bedeutende Rolle spielen? Kann man anhand statistischen Messdaten sagen können, ob das Engine auch aus Sicht des Benutzers positiv oder negativ bewertet wird? Um diese Fragen beantworten zu können, müssen noch statistische Messungen durchgeführt werden und ihre Ergebnisse mit den aus der Benutzerevaluierung gewonnenen Daten vergleichen.
 
-\section{Vergleich zwischen Benutzer- und Datenevaluierung}
-Erkenntnissen aus der Studie und den Konsequenzen für die Arbeit.
+\section{Diskussion}
+\paragraph{}
+Während der Studie wurden insgesamt 44 Bewertungen gesammelt, deren Ergebnisse in der Tabelle \ref{table:RESULTS} zu sehen sind. Es wurden außerdem einige Feedbacks gesammelt, die für die Analyse der Arbeit und als Quelle für Verbesserungsvorschläge verwendet werden können. Die Liste von Feedbacks findet man in der Auflistung \ref{lst:feedbacks}. Aber welche Schlussfolgerungen lassen sich daraus ziehen? Auf den ersten Blick fallen folgende Besonderheiten auf:
+\begin{itemize}
+\item Die Benutzer fanden den Einsatz hilfreich, wünschen sich aber die Verbesserung von dem Benutzerinterface des Systems.
+\item Es werden eventuell zu viel Informationen angezeigt, so dass der Benutzer sich verwirrt fühlen könnte.
+\item Die Probanden fanden die Geschwindigkeit der Suche gut, auch wenn es definitiv länger als eine Suche mit herkömmlichen Suchmaschinen dauert. 
+\item Die Benutzer bewerteten die Qualität von extrahierten Entitäten meistens als ,,nicht ausreichend``.
+\end{itemize}
+
+Es stellt sich die Frage, was bedeuten diese Ergebnisse, und was man daraus lernen kann, und welche Aspekte des entwickelten Systems sich verbessern lassen.
+
+Die interessanteste Frage wäre, warum haben die Benutzer einerseits die Qualität von den extrahierten Entitäten als ,,schlecht`` bewertet, aber anderseits den Einsatz von Entitäten selbst als ,,hilfreich`` bezeichnet, und welchen Zusammenhang besteht zwischen diesen beiden Kriterien? 
