@@ -1,7 +1,7 @@
 \chapter{Fazit}
 
 \section{Zusammenfassung}
-Im Rahmen dieser Arbeit wurden verschiedene Einsätze zur Extraktion von Entitäten aus natürlichsprachlichen Texten untersucht und miteinander verglichen. Es wurden außerdem verschiedene Datenquelle für Trainingskorpora verglichen, sowohl mithilfe von Experten als auch automatisch erzeugte. Es wurde anschließend eine Erweiterung fürs Stanbol-Framework entwickelt, die die Extraktion von Entitäten aus Suchergebnisseiten ermöglicht und es wurde eine Benutzerevaluierung durchgeführt, die zeigen sollte, ob die Entitäten den Benutzer bei der Suche tatsächlich unterstützen könnte. 
+Im Rahmen dieser Arbeit wurden verschiedene Einsätze zur Extraktion von Entitäten aus natürlichsprachlichen Texten untersucht und miteinander verglichen. Es wurden außerdem verschiedene Datenquellen für Trainingskorpora verglichen, sowohl von Linguisten als auch automatisch erzeugte. Es wurde anschließend eine Erweiterung fürs Stanbol-Framework entwickelt, die die Extraktion von Entitäten aus deutschsprachigen Suchergebnisseiten ermöglicht und es wurde eine Benutzerevaluierung durchgeführt, die zeigen sollte, ob die Entitäten den Benutzer bei der Suche tatsächlich unterstützen könnte. 
 
 Die Untersuchung von möglichen Algorithmen zur Extraktion von Entitäten hat gezeigt, dass die Algorithmen, die sonst für Klassifizierung verwendet werden, ihren Einsatz auch bei der NER-Aufgabe finden können - es müssen lediglich korrekte ,,Eigenschaften`` von Wörtern (Features) ausgewählt werden, anhand denen dem Wort eine Klasse zugeordnet werden könnte. Dabei müssen die Eigenschaften nicht unbedingt von Menschen definiert werden (supervised Features), sondern können auch automatisch berechnet werden (unsupervised Features).
 
@@ -9,11 +9,26 @@ Bei der Aufgabe von Erkennung von Entitäten lässt sich die Wichtigkeit von ein
 \begin{enumerate}
 \item Groß genug ist, damit das Modell genug Daten fürs Training hat.
 \item Gute Qualität hat - das bedeutet, dass alle Entitäten, die im Korpus vorkommen, auch wirklich markiert sind, und zwar richtig (eine Person soll als eine Person, und nicht als eine Firma annotiert werden), dass die Sätze korrekt getrennt sind, dass es keine nicht-Entitäten markiert werden.
-\item Aus dem zweiten Punkt folgt, dass das Korpus im besten Fall von Linguisten erstellt wird.
+\item Aus dem zweiten Punkt folgt, dass das Korpus im besten Fall von Linguisten erstellt sein soll.
 \end{enumerate}
 
-Leider erfüllen die frei verfügbare Korpora fast immer nur das erste Kriterium - einige von denen sind automatisch generiert, bei anderen fällt die Unterscheidung zwischen verschiedenen Typen von Entitäten komplett aus und es nur bekannt ist, ob ein bestimmtes Token eine Entität ist, die Klasse bleibt aber unbekannt. Diese Einschränkung hat selbstverständlich auch diese Arbeit beeinflusst, und die Qualität von dem Framework war eigentlich schlechter als die sein könnte.
+Leider erfüllen die frei verfügbare Korpora fast immer nur das erste Kriterium - einige von denen sind automatisch generiert, bei anderen fällt die Unterscheidung zwischen verschiedenen Typen von Entitäten komplett aus und es nur bekannt ist, ob ein bestimmtes Token eine Entität ist, die Klasse bleibt aber unbekannt. Diese Einschränkung hat selbstverständlich auch diese Arbeit beeinflusst, und die Qualität von dem Framework war eigentlich schlechter als die sein könnte. Deswegen soll bei akademischen Werken auch ökonomische Faktoren berücksichtigt werden - da frei verfügbare Korpora nicht unbedingt eine gute Qualität aufzeigen können, sollte gelegentlich eine Option der Finanzierung eines passenden Korpus im Kauf genommen werden. 
 
-Die Benutzerstudie hat gezeigt, dass der Einsatz von Entitäten bei der Websuche für den Benutzer theoretisch hilfreich sein könnte, allerdings muss sowohl Framework (Backend) als auch User-Interface (Frontend) weiter entwickelt und verbessert werden, um eine genügende Unterstützung bei der Suche gewährleisten zu können. Es wurde festgestellt, dass die in den Entitäten vorhandene Informationen für den Benutzer nicht nur hilfreich, sondern auch störend sein können, falls es zu viele davon gibt.
+Die Benutzerstudie hat gezeigt, dass der Einsatz von Entitäten bei der Websuche für den Benutzer theoretisch hilfreich sein könnte, allerdings muss sowohl Framework (Backend) als auch User-Interface (Frontend) weiter entwickelt und verbessert werden, um eine genügende Unterstützung bei der Suche gewährleisten zu können. Es wurde festgestellt, dass die in den Entitäten vorhandene Informationen für den Benutzer nicht nur hilfreich, sondern auch störend sein können, falls es zu viele davon gibt, worauf während der Analyse von den Ergebnissen der Evaluierung eingegangen wurde.
+
+Das Training eines Modell für Erkennung von Entitäten stellt eine getrennte Aufgabe dar, die bei einigen Algorithmen (SVM) einen großen Rechenaufwand benötigt und bis auf mehrere Tagen in Anspruch nehmen kann. Und generell ist das Training mehr aufwendig und nimmt mehr Rechnerzeit in Anspruch als der Einsatz eines trainiertes Modells. Die Indexierung einer Wissendatenbank benötigt auch einen größeren Aufwand und kann bis auf eine Woche in Anspruch nehmen. Deswegen sollen bei Bedarf fürs Training von NER-Modellen und für Indexierung von Wissendatenbanken getrennte Rechnereinheiten zur Verfügung gestellt werden, die leistungsfähiger als Maschinen für System selbst sein sollten.  
+
+Am Anfang der Arbeit gab es Befürchtungen, dass:
+\begin{enumerate}
+\item Aus den kurzen Suchsnippets keine Entitäten extrahiert werden könnten und man auf volle Texte der Webseite zugreifen müsste, was eine deutliche Verlängerung der Bearbeitungszeit der Benutzeranfrage bedeuten würde.
+\item Die Bearbeitungszeit der Anfrage so lange sein würde, dass die Benutzer die Suche abbrechen.
+\end{enumerate}
+Diese wurden während der Arbeit allerdings nicht bestätigt, und auch wenn es in dem Kapitel ,,Evaluierung`` beschriebene Einschränkungen gab, können die aus den kurzen Snippets extrahierte Entitäten tatsächlich für die Benutzerunterstützung eingesetzt werden. 
 
 \section{Ausblick}
+Im Ausblick bleiben noch folgende Fragen offen, die allerdings nicht im Rahmen dieser Arbeit beantwortet werden sollen, sondern für Nachvolgerwerke vorgesehen sein könnten:
+\begin{itemize}
+\item Welche graphische Darstellung von extrahierten Entitäten kann die beste Benutzerunterstützung gewährleisten? Wäre eine baumartige Struktur besser, als eine flache Liste? Könnte eine personalisierte Darstellung, wo der Benutzer die Knoten, die Entitäten darstellen sollen, manuell verschieben und einordnen kann, hilfreich sein?
+\item Welche Möglichkeiten zur Optimierung sowohl von Extraktion als auch von Training es gibt? Kann eine Verteilung auf mehrere Rechnereinheiten etwas bringen? Könnte der Einsatz von GPU für die Berechnungen sowohl Training des Modells als auch die Suche beschleunigen?
+\item Wie lässt sich die Extraktion von Entitäten mit den diversen Einsätzen für die Personalisierung der Websuche kombinieren? Wie kann man am Besten die Informationen für die Berechnung von persönlichen Gewichten für Stanbol extrahieren lassen? Wäre es auch ohne direkten Feedback möglich?
+\end{itemize}
