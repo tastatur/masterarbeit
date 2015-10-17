@@ -5,60 +5,53 @@
 Damit es festgestellt werden könnte, ob die Anreicherung von Suchergebnissen mit aus den Snippets extrahierten Entitäten für den Benutzer auch tatsächlich hilfreich sein könnte, wurde eine Benutzerevaluierung durchgeführt. Die Evaluierung sollte folgende Fragen beantworten:
 
 \begin{itemize}
-\item Welcher Einsatz liefert dem Benutzer die zu der Anfrage am besten passende Entitäten? 
-\item Wird die Geschwindigkeit der Suche durch zusätzlicher Schritt der Extraktion von Entitäten stark beeinträchtigt? Ist die Beeinträchtigung der Geschwindigkeit groß Genug, um den Benutzer bei der Suche zu stören?
-\item Gibt es Korrelationen zwischen ,,standarten`` Metriken wie F-Measure und Precision/Recall und der Zufriedenheit der Benutzer, oder kann man aus der rein numerischen Metriken keine Aussage treffen, ob der Engine in der Lage ist, eine genügende Benutzerunterstützung zu leisten?
+\item Können extrahierte Entitäten den Benutzer bei der Suche tatsächlich unterstützen?
+\item Welcher Einsatz liefert dem Benutzer die zu der Anfrage am besten passende Entitäten?
+\item Sind die aus DBpedia extrahierte Daten ausreichend?
+\item Ob die Entitäten aus den kleinen Suchsnippets überhaupt extrahiert werden können? Oder ob es gelegentlich auf die volle Texte der Webseite zugegriffen werden muss?
+\item Wird die Geschwindigkeit der Suche durch den zusätzlichen Schritt der Extraktion von Entitäten stark beeinträchtigt? Ist die Beeinträchtigung der Geschwindigkeit groß genug, um den Benutzer bei der Suche zu stören?
+%\item Gibt es Korrelationen zwischen ,,standarten`` Metriken wie F-Measure und Precision/Recall und der Zufriedenheit der Benutzer, oder kann man aus der rein numerischen Metriken keine Aussage treffen, ob der Engine in der Lage ist, eine genügende Benutzerunterstützung zu leisten?
 \end{itemize}
 
-Um diese Fragen beantworten zu können, wurde eine Webseite aufgebaut, die dem Benutzer die Möglichkeit gibt, alle Engines und alle Modellen, die im Rahmen dieser Arbeit verwendet wurden, zu bewerten. Insgesamt kann der Evaluirungsvorgang in drei Schritten geteilt werden:
-
-\begin{enumerate}
-\item In dem Einleitungsschritt wird dem Benutzer erklärt, wie genau die Evaluierung abläuft, und was wir von ihm brauchen.
-\item Danach muss der Benutzer alle vorhandene Kombinationen von Modellen und Engines bewerten. Dazu soll eine Frage aus der vorgegebenen Liste ausgewählt und gestellt werden, die zuerst an Bing gesendet wird, und dann an unseres Stanbol-Backend.
-\item Um die Situation, wo der Benutzer sich ,,betrogen`` fühlen könnte, möglichst auszuschließen, wird dem Probanden die Möglichkeit gegeben, jede beliebige Frage zu stellen, und dann einen persönlichen schriftlichen Feedback abzugeben.
-\end{enumerate}
-
-\begin{figure}
-\centering
-\includegraphics[width=1.0\textwidth]{Bilder/evalstep1.png}
-\caption{''Einleitung in die Evaluierung''}
-\label{fig:evalstep01}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=1.0\textwidth]{Bilder/evalstep2.png}
-\caption{''Bewertung eines Engines''}
-\label{fig:evalstep01}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=1.0\textwidth]{Bilder/evalstep3.png}
-\caption{''Der letzte Schritt der Evaluierung''}
-\label{fig:evalstep01}
-\end{figure}
+Um diese Fragen beantworten zu können, wurde eine Webseite aufgebaut, die dem Benutzer die Möglichkeit gibt, alle im Rahmen dieser Arbeit entwickelte Engines und alle Modellen, die im Rahmen dieser Arbeit verwendet wurden, zu bewerten. 
 
 Für jedes Engine sollen insgesamt drei Charakteristiken bewertet werden:
 \begin{enumerate}
-\item Qualität von extrahierten Entitäten - der Benutzer soll beschreiben, wie gut seiner Meinung nach die Entitäten zu den extrahierten Snippets gepasst haben, ob diese ,,korrekt`` von dem Gesichtspunkt des Probanden waren, ob es für die gefundene Entitäten die Daten vorhanden sind, die der Benutzer auch wirklich braucht, und ob es die Informationen gibt, die für die Suche eigentlich kaum zu Nutzen sind.
+\item Qualität von extrahierten Entitäten - der Benutzer soll bewerten, wie gut seiner Meinung nach die Entitäten zu den extrahierten Snippets gepasst haben, ob diese ,,korrekt`` von dem Gesichtspunkt des Probanden waren, ob es für die gefundene Entitäten die Daten vorhanden sind, die der Benutzer auch wirklich braucht, und ob es die Informationen gibt, die für die Suche eigentlich kaum zu Nutzen sind.
 \item Geschwindigkeit der Anreicherung - Der Proband soll angeben, ob die die Extraktion von Entitäten mit der Suche zusammen schnell genug waren, besonders im Vergleich zu den Suchmaschinen wie Google oder Bing.
 \item ,,Hilfreichsgrad`` von dem Ansatz - Damit soll der Benutzer uns mitteilen, ob solch eine Anreicherung von herkömmlichen Suchergebnissen mit den Entitäten und dazugehörigen Informationen wie Geburtstag/Geburtsort/u.s.w. für die Präzision der Suchanfrage hilfreich wäre, und ob der Proband den Einsatz dieser Suchmethode sinnvoll fände.  
 \end{enumerate}
+Jeder Benutzer soll dabei alle vorhandene Kombinationen von Algorithmen und verwendeten Modellen nacheinander bewerten, in sieben Schritten. Die Bewertung gilt nur dann als gültig, wenn der Benutzer \textbf{alle vorhandene} Kombinationen bewertet hat, ansonsten gilt die Bewertung als ,,ungültig``, und wird daher nicht berücksichtigt. Um dem Benutzer bei der Evaluierung zu helfen, wird ihm vor dem Start eine kurze Einleitung (Siehe Abbildung \ref{app:evalstep01}) angezeigt.
 
-\section{Automatisierte Evaluierung von Qualität der Extraktion}
-\paragraph{}
-Es stellt sich allerdings die Frage, ob die aus der Benutzerstudie gewonnene Ergebnisse mit den in natürsprachlicher Mensch-Computer-Interaktion übliche Evaluierungsmethoden wie 
-\begin{itemize}
-\item Präzision
-\item Recall
-\item F-Measure
-\end{itemize}
-vereinbart werden könnten? Was ist für den Benutzer wichtige - dass das Engine so wenig False-Positiv-Treffer wie möglich liefert, oder ob die FP für den Benutzer ehe keine bedeutende Rolle spielen? Kann man anhand statistischen Messdaten sagen können, ob das Engine auch aus Sicht des Benutzers positiv oder negativ bewertet wird? Um diese Fragen beantworten zu können, müssen noch statistische Messungen durchgeführt werden und ihre Ergebnisse mit den aus der Benutzerevaluierung gewonnenen Daten vergleichen.
+Die Aufbau der Evaluierungsseite lässt sich in vier Bereiche teilen:
+
+Im ersten Bereich (siehe die Abbildung \ref{fig:eval-select-question}) soll die Anfrage, die Benutzer stellen möchte, ausgewählt werden. Um die Streuung von Bewertungen so klein wie möglich zu halten, wird eine festgesetzte Liste von vorgegebenen Fragen benutzt - der Benutzer kann also in diesem Schritt keine beliebige Frage angeben, sondern nur eine der verfügbaren Möglichkeiten auswählen.
+
+\begin{figure}
+\centering
+\includegraphics[width=.6\textwidth]{Bilder/select-question.png}
+\caption{''Auswahl einer Frage''}
+\label{fig:eval-select-question}
+\end{figure}
+Dabei gibt es zwei Gruppen von Fragen, zwischen denen zyklisch gewechselt wird. Die Fragen wurden geteilt, um mögliche Abhängigkeit der Ergebnissen von dem Domain erkennen zu können - da verschiedene Engines und Modelle auf verschiedenen Korpora trainiert wurden, kann es vorkommen, dass z.B. die Modelle, die auf Zeitungen trainiert wurden (TIGER Korpus), auch bei Zeitung-ähnlichen Texten besser abschneiden werden. Es wurden folgende Fragengruppen verwendet:
+\begin{enumerate}
+\item Die Fragen, die zum Domain ,,Zeitungen`` passen. 
+\item Die Fragen, die zum Domain ,,Web/Wikipedia`` passen.
+\end{enumerate} 
+
+%\section{Automatisierte Evaluierung von Qualität der Extraktion}
+%\paragraph{}
+%Es stellt sich allerdings die Frage, ob die aus der Benutzerstudie gewonnene Ergebnisse mit den in natürsprachlicher Mensch-Computer-Interaktion übliche Evaluierungsmethoden wie 
+%\begin{itemize}
+%\item Präzision
+%\item Recall
+%\item F-Measure
+%\end{itemize}
+%vereinbart werden könnten? Was ist für den Benutzer wichtige - dass das Engine so wenig False-Positiv-Treffer wie möglich liefert, oder ob die FP für den Benutzer ehe keine bedeutende Rolle spielen? Kann man anhand statistischen Messdaten sagen können, ob das Engine auch aus Sicht des Benutzers positiv oder negativ bewertet wird? Um diese Fragen beantworten zu können, müssen noch statistische Messungen durchgeführt werden und ihre Ergebnisse mit den aus der Benutzerevaluierung gewonnenen Daten vergleichen.
 
 \section{Diskussion}
 \paragraph{}
-Während der Studie wurden insgesamt 44 Bewertungen gesammelt, deren Ergebnisse in der Tabelle \ref{table:RESULTS} zu sehen sind. Es wurden außerdem einige Feedbacks gesammelt, die für die Analyse der Arbeit und als Quelle für Verbesserungsvorschläge verwendet werden können. Die Liste von Feedbacks findet man in der Auflistung \ref{lst:feedbacks}. Aber welche Schlussfolgerungen lassen sich daraus ziehen? Auf den ersten Blick fallen folgende Besonderheiten auf:
+Während der Studie wurden insgesamt 44 Bewertungen gesammelt, deren Ergebnisse in der Tabelle \ref{app:RESULTS} zu sehen sind. Es wurden außerdem einige Feedbacks gesammelt, die für die Analyse der Arbeit und als Quelle für Verbesserungsvorschläge verwendet werden können. Die Liste von Feedbacks findet man in der Auflistung \ref{app:feedbacks}. Aber welche Schlussfolgerungen lassen sich daraus ziehen? Auf den ersten Blick fallen folgende Besonderheiten auf:
 \begin{itemize}
 \item Die Benutzer fanden den Einsatz hilfreich, wünschen sich aber die Verbesserung von dem Benutzerinterface des Systems.
 \item Es werden eventuell zu viel Informationen angezeigt, so dass der Benutzer sich verwirrt fühlen könnte.
@@ -77,6 +70,8 @@ Ein weiteres Problem kann auf die Suchmaschine zurückgeführt werden, die als Q
 Die Andere Quelle für die Bewertung von extrahierten Entitäten als ,,unpassend`` können die in den dem Benutzer gezeigten Ontologien vorhandene Informationen sein. Als Erstes haben einige Benutzer bemerkt, dass es auch die Eigenschaften angezeigt werden, die mit der eigentlichen Suchanfrage nichts gemeinsames haben - z.B. auch wenn man die Informationen übers Geburtsort einer Person sucht, werden für die extrahierte Entität alle in der Wissendatenbank vorhandene Informationen angezeigt - Geburtstag, Name, Beschreibung u.s.w. Das kann zur Verwirrung führen, und somit wird die Entität als ,,schlecht`` eingestuft. Zweitens, sind die in DBpedia vorhandene Daten nicht immer vollständig - bei den Daten fürs indische Ozean fehlen z.B. die Angaben zur Fläche, da die direkt in der Kurzbeschreibung der Entität zu finden sind. Das kann eventuell dazu führen, dass der Benutzer sich in die Beschreibung der extrahierten Entität einlesen muss, und somit mehr Aufwand für die Suche anzuwenden braucht als es vorgesehen wurde. 
 
 Ein weiterer Grund, warum die Entitäten als ,,nicht ausreichend gut`` bewertet wurden, könnte das User-Interface des Bewertungssystems sein - da das Ziel dieser Arbeit die Entwicklung des Backeds und der API für die Extraktion von Entitäten aus Suchergebnisseiten war, und die UI nur für die Durchführung der Evaluierung entwickelt wurde, wurde eine grundlegende Untersuchung, wie die Daten dem Benutzer am Besten angezeigt und dargestellt werden könnten, absichtlich nicht durchgeführt, damit der Zeitplan eingehalten werden könnte. Und obwohl es gebeten wurde, nicht die UI, sondern nur die Extraktion von Entitäten an sich selbst zu bewerten, beeinflusst die UI die Entscheidung des Benutzers trotzdem. 
+
+Anschließend könnte auch die Komplexität der Evaluierungsseite an sich selbst auf den Benutzer verwirrend wirken, und so für schlechtere Wahrnehmung der Ergebnissen sorgen.
 
 \subsection{Verbesserungsvorschläge und Anregungen für die Zukunft}
 Nachdem die Ergebnisse der Studie analysiert wurden, kommt die Frage, ob das System sich verbessern lässt und wie genau könnten die beschriebene Mängel beseitigt oder umgegangen werden.
@@ -100,4 +95,4 @@ Ein dynamisches Schwellwert für Entitätsfilter hätte das Problem von entweder
 \end{itemize}
 \end{itemize}
 
-Um das Problem einer richtig aufgebauten UI zu lösen, müssen weitere Benutzerstudien durchgeführt werden, man kann aber schon jetzt anhand von einigen Benutzerfeedbacks\ref{lst:feedbacks} sagen, dass der Einsatz von Tags hilfreich sein könnte.
+Um das Problem einer richtig aufgebauten UI zu lösen, müssen weitere Benutzerstudien durchgeführt werden, man kann aber schon jetzt anhand von einigen Benutzerfeedbacks\ref{app:feedbacks} sagen, dass der Einsatz von Tags hilfreich sein könnte.
