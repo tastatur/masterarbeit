@@ -33,11 +33,12 @@ Im ersten Bereich (siehe die Abbildung \ref{fig:eval-select-question}) soll die 
 \caption{''Auswahl einer Frage''}
 \label{fig:eval-select-question}
 \end{figure}
-Dabei gibt es zwei Gruppen von Fragen, zwischen denen zyklisch gewechselt wird. Die Fragen wurden geteilt, um mögliche Abhängigkeit der Ergebnissen von dem Domain erkennen zu können - da verschiedene Engines und Modelle auf verschiedenen Korpora trainiert wurden, kann es vorkommen, dass z.B. die Modelle, die auf Zeitungen trainiert wurden (TIGER Korpus), auch bei Zeitung-ähnlichen Texten besser abschneiden werden. Es wurden folgende Fragengruppen verwendet:
+Dabei wurden die Fragen in zwei Gruppen geteilt, um mögliche Abhängigkeit der Ergebnissen von dem Domain erkennen zu können - da verschiedene Engines und Modelle auf verschiedenen Korpora trainiert wurden, kann es vorkommen, dass z.B. die Modelle, die auf Zeitungen trainiert wurden (TIGER Korpus), auch bei Zeitung-ähnlichen Texten besser abschneiden werden. Es wurden folgende Fragengruppen verwendet:
 \begin{enumerate}
 \item Die Fragen, die zum Domain ,,Zeitungen`` passen. 
 \item Die Fragen, die zum Domain ,,Web/Wikipedia`` passen.
 \end{enumerate} 
+Um gleiche Bedeckung von möglichen Kombinationen von Domains und Fragengruppen zu gewährleisten, wird es zwischen verfügbaren Fragengruppen bei jedem Engine zyklisch gewechselt - für den ersten Benutzer wird die Reihenfolge 'Domain1/Engine1 $\longrightarrow$ Domain2/Engine2 $\longrightarrow$ Domain1/Engine3 ...' verwendet, für den zweiten 'Domain2/Engine1 $\longrightarrow$ Domain1/Engine2 $\longrightarrow$ Domain2/Engine3 ...' u.s.w.
 
 %\section{Automatisierte Evaluierung von Qualität der Extraktion}
 %\paragraph{}
