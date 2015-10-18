@@ -84,6 +84,29 @@ Technische Details der Ablauf der Evaluierung werden auf der Diagramm \ref{fig:e
 \label{fig:eval-ablauf}
 \end{figure}
 
+Die Klassendiagramm, die wichtigste Klasse des Evaluierungssystems zusammenfasst, ist auf der Abbildung \ref{fig:evalclasses} dargestellt. Die für die Funktionalität des Systems nicht wichtige Klassen wurden dabei aus Lesbarkeitgründen absichtlich vernachlässigt. Die Verantwortungen sind zwischen diesen Klassen wie folgt geteilt:
+\begin{itemize}
+\item Das Interface \textit{EvaluationSessionService} und implementierende Klasse \textit{EvaluationSessionServiceImpl} sind für die Steuerung des Evaluierungsvorgangs zuständig:
+\begin{itemize}
+\item Die starten und beendet die Evaluierung für einen bestimmten Benutzer.
+\item Die wechseln zum nächsten Engine, wenn der Benutzer die Bewertung abgeschickt hat.
+\item Die leiten die Benutzerbewertungen und Anfragen zu anderen Komponenten weiter.
+\end{itemize}
+\item \textit{EingineRatingService} ist für die Speicherung von Benutzerbewertungen zuständig. Dabei definiert das Interface nicht, wie genau die Daten gespeichert werden - es muss also nicht unbedingt eine NoSQL datenbank sein - es wird nur eine generische Schnittstelle für Abgabe von Bewertungen zur Verfügung gestellt.
+\item Die Klasse \textit{EingineRatingServiceMongoImpl} ist die Implementierung der \textit{EingineRatingService}-Schnittstelle für MongoDB.
+\item \textit{MongoDbClient} stellt eine Abstraktion über die Mongo Java API zur Verfügung, damit es weniger Code für andere Klassen geschrieben werden müsste.
+\item Die Klassen \textit{MongoFeedbackService} und \textit{AvailableQueriesFromDatabaseServiceMongoImpl} sind entsprechend für die Speicherung von Benutzerfeedbacks und möglichen Evaluierungsanfragen zuständig. 
+\item \textit{EntityExtractionService} ruft zuerst Bing API (implementiert durch die Klasse \textit{BingSearchService}) auf, um die Liste von gefundenen Snippets für die angegebene Suchanfrage liefern zu lassen. Danach wird die Extraktion-API aufgerufen, um die gefundene Snippets mit Entitäten anzureichern. Die Ergebnisse werden zurück an \textit{EvaluationSessionService} geschickt.
+\item Die Schnittstelle \textit{QueryLogService} und ihre Implementierung \textit{QueryLogServiceMongoImpl} sichern die Anfragen, die Benutzer im letzten Schritt der Evaluierung gesendet haben.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{Bilder/eval_classes.png}
+\caption{''Klassendiagramm der Evaluierungsseite''}
+\label{fig:evalclasses}
+\end{figure}
+
 %\section{Automatisierte Evaluierung von Qualität der Extraktion}
 %\paragraph{}
 %Es stellt sich allerdings die Frage, ob die aus der Benutzerstudie gewonnene Ergebnisse mit den in natürsprachlicher Mensch-Computer-Interaktion übliche Evaluierungsmethoden wie 
