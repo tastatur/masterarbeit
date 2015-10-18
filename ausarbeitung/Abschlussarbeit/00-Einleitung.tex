@@ -32,8 +32,13 @@ Eine Skizze der erwähntes Einsatzes ist auf der Abbildung \ref{fig:bing-and-ent
 \label{fig:bing-and-entity}
 \end{figure}
 
-\paragraph{}
-Dabei soll beachtet werden, dass jede natürliche Sprache ein besonderes an dieser Sprache angepasstes Verfahren braucht, um erkennen zu können, welche Entitäten in dem Text vorkommen. Für englische Sprache existieren schon jetzt Verfahren und Modellen, mit deren Hilfe die englischsprachige Entitäten extrahiert werden können. Allerdings fällt das Modell für die deutsche Sprache, deswegen findet die Extraktion von deutschsprachigen Entitäten zurzeit nicht statt.
+Die Implementierung solches Einsatzes bringt mit sich allerdings bestimmte Herausforderungen, die im Rahmen dieser Arbeit angegangen werden müssen:
+
+Erstens, es ist nicht klar, ob die kurze Textsnippets, die die Suchmaschinen liefern, für die Extraktion von Entitäten überhaupt benutzt werden müssen - das Problem ist, dass diese Textabschnitte sehr klein (üblicherweise zwei bis drei Sätze) sind, und es ist durchaus möglich, dass die gar keine Entitäten beinhalten.
+
+Zweitens, der zusätzliche Schritt der Erkennung von Entitäten kann große Verzögerungen in die Suche bringen, was die Nutzbarkeit dieses Einsatzes zunichte machen könnte, wenn die Suche viel länger dauern wird, als die ohne der Extraktion von Entitäten.
+
+Eine weitere Herausforderung wäre, dass jede natürliche Sprache ein besonderes an diese Sprache angepasstes Verfahren braucht, um erkennen zu können, welche Entitäten in dem Text vorkommen. Für englische Sprache existieren schon jetzt Verfahren und Modellen, mit deren Hilfe die englischsprachige Entitäten extrahiert werden können. Allerdings fehlt solches Modell für die deutsche Sprache, deswegen findet die Extraktion von deutschsprachigen Entitäten zurzeit nicht statt.
 
 \paragraph{}
 Eine reine Extraktion von Entitäten ist aber nicht ausreichend - der Extraktionischritt sagt nur, welche Tokens in dem Text möglicherweise eine Entität darstellen, die Informationen über die Entität - die dazugehörige Ontologien - fehlt nach dem Extraktionschritt noch. Um die entsprechende Ontologien mit den extrahierten Entitäten verlinken zu können, muss noch Entity Linking durchgeführt werden. Dafür wird für jede extrahierte Entität eine Suche in einer Wissendatenbank durchgeführt. Eine Wissendatenbank ist eine Datenbank, wo Ontologien für diverse Entitäten gespeichert werden. Für die Websuche kann DBpedia als Wissenbasis verwendet werden, allerdings für weniger generische Aufgaben, wie z.B. ein Suchsystem für Ärzte, wo der Suchdomain klar definiert ist, können andere Datenbanken verwendet werden.
