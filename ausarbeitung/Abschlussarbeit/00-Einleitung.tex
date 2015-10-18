@@ -3,10 +3,34 @@
 \section{Motivation}
 \label{sec:Motivation}
 \paragraph{}
-Wenn man im Web nach einem Begriff sucht, kann die Suchanfrage nicht immer sofort genau definiert werden, besonders wenn das Thema der Suche dem Benutzer nicht bekannt ist. Um eine korrekte Anfrage aufzubauen, die die gewünschte Ergebnisse liefert, braucht man mehr Iterationen - mit jeder Iteration wird die Anfrage präzisiert und verbessert. Da moderne Suchmaschinen allerdings keine strukturierte Informationen über die Suchergebnisse, und auf der Suchergebnisseiten vorhandene Entitäten liefern, wird der Benutzer gezwungen, sich jedes Dokument manuell anzuschauen, um die Anregungen für neue Suchiterationen zu gewinnen, was als Folge eine niedrige Arbeitsleistung hat.
+Wenn man im Web nach einem Begriff sucht, kann die Suchanfrage nicht immer sofort genau definiert werden, besonders wenn das Thema der Suche dem Benutzer nicht bekannt ist. Um eine korrekte Anfrage aufbauen zu können, die die gewünschte Ergebnisse liefert, braucht man üblich mehr Iterationen - mit jeder Iteration wird die Anfrage präzisiert und verbessert. Da moderne Suchmaschinen allerdings keine strukturierte Informationen über die Suchergebnisse und auf der Suchergebnisseiten vorhandene Entitäten liefern, wird der Benutzer gezwungen, sich jedes Dokument manuell anzuschauen, um die Anregungen für neue Suchiterationen zu gewinnen, was als Folge zu einer niedrigen Arbeitsleistung führt.
 
-\paragraph{}
-Um den Benutzer bei der Verfeinerung seiner Suchanfragen zu unterstützen, wäre die Erkennung und Extraktion von Entitäten aus der Ergebnisdaten sehr hilfreich. Der Benutzer soll von der Suchmaschine die Ontologien mit den Ergebnisseiten zusammen bekommen, dann kann es anhand der Informationen über extrahierte Entitäten, wie z.B. die Klasse der Entität, ihre Beschreibung und Verlinkungen zu anderen Entitäten, entschieden werden, wie genau die Suchanfrage angepasst werden muss, um erwünschte Daten zu finden.
+Ein Beispiel für angesprochenes Problem ist auf der Abbildung \ref{fig:bing-issue} zu sehen. Man muss sich jeden gefundenen Snippet angucken und gelegentlich auch die gefundene Webseite öffnen, um die Antwort auf gestellte Frage zu erfahren, was bei längeren Sessionen viel Zeit in Anspruch nimmt.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{Bilder/bing-search.png}
+\caption{''Eine Websuche ohne Extraktion von Entitäten''}
+\label{fig:bing-issue}
+\end{figure}
+
+Es existieren bereits mehrere Einsätze, die den Benutzer bei der Suche und bei der Präzision seiner Suchanfragen unterstützen und die die Websuche beschleunigen können:
+\begin{itemize}
+\item Personalisierung der Suche\cite{noll2007web} - es wird versucht, mithilfe von Suchhistorie des Benutzers, seines Verhaltens im Netz oder seinen ,,Likes``-Einträgen in sozialen Netzwerken die Ergebnisse, die für diesen Benutzer relevant wären, ,,vorherzusagen`` und den entsprechenden Dokumenten ein höheres Gewicht bei der Suche zu geben.
+\item Automatische Vervollständigung der Anfrage - sobald man anfängt den Text der Anfrage zu tippen, werden dem Benutzer Vorschläge bezüglich des Restes der Anfrage gemacht.
+\item Autokorrektur der Anfrage - falls es keine Dokumenten gefunden wurden, könnte die Anfrage bei Bedarf automatisch korrigiert werden.
+\end{itemize}
+
+In Rahmen dieser Arbeit soll ein anderer Einsatz implementiert und erforscht werden: die Extraktion von Entitäten aus Suchergebnissen. 
+
+Eine Skizze der erwähntes Einsatzes ist auf der Abbildung \ref{fig:bing-and-entity} zu sehen. Die Idee dieses Einsatzes besteht daran, dass dem Benutzer zusätzlich zu den Links die Liste von sogenannten Entitäten - Personen, Firmen oder geographischen Objekten - angezeigt wird, die aus den Snippets (kurzen Textausschnitten der gefundenen Webseiten) extrahiert wurden. Der Einsatz könnte die Suche beschleunigen, da der Benutzer im besten Fall die verlinkte Dokumente gar nicht mehr öffnen muss, sondern sich lediglich die extrahierte Entitäten anschauen muss.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{Bilder/bing-and-entity.png}
+\caption{''Eine Websuche mit Extraktion von Entitäten''}
+\label{fig:bing-and-entity}
+\end{figure}
 
 \paragraph{}
 Dabei soll beachtet werden, dass jede natürliche Sprache ein besonderes an dieser Sprache angepasstes Verfahren braucht, um erkennen zu können, welche Entitäten in dem Text vorkommen. Für englische Sprache existieren schon jetzt Verfahren und Modellen, mit deren Hilfe die englischsprachige Entitäten extrahiert werden können. Allerdings fällt das Modell für die deutsche Sprache, deswegen findet die Extraktion von deutschsprachigen Entitäten zurzeit nicht statt.
@@ -25,24 +49,3 @@ Die Arbeit umfasst drei große Abschnitte:
 
 \item Es soll anschließend eine Benutzerevaluierung durchgeführt werden, um feststellen zu können, ob man aus den Suchergebnissen gewonnene Entitäten für den Benutzer tatsächlich relevant sind.
 \end{itemize}
-
-\paragraph{}
-Das Extraktionsframework soll auf Basis von Apache Stanbol entwickelt werden, das dem Entwickler eine API für die Manipulation von Ontologien und für die Anreicherung von Textdaten zur Verfügung stellt. Als Wissendatenbank für die Ontologien soll deutsche Version von DBpedia verwendet werden.
-
-\paragraph{}
-Die Entwicklung der Stanbol-Erweiterung umfasst folgende Schritte:
-\begin{enumerate}
-\item Zuerst soll ein Plugin implementiert werden (sogenannter Enhancer), der markiert, welche Tokens möglicherweise einer Entität entsprechen. Dabei wird für jede Mögliche Entität eine grobe Typeinschätzung gemacht (ob das eine Person, eine Organisation, eine geografische Entität oder eine Entität, die zu keinem anderen Typ passt, ist). Die erkannte Entitäten werden mit bestimmten Annotationen versehen, die für spätere Bearbeitungsschritte benötigt werden. Die Erkennung von Entitäten kann grundsätzlich auf zwei unterschiedliche Arten und Weisen implementiert werden:  
-\begin{itemize}
-\item Es kann ein existierendes Modell für die Erkennung von Entitäten in deutschen Texten benutzt werden (wie deutsches Modell aus dem Stanford NER Framework).
-\item Man kann ein eigenes Modell mithilfe von OpenNLP oder MITIE trainieren, auf Basis von einem mit Annotationen versehenen Trainingkorpora.
-\end{itemize}
-Im Rahmen dieser Arbeit sollen beide Methoden implementiert werden.
-
-\item Danach soll die Erweiterung, die die gefundene Entitäten mit passenden Ontologien verlinkt, implementiert werden. Dafür kann man den in Stanbol eingebetteten Plugin verwenden, der den internen Solr-Index verwendet, um die Ontologien mit den entsprechenden Entitäten zu verliken. In diesem Fall muss man einen eigenen Index für deutsche DBpedia aufbauen, und den an den Stanbol anbinden.
-
-\item Anschließend sollen alle  Entitäten, die für den Benutzer ``unwichtig`` sind, rausgefiltert werden, damit der Benutzer nur die Ontologien bekommt, die auch relevant sind. Ob eine Entität rausgefiltert werden soll wird anhand ihres Gewichtes entschieden.
-\end{enumerate}
-
-%\section{Aufbau der Arbeit}
-%\label{sec:Aufbau der Arbeit}
