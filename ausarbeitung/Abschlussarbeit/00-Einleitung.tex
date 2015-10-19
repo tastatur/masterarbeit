@@ -33,6 +33,7 @@ Eine Skizze der erwähntes Einsatzes ist auf der Abbildung \ref{fig:bing-and-ent
 \end{figure}
 
 \section{Problemstellung}
+\label{sec:Problemstellung}
 \paragraph{}
 Die Implementierung solches Einsatzes bringt mit sich allerdings bestimmte Herausforderungen, die im Rahmen dieser Arbeit angegangen werden müssen:
 
@@ -53,16 +54,23 @@ Bei der Verlinkung von Entitäten soll folgendes im Kauf genommen werden:
 \item Was macht man, wenn der Name der Entität im Text mit in der Datenbank vorhandenen Namen nicht übereinstimmt? Wie wählt man den am besten passenden Datenbankeintrag?
 \end{itemize}
 
+Damit die Extraktion von Entitäten auch in Drittaplikationen wie Websuche-Gamifikation-Apps\cite{Karatassis:15} integriert werden könnte, muss nachgedacht werden, wie für den Entwickler am besten passende API implementiert werden könnte.
+
 Alle diese Fragen sollen im Rahmen dieser Arbeit angegangen und gegebenenfalls gelöst werden.
 
 \section{Aufgabenstellung}
 \label{sec:Aufgabenstellung}
 \paragraph{}
-Die Arbeit umfasst drei große Abschnitte: 
+Die Arbeit umfasst folgende Abschnitte: 
 \begin{itemize}
-\item Zuerst soll ein Framework entwickelt werden, der die Extraktion und Verlinkung von Ontologien für deutschsprachige Webseiten ermöglicht. Die Webseiten werden dabei nicht im Plaintext ins System eingegeben, sondern als HTML. Deswegen soll der Framework auch rohe Textdaten aus dem HTML extrahieren können. 
+\item Es soll ein Framework entwickelt werden, das die Extraktion von Entitäten aus deutschsprachigen Texten ermöglicht:
+\begin{enumerate}
+\item Zuerst sollen Algorithmen zur Extraktion von Entitäten aus Texten erforscht werden.
+\item Danach soll auf Basis von diesen Algorithmen die Extraktion von Entitäten aus Texten implementiert werden.
+\item Im letzten Unterschritt soll die passende Wissendatenbank ausgewählt und die Verlinkung von Daten aus dieser Datenbank mit im vorherigen Schritt extrahierten Entitäten implementiert werden
+\end{enumerate}
 
-\item Danach soll eine Bibliothek entwickelt werden, die dem Entwickler einfache API zur Anreicherung von Suchergebnissen zur Verfügung stellt. Der Entwickler soll idealerweise keine Wissen und Kenntnisse über Extraktion von Entitäten besitzen müssen.
+\item Danach soll eine Bibliothek entwickelt werden, die dem Entwickler einfache API zur Anreicherung von Suchergebnissen zur Verfügung stellt. Der Entwickler soll idealerweise keine Wissen und Kenntnisse über Extraktion von Entitäten besitzen müssen - die Schnittstelle soll dabei im einfachsten Fall nur eine Funktion zur Verfügung stellen, die ein Suchsnippet als Eingabe und Liste von Ontologien (Namen und Eigenschaften von Entitäten) als Ausgabe verwendet.
 
-\item Es soll anschließend eine Benutzerevaluierung durchgeführt werden, um feststellen zu können, ob man aus den Suchergebnissen gewonnene Entitäten für den Benutzer tatsächlich relevant sind.
+\item Es soll anschließend eine Evaluierung durchgeführt werden, um feststellen zu können, ob aus den Suchergebnissen gewonnene Entitäten für den Benutzer tatsächlich relevant sind. Außerdem soll die Evaluierung die in der Sektion \ref{sec:Problemstellung} gestellte Fragen zu beantworten helfen können.
 \end{itemize}
