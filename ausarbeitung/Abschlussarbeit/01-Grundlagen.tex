@@ -147,14 +147,14 @@ Die Eckpunkte dieses Graphs beschreiben dabei die Werte, die ,,vorhersagt`` werd
 
 \paragraph{}
 Die Formel, die die Verteilung $p(y|x)$ beschreibt, lautet 
-$$
+\begin{equation} \label{eq:crfeq}
 p(y|x) = \frac{1}{Z(x)}\prod_{t=1}^T\exp \lbrace \sum_{k=1}^K \theta_k f_k(y_t,y_t-1,x_t) \rbrace
-$$  
+\end{equation}
 
 Funktion $f_k$ beschreibt dabei Features, und Vektor $\theta$ - Parameter. Die Funktion $Z(x)$ ist eine Normalisierungsfunktiuon, und wird wie folgt definiert:
-$$
+\begin{equation} \label{eq:zeteq}
 Z(x) = \sum_y \prod_{t=1}^T\exp \lbrace \sum_{k=1}^K \theta_k f_k(y_t,y_t-1,x_t) \rbrace
-$$
+\end{equation}
 Vektor $x_t$ beinhaltet dabei alle Features, die benötigt werden, um Abhängigkeiten zu berechnen. 
 
 Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
