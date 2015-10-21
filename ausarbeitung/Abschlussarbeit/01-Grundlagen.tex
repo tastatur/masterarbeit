@@ -163,6 +163,7 @@ Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
 \begin{itemize}
 \item Relativ schnelles Trainieren von Modellen\cite{sha2003shallow}, besonders im Vergleich zu SVM.
 \item Relativ niedrige Fehlerraten (im Vergleich zu SVM sind die aber doch größer).
+\item Die Features müssen nicht unbedingt binär sein, wie es bei ME der Fall ist.
 \end{itemize}
 \item Nachteile:
 \begin{itemize}
@@ -173,14 +174,23 @@ Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
 \subsection{Maximum Entropy based NER}
 %Was ist ME NER? Wo wird er verwendet? Welche Vor- und Nachteile hat dieser Einsatz im Vergleich zum CRF?
 \paragraph{}
-Dieses Framework wurde in der Arbeit von Andrew Borthwick\cite{Andrew:99} vorgestellt. In diesem Modell wird auch wie im CRF mit der Wahrscheinlichkeit $p(y|x)$ gearbeitet, allerdings ist ME NER kein graphisches Framework. Die Formell, die die Verteilung für ME-Modell beschreibt, sieht wie folgt aus:
-$$
-P(y|x) = \frac{1}{Z(x)}\prod_i \alpha_i^{g_i(x,y)}
-$$
-$g_i$ ist eine binäre Funktion, die eine bestimmte Feature beschreibt, und $\alpha_i$ ist das Parameter, der mit der Eigenschaft assoziiert wird. $Z(x)$ ist eine Normalisierungsfunktion, die wie folgt aussieht:
-$$
-Z(x) = \sum_y \prod_i \alpha_i^{g_i(x,y)}
-$$
+Dieses Framework wurde in der Arbeit von Andrew Borthwick\cite{borthwick1999maximum} vorgestellt. ME-Framework operiert grundlegend mit folgenden Begriffen:
+\begin{enumerate}
+\item \textit{Zukunft} (In \cite{borthwick1999maximum} ,,Futures`` genannt) - Eine Menge von Möglichen Ausgaben (Klassifizierungen von möglichen Entitäten) des Algorithmus.
+\item \textit{Historie} - diese Bezeichnung könnte verwirrend wirken, da dieser Begriff eigentlich die Umgebung eines Wortes beschreibt (so eine Art vom Fenster, wo das Wort, das analysiert werden muss, in der Mitte steht).
+\item \textit{Features} - wie bei anderen Algorithmen beschreibt dieser Begriff ein Vektor von Eigenschaften eines Wortes.
+\end{enumerate}
+Ähnlich wie bei CRF wird es versucht die Wahrscheinlichkeit $P(Future|Historie)$ zu maximieren. 
+
+Ein gravierender Unterschied zum CRF besteht daran, dass in der ,,üblichen`` Implementierung dieses Algorithmus nur binäre Features\cite{berger1996maximum} $g(w,u)$, deren Form in der Formel \ref{eq:binfeat} beschrieben ist, im Kauf genommen werden können. 
+
+\begin{equation} \label{eq:binfeat}
+g(wort, umgebung) = 
+\begin{cases}
+1  & \text{wenn das Token das untersuchte Eigenschaft besitzt} \\
+0 & \text{ansonsten} 
+\end{cases}
+\end{equation}
 
 \subsection{SVM}
 \paragraph{}
