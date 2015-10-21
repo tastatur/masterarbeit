@@ -157,6 +157,19 @@ Z(x) = \sum_y \prod_{t=1}^T\exp \lbrace \sum_{k=1}^K \theta_k f_k(y_t,y_t-1,x_t)
 $$
 Vektor $x_t$ beinhaltet dabei alle Features, die benötigt werden, um Abhängigkeiten zu berechnen. 
 
+Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
+\begin{itemize}
+\item Vorteile:
+\begin{itemize}
+\item Relativ schnelles Trainieren von Modellen\cite{sha2003shallow}, besonders im Vergleich zu SVM.
+\item Relativ niedrige Fehlerraten (im Vergleich zu SVM sind die aber doch größer).
+\end{itemize}
+\item Nachteile:
+\begin{itemize}
+\item Die Implementierung von einem CRF-basiertem NER-Extraktor kann komplizierter als die von anderen Algorithmen sein.
+\end{itemize}
+\end{itemize}
+
 \subsection{SVM}
 \paragraph{}
 Support Vector Machines (oder Stützvektormaschine) ist eine Methode zur Klassifizierung von Daten, deren Grundidee\cite{meyer2014support} auf der Abbildung \ref{fig:SVM-INTRO} graphisch dargestellt ist. 
