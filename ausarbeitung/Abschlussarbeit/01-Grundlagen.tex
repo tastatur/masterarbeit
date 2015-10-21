@@ -170,6 +170,18 @@ Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
 \end{itemize}
 \end{itemize}
 
+\subsection{Maximum Entropy based NER}
+%Was ist ME NER? Wo wird er verwendet? Welche Vor- und Nachteile hat dieser Einsatz im Vergleich zum CRF?
+\paragraph{}
+Dieses Framework wurde in der Arbeit von Andrew Borthwick\cite{Andrew:99} vorgestellt. In diesem Modell wird auch wie im CRF mit der Wahrscheinlichkeit $p(y|x)$ gearbeitet, allerdings ist ME NER kein graphisches Framework. Die Formell, die die Verteilung für ME-Modell beschreibt, sieht wie folgt aus:
+$$
+P(y|x) = \frac{1}{Z(x)}\prod_i \alpha_i^{g_i(x,y)}
+$$
+$g_i$ ist eine binäre Funktion, die eine bestimmte Feature beschreibt, und $\alpha_i$ ist das Parameter, der mit der Eigenschaft assoziiert wird. $Z(x)$ ist eine Normalisierungsfunktion, die wie folgt aussieht:
+$$
+Z(x) = \sum_y \prod_i \alpha_i^{g_i(x,y)}
+$$
+
 \subsection{SVM}
 \paragraph{}
 Support Vector Machines (oder Stützvektormaschine) ist eine Methode zur Klassifizierung von Daten, deren Grundidee\cite{meyer2014support} auf der Abbildung \ref{fig:SVM-INTRO} graphisch dargestellt ist. 
@@ -222,27 +234,18 @@ Der Einsatz von Stützvektoren für Extraktion von Entitäten ist in der Arbeit 
 \end{itemize}
 
 \paragraph{}
-Vorteile von SVM-Einsatz anderen Methoden gegenüber:
+Vorteile des SVM-Einsatzes anderen Methoden gegenüber\cite{joachims1998text}:
 \begin{itemize}
-\item A
+\item SVMs eignen sich gut für die Bearbeitung von langen Featuresvektoren, was bei Klassifizierung von Wörtern ein großer Vorteil ist.
+\item Dieses Algorithmus funktioniert mehr oder weniger gleich auf allen Domänen von Texten.
+\item Es ist üblicherweise kein Tuning von Traininsparametern notwendig.
 \end{itemize}
 
 Nachteile von SVMs anderen Einsätzen gegenüber:
 \begin{itemize}
-\item B
+\item Relativ langsamer Trainingsvorgang - bei größeren Trainigskorpora kann die Erstellung eines Modells bis auf mehrere Tagen in Anspruch nehmen.
+\item Anforderungen zur Größe des Arbeitsspeichers sind üblich auch höher als bei anderen Algorithmen.
 \end{itemize}
-
-\subsection{Maximum Entropy based NER}
-%Was ist ME NER? Wo wird er verwendet? Welche Vor- und Nachteile hat dieser Einsatz im Vergleich zum CRF?
-\paragraph{}
-Dieses Framework wurde in der Arbeit von Andrew Borthwick\cite{Andrew:99} vorgestellt. In diesem Modell wird auch wie im CRF mit der Wahrscheinlichkeit $p(y|x)$ gearbeitet, allerdings ist ME NER kein graphisches Framework. Die Formell, die die Verteilung für ME-Modell beschreibt, sieht wie folgt aus:
-$$
-P(y|x) = \frac{1}{Z(x)}\prod_i \alpha_i^{g_i(x,y)}
-$$
-$g_i$ ist eine binäre Funktion, die eine bestimmte Feature beschreibt, und $\alpha_i$ ist das Parameter, der mit der Eigenschaft assoziiert wird. $Z(x)$ ist eine Normalisierungsfunktion, die wie folgt aussieht:
-$$
-Z(x) = \sum_y \prod_i \alpha_i^{g_i(x,y)}
-$$
 
 \section{Wissendatenbanke}
 %Was sind Wissendatenbanke? Wieso brauchen wir die in unserer Arbeit? Wie sucht man nach Entitäten in einer Wissendatenbank? Kurze Einleitung in SPARQL+RDF.
