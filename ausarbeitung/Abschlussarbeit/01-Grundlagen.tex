@@ -180,7 +180,7 @@ Dieses Framework wurde in der Arbeit von Andrew Borthwick\cite{borthwick1999maxi
 \item \textit{Historie} - diese Bezeichnung könnte verwirrend wirken, da dieser Begriff eigentlich die Umgebung eines Wortes beschreibt (so eine Art vom Fenster, wo das Wort, das analysiert werden muss, in der Mitte steht).
 \item \textit{Features} - wie bei anderen Algorithmen beschreibt dieser Begriff ein Vektor von Eigenschaften eines Wortes.
 \end{enumerate}
-Ähnlich wie bei CRF wird es versucht die Wahrscheinlichkeit $P(Future|Historie)$ zu maximieren. 
+Ähnlich wie bei CRF wird es versucht die Wahrscheinlichkeit $P(Future|Historie)$, deren Kalkulation in der Formel \ref{eq:meeq} beschrieben ist, zu maximieren. 
 
 Ein gravierender Unterschied zum CRF besteht daran, dass in der ,,üblichen`` Implementierung dieses Algorithmus nur binäre Features\cite{berger1996maximum} $g(w,u)$, deren Form in der Formel \ref{eq:binfeat} beschrieben ist, im Kauf genommen werden können. 
 
@@ -190,6 +190,15 @@ g(wort, umgebung) =
 1  & \text{wenn das Token das untersuchte Eigenschaft besitzt} \\
 0 & \text{ansonsten} 
 \end{cases}
+\end{equation}
+
+\begin{equation} \label{eq:meeq}
+p(f|h) = \frac{1}{Z(h)}\prod \alpha_i^{g_i(f,h)}
+\end{equation}
+Das Wert $\alpha_i$ definiert im ME-Algorithmus das Gewicht einer Eigenschaft. Die Funktion $Z(h)$ ist dabei eine Normalisierungsfunktion und spielt dieselbe Rolle wie $Z(x)$ in der Formel \ref{eq:zeteq}, und ist wie folgt definiert:
+
+\begin{equation} \label{eq:zeteqme}
+Z(h) = \sum_f \prod_i \alpha_i^{g_i(f,h)}
 \end{equation}
 
 \subsection{SVM}
