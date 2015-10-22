@@ -290,20 +290,26 @@ Beim Training eines NER-Modells auf einem Korpus muss außerdem folgendes im Kau
 \section{Wissendatenbanke}
 %Was sind Wissendatenbanke? Wieso brauchen wir die in unserer Arbeit? Wie sucht man nach Entitäten in einer Wissendatenbank? Kurze Einleitung in SPARQL+RDF.
 \paragraph{}
-Um die extrahierte Entitäten mit Ontologien anzureichern, braucht man selbstverständlich eine Datenbank, wo alle Informationen zu den Entitäten gespeichert werden. Solche Datenbanken nennt man ,,Wissendatenbanken``. Solche Datenbanke sind keine herkömmliche relationale Datenbanke, da man die Ontologien mit ihrer hierarchischen Struktur zwar auf ein relationales Modell abbilden lassen kann, aber es gibt bessere Datenstrukturen und Anfragesprachen, die die Arbeit mit Ontologien für die Entwickler einfacher machen.
+Um die extrahierte Entitäten mit Ontologien anzureichern, braucht man selbstverständlich eine Datenbank, wo alle Informationen zu den Entitäten gespeichert werden. Solche Datenbanken nennt man ,,Wissendatenbanken`` - eine Datenbank, wo ,,Wissen`` über ein bestimmtes Domain gespeichert werden. Es stellt sich die Frage, warum die ,,Wissendatenbanken`` explizit von den herkömmlichen relationalen Datenbanken getrennt behandelt werden müssen. Welche Besonderheiten weisen Wissendatenbanke auf, die Anwendung von relationalem Datenmodell schwer (beziehungsweise unmöglich) machen?
 
-\paragraph{}
-Zur Beschreibung von Ontologien dient das RDF-Format\footnote{\url{http://www.w3.org/2001/sw/wiki/RDF}}. Dieses Format basiert auf XML, und gibt dem Entwickler eine einfache Möglichkeit, Hierarchische Daten zu beschrieben. Die Ontologie im RDF-Format kann z.B. wie folgt aussehen:
-\lstset{language=XML}
-\lstinputlisting[captionpos=b,label={lst:RDFBEISPIEL},caption={Beispiel einer Ontologie im RDF-Format}]{Listings/examplerdf.xml}
+Aus den Vorlesungen über relationale Algebra ist uns bekannt, dass relationale Datenbanken ,,fest`` strukturiert sind - die Daten sollen einer vordefinierten Schema (Beschreibung der Datenstruktur) folgen. Jede Änderung von Datenstruktur (das Hinzufügen von neuen Feldern z.B.) führt zu einer Schemaänderung. Es ist allerdings sehr schwer, solche ,,feste`` Schema für Entitäten zu definieren, da:
+\begin{itemize}
+\item Verschiedene Entitäten können verschiedene Menge von Eigenschaften besitzen - ein geographisches Objekt kann kein Geburtstag haben, eine Person allerdings schon.
+\item Sowohl die Klassen als auch die Eigenschaften können sich mit der Zeit ändern - neue Klassen können hinzugefügt und alte Eigenschaften gelöscht werden.
+\item Die Entitäten können mithilfe von Links miteinander verbunden sein, und diese Links können zyklisch sein, was auf der Abbildung \ref{fig:cyclent} dargestellt ist. Es ist zwar möglich, zyklische Datenstrukturen mithilfe von relationalen Datenbanken abzubilden versuchen, die Aufbau solcher Datenbank wäre aber zu komplex.
+\end{itemize}
 
-\paragraph{}
-Als Anfragesprache für RDF wird SPARQL\footnote{\url{http://www.w3.org/2001/sw/wiki/SPARQL}} eingesetzt. Diese Sprache sieht SQL ähnlich aus, operiert allerdings nicht auf relationalen Daten, sondern auf RDF-Graphen. 
+\tikzset{main node/.style={circle,fill=blue!20,draw,minimum size=1cm,inner sep=0pt}}
+\begin{figure}[ht]
+\setbox0\vbox{\small}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+\node[main node] (Deutschland) {Deutschland};                      
+\node[main node] (Merkel) [above = 3cm of Deutschland] {Angela Merkel};     
 
-Zum Beispiel, wenn die Fläche der Stadt Duisburg und das Bundesland, wo die Stadt liegt, gebraucht werden, kann die SPARQL-Anfrage wie folgt aussehen:
-\lstset{language=SPARQL}
-\lstinputlisting[captionpos=b,label={lst:SPARQLBEISPIEL},caption={Beispiel einer SPARQL-Anfrage}]{Listings/sparqlexample.sql}
-
-Die Antwort wird dann im Form eines RDF-Datensatzes geliefert:
-\lstset{language=XML}
-\lstinputlisting[captionpos=b,label={lst:SPARQLRESULT},caption={Beispiel der Antwort auf eine SPARQL-Anfrage}]{Listings/sparqlresult.xml}
+\path (Deutschland) edge [bend left] node {Bundeskanzler} (Merkel)
+      (Merkel) edge node {Geboren} (Deutschland);                
+\end{tikzpicture}
+\caption{Beispiel von zyklischen Verlinkungen zwischen Entitäten}
+\label{fig:cyclent}
+\end{figure}
