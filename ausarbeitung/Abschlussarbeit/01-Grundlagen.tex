@@ -341,3 +341,11 @@ Als Backend für die Speicherung von diesen Graphen wird eine Erweiterung von XM
 
 \lstset{language=XML}
 \lstinputlisting[captionpos=b,label={lst:RDFBEISPIEL},caption={Beispiel einer Ontologie im RDF-Format}]{Listings/examplerdf.xml}
+
+Nachdem das Format für die Datenspeicherung definiert wurde, muss auch eine Anfragesprache definiert werden, mit deren Hilfe auf Informationen in einer Wissendatenbank zugegriffen werden kann. Es ist natürlich klar, dass es hierfür kein SQL verwendet werden kann, da es mit Graphen, und nicht mit relationalen Datenbanken gearbeitet wird. Für die Abfrage von RDF-Daten wird SPARQL (SPARQL Protocol And RDF Query Language) - verwendet. Diese Sprache wurde genau wie RDF-Datenformat vom W3-Consortium entworfen, und ist in der Arbeit von Quilitz\cite{quilitz2008querying} näher beschrieben.
+
+Am besten kann diese Sprache anhand des auf der Auflistung \ref{lst:SPARQLBEISPIEL} abgebildetes Beispiels erklärt werden.
+\lstset{language=SPARQL}
+\lstinputlisting[captionpos=b,label={lst:SPARQLBEISPIEL},caption={Beispiel einer SPARQL-Anfrage}]{Listings/sparqlexample.sql}
+
+
