@@ -101,7 +101,7 @@ MITIE\footnote{\url{https://github.com/mit-nlp/MITIE}} steht für ,,MIT Informat
 \end{enumerate}
 \end{itemize}
 
-\subsection{Deutcshe Korpora}
+\subsection{Deutcshe Korpora} \label{sec:decor}
 Um ein eigenes Modell für die Erkennung von Entitäten aufbauen zu können, wird ein sogenanntes Korpus gebraucht. 
 
 Damit das Training eines Modells vereinfacht werden könnte, werden für beide Einsätze (OpenNLP und MITIE) das gleiche Korpusformat verwendet, und alle Korpora werden in dieses Format umgewandelt.
@@ -200,7 +200,7 @@ Als Wissendatenbank für die Verlinkung und Dereferinzierung wird in dieser Arbe
 
 \subsection{Rausfielterung von für den Benutzer irrelevanten Entitäten}
 
-\section{API für Anreicherung von Suchergebnissen}
+\section{API f{\"{u}}r Anreicherung von Suchergebnissen}
 \paragraph{}
 Um dem Endentwickler die Anreicherung von Suchergebnissen so einfach wie möglich zu machen, wurde eine API entwickelt, die man direkt an sein Projekt als eine Bibliothek anbinden kann. Diese Bibliothek wird auch später in der Evaluierung verwendet. Es wird eine Abstraktionsschicht hinzugefügt, die die Aufrufe der REST-Schnittstelle von Stanbol hinter der Klientklasse verbirgt. Der Entwickler soll nur die Liste von Suchsnippets an API übergeben, für die Verbindungaufbau zum Stanbol und Parsing der Antwort des Servers ist API verantwortlich. Die Beschreibung der API-Schnittstelle findet man in der Auflistung \ref{lst:APISCHNITSTELLE}. 
 

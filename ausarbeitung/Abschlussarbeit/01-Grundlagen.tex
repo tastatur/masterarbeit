@@ -283,6 +283,10 @@ Leider konnten diese Daten im Rahmen dieser Arbeit nicht verwendet werden, da di
 
 Eine Alternative zu den auf Basis von Zeitungen aufgebauten Korpora wären die webbasierte Korpora\cite{liu2006web}. Im Vergleich zu den auf Zeitschriften basierten Korpora, weisen die aus Web extrahierte Daten größere Varianz auf, und wären deswegen für generische Domäne nützlicher sein können. Es muss aber gleichzeitig beachtet werden, dass die aus Web extrahierte Daten größere Fehlerraten aufweisen können, besonders im Bezug auf Grammatik. Ein Beispiel für ein webbasiertes Korpus wäre DeWaC\cite{baroni2009wacky}.
 
+Zusätzlich zu manuell erstellten Korpora könnte ein Korpus auch automatisch erstellt werden, wie es z.B. für POS-Annotationen in der Arbeit von Marcus\cite{marcus1993building} gemacht wurde. In der Sektion \ref{sec:decor} des Kapitels ,,Implementierung`` wird die Erstellung eines Korpus für Entitätsextraktion auf Basis von aus Wikipedia extrahierten Daten näher beschrieben.
+
+Beim Training eines NER-Modells auf einem Korpus muss außerdem folgendes im Kauf genommen werden: bei vielen frei verfügbaren Korpora sind die Klassen von Entitäten nicht explizit eingegeben - die Entitäten sind in vielen Datensätzen zwar annotiert, aber weitere Angaben zum Typ der Entität werden nicht gemacht. Deswegen kann ein NER-Modell den Unterschied zwischen verschiedenen Klassen von Entitäten öfters nicht lernen, was dazu führt, dass die entsprechende Klassen nachdem die Entitäten aus einem Text extrahiert wurden aus einer Datenbank geholt werden müssen, falls die Daten vorhanden sind.
+
 \section{Wissendatenbanke}
 %Was sind Wissendatenbanke? Wieso brauchen wir die in unserer Arbeit? Wie sucht man nach Entitäten in einer Wissendatenbank? Kurze Einleitung in SPARQL+RDF.
 \paragraph{}
