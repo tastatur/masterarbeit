@@ -273,13 +273,15 @@ Jedes im Rahmen dieser Arbeit betrachtetes Algorithmus braucht ein vortrainierte
 
 Um ein Modell trainieren zu können, braucht man ein Textkorpus. Korpus ist eine Sammlung von Texten, die entweder von Linguisten (manuell annotierete Korpora) oder automatisch (maschinell erzeugte Korpora) mit Annotationen versehen wurden. Die Annotationen können im Prinzip beliebig sein (z.B. POS-Tags sind auch Annotationen), aber im Rahmen der Erkennung von Entitäten braucht man ein Korpus, wo die Wörter, die Entitäten darstellen, markiert sind \cite{naf2006korpuslinguistik}.
 
-Ein Beispiel für ein von Linguisten vorbereitetes Korpus wäre CoNLL \cite{tjong2003introduction}. Die Daten, die im Rahmen der verlinkten Arbeit gesammelt wurden, haben folgende Vorteile:
+Ein Beispiel für ein von Linguisten vorbereitetes Korpus wäre auf Zeitungen und Zeitschriften aufgebautes CoNLL \cite{tjong2003introduction}. Die Daten, die im Rahmen der verlinkten Arbeit gesammelt wurden, haben folgende Vorteile:
 \begin{itemize}
-\item Die Daten weisen relativ gute Qualität auf.
+\item Da dieses Korpus auf Zeitschriften aufgebaut ist, weisen die Daten relativ gute Qualität auf, vor allem im Bezug auf Schreibfehler.
 \item Das in diesem Korpus verwendetes Datenformat ist ein Industriestandard und ist deswegen bereits in vielen Bibliotheken für Analyse von natürlichsprachlichen Texten implementiert. 
 \item Ein Korpus für deutsche Sprache ist auch verfügbar, was die Daten nützlich für diese Masterarbeit machen könnte.
 \end{itemize}
 Leider konnten diese Daten im Rahmen dieser Arbeit nicht verwendet werden, da die öffentlich nicht verfügbar sind, und nur gegen Aufpreis zur Verfügung gestellt werden können. In der Sektion \ref{sec:extraktimpl} des Kapitels ,,Implementierung`` wird es deswegen auf Alternativlösungen zugegriffen.
+
+Eine Alternative zu den auf Basis von Zeitungen aufgebauten Korpora wären die webbasierte Korpora\cite{liu2006web}. Im Vergleich zu den auf Zeitschriften basierten Korpora, weisen die aus Web extrahierte Daten größere Varianz auf, und wären deswegen für generische Domäne nützlicher sein können. Es muss aber gleichzeitig beachtet werden, dass die aus Web extrahierte Daten größere Fehlerraten aufweisen können, besonders im Bezug auf Grammatik. Ein Beispiel für ein webbasiertes Korpus wäre DeWaC\cite{baroni2009wacky}.
 
 \section{Wissendatenbanke}
 %Was sind Wissendatenbanke? Wieso brauchen wir die in unserer Arbeit? Wie sucht man nach Entitäten in einer Wissendatenbank? Kurze Einleitung in SPARQL+RDF.
