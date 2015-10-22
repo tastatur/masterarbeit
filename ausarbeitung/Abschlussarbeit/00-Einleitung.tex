@@ -54,6 +54,8 @@ Bei der Verlinkung von Entitäten soll folgendes im Kauf genommen werden:
 \item Was macht man, wenn der Name der Entität im Text mit in der Datenbank vorhandenen Namen nicht übereinstimmt? Wie wählt man den am besten passenden Datenbankeintrag? Wie wird die Suche generell durchgeführt?
 \end{itemize}
 
+Aber auch wenn alle Entitäten aus dem Text extrahiert wurden, hat man das Problem, dass einige Entitäten ,,irrelevant`` sein könnten. Solche Entitäten, die dem Benutzer nicht weiter helfen können, sollen bei Möglichkeit rausgefiltert werden, damit die dem Benutzer nicht angezeigt würden. 
+
 Damit die Extraktion von Entitäten auch in Drittaplikationen wie Websuche-Gamifikation-Apps\cite{Karatassis:15} integriert werden könnte, muss nachgedacht werden, wie für den Entwickler am besten passende API implementiert werden könnte.
 
 Alle diese Fragen sollen im Rahmen dieser Arbeit angegangen und gegebenenfalls gelöst werden.
@@ -67,6 +69,7 @@ Nachdem die Ziele dieser Arbeit definiert wurden, können die dazugehörige Absc
 \begin{enumerate}
 \item Zuerst sollen Algorithmen zur Extraktion von Entitäten aus Texten erforscht werden.
 \item Danach soll auf Basis von diesen Algorithmen die Extraktion von Entitäten aus Texten implementiert werden.
+\item Die irrelevante Entitäten sollen rausgefiltert werden (es soll außerdem definiert werden, wie eine ,,unwichtige`` Entität bestimmt wird).
 \item Es soll gegebenenfalls eine Applikation für Training von Extraktionsmodellen implementiert werden, falls noch keine vorhanden ist.
 \item Im letzten Unterschritt soll die passende Datenquelle ausgewählt und die Verlinkung von Daten aus dieser Datenbank mit im vorherigen Schritt extrahierten Entitäten implementiert werden 
 \end{enumerate}
