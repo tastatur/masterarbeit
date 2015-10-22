@@ -368,3 +368,12 @@ Als Antwort auf eine SPARQL-Anfrage wird üblicherweise ein RDF-Graph geliefert.
 
 \lstset{language=XML}
 \lstinputlisting[captionpos=b,label={lst:SPARQLRESULT},caption={Beispiel der Antwort auf eine SPARQL-Anfrage}]{Listings/sparqlresult.xml}
+
+\section{Zwischenfazit}
+Nachdem die Grundlagen dieser Arbeit erklärt wurden, können schon folgende Bemerkungen für den Implementierungsschritt erläutert werden:
+\begin{itemize}
+\item Training eines Modells stellt eine getrennte Aufgabe dar, und wird deswegen gesondert implementiert werden müssen.
+\item Da nur wenige Korpora frei verfügbar sind, wird es unter anderem auf automatisch erzeugte Korpora zugegriffen, was die Qualität der Extration beeinflussen wird.
+\item Für den Vergleich zwischen verschiedenen Algorithmen sollen verschiedene Backends implementiert werden, die über eine universale Schnittstelle erreichbar werden müssen.
+\item Es muss für die Verlinkung von Entitäten nachgedacht werden, wo genau die Daten über die Entitäten gefunden werden können.
+\end{itemize}
