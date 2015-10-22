@@ -6,12 +6,18 @@ Um eine richtige Architektur des Systems auswählen zu können, fassen wir kurz 
 \begin{itemize}
 \item Eine Komponente für Training eines NER-Modells.
 \item Eine Komponente für Extraktion von Entitäten aus Texten.
+\item Ein Filter für ,,unpassende`` Entitäten.
 \item Eine Komponente für Verlinkung von extrahierten Entitäten mit den Eigenschaften aus einer Wissendatenbank.
 \item Eine API für Anreicherung von Suchergebnissen.
 \end{itemize}
 
+Damit alle diese Anforderungen im Rahmen dieser Arbeit implementiert werden könnten, muss ein Framework verwendet werden, das eine API für die Arbeit mit semantischen Daten ermöglicht. Im Rahmen dieser Arbeit wurde als solches Framework Apache Stanbol\footnote{\url{http://stanbol.apache.org/}} ausgewählt. Obwohl es andere Systeme, wie Alchemy API \footnote{\url{http://www.alchemyapi.com/}} gibt, die auch deutsche Sprache unterstützen, hat Stanbol gravierende Vorteile anderen Frameworks gegenüber:
+\begin{itemize}
+
+\end{itemize}
+
 \paragraph{}
-Apache Stanbol \footnote{\url{http://stanbol.apache.org/}} ist ein modulares Framework für semantisches Contentmanagement. Es stellt dem Entwickler eine Plugin-API zur Verfügung, mit deren Hilfe neue Features wie Extraktion von Entitäten aus deutschen Texten leicht implementiert werden können. Die Liste von verfügbaren Modulen ist auf der Abbildung \ref{fig:komponenten} zusammengefasst.
+Stanbol stellt dem Entwickler eine Plugin-API zur Verfügung, mit deren Hilfe neue Features wie Extraktion von Entitäten aus deutschen Texten leicht implementiert werden können. Die Liste von verfügbaren Modulen ist auf der Abbildung \ref{fig:komponenten} zusammengefasst.
 
 \begin{figure}
 \centering
