@@ -321,7 +321,7 @@ Für die Darstellung von Wissen wurde von dem W3-Consortium\cite{klyne2006resour
 \item Prädikat sagt, welche Eigenschaft der Entität beschrieben wird (z.B. Alter einer Person kann ein Prädikat sein).
 \item Objekt - das Wert der Eigenschaft. Dabei kann Objekt eine weitere Entität sein, und eigene Eigenschaften besitzen. 
 \end{itemize}
-Ein Objekt kann also auch die Rolle eines Subjektes spielen und umgekehrt.
+Ein Objekt kann also auch die Rolle eines Subjektes spielen und umgekehrt, was die Speicherung von komplexen Strukturen ermöglicht.
 
 \tikzset{main node/.style={circle,fill=blue!20,draw,minimum size=1cm,inner sep=0pt}}
 \begin{figure}[ht]
@@ -336,3 +336,8 @@ Ein Objekt kann also auch die Rolle eines Subjektes spielen und umgekehrt.
 \caption{Grundidee des RDF-Datenformats}
 \label{fig:graph-rdf}
 \end{figure}
+
+Als Backend für die Speicherung von diesen Graphen wird eine Erweiterung von XML benutzt. Ein Beispiel für eine Entität im RDF/XML-Format ist auf der Auflistung \ref{lst:RDFBEISPIEL} zu sehen.
+
+\lstset{language=XML}
+\lstinputlisting[captionpos=b,label={lst:RDFBEISPIEL},caption={Beispiel einer Ontologie im RDF-Format}]{Listings/examplerdf.xml}
