@@ -201,6 +201,8 @@ Das Wert $\alpha_i$ definiert im ME-Algorithmus das Gewicht einer Eigenschaft. D
 Z(h) = \sum_f \prod_i \alpha_i^{g_i(f,h)}
 \end{equation}
 
+Wie es schon erwähnt wurde, hat ME ein gravierender Nachteil, und zwar dass es nur binäre Eigenschaften verwendet werden können. Allerdings ist ein ME-Modell schneller als CRF, besonders was Training angeht, und ist auch leichter zu implementieren, deswegen findet auch dieses Algorithmus sein Platz in heutigen NER-Systemen wie OpenNLP\footnote{\url{http://opennlp.apache.org/}}.
+
 \subsection{SVM}
 \paragraph{}
 Support Vector Machines (oder Stützvektormaschine) ist eine Methode zur Klassifizierung von Daten, deren Grundidee\cite{meyer2014support} auf der Abbildung \ref{fig:SVM-INTRO} graphisch dargestellt ist. 
@@ -265,6 +267,18 @@ Nachteile von SVMs anderen Einsätzen gegenüber:
 \item Relativ langsamer Trainingsvorgang - bei größeren Trainigskorpora kann die Erstellung eines Modells bis auf mehrere Tagen in Anspruch nehmen.
 \item Anforderungen zur Größe des Arbeitsspeichers sind üblich auch höher als bei anderen Algorithmen.
 \end{itemize}
+
+\section{Trainingskorpora}
+Jedes im Rahmen dieser Arbeit betrachtetes Algorithmus braucht ein vortrainiertes Modell, um Entitäten aus einem Text extrahieren zu können. Manchmal können zwar schon fertige Modelle verwendet werden, die schon vorher trainiert wurden, aber wenn es kein solches Modell verfügbar ist, muss der Entwickler ein eigenes trainieren.
+
+Um ein Modell trainieren zu können, braucht man ein Textkorpus. Korpus ist eine Sammlung von Texten, die entweder von Linguisten (manuell annotierete Korpora) oder automatisch (maschinell erzeugte Korpora) mit Annotationen versehen wurden. Die Annotationen können im Prinzip beliebig sein (z.B. POS-Tags sind auch Annotationen), aber im Rahmen der Erkennung von Entitäten braucht man ein Korpus, wo die Wörter, die Entitäten darstellen, markiert sind \cite{naf2006korpuslinguistik}.
+
+Ein Beispiel für ein von Linguisten vorbereitetes Korpus wäre CoNLL \cite{tjong2003introduction}. Die Daten, die im Rahmen der verlinkten Arbeit gesammelt wurden, haben folgende Vorteile:
+\begin{itemize}
+\item Die Daten weisen relativ gute Qualität auf.
+\item Ein Korpus für deutsche Sprache ist auch verfügbar, was die Daten nützlich für diese Masterarbeit machen könnte.
+\end{itemize}
+Leider konnten diese Daten im Rahmen dieser Arbeit nicht verwendet werden, da die öffentlich nicht verfügbar sind, und nur gegen Aufpreis zur Verfügung gestellt werden können. In der Sektion \ref{sec:extraktimpl} des Kapitels ,,Implementierung`` wird es deswegen auf Alternativlösungen zugegriffen.
 
 \section{Wissendatenbanke}
 %Was sind Wissendatenbanke? Wieso brauchen wir die in unserer Arbeit? Wie sucht man nach Entitäten in einer Wissendatenbank? Kurze Einleitung in SPARQL+RDF.

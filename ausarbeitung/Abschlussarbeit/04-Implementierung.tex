@@ -36,7 +36,7 @@ Als Entwickler muss man aber gleich beachten, dass die interne Implementierung v
 \label{fig:REALPIPELINE}
 \end{figure}
 
-\section{Extraktion von Entitäten}
+\section{Extraktion von Entitäten} \label{sec:extraktimpl}
 Kurze Einleitung, wie genau die Annotationen für die Entitäten erzeugt werden, unabhängig von dem benutzten Einsatz.
 
 \subsection{StanfordNER} 
@@ -102,7 +102,7 @@ MITIE\footnote{\url{https://github.com/mit-nlp/MITIE}} steht für ,,MIT Informat
 \end{itemize}
 
 \subsection{Deutcshe Korpora}
-Um ein eigenes Modell für die Erkennung von Entitäten aufbauen zu können, wird ein sogenanntes Korpus gebraucht. Ein Korpus ist eine Sammlung von Texten, die entweder von Linguisten (manuell annotierete Korpora) oder automatisch (maschinell erzeugte Korpora) mit Annotationen versehen wurden. Die Annotationen können im Prinzip beliebig sein (z.B. POS-Tags sind auch Annotationen), aber im Rahmen der Erkennung von Entitäten braucht man ein Korpus, wo die Wörter, die Entitäten darstellen, markiert sind.
+Um ein eigenes Modell für die Erkennung von Entitäten aufbauen zu können, wird ein sogenanntes Korpus gebraucht. 
 
 Damit das Training eines Modells vereinfacht werden könnte, werden für beide Einsätze (OpenNLP und MITIE) das gleiche Korpusformat verwendet, und alle Korpora werden in dieses Format umgewandelt.
 
