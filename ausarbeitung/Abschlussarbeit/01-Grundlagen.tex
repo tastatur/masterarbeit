@@ -313,3 +313,26 @@ Aus den Vorlesungen über relationale Algebra ist uns bekannt, dass relationale 
 \caption{Beispiel von zyklischen Verlinkungen zwischen Entitäten}
 \label{fig:cyclent}
 \end{figure}
+Aber wie können dann ,,Wissen`` über die Entitäten gespeichert werden? Welche Datenbanken und Datenstrukturen können hierfür verwendet werden? Gibt es schon bereits eine Lösung oder muss ein eigenes Konzept entwickelt werden?
+
+Für die Darstellung von Wissen wurde von dem W3-Consortium\cite{klyne2006resource} eine spezielle auf XML basierende Datenstruktur RDF (Resource Description Framework) entworfen, die Speicherung von vage strukturierten Daten ermöglicht, was für die Lagerung von Informationen über Entitäten am besten passt. Dieses Format basiert sich auf gerichteten Graphen (siehe die Abbildung \ref{fig:graph-rdf}) und umfasst folgende Grundbegriffe:
+\begin{itemize}
+\item Subjekt - die Entität, deren Eigenschaft beschrieben werden muss (z.B. eine Person).
+\item Prädikat sagt, welche Eigenschaft der Entität beschrieben wird (z.B. Alter einer Person kann ein Prädikat sein).
+\item Objekt - das Wert der Eigenschaft. Dabei kann Objekt eine weitere Entität sein, und eigene Eigenschaften besitzen. 
+\end{itemize}
+Ein Objekt kann also auch die Rolle eines Subjektes spielen und umgekehrt.
+
+\tikzset{main node/.style={circle,fill=blue!20,draw,minimum size=1cm,inner sep=0pt}}
+\begin{figure}[ht]
+\setbox0\vbox{\small}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+\node[main node] (Subjekt) {Subjekt};                      
+\node[main node] (Objekt) [above = 3cm of Subjekt] {Objekt};     
+
+\path (Subjekt) edge [bend left] node {Prädikat} (Objekt);             
+\end{tikzpicture}
+\caption{Grundidee des RDF-Datenformats}
+\label{fig:graph-rdf}
+\end{figure}
