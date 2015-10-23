@@ -267,7 +267,7 @@ Nachteile von SVMs anderen Einsätzen gegenüber:
 \item Anforderungen zur Größe des Arbeitsspeichers sind üblich auch höher als bei anderen Algorithmen.
 \end{itemize}
 
-\section{Trainingskorpora}
+\section{Trainingskorpora} \label{sec:trcorpora}
 Jedes im Rahmen dieser Arbeit betrachtetes Algorithmus braucht ein vortrainiertes Modell, um Entitäten aus einem Text extrahieren zu können. Manchmal können zwar schon fertige Modelle verwendet werden, die schon vorher trainiert wurden, aber wenn es kein solches Modell verfügbar ist, muss der Entwickler ein eigenes trainieren.
 
 Um ein Modell trainieren zu können, braucht man ein Textkorpus. Korpus ist eine Sammlung von Texten, die entweder von Linguisten (manuell annotierete Korpora) oder automatisch (maschinell erzeugte Korpora) mit Annotationen versehen wurden. Die Annotationen können im Prinzip beliebig sein (z.B. POS-Tags sind auch Annotationen), aber im Rahmen der Erkennung von Entitäten braucht man ein Korpus, wo die Wörter, die Entitäten darstellen, markiert sind \cite{naf2006korpuslinguistik}.

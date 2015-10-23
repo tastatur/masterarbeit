@@ -174,15 +174,20 @@ Die Aufbau dieses Engines ähnelt sich der vom Stanford-NER-Engine, und kann auf
 \end{figure}
 
 \subsection{Deutcshe Korpora} \label{subsec:decor}
-Um ein eigenes Modell für die Erkennung von Entitäten aufbauen zu können, wird ein sogenanntes Korpus gebraucht. 
+Nachdem die Engines, die nach Entitäten in Texten suchen sollen, entwickelt wurden, müssen die entsprechende NER-Modelle trainiert werden, wie es in der Sektion \ref{sec:trcorpora} beschrieben wurde. Und obwohl fällt dieser Schritt fürs auf Stanford-NER basierten Engine komplett aus, da dort ein vortrainiertes Modell verwendet wird, muss für weitere zwei Engines eigene Modelle trainiert werden.
 
-Damit das Training eines Modells vereinfacht werden könnte, werden für beide Einsätze (OpenNLP und MITIE) das gleiche Korpusformat verwendet, und alle Korpora werden in dieses Format umgewandelt.
+Im Rahmen dieser Arbeit wurden zwei Trainingskoprora verwendet: von den Linguisten erzeugtes TIGER-Korpus und aus Basis von Wikipedia-Artikeln aufgebautes PIG-Korpus.
+
+Für Training von Modellen für beide Engines (MITIE und OpenNLP) wird dasselbe Datenformat verwendet, das in der Auflistung \ref{lst:TIGEROPENBEISPIEL} beschrieben ist. Dadurch wird erreicht, dass der Code fürs Training von beiden Engines wiederverwendet werden kann.
+
+\lstinputlisting[captionpos=b,label={lst:TIGEROPENBEISPIEL},caption={Ausschnitt aus einem Korpus im OpenNLP-Format.}]{Listings/tiger-opennlp.txt}
 
 \subsubsection{TIGER Korpus}
 \paragraph{}
-TIGER\footnote{\url{http://www.ims.uni-stuttgart.de/forschung/ressourcen/korpora/tiger.html}} Korpus wurde von dem Institut für Maschinelle Sprachverarbeitung auf der Basis von Zeitungen aufgebaut, und beinhaltet 50474 Sätzen. Außer markierten Entitäten beinhaltet dieser Korpus auch die Informationen über POS (Part Of Speech - ob das Wort ein Verb oder ein Substantiv ist), Lemma (Infinitiv für Verben oder Nominativ Singular für Substantive) und andere Informationen über die annotierte Tokens, wie Kasus oder Genus. Der Ausschnitt des Korpuses findet man in der Auflistung \ref{lst:TIGERBEISPIEL}.
+TIGER-Korpus wurde von dem Institut für Maschinelle Sprachverarbeitung\cite{brants2004tiger} auf der Basis von Zeitungen aufgebaut, und beinhaltet 50474 Sätzen. Außer markierten Entitäten beinhaltet dieser Korpus auch die Informationen über POS (Part Of Speech - ob das Wort ein Verb oder ein Substantiv ist), Lemma (Infinitiv für Verben oder Nominativ Singular für Substantive) und andere Informationen über die annotierte Tokens, wie Kasus oder Genus. Der Ausschnitt des Korpuses findet man in der Auflistung \ref{lst:TIGERBEISPIEL}.
 
 \lstinputlisting[captionpos=b,label={lst:TIGERBEISPIEL},caption={Ausschnitt aus dem TIGER-Korpus. Die Informationen, die in dieser Arbeit nicht gebraucht werden, wurden wegen Platzmangel weggelassen.}]{Listings/tiger-example.txt}
+Jeder Satz ist dabei auf einer getrennter Zeile gespeichert, die Tokens werden mit Leerzeichen getrennt, und mithilfe von HTML-ähnlichen Tags werden die Entitäten markiert.
 
 \paragraph{}
 Der Korpus ist wie folgt aufgebaut:
@@ -196,27 +201,23 @@ Der Korpus ist wie folgt aufgebaut:
 \item Und die fünfte Spalte beinhaltet POS-Tag des Tokens. Falls dieser Tag den Typ \textit{NE} hat, ist das eine Entität.
 \end{itemize}
 
-Der Nachteil dieses Korpuses besteht darin, dass es zwischen verschiedenen Typen von Entitäten nicht unterschieden wird, und die alle den Typ \textit{NE} haben.
+Der Nachteil dieses Korpuses besteht darin, dass es zwischen verschiedenen Typen von Entitäten nicht unterschieden wird, und die alle den Typ \textit{NE} (NamedEntity) haben.
 
 \paragraph{}
-Um ein MaximumEntropy-Modell mithilfe von OpenNLP auf Basis von TIGER-Korpus aufbauen zu können, muss der Korpus zuerst ins OpenNLP-Format umgewandelt werden. Danach kann schließlich ein NE-Modell trainiert werden. Der Ausschnitt aus dem TIGER-Korpus im OpenNLP-Format findet man in der Auflistung \ref{lst:TIGEROPENBEISPIEL}.
-
-\lstinputlisting[captionpos=b,label={lst:TIGEROPENBEISPIEL},caption={Ausschnitt aus dem TIGER-Korpus im OpenNLP-Format.}]{Listings/tiger-opennlp.txt}
-
-\paragraph{}
-Die Logik, die für die Umwandlung von Tiger Korpuseinträgen in OpenNLP-Format verantwortlich ist, sind in der Auflistung \ref{lst:LOGICOFCONVERTER} zu sehen.
+Die Logik, die für die Umwandlung von Tiger Korpuseinträgen in OpenNLP-Format verantwortlich ist, ist in der Auflistung \ref{lst:LOGICOFCONVERTER} zu sehen.
 \lstinputlisting[captionpos=b,label={lst:LOGICOFCONVERTER},caption={Ausschnitt aus den Quelltexten des Konverters, der die Logik der Umwandlung beschreibt}]{Listings/tiger-to-onlp.java}
+Es wird praktisch für jede ununterbrochene Reihenfolge von NE-Merkierungen ein OpenNLP-Tag erzeugt, und alle Wörter, die keine Entitäten sind, werden ohne Umwandlung kopiert.
 
 \subsubsection{Wikipedia-basiertes Korpus}
 \paragraph{}
 Leider kann man nicht immer einen manuell aufgebauten Korpus verwenden, entweder aus Lizenz- oder Kostengründen. Viele Korpusse sind nur für Forschung frei verfügbar, was bedeutet, dass 
-die auf keinen Fall in einem Geschäftsprojekt verwendet werden dürfen. Und einen eigenen Korpus aufzubauen ist auch nicht immer möglich, da dazu die Linguisten eingesetzt werden müssen, die nicht jede Firma zur Verfügung hat, und es kann Monaten dauern, bis man ein eigenes Korpus erstellt. Was könnte man in diesem Fall tun?
+die auf keinen Fall in einem Geschäftsprojekt verwendet werden dürfen. Und einen eigenen Korpus aufzubauen ist auch nicht immer möglich, da dazu die Linguisten eingesetzt werden müssen, die nicht jede Firma zur Verfügung hat, und es kann Monaten dauern, bis man ein eigenes Korpus erstellt. Was könnte in diesem Fall unternommen werden?
 
 \paragraph{}
-Oliver Grisel\footnote{\url{http://www.nuxeo.com/blog/mining-wikipedia-with-hadoop-and-pig-for-natural-language-processing/}} hat einen interessanten Einsatz zur automatischer Aufbau von Korpus vorgeschlagen. Es wird vorgeschlagen, Wikipedia als Textbasis zu nehmen, und die interne Links, die auf andere Wikipediaseiten führen, sollen als  Entitäten markiert werden. Es soll anschließlich ein Korpus aufgebaut werden, auf dessen Basis ein OpenNP-Modell trainiert werden soll. Da Wikipedia auch auf deutscher Sprache verfügbar ist, soll dieser Einsatz auch für Zwecke dieser Arbeit nützlich sein.
+Oliver Grisel\footnote{\url{http://www.nuxeo.com/blog/mining-wikipedia-with-hadoop-and-pig-for-natural-language-processing/}} hat einen interessanten Einsatz zur automatischer Aufbau von Korpus vorgeschlagen. Es wird vorgeschlagen, Wikipedia als Textbasis zu nehmen, und die interne Links, die auf andere Wikipediaseiten führen, sollen als  Entitäten markiert werden. Es soll anschließlich ein Korpus aufgebaut werden, auf dessen Basis ein NER-Modell trainiert werden kann. Da Wikipedia auch auf deutscher Sprache verfügbar ist, soll dieser Einsatz auch für Zwecke dieser Arbeit nützlich sein.
 
 \paragraph{}
-Um den Korpus aufzubauen, wird Apache Pig verwendet - ein Framework für Big-Data-Analyse, der eine Skript-Sprache und JavaAPI zur Verfügung stellt. Die Aufbau vom Korpus umfasst folgende Schritte:
+Um den Korpus aufzubauen, wird Apache Pig\footnote{\url{http://pig.apache.org/}} verwendet - ein Framework für Big-Data-Analyse, der eine Skript-Sprache und JavaAPI zur Verfügung stellt. Die Aufbau vom Korpus umfasst folgende Schritte:
 \begin{enumerate}
 \item Es wird Dump von Wikipediaartikeln heruntergeladen.
 \item Es werden die Listen von Wikipedia-Links und Typen von Entitäten von DBpedia heruntergeladen. Diese Informationen braucht man später, um jeder Entität in dem erzeugten Korpus die richtige Entitätstyp zuordnen zu können.
@@ -226,12 +227,14 @@ Um den Korpus aufzubauen, wird Apache Pig verwendet - ein Framework für Big-Dat
 \end{enumerate}
 
 \paragraph{} 
-Für Korpusaufbau aus deutscher Wikipedia kann im Prinzip die Scripts von Oliver Grisel genommen werden, die müssen allerdings angepasst werden:
+Für Korpusaufbau aus deutscher Wikipedia können im Prinzip die Scripts von Oliver Grisel genommen werden, die allerdings angepasst werden müssen:
 \begin{itemize}
 \item Es soll deutsche Dbpedia, und nicht englische verwendet werden.
 \item Es soll deutsches Modell für Satzerkennung anstatt englisches eingesetzt werden.
 \item Herunterladen von Wikipedia- und Dbpediadaten soll automatisiert werden.
 \end{itemize}
+
+Der Code, der für die Erzeugung eines Wikipedia-basierten Korpus verantwortlich ist, ist in der Auflistung \ref{app:pigcorpus} repräsentiert.
 
 \paragraph{}
 Aber welche Vor- und Nachteile hat automatische Erzeugung vom Korpus? Kann das trainierte Modell später auch tatsächlich für sinnvolle Entitätserkennung eingesetzt werden?
@@ -248,8 +251,7 @@ Aber welche Vor- und Nachteile hat automatische Erzeugung vom Korpus? Kann das t
 \end{itemize}
 \end{itemize}
 
-\subsection{Zwischenfazit}
-Vergleich aller Ansätze.
+\subsection{Training von Modellen}
 
 \section{Verlinkung und Dereferinzierung von annotierten Entitäten}
 \paragraph{}
