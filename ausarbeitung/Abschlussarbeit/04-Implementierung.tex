@@ -16,17 +16,26 @@ Damit alle aufgelistete Anforderungen im Rahmen dieser Arbeit implementiert werd
 \item Die Quelltexte von Stanbol sind frei verfügbar, was die Entwicklung einer Erweiterung einfacher macht. Im Gegenteil dazu ist Alchemy API ein ,,Black Box`` - es gibt keine Möglichkeit, sich die in diesem Framework verwendete Algorithmen anzugucken oder die zu ändern, es gibt keine Möglichkeit, eigene Anpassungen durchzuführen.
 \item Stanbol stellt dem Entwickler eine eingebettete REST-API zur Verfügung, was eine Ankopplung an Drittsysteme erleichtert.
 \item Stanbol hat eine modulare Architektur, was bedeutet, dass die in dieser Arbeit benötigte Komponente sich genau so implementieren lassen, wie die beschrieben wurden, als Module.
+\item Außerdem wird dem Entwickler eine interne Wissendatenbank zur Verfügung gestellt, was die Benutzung einer getrennter Software für die Implementierung der Verlinkung unnötig macht. 
 \end{itemize}
 
 \paragraph{}
 Stanbol stellt dem Entwickler eine Plugin-API zur Verfügung, mit deren Hilfe neue Features wie Extraktion von Entitäten aus deutschen Texten leicht implementiert werden können. Die Liste von verfügbaren Modulen ist auf der Abbildung \ref{fig:komponenten} zusammengefasst.
 
-\begin{figure}
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.6\textwidth]{Bilder/komponenten.png}
 \caption{''Komponentendiagramm vom Stanbol''}
 \label{fig:komponenten}
 \end{figure}
+
+\begin{itemize}
+\item \textbf{EntityHub} ist die interne Datenbank, wo die Informationen über Entitäten gespeichert werden. Diese kann sowohl mithilfe von Java API als auch über eine REST-Schnittstelle für die Verlinkung benutzt werden. Als Datenquelle können sowohl ,,Referenced Sites`` (externe Datenquelle die sich auf anderen Maschinen befinden, und auf die EntityHub per Netzwerk zugreift) als auch lokale Indexes verwendet werden. Man kann EntityHub als eine Art von Aggregator betrachten, der mehrere Wissendatenbanke über eine einheitliche API zur Verfügung stellt. 
+\item \textbf{Enhancer} und \textbf{EnhancementEngine} sind die Kernkomponenten von Stanbol, die für die Anreicherung von Texten mit Annotationen zuständig sind.
+\item \textbf{OntologyManager} wird, wie sagt der Name, für die Verwaltung von Ontologien zuständig.
+\item \textbf{ContentHub} wird für die Integration mit CMS gebraucht und stellt eine Datenbank für das \textit{Content} einer CMS zur Verfügung (nicht für die Entitäten!).
+\end{itemize}
+Im Rahmen dieser Arbeit werden nur Engines und EntityHub gebraucht, andere Module sind für die Extraktion von Entitäten irrelevant.
 
 \paragraph{}
 Die grundlegende Idee, die die Architektur von Stanbol prägt, heißt ,,Pipelining`` - ein Fließband, das mehrere Textverarbeitungsschritte miteinander verknüpft, und eine flexible Konfiguration von Kontentanreicherung ermöglicht. Jedes Element dieses Fließbandes wird ,,Engine`` genannt. Von dem Blickwinkel der Architektur wird jedes Engine als selbstständiges BlackBox implementiert, der am Eingang den Text, der angereichert werden soll, mit den von anderen Engines hinzugefügten Annotationen zusammen, bekommt, und am Ausgang neue Annotationen liefert. 
@@ -34,7 +43,7 @@ Die grundlegende Idee, die die Architektur von Stanbol prägt, heißt ,,Pipelini
 Die Engines werden in sogenannte Ketten zusammengebunden - der Ausgang von einem Engine wird mit dem Eingang von einem anderen Engine verbunden, und so wird eine virtuelle Kette gebaut. Das erste Element in dieser Kette bekommt dabei als Eingang den Text von dem Benutzer, und der Ausgang des letztes Element wird zu dem Benutzer geschickt. 
 
 Auf der Abbildung \ref{fig:ENGINEPIPELINE} wird die Aufbau einer Engine-Kette noch einmal grafisch dargestellt.
-\begin{figure}
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.5]{Bilder/enchancer.png}
 \caption{''Graphische Darstellung eines generisches Pipelines''}
@@ -43,7 +52,7 @@ Auf der Abbildung \ref{fig:ENGINEPIPELINE} wird die Aufbau einer Engine-Kette no
 
 Als Entwickler muss man aber gleich beachten, dass die interne Implementierung von Ketten diese Architektur leider nicht anschaulich abbildet. Wie es auf der Abbildung \ref{fig:REALPIPELINE} zu sehen ist, gibt es intern kein Pipeline - stattdessen wird es für jeden Text, der angereichert werden soll, eine Instanz der Data-Klasse ,,ContentItem`` erzeugt, die zwischen allen Engines der Kette geteilt wird. Die Implementierung eines Engines hat technisch gesehen weder Ein- noch Ausgang, und benutzt diese Instanz von ,,ContentItem``, um die Informationen mit anderen Engines auszutauschen. Die Reihenfolge von Elementen in der Engine-Kette bestimmt deswegen eigentlich nicht, wie die Ein- und Ausgänge von Engines verbunden werden soll, sondern die Reihenfolge, in der die ausgeführt werden müssen.
 
-\begin{figure}
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.5]{Bilder/realarch.png}
 \caption{''Interne Implementierung einer Engine-Kette''}
