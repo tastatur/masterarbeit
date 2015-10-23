@@ -322,6 +322,8 @@ Um dem Endentwickler die Anreicherung von Suchergebnissen so einfach wie möglic
 
 Als Eingabedaten übergibt man die Liste von URLs gefundenen Webseiten mit dazugehörigen Texten von Snippets zusammen, und als Ausgabe bekommt man für jede URL die Liste von gefundenen Entitäten. Da in Rahmen dieser Arbeit mehr verschiedenen Engineketten implementiert wurden, muss der Name der erwünschten Kette miteingegeben werden.
 
+Die API wurde außerdem so entworfen, dass bei Bedarf nicht nur Stanbol, sondern jedes beliebiges System als Backend verwendet werden kann - für jedes neues Backend muss nur die Klasse ,,EnhancementClient`` abgeleitet werden, und in der abgeleiteten Klasse die Schnitstelle zum neuen System implementiert werden. Gegebenfalls sollen auch neue Konverter geschrieben werden, falls Backend keine RDF-Daten liefert, und eigenes Datenformat verwendet.
+
 Eine UML-Klassendiagramm für die Stanbol-API ist auf der Abbildung \ref{fig:apiuml} zu sehen. Es soll beachtet werden, dass die Schnitstelle zur Suchmaschine absichtlich außer Acht gelassen wurde - um die API so generisch wie möglich zu gestalten, wird die Anbindung an Suchmaschine dem Entwickler, der die API verwendet, überlassen. 
 
 \begin{figure}[ht]
@@ -330,3 +332,13 @@ Eine UML-Klassendiagramm für die Stanbol-API ist auf der Abbildung \ref{fig:api
 \caption{''Struktur der Stanbol-API''}
 \label{fig:apiuml}
 \end{figure}
+\begin{itemize}
+\item Die Klasse \textit{StanbolClient} implementiert das Interface \textit{EnhancementClient}, und spielt die Rolle der Hauptklasse für die Konversation mit Stanbol.
+\item \textit{StanbolAnswerConverter} umwandelt die Antwort des Stanbol-Servers (RDF) in das interne API-Format:
+\begin{itemize}
+\item Die Klasse \textit{EnhancementResults}, die als ein Container für gefundene Entitäten dient.
+\item Die Klasse \textit{EnhancementResultEntry}, die die  Ergebnisse der Extraktion für eine bestimmte Webseite zusammenfasst.
+\item \textit{Entity}, die eine Entität mit den Parametern zusammen (als eine Liste von \textit{EntityProperty}) darstellt.
+\end{itemize}
+\item Die Klassen \textit{SearchSnippets} und \textit{SearchSnippet} werden für die Zwischenspeicherung von den Snippets und URLs, die eine Suchmaschine geliefert hat, verwendet. Die Schnittstelle zu der Suchmaschine wird von dem Entwickler implementiert.
+\end{itemize}
