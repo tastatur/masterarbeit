@@ -276,10 +276,25 @@ Für die Verlinkung von Entitäten wird Engine ,,EntityLinkingEngine`` verwendet
 \caption{''UML-Klassendiagramm für EntityLinkingEngine''}
 \label{fig:linking}
 \end{figure}
+\begin{itemize}
+\item Die Klasse \textit{EntityHubSearcher}, die Interface \textit{TrackingEntitySearcher} implementiert, ist für die Suche in der Wissendatenbank zuständig.
+\item Die Klasse \textit{EntityHubEntity} stellt eine Entität und ihre Eigenschaften dar. Das Parameter ,,entityRank`` zeigt, wie wichtig die Entität ist, was für die Rausfilterung von ,,unpassenden`` Entitäten helfen könnte.
+\item \textit{EntityhubLinkingEngine} ist die Hauptklasse, die die Informationen über extrahierte Entitäten verlinkt.
+\end{itemize}
 
 Bei der Verlinkung von Entitäten kommt es oft vor, dass die Entitäten, die gefunden wurden, eigentlich nur Verlinkungen auf andere Entitäten, und keine selbstständige Objekten sind - z.B. die Entität ,,CDU`` ist nur ein Link auf ,,Christlich Demokratische Union Deutschlands`` ist. Solche Entitäten werden während der Verlinkung anhand der Eigenschaft ,,dbo:wikiPageWikiLink`` erkannt, und anstatt dieser Zwischenentität wird als Ergebnis der Verlinkung die referenzierende Entität verwendet.
 
-Um die für den Benutzer relevante Informationen (Eigenschaften von Entitäten) zur Verfügung stellen zu können, müssen diese Eigenschaften aus der Datenbank geladen werden. Dazu könnte man auch direkt auf die entsprechende Schnittstelle zugreifen (http://de.dbpedia.org/resource/ für DBpedia, zum Beispiel), so ein Vorgehen würde aber zeitaufwändig und ineffektiv sein. Deswegen soll auch für die Dereferinzierung EntityHub eingesetzt werden. Für diesen Zweck wird Engine \textit{EntityhubDereferenceEngine} eingesetzt, der für jede im Verlinkungsschritt gefundene Entität alle für den Link verfügbare Eigenschaften zu dem Anreicherungsergebnis hinzufügt.
+Um die für den Benutzer relevante Informationen (Eigenschaften von Entitäten) zur Verfügung stellen zu können, müssen diese Eigenschaften aus der Datenbank geladen werden. Dazu könnte man auch direkt auf die entsprechende Schnittstelle zugreifen (http://de.dbpedia.org/resource/ für DBpedia, zum Beispiel), so ein Vorgehen würde aber zeitaufwändig und ineffektiv sein. Deswegen soll auch für die Dereferinzierung EntityHub eingesetzt werden. Für diesen Zweck wird Engine \textit{EntityhubDereferenceEngine} eingesetzt, der für jede im Verlinkungsschritt gefundene Entität alle für den Link verfügbare Eigenschaften zu dem Anreicherungsergebnis hinzufügt. Die Klassendiagramm für dieses Engine ist auf der Abbildung \ref{fig:deref} zu sehen. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{Bilder/deref-uml.png}
+\caption{''UML-Klassendiagramm für EntityhubDereferenceEngine''}
+\label{fig:deref}
+\end{figure}
+\begin{itemize}
+\item 
+\end{itemize}
 
 Als Wissendatenbank für die Verlinkung und Dereferinzierung wird in dieser Arbeit lokaler Index von deutscher DBpedia\cite{auer2007dbpedia} verwendet. DBPedia stellt eine Kopie von Wikipedia zur Verfügung, deren Daten als RDF-Graphen gespeichert werden, und auf die mithilfe von SPARQL zugegriffen werden kann.
 
