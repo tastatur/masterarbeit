@@ -263,6 +263,8 @@ Die Implementierung von Training an sich selbst ist relativ einfach:
 \end{enumerate}
 Das Training von einem OpenNLP-Modell ist in der Auflistung \ref{app:trainonlp} und vom MITIE-Modell in der Auflistung \ref{app:trainmitie} beschrieben.
 
+Beim Training vom MITIE-Modell mithilfe vom Wikipedia-Korpus(PIG) musste noch folgende Anpassung gemacht werden: ursprünglich musste das ganze Korpus (215841 Sätzen) fürs Training verwendet werden, allerdings konnte das Training auf einem Rechner mit 24 GB Arbeitsspeicher nicht abgeschlossen werden, deswegen wurden für MITIE zufällige Sätze aus dem PIG-Korpus ausgewählt (71947 Sätzen), und das Modell wurde auf dieser kleineren Korpusversion traianiert.
+
 \section{Verlinkung und Dereferinzierung von annotierten Entitäten}
 \paragraph{}
 Nachdem die Entitätserkennung durchgeführt wurde, hat man die Informationen darüber, ob es Entitäten im Text gefunden wurden, die Position der Entität innerhalb des Satzes und optional die Klasse der Entität. Die Ontologie selbst, die Endbenutzer zu sehen braucht, fehlt allerdings noch. Es müssen noch zwei Schritte durchgeführt werden, bis die Informationen komplett sind - Verlinkung von gefundenen Entitäten mit der Entitäten in einer Wissendatenbank und die Dereferinzierung von Eigenschaften der Entität.
