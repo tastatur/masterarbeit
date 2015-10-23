@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: de.unidue:proxyapi:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/de/unidue/proxyapi/1.0-SNAPSHOT/proxyapi-1.0-20150927.033423-6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/de/unidue/proxyapi/1.0-SNAPSHOT/proxyapi-1.0-20150927.033423-6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/de/unidue/proxyapi/1.0-SNAPSHOT/proxyapi-1.0-20150927.033423-6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
