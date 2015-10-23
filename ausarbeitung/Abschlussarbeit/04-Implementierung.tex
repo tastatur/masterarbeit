@@ -13,7 +13,9 @@ Um eine richtige Architektur des Systems auswählen zu können, fassen wir kurz 
 
 Damit alle aufgelistete Anforderungen im Rahmen dieser Arbeit implementiert werden könnten, muss ein Framework verwendet werden, das eine API für die Arbeit mit semantischen Daten ermöglicht. Im Rahmen dieser Arbeit wurde als solches Framework Apache Stanbol\footnote{\url{http://stanbol.apache.org/}} ausgewählt. Obwohl es andere Systeme, wie Alchemy API \footnote{\url{http://www.alchemyapi.com/}} gibt, die auch deutsche Sprache unterstützen, hat Stanbol gravierende Vorteile anderen Frameworks gegenüber:
 \begin{itemize}
-
+\item Die Quelltexte von Stanbol sind frei verfügbar, was die Entwicklung einer Erweiterung einfacher macht. Im Gegenteil dazu ist Alchemy API ein ,,Black Box`` - es gibt keine Möglichkeit, sich die in diesem Framework verwendete Algorithmen anzugucken oder die zu ändern, es gibt keine Möglichkeit, eigene Anpassungen durchzuführen.
+\item Stanbol stellt dem Entwickler eine eingebettete REST-API zur Verfügung, was eine Ankopplung an Drittsysteme erleichtert.
+\item Stanbol hat eine modulare Architektur, was bedeutet, dass die in dieser Arbeit benötigte Komponente sich genau so implementieren lassen, wie die beschrieben wurden, als Module.
 \end{itemize}
 
 \paragraph{}
