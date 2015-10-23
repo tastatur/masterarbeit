@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c30b69c-2844-475a-ba77-6145e2b6f169" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ausarbeitung/Abschlussarbeit/01-Grundlagen.tex" afterPath="$PROJECT_DIR$/../ausarbeitung/Abschlussarbeit/01-Grundlagen.tex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ausarbeitung/Abschlussarbeit/04-Implementierung.tex" afterPath="$PROJECT_DIR$/../ausarbeitung/Abschlussarbeit/04-Implementierung.tex" />
     </list>
     <ignored path="evak-auto.iws" />
