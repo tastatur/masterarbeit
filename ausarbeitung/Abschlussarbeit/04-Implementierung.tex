@@ -63,9 +63,20 @@ Als Entwickler muss man aber gleich beachten, dass die interne Implementierung v
 \caption{''Interne Implementierung einer Engine-Kette''}
 \label{fig:REALPIPELINE}
 \end{figure}
+Der Nachteil solcher Architektur ist, dass mehrere Engines unter Umständen auf dieselbe Instanz von ,,ContentItem`` \textbf{gleichzeitig} zugreifen können, was bei Schreibzugriffen zur Beschädigung von Daten führen kann. Deswegen soll jedes Engine die Instanz von ,,ContentItem`` während des Schreibzugriffs sperren lassen.
 
 \section{Extraktion von Entitäten} \label{sec:extraktimpl}
-Kurze Einleitung, wie genau die Annotationen für die Entitäten erzeugt werden, unabhängig von dem benutzten Einsatz.
+Da die Vorverarbeitungsschritte bereits als Teil von Stanbol implementiert sind, ist die Erkennung von Entitäten das erste Modul, das entwickelt werden muss. Die Schritte, die für die Entwicklung eines Engines unternommen werden müssen, lassen sich wie folgt definieren:
+\begin{itemize}
+\item Ein Engine wird als ein Objekt der Klasse ,,AbstractEnhancementEngine`` implementiert. 
+\item Diese Klasse soll dem Framework folgende Methoden zur Verfügung stellen, die die Integration des Engines in eine Enginekette ermöglichen:
+\begin{itemize}
+\item Aktivierungsmethode, die ein mal beim Starten des Engines aufgerufen wird. Diese Methode soll das für das Engine benötigte Modell aus einer Datei laden (ein vortraniertes SVM, z.B.).
+\item Die Methode, die für den angegebenen Text sagt, ob das Engine diesen Text anreichern kann. Dadurch wird sichergestellt, dass nur die Sprache, die ENgine tatsächlich versteht, bearbeitet wird.
+\item Die Hauptmethode, die für den angegebenen Text Annotationen berechnet.
+\end{itemize}
+\item Die Ketten, die Engines miteinander verbinden, können sowohl während der Laufzeit als auch vor dem Kompilieren des Systems in einer Konfigurationsdatei definiert werden.
+\end{itemize}
 
 \subsection{StanfordNER} 
 %Beschreibung der Implementierung des Einsatzes von StanfordNER. 
