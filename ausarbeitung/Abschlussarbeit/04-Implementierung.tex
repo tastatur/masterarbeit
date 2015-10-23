@@ -143,7 +143,7 @@ Die Klassendiagramm für OpenNLP-Engine ist auf der Abbildung \ref{fig:onlpuml} 
 
 \subsection{MITIE}
 \paragraph{}
-MITIE\footnote{\url{https://github.com/mit-nlp/MITIE}} steht für ,,MIT Information Extraction`` - ein Framework zur Extraktion von Entitäten und zur Erkennung von binären Relationen. Dieses Framework verwendet SVM als Basisalgorithmus für Erkennung von Entitäten, und soll deswegen auch bessere Ergebnisse als OpenNLP oder StanfordNER zeigen können.
+Der Einsatz, das implementiert werden soll, ist SVM-Algorithmus. Als Basis wurde für diese Arbeit MITIE\footnote{\url{https://github.com/mit-nlp/MITIE}}-Framework ausgewählt. MITIE steht für ,,MIT Information Extraction`` - ein Framework zur Extraktion von Entitäten und zur Erkennung von binären Relationen. Wie erwähnt, verwendet dieses Framework SVM als Basisalgorithmus für Erkennung von Entitäten, und soll deswegen auch bessere Ergebnisse als OpenNLP oder StanfordNER zeigen können.
 
 \paragraph{Vor- und Nachteile}
 \begin{itemize}
@@ -163,6 +163,15 @@ MITIE\footnote{\url{https://github.com/mit-nlp/MITIE}} steht für ,,MIT Informat
 \end{enumerate}
 \end{enumerate}
 \end{itemize}
+
+Die Aufbau dieses Engines ähnelt sich der vom Stanford-NER-Engine, und kann auf der Abbildung \ref{fig:mitieclasses} betrachtet werden.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{Bilder/mitie-classes.png}
+\caption{''Klassendiagramm  des MITIE-Engines''}
+\label{fig:onlpuml}
+\end{figure}
 
 \subsection{Deutcshe Korpora} \label{subsec:decor}
 Um ein eigenes Modell für die Erkennung von Entitäten aufbauen zu können, wird ein sogenanntes Korpus gebraucht. 
