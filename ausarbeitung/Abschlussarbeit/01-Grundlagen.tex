@@ -286,7 +286,7 @@ Zusätzlich zu manuell erstellten Korpora könnte ein Korpus auch automatisch er
 
 Beim Training eines NER-Modells auf einem Korpus muss außerdem folgendes im Kauf genommen werden: bei vielen frei verfügbaren Korpora sind die Klassen von Entitäten nicht explizit eingegeben - die Entitäten sind in vielen Datensätzen zwar annotiert, aber weitere Angaben zum Typ der Entität werden nicht gemacht. Deswegen kann ein NER-Modell den Unterschied zwischen verschiedenen Klassen von Entitäten öfters nicht lernen, was dazu führt, dass die entsprechende Klassen nachdem die Entitäten aus einem Text extrahiert wurden aus einer Datenbank geholt werden müssen, falls die Daten vorhanden sind.
 
-\section{Wissendatenbanke}
+\section{Wissendatenbanke} \label{sec:wiss}
 %Was sind Wissendatenbanke? Wieso brauchen wir die in unserer Arbeit? Wie sucht man nach Entitäten in einer Wissendatenbank? Kurze Einleitung in SPARQL+RDF.
 \paragraph{}
 Um die extrahierte Entitäten mit Ontologien anzureichern, braucht man selbstverständlich eine Datenbank, wo alle Informationen zu den Entitäten gespeichert werden. Solche Datenbanken nennt man ,,Wissendatenbanken`` - eine Datenbank, wo ,,Wissen`` über ein bestimmtes Domain gespeichert werden. Es stellt sich die Frage, warum die ,,Wissendatenbanken`` explizit von den herkömmlichen relationalen Datenbanken getrennt behandelt werden müssen. Welche Besonderheiten weisen Wissendatenbanke auf, die Anwendung von relationalem Datenmodell schwer (beziehungsweise unmöglich) machen?

@@ -264,7 +264,9 @@ Das Training von einem OpenNLP-Modell ist in der Auflistung \ref{app:trainonlp} 
 
 \section{Verlinkung und Dereferinzierung von annotierten Entitäten}
 \paragraph{}
-Nachdem die Entitätserkennung durchgeführt wurde, hat man die Informationen darüber, ob es Entitäten im Text gefunden wurden, die Position der Entität innerhalb des Satzes und optional den Typ der Entität. Die Ontologie selbst, die Endbenutzer zu sehen braucht, fehlt allerdings noch. Es müssen noch zwei Schritte durchgeführt werden, bis die Informationen komplett sind - Verlinkung von gefundenen Entitäten mit der Entitäten in DBpedia (oder einer anderer Wissendatenbank) und die Dereferinzierung von Eigenschaften der Entität.
+Nachdem die Entitätserkennung durchgeführt wurde, hat man die Informationen darüber, ob es Entitäten im Text gefunden wurden, die Position der Entität innerhalb des Satzes und optional die Klasse der Entität. Die Ontologie selbst, die Endbenutzer zu sehen braucht, fehlt allerdings noch. Es müssen noch zwei Schritte durchgeführt werden, bis die Informationen komplett sind - Verlinkung von gefundenen Entitäten mit der Entitäten in einer Wissendatenbank und die Dereferinzierung von Eigenschaften der Entität.
+
+Als Wissendatenbank für die Verlinkung und Dereferinzierung wird in dieser Arbeit lokaler Index von deutscher DBpedia\cite{auer2007dbpedia} verwendet. DBPedia stellt eine Kopie von Wikipedia zur Verfügung, deren Daten als RDF-Graphen gespeichert werden, und auf die mithilfe von SPARQL zugegriffen werden kann.
 
 Während der Verlinkung von Entitäten wird für jede erkannte Entität eine Suche nach dieser Entität in einer oder mehreren Wissendatenbanken durchgeführt. Um den Vorgang höchstmöglich zu beschleunigen, soll lokaler Wissendatenbankindex (EntityHub in Terminologie von Stanbol) eingesetzt werden. Dieser Index soll vorher aufgebaut werden, und zumindest die Namen der Entitäten beinhalten. Für spätere Schritte ist aber empfehlenswert, auch diverse Eigenschaften von Entitäten zum Index hinzuzufügen, damit Dereferinzierungschritt auch so schnell wie möglich ausgeführt wird. Es muss aber beachtet werden, dass Index von realen Wissendatenbanken wie DBpedia mehr als 20 Gigabytes wiegen kann, und die Aufbau kann mehrere Tagen in Anspruch nehmen.
 
@@ -292,11 +294,7 @@ Um die für den Benutzer relevante Informationen (Eigenschaften von Entitäten) 
 \caption{''UML-Klassendiagramm für EntityhubDereferenceEngine''}
 \label{fig:deref}
 \end{figure}
-\begin{itemize}
-\item 
-\end{itemize}
-
-Als Wissendatenbank für die Verlinkung und Dereferinzierung wird in dieser Arbeit lokaler Index von deutscher DBpedia\cite{auer2007dbpedia} verwendet. DBPedia stellt eine Kopie von Wikipedia zur Verfügung, deren Daten als RDF-Graphen gespeichert werden, und auf die mithilfe von SPARQL zugegriffen werden kann.
+Theoretisch können hier auch SQL-Datenbanke für die Dereferenzierung verwendet werden - es muss nur eine eigene Klasse, die vor dem Interface \textit{ENtityDereferenceEngine} erbt, implementiert werden, aber wegen der möglichen Problemen, die in der Einleitung (\ref{sec:wiss}) beschrieben wurden, wäre es nicht empfohlen.
 
 \subsection{Rausfielterung von für den Benutzer irrelevanten Entitäten}
 
