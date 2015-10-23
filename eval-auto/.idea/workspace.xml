@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2c30b69c-2844-475a-ba77-6145e2b6f169" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ausarbeitung/Abschlussarbeit/04-Implementierung.tex" afterPath="$PROJECT_DIR$/../ausarbeitung/Abschlussarbeit/04-Implementierung.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ausarbeitung/Abschlussarbeit/01-Grundlagen.tex" afterPath="$PROJECT_DIR$/../ausarbeitung/Abschlussarbeit/01-Grundlagen.tex" />
     </list>
     <ignored path="evak-auto.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -661,12 +661,12 @@
       <option name="number" value="Default" />
       <updated>1445573028754</updated>
       <workItem from="1445573030798" duration="378000" />
-      <workItem from="1445573435338" duration="9236000" />
+      <workItem from="1445573435338" duration="9835000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9614000" />
+    <option name="totallyTimeSpent" value="10213000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
