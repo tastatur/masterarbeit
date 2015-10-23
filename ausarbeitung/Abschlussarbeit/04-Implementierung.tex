@@ -103,10 +103,16 @@ Die Klassendiagramm für dieses Engine ist auf der Abbildung \ref{fig:stanfclass
 \caption{''Klassendiagramm  des Stanford-Engines''}
 \label{fig:stanfclasses}
 \end{figure}
+\begin{itemize}
+\item Die Klasse \textit{StanfordNEREnhancementEngine} ist die Hauptklasse, die nach den Entitäten im Text sucht.
+\item \textit{NERClassifierCombiner} ist die interne Klasse des StanfordNER-Frameworks und stellt die Schnittstelle zum Kombinieren von mehreren NER-Modellen zur Verfügung.
+\item \textit{NameOccurenceUtility} ist eine Hilfsklasse, die die Daten zwischen StanfordNER- und Stanbol-Format umwandelt.
+\item \textit{StanfordTextAnnotationService} ist ein Hilfsservice, das die vom Engine gefundene Entitäten	zum ,,ContentItem`` als Annotationen hinzufügt.
+\end{itemize}
 
 \subsection{OpenNLP}
 %Beschreibung des OpenNLP-Einsatzes.
-OpenNLP\footnote{\url{http://opennlp.apache.org/}} ist ein quelltextoffenes Framework für maschinelle Sprachverarbeitung. Das Framework ist genau wie Stanbol modular aufgebaut, und stellt folgende Funktionalität zur Verfügung:
+Das weitere Algorithmus, das im Rahmen dieser Arbeit verwendet werden soll, ist MaximumEntropy. Es ist als Teil von OpenNLP\footnote{\url{http://opennlp.apache.org/}}-API implementiert. OpenNLP ist ein quelltextoffenes Framework für maschinelle Sprachverarbeitung. Das Framework ist genau wie Stanbol modular aufgebaut, und stellt folgende Funktionalität zur Verfügung:
 
 \begin{itemize}
 \item Erkennung von Sätzen. Genau wie für die Extraktion von Entitäten wird für die Satzerkennung ein Maximum-Entropy-Modell verwendet, das vorher trainiert werden muss. Ein Modell für die deutsche Sprache, trainiert auf der Basis von TIGER-Korpus, der in nachfolgendem Kapitel beschrieben ist, ist aber bereits ein Teil des Frameworkes.
@@ -119,10 +125,21 @@ OpenNLP\footnote{\url{http://opennlp.apache.org/}} ist ein quelltextoffenes Fram
 \item Erkennung von Entitäten.
 \end{itemize}
 
-\paragraph{}
-Dank seiner modularer Struktur lässt sich dieses Framework leicht in den Anreicherung-Pipeline von Stanbol integrieren.
+Der Vorteil dieses Engines ist, dass es schon als Teil von Stanbol dem Entwickler zur Verfügung stellt, und so muss nicht neu entwickelt werden. Allerdings müssen für die Extraktion von deutschsprachigen Entitäten die entsprechende ME-Modelle trainiert werden, worauf in der Sektion \ref{subsec:decor} angegangen wird.
 
-\paragraph{Vor- und Nachteile}
+Die Klassendiagramm für OpenNLP-Engine ist auf der Abbildung \ref{fig:onlpuml} definiert. Es werden insgesamt nur drei Klassen verwendet:
+\begin{itemize}
+\item Basisklasse \textit{NEREngineCore}, die die Extraktion von Entitäten mithilfe von ME-Algorithmus implementiert.
+\item Die Klasse \textit{CustomNERModelEnhancementEngine}, die von der Basisklasse erbt, und für Behandlung von benutzerdefinierten Modellen zuständig ist.
+\item Die Konfigurationsklasse \textit{NEREngineConfig}.
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{Bilder/onlp-classes.png}
+\caption{''Klassendiagramm  des OpenNLP-Engines''}
+\label{fig:onlpuml}
+\end{figure}
 
 \subsection{MITIE}
 \paragraph{}
@@ -147,7 +164,7 @@ MITIE\footnote{\url{https://github.com/mit-nlp/MITIE}} steht für ,,MIT Informat
 \end{enumerate}
 \end{itemize}
 
-\subsection{Deutcshe Korpora} \label{sec:decor}
+\subsection{Deutcshe Korpora} \label{subsec:decor}
 Um ein eigenes Modell für die Erkennung von Entitäten aufbauen zu können, wird ein sogenanntes Korpus gebraucht. 
 
 Damit das Training eines Modells vereinfacht werden könnte, werden für beide Einsätze (OpenNLP und MITIE) das gleiche Korpusformat verwendet, und alle Korpora werden in dieses Format umgewandelt.
