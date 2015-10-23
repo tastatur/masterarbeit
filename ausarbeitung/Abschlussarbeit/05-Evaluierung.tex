@@ -10,7 +10,7 @@ Damit es festgestellt werden könnte, ob die Anreicherung von Suchergebnissen mi
 \item Sind die aus DBpedia extrahierte Daten ausreichend?
 \item Ob die Entitäten aus den kleinen Suchsnippets überhaupt extrahiert werden können? Oder ob es gelegentlich auf die volle Texte der Webseite zugegriffen werden muss?
 \item Wird die Geschwindigkeit der Suche durch den zusätzlichen Schritt der Extraktion von Entitäten stark beeinträchtigt? Ist die Beeinträchtigung der Geschwindigkeit groß genug, um den Benutzer bei der Suche zu stören?
-%\item Gibt es Korrelationen zwischen ,,standarten`` Metriken wie F-Measure und Precision/Recall und der Zufriedenheit der Benutzer, oder kann man aus der rein numerischen Metriken keine Aussage treffen, ob der Engine in der Lage ist, eine genügende Benutzerunterstützung zu leisten?
+\item Gibt es Korrelationen zwischen ,,standarten`` Metriken wie F-Measure und Precision/Recall und der Zufriedenheit der Benutzer, oder kann man aus der rein numerischen Metriken keine Aussage treffen, ob der Engine in der Lage ist, eine genügende Benutzerunterstützung zu leisten?
 \end{itemize}
 
 Um diese Fragen beantworten zu können, wurde eine Webseite aufgebaut, die dem Benutzer die Möglichkeit gibt, alle im Rahmen dieser Arbeit entwickelte Engines und alle Modellen, die im Rahmen dieser Arbeit verwendet wurden, zu bewerten. 
@@ -109,15 +109,15 @@ Die Klassendiagramm, die wichtigste Klasse des Evaluierungssystems zusammenfasst
 
 Genau wie Stanbol kann die Evaluierungsseite auf jedem Java Applikationsserver gestartet werden. Es ist möglich, dass die Seite eine Java VM mit Stanbol teilt, was allerdings aus Geschwindigkeitsgründen nicht empfohlen wird.
 
-%\section{Automatisierte Evaluierung von Qualität der Extraktion}
-%\paragraph{}
-%Es stellt sich allerdings die Frage, ob die aus der Benutzerstudie gewonnene Ergebnisse mit den in natürsprachlicher Mensch-Computer-Interaktion übliche Evaluierungsmethoden wie 
-%\begin{itemize}
-%\item Präzision
-%\item Recall
-%\item F-Measure
-%\end{itemize}
-%vereinbart werden könnten? Was ist für den Benutzer wichtige - dass das Engine so wenig False-Positiv-Treffer wie möglich liefert, oder ob die FP für den Benutzer ehe keine bedeutende Rolle spielen? Kann man anhand statistischen Messdaten sagen können, ob das Engine auch aus Sicht des Benutzers positiv oder negativ bewertet wird? Um diese Fragen beantworten zu können, müssen noch statistische Messungen durchgeführt werden und ihre Ergebnisse mit den aus der Benutzerevaluierung gewonnenen Daten vergleichen.
+\section{Automatisierte Evaluierung von Qualität der Extraktion}
+\paragraph{}
+Es stellt sich allerdings die Frage, ob die aus der Benutzerstudie gewonnene Ergebnisse mit den in natürsprachlicher Mensch-Computer-Interaktion übliche Evaluierungsmethoden wie 
+\begin{itemize}
+\item Präzision
+\item Recall
+\item F-Measure
+\end{itemize}
+vereinbart werden könnten? Was ist für den Benutzer wichtige - dass das Engine so wenig False-Positiv-Treffer wie möglich liefert, oder ob die FP für den Benutzer ehe keine bedeutende Rolle spielen? Kann man anhand statistischen Messdaten sagen können, ob das Engine auch aus Sicht des Benutzers positiv oder negativ bewertet wird? Um diese Fragen beantworten zu können, müssen noch statistische Messungen durchgeführt werden und ihre Ergebnisse mit den aus der Benutzerevaluierung gewonnenen Daten vergleichen.
 
 \section{Diskussion}
 \paragraph{}
