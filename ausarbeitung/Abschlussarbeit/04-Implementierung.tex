@@ -299,7 +299,22 @@ Um die für den Benutzer relevante Informationen (Eigenschaften von Entitäten) 
 \end{figure}
 Theoretisch können hier auch SQL-Datenbanke für die Dereferenzierung verwendet werden - es muss nur eine eigene Klasse, die vor dem Interface \textit{ENtityDereferenceEngine} erbt, implementiert werden, aber wegen der möglichen Problemen, die in der Einleitung (\ref{sec:wiss}) beschrieben wurden, wäre es nicht empfohlen.
 
-\subsection{Rausfielterung von für den Benutzer irrelevanten Entitäten}
+\subsection{Rausfilterung von für den Benutzer irrelevanten Entitäten}
+Wie in der Aufgabenstellung (\ref{sec:Aufgabenstellung}) gesagt wurde, müssen nur relevante Entitäten dem Benutzer angezeigt werden, damit der Benutzer sich nicht verwirrend fühlt. Die beste Lösung dieses Problems wäre eventuell eine semantische Analyse der Benutzeranfrage, und ein Matching von Entitäten mit den Ergebnissen solcher Analyse, aber wegen Zeitmangel und einem zu großen Aufwand, der außer Rahmen dieser Masterarbeit stünde, konnte diese Lösung nicht implementiert werden. Statdessen werden folgende Gewichte verwendet, um zu entscheiden, ob eine Entität wichtig genug ist:
+\begin{itemize}
+\item Das Gewicht der Entität innerhalb des EntityHubs verwendet, das anhand von Anzahl der Wikipedia-Links, die auf die Entität zeigen, festgesetzt wird.
+\item Das ,,Sicherheitwert`` (Confidence) des Extraktion-Engines bezüglich der Entität - jedes Engine fügt dieses Wert hinzu, um dem Entwickler mitzuteilen, wie ,,sicher`` diese Entität sein soll.
+\end{itemize}
+
+Das Engine, das diesen Filter implementiert, besteht nur aus einer Klasse, deren Funktionsweise auf der Abbildung \ref{fig:seqfilter} dargestellt ist.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{Bilder/seqfilter.png}
+\caption{''Funktionsweise des Filters''}
+\label{fig:seqfilter}
+\end{figure}
+Die Schwellwerte für beide Filter (0.7 für Confidence und 0.2 für den Rank) wurden nach manuellem Austesten von Engines anhand persönlichen Erfahrungen des Entwicklers ausgewählt.
 
 \section{API f{\"{u}}r Anreicherung von Suchergebnissen}
 \paragraph{}
