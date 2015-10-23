@@ -79,23 +79,30 @@ Da die Vorverarbeitungsschritte bereits als Teil von Stanbol implementiert sind,
 \end{itemize}
 
 \subsection{StanfordNER} 
-%Beschreibung der Implementierung des Einsatzes von StanfordNER. 
 \paragraph{}
-Die erste Anreicherungskette wurde auf Basis von StanfordNER aufgebaut. Dieses Framework implementiert CRF-Einsatz zur Extraktion von Entitäten und stellt ein Modell \footnote{\url{http://www.nlpado.de/~sebastian/software/ner_german.shtml}} für die deutsche Sprache zur Verfügung. Der Nachteil ist, dass es nur ein trainiertes Modell zur Verfügung stellt - das Korpus selbst, auf deren Basis man eigenes Modell trainieren könnte, stehen nicht zur Verfügung. Es stehen insgesamt zwei Modellen zur Verfügung:
+Die erste Anreicherungskette wurde auf Basis von StanfordNER\cite{Jenny/etal:07} aufgebaut. Dieses Framework implementiert CRF-Algorithmus und stellt ein Modell für die deutsche Sprache zur Verfügung\cite{faruqui10:_training}. Der Nachteil dieses Engines ist, dass es nur ein vortrainiertes Modell zur Verfügung gestellt wird - das Korpus selbst, auf deren Basis man eigenes Modell trainieren könnte, stehen nicht zur Verfügung. Der Vorteil dabei ist, dass es insgesamt zwei Modellen zur Verfügung stehen:
 
 \begin{enumerate}
 \item HGC - Huge German Corpus-generalized classifier - dieses Modell wurde auf Texten aus Zeitungen trainiert.
 \item deWac - dieser Klassifikator wurde auf Texten aus Internet trainiert.
 \end{enumerate}
 
-Dieses Framework stellt außerdem die Möglichkeit zur Verknüpfung von mehreren Modelle miteinander zur Verfügung. Deswegen kann es im Rahmen dieser Arbeit neben dem Austesten von oben genannten Modellen auch ein kombiniertes Modell getestet werden - es ist möglich, dass ein kombiniertes Modell mehr Entitäten im Text finden könnte, andererseits steigt dabei die Wahrscheinlichkeit von False-Positive.
+Dieses Framework stellt außerdem die Möglichkeit zur Verknüpfung von mehreren Modellen miteinander zur Verfügung. Deswegen kann es im Rahmen dieser Arbeit neben dem Austesten von oben genannten Modellen auch ein kombiniertes Modell getestet werden - es ist möglich, dass ein kombiniertes Modell mehr Entitäten im Text finden könnte, andererseits steigt dabei die Wahrscheinlichkeit von False-Positive-Antworten.
 
-\paragraph{}
-Dieses Framework ist auch für Vorverarbeitung - Zerlegung des Textes in einzelne Sätze und Zerlegung von Sätzen in einzelne Tokens - verantwortlich. Deswegen sind für den auf Stanford-NER basierten Engine nur zwei Engines notwendig:
+Dieses Framework ist auch für Vorverarbeitung - Zerlegung des Textes in einzelne Sätze und Zerlegung von Sätzen in einzelne Tokens - verantwortlich. Deswegen sind für den auf Stanford-NER basierten Einsatz nur zwei Vorverarbeitung-Engines notwendig:
 \begin{enumerate}
 \item Tika-Engine für Extraktion von rohen Textdaten aus HTML.
 \item Spracherkennungsmodul, mit deren Hilfe sichergestellt wird, dass die Analyse nur für deutsche Sprache gestartet wird.
 \end{enumerate}
+
+Die Klassendiagramm für dieses Engine ist auf der Abbildung \ref{fig:stanfclasses} zu sehen.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{Bilder/stanford-classes.png}
+\caption{''Klassendiagramm  des Stanford-Engines''}
+\label{fig:stanfclasses}
+\end{figure}
 
 \subsection{OpenNLP}
 %Beschreibung des OpenNLP-Einsatzes.
