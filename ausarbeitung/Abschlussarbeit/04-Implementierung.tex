@@ -78,7 +78,7 @@ Da die Vorverarbeitungsschritte bereits als Teil von Stanbol implementiert sind,
 \item Die Ketten, die Engines miteinander verbinden, können sowohl während der Laufzeit als auch vor dem Kompilieren des Systems in einer Konfigurationsdatei definiert werden.
 \end{itemize}
 
-\subsection{StanfordNER} 
+\subsection{StanfordNER} \label{subsec:stanfordner}
 \paragraph{}
 Die erste Anreicherungskette wurde auf Basis von StanfordNER\cite{Jenny/etal:07} aufgebaut. Dieses Framework implementiert CRF-Algorithmus und stellt ein Modell für die deutsche Sprache zur Verfügung\cite{faruqui10:_training}. Der Nachteil dieses Engines ist, dass es nur ein vortrainiertes Modell zur Verfügung gestellt wird - das Korpus selbst, auf deren Basis man eigenes Modell trainieren könnte, stehen nicht zur Verfügung. Der Vorteil dabei ist, dass es insgesamt zwei Modellen zur Verfügung stehen:
 
