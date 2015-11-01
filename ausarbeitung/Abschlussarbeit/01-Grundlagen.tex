@@ -115,7 +115,7 @@ Eine graphische Darstellung des Brown-Algorithmus findet man auf der Abbildung \
 \end{figure}
 
 \paragraph{}
-Ein sehr interessanter Einsatz fürs ,,Word Embedding`` wird in der Arbeit von Xin\cite{rong2014word2vec} ausführlich erklärt. Wie in ,,Distributional Features``-Modellen wird für die Wörter ein Vektor berechnet, und geometrischer Abstand zwischen zwei Punkten im Feature-Raum bestimmt die Ähnlichkeit von Wörtern, zusätzlich dazu kann auch die Ausrichtung des Vektors im Kauf genommen werden. Die entsprechende Vektoren werden mit Hilfe eines neuronales Netzes berechnet, das auf zwei verschiedene Art und Weisen implementiert werden kann: \textit{CBOW} und \textit{Skip-gram}\cite{wang2014introduction}:
+Ein sehr interessanter Einsatz fürs ,,Word Embedding`` wird in der Arbeit von Xin\cite{rong2014word2vec} ausführlich erklärt. Wie in ,,Distributional Features``-Modellen wird für die Wörter ein Vektor berechnet, und geometrischer Abstand zwischen zwei Punkten im Feature-Raum bestimmt die Ähnlichkeit von Wörtern, zusätzlich dazu kann auch die Ausrichtung des Vektors berücksichtigt werden. Die entsprechende Vektoren werden mit Hilfe eines neuronales Netzes berechnet, das auf zwei verschiedene Art und Weisen implementiert werden kann: \textit{CBOW} und \textit{Skip-gram}\cite{wang2014introduction}:
 
 Die erste Methode - CBOW (Continuous Bag Of Words\cite{garcia2014word}) - gibt dem Entwickler die Möglichkeit, die Features für ein Wort anhand von Wörtern in seiner Umgebung zu berechnen, es wird also versucht, die Wahrscheinlichkeit $P(Wort|Context)$ zu maximieren.
 
