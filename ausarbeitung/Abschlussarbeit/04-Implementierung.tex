@@ -181,7 +181,11 @@ Die Klassen in diesem Engine spielen ähnliche Rollen, wie bei Stanford-NER mit 
 \subsection{Deutcshe Korpora} \label{subsec:decor}
 Nachdem die Engines, die nach Entitäten in Texten suchen sollen, entwickelt wurden, müssen die entsprechende NER-Modelle trainiert werden, wie es in der Sektion \ref{sec:trcorpora} beschrieben wurde. Und obwohl fällt dieser Schritt fürs auf Stanford-NER basierten Engine komplett aus, da dort ein vortrainiertes Modell verwendet wird, muss für weitere zwei Engines eigene Modelle trainiert werden.
 
-Im Rahmen dieser Arbeit wurden zwei Trainingskoprora verwendet: von den Linguisten erzeugtes TIGER-Korpus und aus Basis von Wikipedia-Artikeln aufgebautes PIG-Korpus.
+Im Rahmen dieser Arbeit wurden zwei Trainingskoprora verwendet: von den Linguisten erzeugtes TIGER-Korpus und aus Basis von Wikipedia-Artikeln aufgebautes PIG-Korpus. Diese beide Korpora wurden aus folgenden Gründen ausgewählt:
+\begin{itemize}
+\item TIGER-Korpus wurde ausgewählt, da es das einzige deutschsprachige Korpus mit annotierten Entitäten ist, das frei verfügbar ist und das eine genügende Anzahl von Sätzen(50472 Sätzen) beinhaltet - das vom Sebastian Padó\cite{faruqui10:_training} zur Verfügung gestelltes Korpus ist zwar auch frei verfügbar, aber es beinhaltet nur 857 Sätzen, was fürs Training ungenügend ist.
+\item Wikipedia wurde als Basis für automatisch aufgebautes Korpus ausgewählt, da die Dumps von Wikipedia frei verfügbar sind und eine große Anzahl von Daten (215841 Sätzen) beinhalten.
+\end{itemize}
 
 Für Training von Modellen für beide Engines (MITIE und OpenNLP) wird dasselbe Datenformat verwendet, das in der Auflistung \ref{lst:TIGEROPENBEISPIEL} beschrieben ist. Dadurch wird erreicht, dass der Code fürs Training von beiden Engines wiederverwendet werden kann.
 
