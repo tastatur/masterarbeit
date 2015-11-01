@@ -40,7 +40,7 @@ Im Rahmen dieser Arbeit werden nur Engines und EntityHub gebraucht, andere Modul
 \paragraph{}
 Die grundlegende Idee, die die Architektur von Stanbol prägt, heißt ,,Pipelining`` - ein Fließband, das mehrere Textverarbeitungsschritte miteinander verknüpft, und eine flexible Konfiguration von Kontentanreicherung ermöglicht. Jedes Element dieses Fließbandes wird ,,Engine`` genannt. Von dem Blickwinkel der Architektur wird jedes Engine als selbstständiges BlackBox implementiert, der am Eingang den Text, der angereichert werden soll, mit den von anderen Engines hinzugefügten Annotationen zusammen, bekommt, und am Ausgang neue Annotationen liefert. 
 
-Die Engines werden in sogenannte Ketten zusammengebunden - der Ausgang von einem Engine wird mit dem Eingang von einem anderen Engine verbunden, und so wird eine virtuelle Kette gebaut. Das erste Element in dieser Kette bekommt dabei als Eingang den Text von dem Benutzer, und der Ausgang des letztes Element wird zu dem Benutzer geschickt. 
+Die Engines werden in sogenannte Ketten zusammengebunden - der Ausgang von einem Engine wird mit dem Eingang von einem anderen Engine verbunden, und so wird eine virtuelle Kette gebaut. Das erste Element in dieser Kette bekommt dabei als Eingang den Text eines mithilfe von einer Suchmaschine gefundenen Snippets, und der Ausgang des letztes Element wird zu dem Benutzer geschickt. 
 
 Auf der Abbildung \ref{fig:ENGINEPIPELINE} wird die Aufbau der in dieser Arbeit verwendeter Engine-Kette noch einmal grafisch dargestellt.
 \begin{figure}[ht]
