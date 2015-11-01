@@ -40,17 +40,17 @@ Zusätzlich dazu wurde von Hai\cite{chieu2002named} die Verteilung in lokale und
 \begin{enumerate}
 \item Ob das Wort groß geschrieben wird.
 \item Ob vorheriges oder nächstes Wort großgeschrieben wird.
-\item Ob alle Zeichen im Token großgeschrieben werden.
+\item Ob alle Zeichen im Wort großgeschrieben werden.
 \item Ob es ein Punkt am Ende des Wortes steht.
-\item Ob der Token Zahlen beinhaltet, und falls ja, wie viel.
+\item Ob das Wort Zahlen beinhaltet, und falls ja, wie viel.
 \item Ob das Wort das Prozent- oder Dollarzeichen beinhaltet.
 \item Suffixe und Präfixe (wie ,,Frau`` oder ,,GmbH``).
-\item Ob das Token nur aus Zahlen besteht.
+\item Ob das Wort nur aus Zahlen besteht.
 \item POS-Tag des Wortes (ob das Wort ein Substantiv oder ein Verb ist)
 \item POS-Tags der Wörter, die vor dem ausgewählten Wort stehen.
 \end{enumerate}
 \end{enumerate}
-Dabei beschreiben lokale Features die Eigenschaften, die nur die Informationen, die aus dem Token selbst und aus den benachbarten Tokens in demselben Satz gewonnen werden können, brauchen. Globale Eigenschaften benutzen dagegen auch die Vorkommnisse vom Token im ganzen Dokument.
+Dabei beschreiben lokale Features die Eigenschaften, die nur die Informationen, die aus dem Wort selbst und aus den benachbarten Wörtern in demselben Satz gewonnen werden können, brauchen. Globale Eigenschaften benutzen dagegen auch die Vorkommnisse vom Wort im ganzen Dokument.
 
 Das oben genannte Features werden ,,supervised Features`` genannt, weil die von einem Mensch bestimmt wurden. Zusätzlich dazu wird in der Arbeit von Turian\cite{turian2010word} der Einsatz von sogenannten ,,unsupervised Features`` vorgeschlagen, die während des Lernvorganges berechnet werden. Es wird in der zitierten Arbeit zwischen folgenden Gruppen von ,,unsupervised Features`` unterschieden:
 \begin{enumerate}
