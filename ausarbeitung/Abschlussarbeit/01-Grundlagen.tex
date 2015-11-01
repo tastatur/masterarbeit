@@ -119,7 +119,7 @@ Ein sehr interessanter Einsatz fürs ,,Word Embedding`` wird in der Arbeit von X
 
 Die erste Methode - CBOW (Continuous Bag Of Words\cite{garcia2014word}) - gibt dem Entwickler die Möglichkeit, die Features für ein Wort anhand von Wörtern in seiner Umgebung zu berechnen, es wird also versucht, die Wahrscheinlichkeit $P(Wort|Context)$ zu maximieren.
 
-Der zweite Einsatz - Skip-gramm - wird noch einmal präziser in der Arbeit von Mikolov\cite{mikolov2013distributed} beschrieben. Dieser Einsatz lässt sich als eine Inversion von CBOW  definieren - es wird hier versucht, die Features für Umgebungswörter zu berechnen, und die Wahrscheinlichkeit $P(Context|Wort)$ zu maximieren.
+Der zweite Einsatz - Skip-gramm - wird in der Arbeit von Mikolov\cite{mikolov2013distributed} beschrieben. Dieser Einsatz lässt sich als eine Inversion von CBOW  definieren - es wird hier versucht, die Features für Umgebungswörter zu berechnen, und die Wahrscheinlichkeit $P(Context|Wort)$ zu maximieren.
 
 Für die Analyse von großen Textmengen soll CBOW bevorzugt werden, da dieses Algorithmus bessere Geschwindigkeit aufzeigt\cite{wang2014introduction}. 
 
