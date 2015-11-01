@@ -131,7 +131,7 @@ Sobald die Eigenschaften bestimmt wurden, können mit ihrer Hilfe die am Anfang 
 \subsection{Conditional Random Field}
 %Was ist CRF? Wie funktioniert dieser Einsatz? Wo wird er verwendet?
 \paragraph{}
-CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/Andrew:10} beschrieben. CRF hilft, die Verteilung $p(y|x)$ mithilfe eines Graph (siehe Abbildung \ref{fig:CRF-Modell}) direkt zu modellieren. Dabei soll jedem Element (Token in unserem Fall) aus dem Eingabevektor $x$ ein entsprechendes Ausgabewert (Label, die die Klasse der Entität beschreibt) aus dem Vektor $y$ zugeordnet werden. CRF basiert auf demselben Basis wie Hidden Markov Models, hat aber den Vorteil, dass die Features nicht als unabhängig betrachtet werden - CRF nimmt an, dass es Abhängigkeiten zwischen Features existieren. Der Nachteil ist, dass CRF langsamer, als HMM ist. Und für die NER sind die Abhängigkeiten zwischen Features schon sehr wichtig - wenn wir z.B. den Satz ,,Ich lese gerade Berliner Zeitung`` analysieren, ohne Abhängigkeiten zwischen Features im Kauf zu nehmen, wird das Wort ,,Berliner`` als Gebäck erkannt, und wenn man die Abhängigkeiten zwischen Nachbarnwörtern betrachtet, erkennt man die Entität ,,Berliner Zeitung``.
+CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/Andrew:10} beschrieben. CRF hilft, die Verteilung $p(y|x)$, die beschreibt, mit welcher Wahrscheinlichkeit das Wort $x$ zu der Entitätsklasse $y$ gehört, mithilfe eines Graph (siehe Abbildung \ref{fig:CRF-Modell}) direkt zu modellieren. Dabei soll jedem Element (Token in unserem Fall) aus dem Eingabevektor $x$ ein entsprechendes Ausgabewert (Label, die die Klasse der Entität beschreibt) aus dem Vektor $y$ zugeordnet werden. CRF basiert auf demselben Basis wie Hidden Markov Models, hat aber den Vorteil, dass die Features nicht als unabhängig betrachtet werden - CRF nimmt an, dass es Abhängigkeiten zwischen Features existieren. Der Nachteil ist, dass CRF langsamer, als HMM ist. Und für die NER sind die Abhängigkeiten zwischen Features schon sehr wichtig - wenn wir z.B. den Satz ,,Ich lese gerade Berliner Zeitung`` analysieren, ohne Abhängigkeiten zwischen Features im Kauf zu berücksichtigen, wird das Wort ,,Berliner`` als Gebäck erkannt, und wenn man die Abhängigkeiten zwischen Nachbarnwörtern betrachtet, erkennt man die Entität ,,Berliner Zeitung``.
 
 \begin{figure}[ht]
 \setbox0\vbox{\small}
@@ -140,18 +140,6 @@ CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/
 \label{fig:CRF-Modell}
 \end{figure}
 Die Eckpunkte dieses Graphs beschreiben dabei die Werte, die ,,vorhersagt`` werden müssen (Vektor $Y$ - die Labels, die sagen, ob das Wort eine Entität ist) \textbf{und} die Wörter, für die Labels bestimmt werden müssen (Vektor $X$)\cite{lafferty2001conditional}.
-
-\paragraph{}
-Die Formel, die die Verteilung $p(y|x)$ beschreibt, lautet 
-\begin{equation} \label{eq:crfeq}
-p(y|x) = \frac{1}{Z(x)}\prod_{t=1}^T\exp \lbrace \sum_{k=1}^K \theta_k f_k(y_t,y_t-1,x_t) \rbrace
-\end{equation}
-
-Funktion $f_k$ beschreibt dabei Features, und Vektor $\theta$ - Parameter. Die Funktion $Z(x)$ ist eine Normalisierungsfunktiuon, und wird wie folgt definiert:
-\begin{equation} \label{eq:zeteq}
-Z(x) = \sum_y \prod_{t=1}^T\exp \lbrace \sum_{k=1}^K \theta_k f_k(y_t,y_t-1,x_t) \rbrace
-\end{equation}
-Vektor $x_t$ beinhaltet dabei alle Features, die benötigt werden, um Abhängigkeiten zu berechnen. 
 
 Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
 \begin{itemize}
