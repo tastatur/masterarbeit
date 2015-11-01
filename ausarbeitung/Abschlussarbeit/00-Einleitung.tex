@@ -3,7 +3,7 @@
 \section{Motivation}
 \label{sec:Motivation}
 \paragraph{}
-Wenn man im Web nach einem Begriff sucht, kann die Suchanfrage nicht immer sofort genau definiert werden, besonders wenn das Thema der Suche dem Benutzer nicht bekannt ist. Um eine korrekte Anfrage aufbauen zu können, die die gewünschte Ergebnisse liefert, braucht man üblich mehr Iterationen - mit jeder Iteration wird die Anfrage präzisiert und verbessert. Da moderne Suchmaschinen allerdings keine strukturierte Informationen über die Suchergebnisse und auf der Suchergebnisseiten vorhandene Entitäten liefern, wird der Benutzer gezwungen, sich jedes Dokument manuell anzuschauen, um die Anregungen für neue Suchiterationen zu gewinnen, was als Folge zu einer niedrigen Arbeitsleistung führt.
+Wenn man im Web nach einem Begriff sucht, kann die Suchanfrage nicht immer sofort genau definiert werden, besonders wenn das Thema der Suche dem Benutzer nicht bekannt ist. Um eine korrekte Anfrage aufbauen zu können, die die gewünschte Ergebnisse liefert, braucht man üblich mehr Iterationen - mit jeder Iteration wird die Anfrage präzisiert und verbessert. Da moderne Suchmaschinen allerdings keine strukturierte Informationen über die Suchergebnisse und auf der Suchergebnisseiten vorhandene Entitäten - Personen, Firmen, Vereine oder geographischen Objekte - liefern, wird der Benutzer gezwungen, sich jedes Dokument manuell anzuschauen, um die Anregungen für neue Suchiterationen zu gewinnen, was als Folge zu einer niedrigen Arbeitsleistung führt.
 
 Ein Beispiel für angesprochenes Problem ist auf der Abbildung \ref{fig:bing-issue} zu sehen. Man muss sich jeden gefundenen Snippet angucken und gelegentlich auch die gefundene Webseite öffnen, um die Antwort auf gestellte Frage zu erfahren, was bei längeren Suchsitzungen viel Zeit in Anspruch nimmt.
 
@@ -14,7 +14,7 @@ Ein Beispiel für angesprochenes Problem ist auf der Abbildung \ref{fig:bing-iss
 \label{fig:bing-issue}
 \end{figure}
 
-Es existieren bereits mehrere Einsätze, die den Benutzer bei der Suche und bei der Präzision seiner Suchanfragen unterstützen und die die Websuche beschleunigen können:
+Es existieren bereits mehrere Ansätze, die den Benutzer bei der Suche und bei der Präzision seiner Suchanfragen unterstützen und die die Websuche beschleunigen können:
 \begin{itemize}
 \item Personalisierung der Suche\cite{noll2007web} - es wird versucht, mithilfe von Suchhistorie des Benutzers, seines Verhaltens im Netz oder seinen ,,Likes``-Einträgen in sozialen Netzwerken die Ergebnisse, die für diesen Benutzer relevant wären, ,,vorherzusagen`` und den entsprechenden Dokumenten ein höheres Gewicht bei der Suche zu geben.
 \item Automatische Vervollständigung der Anfrage - sobald man anfängt den Text der Anfrage zu tippen, werden dem Benutzer Vorschläge bezüglich des Restes der Anfrage gemacht.
@@ -23,7 +23,7 @@ Es existieren bereits mehrere Einsätze, die den Benutzer bei der Suche und bei 
 
 In Rahmen dieser Arbeit soll ein anderer Einsatz implementiert und erforscht werden: die Extraktion von Entitäten aus Suchergebnissen. 
 
-Eine Skizze der erwähntes Einsatzes ist auf der Abbildung \ref{fig:bing-and-entity} zu sehen. Die Idee dieses Einsatzes besteht daran, dass dem Benutzer zusätzlich zu den Links die Liste von sogenannten Entitäten - Personen, Firmen oder geographischen Objekten - angezeigt wird, die aus den Snippets (kurzen Textausschnitten der gefundenen Webseiten) extrahiert wurden. Der Einsatz könnte die Suche beschleunigen, da der Benutzer im besten Fall die verlinkte Dokumente gar nicht mehr öffnen muss, sondern sich lediglich die extrahierte Entitäten anschauen muss.
+Eine Skizze der erwähntes Ansatzes ist auf der Abbildung \ref{fig:bing-and-entity} zu sehen. Die Idee dieses Ansatzes besteht daran, dass dem Benutzer zusätzlich zu den Links eine Liste von Entitäten angezeigt wird, die aus den Snippets (kurzen Textausschnitten der gefundenen Webseiten) extrahiert wurden. Der Ansatzes könnte die Suche beschleunigen, da der Benutzer im besten Fall die verlinkte Dokumente gar nicht mehr öffnen muss, sondern sich lediglich die extrahierte Entitäten anschauen muss.
 
 \begin{figure}
 \centering
@@ -35,7 +35,7 @@ Eine Skizze der erwähntes Einsatzes ist auf der Abbildung \ref{fig:bing-and-ent
 \section{Problemstellung}
 \label{sec:Problemstellung}
 \paragraph{}
-Die Implementierung solches Einsatzes bringt mit sich allerdings bestimmte Herausforderungen, die im Rahmen dieser Arbeit angegangen werden müssen:
+Die Implementierung solches Ansatzes bringt mit sich allerdings bestimmte Herausforderungen, die im Rahmen dieser Arbeit angegangen werden müssen:
 
 Die erste Frage wäre, wie genau kann man Entitäten in einem menschlichen Text überhaupt erkennen lassen. Können dazu feste Muster definiert werden, oder wäre der Einsatz von der Methoden aus künstlicher Intelligenz notwendig? Gibt es schon Algorithmen, die Entitäten erkennen können, oder müssen eigene kreiert werden? 
 
