@@ -314,14 +314,8 @@ Wie in der Aufgabenstellung (\ref{sec:Aufgabenstellung}) gesagt wurde, müssen n
 \item Das ,,Sicherheitswert`` (Confidence) der extrahierten Entität - wie hoch ist die Wahrscheinlichkeit $p(y|x)$ (wie in der Sektion \ref{subsec:crftheory} beschrieben), dass das Wort $x$ eine Entität der Klasse $y$ ist.
 \end{itemize}
 
-Das Engine, das diesen Filter implementiert, besteht nur aus einer Klasse, deren Funktionsweise auf der Abbildung \ref{fig:seqfilter} dargestellt ist.
+Das Engine, das diesen Filter implementiert, besteht nur aus einer Klasse, die schrittweise überprüft ob die Confidence- und Rank-Werte kleiner als in einer Konfigurationsdatei vordefinierte Schwellwerte sind. Falls ein von den beiden Werten kleiner als Schwellwert ist, wird die Entität aus der Liste von Ergebnissen gelöscht.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.8\textwidth]{Bilder/seqfilter.png}
-\caption{''Funktionsweise des Filters''}
-\label{fig:seqfilter}
-\end{figure}
 Die Schwellwerte für beide Filter (0.7 für Confidence und 0.2 für den Rank) wurden nach manuellem Austesten von Engines anhand persönlichen Erfahrungen des Entwicklers ausgewählt.
 
 \section{API f{\"{u}}r Anreicherung von Suchergebnissen}
