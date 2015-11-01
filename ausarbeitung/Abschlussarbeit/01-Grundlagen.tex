@@ -128,7 +128,7 @@ Es darf allerdings nicht vergessen werden, dass bei größeren Datenmengen noch 
 
 Sobald die Eigenschaften bestimmt wurden, können mit ihrer Hilfe die am Anfang des Kapitels erwähnte Algoreithmen die Entitäten zu extrahieren versuchen.
 
-\subsection{Conditional Random Field}
+\subsection{Conditional Random Field} \label{subsec:crftheory}
 %Was ist CRF? Wie funktioniert dieser Einsatz? Wo wird er verwendet?
 \paragraph{}
 CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/Andrew:10} beschrieben. CRF hilft, die Verteilung $p(y|x)$, die beschreibt, mit welcher Wahrscheinlichkeit das Wort $x$ zu der Entitätsklasse $y$ gehört, mithilfe eines Graph (siehe Abbildung \ref{fig:CRF-Modell}) direkt zu modellieren. Dabei soll jedem Element (Token in unserem Fall) aus dem Eingabevektor $x$ ein entsprechendes Ausgabewert (Label, die die Klasse der Entität beschreibt) aus dem Vektor $y$ zugeordnet werden. CRF basiert auf demselben Basis wie Hidden Markov Models, hat aber den Vorteil, dass die Features nicht als unabhängig betrachtet werden - CRF nimmt an, dass es Abhängigkeiten zwischen Features existieren. Der Nachteil ist, dass CRF langsamer, als HMM ist. Und für die NER sind die Abhängigkeiten zwischen Features schon sehr wichtig - wenn wir z.B. den Satz ,,Ich lese gerade Berliner Zeitung`` analysieren, ohne Abhängigkeiten zwischen Features im Kauf zu berücksichtigen, wird das Wort ,,Berliner`` als Gebäck erkannt, und wenn man die Abhängigkeiten zwischen Nachbarnwörtern betrachtet, erkennt man die Entität ,,Berliner Zeitung``.

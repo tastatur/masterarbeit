@@ -310,8 +310,8 @@ Theoretisch können hier auch SQL-Datenbanke für die Dereferenzierung verwendet
 \section{Rausfilterung von für den Benutzer irrelevanten Entitäten}
 Wie in der Aufgabenstellung (\ref{sec:Aufgabenstellung}) gesagt wurde, müssen nur relevante Entitäten dem Benutzer angezeigt werden, damit der Benutzer sich nicht verwirrend fühlt. Die beste Lösung dieses Problems wäre eventuell eine semantische Analyse der Benutzeranfrage, und ein Matching von Entitäten mit den Ergebnissen solcher Analyse, aber wegen Zeitmangel und einem zu großen Aufwand, der außer Rahmen dieser Masterarbeit stünde, konnte diese Lösung nicht implementiert werden. Statdessen werden folgende Gewichte verwendet, um zu entscheiden, ob eine Entität wichtig genug ist:
 \begin{itemize}
-\item Das Gewicht der Entität innerhalb des EntityHubs verwendet, das anhand von Anzahl der Wikipedia-Links, die auf die Entität zeigen, festgesetzt wird.
-\item Das ,,Sicherheitwert`` (Confidence) des Extraktion-Engines bezüglich der Entität - jedes Engine fügt dieses Wert hinzu, um dem Entwickler mitzuteilen, wie ,,sicher`` diese Entität sein soll.
+\item Das Gewicht der Entität innerhalb des EntityHubs verwendet, das anhand von Anzahl der Wikipedia-Links, die auf die Entität zeigen, festgesetzt wird. Wert ,,1`` entspricht dabei dem höchstmöglichen und ,,0`` dem kleinstmöglichen Gewicht.
+\item Das ,,Sicherheitswert`` (Confidence) der extrahierten Entität - wie hoch ist die Wahrscheinlichkeit $p(y|x)$ (wie in der Sektion \ref{subsec:crftheory} beschrieben), dass das Wort $x$ eine Entität der Klasse $y$ ist.
 \end{itemize}
 
 Das Engine, das diesen Filter implementiert, besteht nur aus einer Klasse, deren Funktionsweise auf der Abbildung \ref{fig:seqfilter} dargestellt ist.
