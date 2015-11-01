@@ -299,7 +299,7 @@ Aus den verschiedenen Werken über relationale Algebra\cite{meier2013relationale
 \end{figure}
 Aber wie können dann ,,Wissen`` über die Entitäten gespeichert werden? Welche Datenbanken und Datenstrukturen können hierfür verwendet werden? Gibt es schon bereits eine Lösung oder muss ein eigenes Konzept entwickelt werden?
 
-Für die Darstellung von Wissen wurde von dem W3-Consortium\cite{klyne2006resource} eine spezielle auf XML basierende Datenstruktur RDF (Resource Description Framework) entworfen, die Speicherung von vage strukturierten Daten ermöglicht, was für die Lagerung von Informationen über Entitäten am besten passt. Dieses Format basiert sich auf gerichteten Graphen (siehe die Abbildung \ref{fig:graph-rdf}) und umfasst folgende Grundbegriffe:
+Für die Darstellung von Wissen wurde von dem W3-Consortium\cite{klyne2006resource} eine spezielle auf XML basierende Datenstruktur RDF (Resource Description Framework) entworfen, die Speicherung von vage strukturierten Daten ermöglicht, was für die Speicherung von Informationen über Entitäten am besten passt. Dieses Format basiert sich auf gerichteten Graphen (siehe die Abbildung \ref{fig:graph-rdf}) und umfasst folgende Grundbegriffe:
 \begin{itemize}
 \item Subjekt - die Entität, deren Eigenschaft beschrieben werden muss (z.B. eine Person).
 \item Prädikat sagt, welche Eigenschaft der Entität beschrieben wird (z.B. Alter einer Person kann ein Prädikat sein).
@@ -321,7 +321,7 @@ Ein Objekt kann also auch die Rolle eines Subjektes spielen und umgekehrt, was d
 \label{fig:graph-rdf}
 \end{figure}
 
-Als Backend für die Speicherung von diesen Graphen wird eine Erweiterung von XML benutzt. Ein Beispiel für eine Entität im RDF/XML-Format ist auf der Auflistung \ref{lst:RDFBEISPIEL} zu sehen.
+Als Backend für die Speicherung von diesen Graphen wird eine Erweiterung von XML benutzt. Ein Beispiel für eine Entität im RDF/XML-Format ist in der Auflistung \ref{lst:RDFBEISPIEL} zu sehen.
 
 \lstset{language=XML}
 \lstinputlisting[captionpos=b,label={lst:RDFBEISPIEL},caption={Beispiel einer Ontologie im RDF-Format}]{Listings/examplerdf.xml}
