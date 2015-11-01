@@ -35,9 +35,9 @@ Eine Skizze der erwähntes Ansatzes ist auf der Abbildung \ref{fig:bing-and-enti
 \section{Problemstellung}
 \label{sec:Problemstellung}
 \paragraph{}
-Die Implementierung solches Ansatzes bringt mit sich allerdings bestimmte Herausforderungen, die im Rahmen dieser Arbeit angegangen werden müssen:
+Die Implementierung solches Systems bringt mit sich allerdings bestimmte Herausforderungen, die im Rahmen dieser Arbeit angegangen werden müssen:
 
-Die erste Frage wäre, wie genau kann man Entitäten in einem menschlichen Text überhaupt erkennen lassen. Können dazu feste Muster definiert werden, oder wäre der Einsatz von der Methoden aus künstlicher Intelligenz notwendig? Gibt es schon Algorithmen, die Entitäten erkennen können, oder müssen eigene kreiert werden? 
+Die erste Frage wäre, wie genau kann man Entitäten in einem natürlichsprachlichen Text überhaupt erkennen lassen. Können dazu feste Muster definiert werden, oder wäre der Einsatz von der Methoden aus künstlicher Intelligenz notwendig? Gibt es schon Algorithmen, die Entitäten erkennen können, oder müssen eigene kreiert werden? 
 
 Zweitens, es ist nicht klar, ob die kurze Textsnippets, die die Suchmaschinen liefern, für die Extraktion von Entitäten überhaupt benutzt werden können - das Problem ist, dass diese Textabschnitte sehr klein (üblicherweise zwei bis drei Sätze) sind, und es ist durchaus möglich, dass die gar keine Entitäten beinhalten.
 
@@ -47,7 +47,7 @@ Eine weitere Herausforderung wäre, dass jede natürliche Sprache ein besonderes
 
 Zusätzlich zu den oben genannten Herausforderungen kann man folgendes Problem, das sich als eine getrennte Unteraufgabe definieren lässt, erkennen: wenn man dem Benutzer \textbf{nur} die Entitäten zeigt, ohne dazugehörigen Daten wie Geburtsort, Todesdatum oder Muttersprache, wird solcher Einsatz für den Benutzer kaum nützlich sein können. Deswegen sollen für die im Text erkannte Entitäten auch die dazugehörige Informationen extrahiert werden. Dieser Schritt nennt man ,,Verlinkung`` von Ontologien (eine Darstellung von ,,Wissen`` über ein Objekt), weil hier die Entität mit den Daten aus einer Datenbank verlinkt werden.
 
-Bei der Verlinkung von Entitäten soll folgendes im Kauf genommen werden:
+Bei der Verlinkung von Entitäten soll folgendes beachtet werden:
 \begin{itemize}
 \item In welcher Datenbank soll nach Informationen über eine Entität gesucht werden? Wo findet man die Daten?
 \item Wird die Geschwindigkeit der Suche durch Verlinkung stark beeinträchtigt?
