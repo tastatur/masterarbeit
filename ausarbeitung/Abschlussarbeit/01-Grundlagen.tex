@@ -338,12 +338,6 @@ Eine typische SPARQL-Anfrage ist wie folgt aufgebaut:
 \begin{itemize}
 \item Der erste Teil der Anfrage - das Schlüsselwort ,,SELECT`` beschreibt, welche Eigenschaften (oder Prädikate in der Terminologie von RDF) einer Entität aus der Datenbank gelesen werden müssen. In dem Beispiel werden die Prädikaten ,,Fläche`` und ,,Bundesland`` benötigt.
 \item Der zweite Teil der Anfrage beschreibt, welche Entitäten ausgewählt werden müssen. Auf den ersten Blick sieht die Konstruktion im WHERE-Teil der Anfrage ziemlich kompliziert aus, aber wenn man sich die Abbildung \ref{fig:graph-rdf} anguckt, dann wird es klar, dass es nur so eine Art von einem Muster angegeben wird, das beschreibt, wie Subjekt, Prädikat und Objekt zusammen aussehen müssen, um in der Liste von Ergebnissen aufzutauchen. Die Anfrage im Beispiel \ref{lst:SPARQLBEISPIEL} sagt, dass alle Entitäten, deren Prädikat ,,rdfs:label`` das Wert ,,Duisburg`` hat, und die  außerdem die Eigenschaften ,,dbo:areaTotal`` und ,,dbo:federalState`` besitzen (deren Werte beliebig sein dürfen), aus der Datenbank ausgelesen werden müssen.
-\item Optional werden in der Anfrage auch sogenannte Präfixe definiert. Da jeder Prädikat in einer RDF-Datenbank aus zwei Teilen besteht:
-\begin{itemize}
-\item Ein Namenpräfix, das üblich als ein URL eingegeben wird, und ,,Domain`` der Eigenschaft definiert.
-\item Ein Suffix, das der eigentliche Name der Eigenschaft beschreibt.
-\end{itemize}
-können für die lange Präfixe Pseudonyme (Aliases) definiert werden, um Anfragen kompakter zu gestalten.
 \end{itemize}
 
 Optional können die Ergebnisse auch sortiert werden, mithilfe von der ,,ORDER BY``-Operation. Die Ergebnisse lassen sich außerdem mithilfe von regulären Ausdrücken präziser rausfiltern,
