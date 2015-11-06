@@ -152,6 +152,11 @@ Die oben genannte Zahlen können mithilfe von folgenden Metriken zusammengefasst
 \begin{itemize}
 \item Präzision beschreibt den Anteil von True-Positive-Treffer an allen als Entitäte markierten Wörtern (die Summe von True-Positive- und False-Positve-Treffer).
 \item Sensitivität (Recall) beschreibt den Anteil von korrekt als Entitäte erkannten Wörtern (True-Positive-Treffer) an den Anzahl von allen im Text vorhandenen Entitäten (Die Summe von True-Positive-Treffer und False-Negative-Treffer).
+\item F-Measure fasst Präzision und Sensitivität mithilfe des gewichtetes harmonisches Mittels zusammen. Die Formel, die Kalkulation von F-Maß für Präzision $P$ und Sensitivität $S$ sieht wie folgt aus\cite{hripcsak2005agreement}:
+$$
+F=\frac{(1+\beta^2)*S*P}{(\beta^2*P)+S}
+$$ 
+Die Variable $\beta$ bestimmt dabei, was eine höheres Gewicht für die Kalkulation des F-Wertes hat: Präzision oder Sensitivität. Allerdings sollen diese beide Maßen in meisten Fällen laut Hripcsak\cite{hripcsak2005agreement} gleiches Gewicht besitzen, und so kann das Gewicht $\beta$ auf $1$ gesetzt werden.
 \end{itemize}
 
 \begin{table}
