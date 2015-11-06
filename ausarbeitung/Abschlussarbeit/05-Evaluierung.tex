@@ -109,66 +109,7 @@ Die Klassendiagramm, die wichtigste Klasse des Evaluierungssystems zusammenfasst
 
 Genau wie Stanbol kann die Evaluierungsseite auf jedem Java Applikationsserver gestartet werden. Es ist möglich, dass die Seite eine Java VM mit Stanbol teilt, was allerdings aus Geschwindigkeitsgründen nicht empfohlen wird.
 
-\section{Automatisierte Evaluierung von Qualität der Extraktion}
-\paragraph{}
-Es stellt sich allerdings die Frage, ob die aus der Benutzerstudie gewonnene Ergebnisse mit den in natürsprachlicher Mensch-Computer-Interaktion übliche Evaluierungsmethoden wie 
-\begin{itemize}
-\item Präzision
-\item Recall
-\item F-Measure
-\end{itemize}
-vereinbart werden könnten? Was ist für den Benutzer wichtige - dass das Engine so wenig False-Positiv-Treffer wie möglich liefert, oder ob die FP für den Benutzer ehe keine bedeutende Rolle spielen? Kann man anhand statistischen Messdaten sagen können, ob das Engine auch aus Sicht des Benutzers positiv oder negativ bewertet wird? Um diese Fragen beantworten zu können, müssen noch statistische Messungen durchgeführt werden und ihre Ergebnisse mit den aus der Benutzerevaluierung gewonnenen Daten vergleichen.
-
-Wie im Kapitel ,,Implementierung`` (Sektion \ref{subsec:stanfordner}) erwähnt wurde, sind einige Korpora nur im Form von vortrainierten Modellen verfügbar, was die sonst übliche Krossvalidierung für diese Fälle unmöglich macht - es steht einfach kein Korpus zur Verfügung. Und obwohl die Korpora für andere Modelle verfügbar sind, hätte es keinen Sinn gehabt, verschiedene Arten von Evaluierung für verschiedene Modellen durchzuführen, da es keinen vernünftigen Vergleich gemacht werden könnte.
-
-Aus diesem Grund wurde folgende Art von automatisierten Evaluierung durchgeführt:
-\begin{itemize}
-\item Als Musterdaten für die Evaluierung wurden TIGER- und PIG-Korpora verwendet:
-\begin{itemize}
-\item Die Engines, die mithilfe von TIGER trainiert wurden, werden mithilfe des PIG-Korpuses trainiert
-\item Die Engines, die mithilfe von PIG trainiert wurden, werden mit dem TIGER-Korpus ausgetestet.
-\item Auf Stanford-NER aufgebaute Engines wurden mithilfe von PIG-Korpus getestet, da er größer ist, und da die Varianz von Daten dort größer sein soll, und so theoretisch genauere Ergebnisse liefern könnte.
-\end{itemize}
-\item Die Anfragen werden direkt an eine Stanbol-Instanz mithilfe der REST-API gesendet.
-\end{itemize}
-So eine Art und Weise vom Austesten soll unter anderem nicht nur Qualität von Modellen selbst bewerten können, sondern auch andere Bestandteile von Engines, wie Filter von ,,unnötigen`` Entitäten und Verlinkung- und Dereferenzierungsengine.
-
-Die Ergebnisse solcher ,,automatisierten`` Evaluierung sind in der Tabelle \ref{tab:AUTOEVAL} aufgelistet. Es lässt sich gut erkennen, dass die Ergebnisse sich ganz gut mit der im Kapitel ,,Grundlagen`` (Sektion \ref{sec:MITIEGRUND}) gemachten Annahmen gut vereinbaren lassen - das Engine, das SVM als Basisalgorithmus verwendet (MITIE), zeigt auch die beste Ergebnisse. Aber wie gut spiegeln diese Daten die ,,Zufriedenheit`` der Benutzer mit dem Engine? Auf diese Frage wird während der Diskussion von Ergebnissen (\ref{sec:diskussion}) angegangen.
-
-\begin{table}
-\begin{tabular}{|c|c|c|c|}
-\hline 
-• & F-Measure & Recall & Präzision \\ 
-\hline 
-MITIE (PIG) & 0.585 & 0.506 & 0.693 \\
-\hline
-OpenNLP (PIG) & 0.404 & 0.299 & 0.621 \\
-\hline
-STANFORD (deWac+hgc) & 0.246 & 0.187 & 0.359 \\
-\hline
-STANFORD (deWac) & 0.280 & 0.219 & 0.390 \\
-\hline
-STANFORD (hgc) & 0.271 & 0.209 & 0.388 \\
-\hline 
-MITIE (TIGER) & 0.557 & 0.624 & 0.503 \\
-\hline
-OpenNLP (TIGER) & 0.409 & 0.357 & 0.479 \\
-\hline
-\end{tabular} 
-\caption{Ergebnisse der Evaluierung}
-\label{tab:AUTOEVAL}
-\end{table}
-
-\section{Diskussion} \label{sec:diskussion}
-\paragraph{}
-Während der Studie wurden insgesamt 44 Bewertungen gesammelt, deren Ergebnisse in der Tabelle \ref{app:RESULTS} zu sehen sind. Es wurden außerdem einige Feedbacks gesammelt, die für die Analyse der Arbeit und als Quelle für Verbesserungsvorschläge verwendet werden können. Die Liste von Feedbacks findet man in der Auflistung \ref{app:feedbacks}. Aber welche Schlussfolgerungen lassen sich daraus ziehen? Auf den ersten Blick fallen folgende Besonderheiten auf:
-\begin{itemize}
-\item Die Benutzer fanden den Einsatz hilfreich, wünschen sich aber die Verbesserung von dem Benutzerinterface des Systems.
-\item Es werden eventuell zu viel Informationen angezeigt, so dass der Benutzer sich verwirrt fühlen könnte.
-\item Die Probanden fanden die Geschwindigkeit der Suche gut, auch wenn es definitiv länger als eine Suche mit herkömmlichen Suchmaschinen dauert. 
-\item Die Benutzer bewerteten die Qualität von extrahierten Entitäten meistens als ,,nicht ausreichend``.
-\item Obwohl die automatisierte Evaluierung von Engines klare Ergebnisse geliefert hat, und zwar, dass ein Engine viel bessere Ergebnisse gezeigt hat, als die andere, wird das in der Benutzerevaluierung nicht widergespiegelt.
-\end{itemize}
+Während der Studie wurden insgesamt 44 Bewertungen gesammelt, deren Ergebnisse in der Tabelle \ref{app:RESULTS} zu sehen sind. Es wurden außerdem einige Feedbacks gesammelt, die für die Analyse der Arbeit und als Quelle für Verbesserungsvorschläge verwendet werden können. Die Liste von Feedbacks findet man in der Auflistung \ref{app:feedbacks}.
 
 \begin{table}
 \begin{tabular}{|c|c|c|c|c|}
@@ -190,9 +131,57 @@ stanford-nerchain-hgc & 3.11 & 1.34 & 1.86 & 4.16 \\
 tiger-nerchain & 3.34 & 1.93 & 1.39 & 3.98 \\ 
 \hline 
 \end{tabular} 
-\caption{Ergebnisse der Evaluierung}
+\caption{Ergebnisse der Benutzerevaluierung}
 \label{app:RESULTS}
 \end{table}
+
+Die Erklärung und Auswertung von den gesammelten Ergebnissen wird später in der Sektion ,,Diskussion`` (\ref{sec:diskussion}) vorgeführt. 
+
+\section{Systemorientierte Evaluierung von Qualität der Extraktion}
+\paragraph{}
+Bevor die Ergebnisse der Benutzervaluierung bewertet werden können, muss geprüft werden, wie präzis die Engines Entitäten erkennen können. Da ein Engine in seiner Funktionsweise ein Klassifikator ist (siehe Kapitel ,,Grundlagen``, Sektion \ref{sec:Grundlagen}), kann die Präzision eines Engines anhand von folgenden Metriken bestimmt werden:
+\begin{enumerate}
+% dund  (die Wörter, die keine Entitäten sind, und die nicht als Entitäten annotiert wurde) definiert werden.
+\item Anzahl von False-Positive-Treffer - die von dem Engine als Entitäten erkannte Wörter, die keine Entitäten sind.
+\item Anzahl von True-Positive-Treffer - die Entitäten, die von dem Engine als solche erkannt wurden.
+\item Anzahl von True-Negative-Treffer - die Wörter, die keine Entitäten sind, und die als solche nicht annotiert wurden.
+\item Anzahl von False-Negative-Treffer - die von dem Engine nicht erkannte Entitäten.
+\end{enumerate}
+
+\begin{table}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+• & F-Measure & Recall & Präzision \\ 
+\hline 
+MITIE (PIG) & 0.585 & 0.506 & 0.693 \\
+\hline
+OpenNLP (PIG) & 0.404 & 0.299 & 0.621 \\
+\hline
+STANFORD (deWac+hgc) & 0.246 & 0.187 & 0.359 \\
+\hline
+STANFORD (deWac) & 0.280 & 0.219 & 0.390 \\
+\hline
+STANFORD (hgc) & 0.271 & 0.209 & 0.388 \\
+\hline 
+MITIE (TIGER) & 0.557 & 0.624 & 0.503 \\
+\hline
+OpenNLP (TIGER) & 0.409 & 0.357 & 0.479 \\
+\hline
+\end{tabular} 
+\caption{Ergebnisse der systemorientierten Evaluierung}
+\label{tab:AUTOEVAL}
+\end{table}
+
+\section{Diskussion} \label{sec:diskussion}
+\paragraph{}
+Nachdem sowohl system- als auch benutzerorientierte Evaluierungen durchgeführt wurden, können die Ergebnisse zusammengefasst und erklärt werden. Auf den ersten Blick lassen sich aus den vorgestellten Ergebnissen folgende Schlussfolgerungen ziehen:
+\begin{itemize}
+\item Die Benutzer fanden den Einsatz hilfreich, wünschen sich aber die Verbesserung von dem Benutzerinterface des Systems.
+\item Es werden eventuell zu viel Informationen angezeigt, so dass der Benutzer sich verwirrt fühlen könnte.
+\item Die Probanden fanden die Geschwindigkeit der Suche gut, auch wenn es definitiv länger als eine Suche mit herkömmlichen Suchmaschinen dauert. 
+\item Die Benutzer bewerteten die Qualität von extrahierten Entitäten meistens als ,,nicht ausreichend``.
+\item Obwohl die automatisierte Evaluierung von Engines klare Ergebnisse geliefert hat, und zwar, dass ein Engine viel bessere Ergebnisse gezeigt hat, als die andere, wird das in der Benutzerevaluierung nicht widergespiegelt.
+\end{itemize}
 
 Es stellt sich die Frage, was bedeuten diese Ergebnisse, und was man daraus lernen kann, und welche Aspekte des entwickelten Systems sich verbessern lassen.
 
