@@ -152,11 +152,11 @@ Die oben genannte Zahlen können mithilfe von folgenden Metriken zusammengefasst
 \begin{itemize}
 \item Präzision beschreibt den Anteil von True-Positive-Treffer an allen als Entitäte markierten Wörtern (die Summe von True-Positive- und False-Positve-Treffer).
 \item Sensitivität (Recall) beschreibt den Anteil von korrekt als Entitäte erkannten Wörtern (True-Positive-Treffer) an den Anzahl von allen im Text vorhandenen Entitäten (Die Summe von True-Positive-Treffer und False-Negative-Treffer).
-\item F-Measure fasst Präzision und Sensitivität mithilfe des gewichtetes harmonisches Mittels zusammen. Die Formel, die Kalkulation von F-Maß für Präzision $P$ und Sensitivität $S$ sieht wie folgt aus\cite{hripcsak2005agreement}:
+\item F-Measure fasst Präzision und Sensitivität mithilfe des gewichtetes harmonisches Mittels zusammen. Die Formel für die Kalkulation von F-Maß für Präzision $P$ und Sensitivität $S$ sieht wie folgt aus\cite{hripcsak2005agreement}:
 $$
 F=\frac{(1+\beta^2)*S*P}{(\beta^2*P)+S}
 $$ 
-Die Variable $\beta$ bestimmt dabei, was eine höheres Gewicht für die Kalkulation des F-Wertes hat: Präzision oder Sensitivität. Allerdings sollen diese beide Maßen in meisten Fällen laut Hripcsak\cite{hripcsak2005agreement} gleiches Gewicht besitzen, und so kann das Gewicht $\beta$ auf $1$ gesetzt werden.
+Die Variable $\beta$ bestimmt dabei, was ein höheres Gewicht für die Kalkulation des F-Wertes hat: Präzision oder Sensitivität. Allerdings sollen diese beide Maßen in meisten Fällen laut Hripcsak\cite{hripcsak2005agreement} gleiches Gewicht besitzen, und so kann das Gewicht $\beta$ auf $1$ gesetzt werden.
 \end{itemize}
 
 Nachdem die Maßen, die für jedes Engine berechnet werden sollen, definiert wurden, muss ein Verfahren zur Beurteilung von Engines bestimmt werden (das bedeutet, dass es eine Methodik ausgewählt werden soll, die bestimmt, wie die Evaluierung durchgeführt werden soll). In der Arbeit von Kovahi et al.\cite{kohavi1995study} wurde erwähnt, dass zur Bewertung von Klassifikatoren Kreuzvalidierung verwendet werden soll. Allerdings kann die Kreuzvalidierung nicht auf alle Engines angewendet werden, da es für einige Engines keine Trainingskorpora zur Verfügung stehen, wie es im Kapitel ,,Implementierung`` (Sektion \ref{subsec:stanfordner}) erwähnt wurde. Aus diesem Grund wird in dieser Masterarbeit folgende Evaluierungsmethodik verwendet:
@@ -169,6 +169,9 @@ Nachdem die Maßen, die für jedes Engine berechnet werden sollen, definiert wur
 \end{itemize}
 \item Die Anfragen werden direkt an eine Stanbol-Instanz mithilfe der REST-API gesendet.
 \end{itemize}
+Auf diese Art und Weise wird nicht nur die Qualität von den verwendeten Modellen bewertet, sondern auch andere Bestandteile von Engines, wie Filter von Entitäten und Verlinkung- und Dereferenzierungsengines.
+
+Die Ergebnisse dieser systemorientierter Evaluierung sind in der Tabelle \ref{tab:AUTOEVAL} aufgelistet. Es lässt sich gut erkennen, dass die Ergebnisse sich mit den im Kapitel ,,Grundlagen`` (Sektion \ref{sec:MITIEGRUND}) gemachten Annahmen gut vereinbaren lassen - das Engine, das SVM als Basisalgorithmus verwendet (MITIE), zeigt auch die beste Ergebnisse. Aber wie gut spiegeln diese Daten die ,,Zufriedenheit`` der Benutzer mit dem Engine? Auf diese Frage wird während der Diskussion von Ergebnissen (\ref{sec:diskussion}) angegangen.
 
 \begin{table}
 \begin{tabular}{|c|c|c|c|}
