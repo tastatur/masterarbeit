@@ -48,7 +48,35 @@ Im letzten Bereich soll das getestete Engine bewertet werden, wie es auf der Abb
 
 Nachdem alle Kombinationen getestet wurden, wird dem Benutzer die Möglichkeit gegeben, eine beliebige Frage an ein Engine zu stellen und einen persönlichen Feedback abzugeben. Die Aufbau dieser letzten Seite ähnelt sich der von der Seite, wo ein Engine bewertet wird, mit dem Unterschied, dass anstatt der Form für die Bewertung wird im letzten Bereich die Form für den Feedback und das Eingabefeld für die beliebige Frage angezeigt. Diese Änderung ist auf dem Screenshot \ref{fig:finish-eval} zu sehen. Diese Form wurde eingeführt, um die Anregungen für mögliche Verbesserungen vom Backend und für Nachfolgerarbeit sammeln zu können.
 
-\section{Technische Implementierung der Evaluierung}
+Während der Studie wurden insgesamt 44 Bewertungen gesammelt, deren Ergebnisse in der Tabelle \ref{app:RESULTS} zu sehen sind. Es wurden außerdem einige Feedbacks gesammelt, die für die Analyse der Arbeit und als Quelle für Verbesserungsvorschläge verwendet werden können. Die Liste von Feedbacks findet man in der Auflistung \ref{app:feedbacks}.
+
+\begin{table}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+• & helpQuality & quality\_newspapers & quality\_misc & speed \\ 
+\hline 
+mitie-nerchain-pig & 3.23 & 1.98 & 1.45 & 4.09 \\ 
+\hline 
+mitie-nerchain-tiger & 3.15 & 1.25 & 2.09 & 3.8 \\ 
+\hline 
+pig-nerchain & 3.05 & 1.31 & 2 & 3.87 \\ 
+\hline 
+stanford-nerchain-both & 3.07 & 1.23 & 1.95 & 4.05 \\ 
+\hline 
+stanford-nerchain-dewac & 3.25 & 2.11 & 1.41 & 4.16 \\ 
+\hline 
+stanford-nerchain-hgc & 3.11 & 1.34 & 1.86 & 4.16 \\ 
+\hline 
+tiger-nerchain & 3.34 & 1.93 & 1.39 & 3.98 \\ 
+\hline 
+\end{tabular} 
+\caption{Ergebnisse der Benutzerevaluierung}
+\label{app:RESULTS}
+\end{table}
+
+Die Erklärung und Auswertung von den gesammelten Ergebnissen wird später in der Sektion ,,Diskussion`` (\ref{sec:diskussion}) vorgeführt. 
+
+\section{Technische Implementierung der Benutzerevaluierung}
 \paragraph{}
 Die Komponentenstruktur der Evaluierungsseite ist auf der Abbildung \ref{fig:evalcomponents} dargestellt. Das System besteht insgesamt aus folgenden Komponenten:
 \begin{enumerate}
@@ -84,7 +112,7 @@ Technische Details der Ablauf der Evaluierung werden auf der Diagramm \ref{fig:e
 \label{fig:eval-ablauf}
 \end{figure}
 
-Die Klassendiagramm, die wichtigste Klasse des Evaluierungssystems zusammenfasst, ist auf der Abbildung \ref{fig:evalclasses} dargestellt. Die für die Funktionalität des Systems nicht wichtige Klassen wurden dabei aus Lesbarkeitgründen absichtlich vernachlässigt. Die Verantwortungen sind zwischen diesen Klassen wie folgt geteilt:
+Die auf der Abbildung \ref{fig:evalcomponents} dargestellte Komponenten werden durch folgende Klassen implementiert:
 \begin{itemize}
 \item Das Interface \textit{EvaluationSessionService} und implementierende Klasse \textit{EvaluationSessionServiceImpl} sind für die Steuerung des Evaluierungsvorgangs zuständig:
 \begin{itemize}
@@ -100,42 +128,14 @@ Die Klassendiagramm, die wichtigste Klasse des Evaluierungssystems zusammenfasst
 \item Die Schnittstelle \textit{QueryLogService} und ihre Implementierung \textit{QueryLogServiceMongoImpl} sichern die Anfragen, die Benutzer im letzten Schritt der Evaluierung gesendet haben.
 \end{itemize}
 
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth]{Bilder/eval_classes.png}
-\caption{''Klassendiagramm der Evaluierungsseite''}
-\label{fig:evalclasses}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics[width=1\textwidth]{Bilder/eval_classes.png}
+%\caption{''Klassendiagramm der Evaluierungsseite''}
+%\label{fig:evalclasses}
+%\end{figure}
 
 Genau wie Stanbol kann die Evaluierungsseite auf jedem Java Applikationsserver gestartet werden. Es ist möglich, dass die Seite eine Java VM mit Stanbol teilt, was allerdings aus Geschwindigkeitsgründen nicht empfohlen wird.
-
-Während der Studie wurden insgesamt 44 Bewertungen gesammelt, deren Ergebnisse in der Tabelle \ref{app:RESULTS} zu sehen sind. Es wurden außerdem einige Feedbacks gesammelt, die für die Analyse der Arbeit und als Quelle für Verbesserungsvorschläge verwendet werden können. Die Liste von Feedbacks findet man in der Auflistung \ref{app:feedbacks}.
-
-\begin{table}
-\begin{tabular}{|c|c|c|c|c|}
-\hline 
-• & helpQuality & quality\_newspapers & quality\_misc & speed \\ 
-\hline 
-mitie-nerchain-pig & 3.23 & 1.98 & 1.45 & 4.09 \\ 
-\hline 
-mitie-nerchain-tiger & 3.15 & 1.25 & 2.09 & 3.8 \\ 
-\hline 
-pig-nerchain & 3.05 & 1.31 & 2 & 3.87 \\ 
-\hline 
-stanford-nerchain-both & 3.07 & 1.23 & 1.95 & 4.05 \\ 
-\hline 
-stanford-nerchain-dewac & 3.25 & 2.11 & 1.41 & 4.16 \\ 
-\hline 
-stanford-nerchain-hgc & 3.11 & 1.34 & 1.86 & 4.16 \\ 
-\hline 
-tiger-nerchain & 3.34 & 1.93 & 1.39 & 3.98 \\ 
-\hline 
-\end{tabular} 
-\caption{Ergebnisse der Benutzerevaluierung}
-\label{app:RESULTS}
-\end{table}
-
-Die Erklärung und Auswertung von den gesammelten Ergebnissen wird später in der Sektion ,,Diskussion`` (\ref{sec:diskussion}) vorgeführt. 
 
 \section{Systemorientierte Evaluierung von Qualität der Extraktion}
 \paragraph{}
