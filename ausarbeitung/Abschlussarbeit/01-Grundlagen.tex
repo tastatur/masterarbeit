@@ -131,7 +131,9 @@ Sobald die Eigenschaften bestimmt wurden, können mit ihrer Hilfe die am Anfang 
 \subsection{Conditional Random Field} \label{subsec:crftheory}
 %Was ist CRF? Wie funktioniert dieser Einsatz? Wo wird er verwendet?
 \paragraph{}
-CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/Andrew:10} beschrieben. CRF hilft, die Verteilung $p(y|x)$, die beschreibt, mit welcher Wahrscheinlichkeit das Wort $x$ zu der Entitätsklasse $y$ gehört, mithilfe eines Graph (siehe Abbildung \ref{fig:CRF-Modell}) direkt zu modellieren. Dabei soll jedem Element (Token in unserem Fall) aus dem Eingabevektor $x$ ein entsprechendes Ausgabewert (Label, die die Klasse der Entität beschreibt) aus dem Vektor $y$ zugeordnet werden. CRF basiert auf demselben Basis wie Hidden Markov Models, hat aber den Vorteil, dass die Features nicht als unabhängig betrachtet werden - CRF nimmt an, dass es Abhängigkeiten zwischen Features existieren. Der Nachteil ist, dass CRF langsamer, als HMM ist. Und für die NER sind die Abhängigkeiten zwischen Features schon sehr wichtig - wenn wir z.B. den Satz ,,Ich lese gerade Berliner Zeitung`` analysieren, ohne Abhängigkeiten zwischen Features im Kauf zu berücksichtigen, wird das Wort ,,Berliner`` als Gebäck erkannt, und wenn man die Abhängigkeiten zwischen Nachbarnwörtern betrachtet, erkennt man die Entität ,,Berliner Zeitung``.
+CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/Andrew:10} beschrieben. Die Grundidee dieses Algorithmus besteht darin, die Abhängigkeit von Ausgängen $Y$ von den Eingängen $X$ mithilfe eines Graph zu modellieren. Die Abhängigkeit eines Ausganges $y$ von dem Eingang $x$ wird mathematisch als die Wahrscheinlichkeit $p(y|x)$, dass das Wort $x$ der Klasse $y$ zugehört, definiert. 
+
+Die Aufbau eines CRF-Graph ist auf der Abbildung \ref{fig:CRF-Modell} dargestellt. Die weiß markierte Knoten $y$ beschreiben in einem CRF-Modell mögliche Ausgänge des Klassifikators, bei einem NER-Klassifikator sind das alle mögliche Entitätsklassen. Features werden durch grau markierte Knoten $x$ dargestellt. Die Verbindungen zwischen Knoten $x$ und $y$ beschreiben dabei Abhängigkeiten zwischen Features und Entitätsklassen. Jeder Übergang $x->y$ besitzt ein Gewicht, das die Wahrscheinlichkeit, dass Wort mit dem Eigenschaft $x$ eine Entität der Klasse $y$ ist, beschreibt.
 
 \begin{figure}[ht]
 \setbox0\vbox{\small}
@@ -139,19 +141,19 @@ CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/
 \caption{CRF-Modell (die Abbildung ist aus der Arbeit von Charles Sutton \cite{Charles/Andrew:10} entnommen)}
 \label{fig:CRF-Modell}
 \end{figure}
-Die Eckpunkte dieses Graphs beschreiben dabei die Werte, die ,,vorhersagt`` werden müssen (Vektor $Y$ - die Labels, die sagen, ob das Wort eine Entität ist) \textbf{und} die Wörter, für die Labels bestimmt werden müssen (Vektor $X$)\cite{lafferty2001conditional}.
 
 Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
 \begin{itemize}
 \item Vorteile:
 \begin{itemize}
-\item Relativ schnelles Trainieren von Modellen\cite{sha2003shallow}, besonders im Vergleich zu SVM.
-\item Relativ niedrige Fehlerraten (im Vergleich zu SVM sind die aber doch größer).
-\item Die Features müssen nicht unbedingt binär sein, wie es bei ME der Fall ist.
+\item Schnelles Trainieren von Modellen\cite{sha2003shallow}, im Vergleich zu SVM (Siehe die Sektion \ref{sec:SVNGRUND}).
+\item Die Features können beliebig ausgewählt werden, was ein Vorteil gegenüber des Maximum-Entropy-Modells (siehe Sektion \ref{sec:MITIEGRUND}) darstellt, wo Features nur binär sein können.
+\item Die Abhängigkeiten zwischen Features können berücksichtigt werden.
 \end{itemize}
 \item Nachteile:
 \begin{itemize}
 \item Die Implementierung von einem CRF-basiertem NER-Extraktor kann komplizierter als die von anderen Algorithmen sein.
+\item Die Präzision von einem CRF-Modell soll geringer als vom SVM sein, was während der Evaluierung (Sektion \ref{sec:sysevalsec}) bestätigt wird.
 \end{itemize}
 \end{itemize}
 
@@ -160,34 +162,15 @@ Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
 \paragraph{}
 Dieses Framework wurde in der Arbeit von Andrew Borthwick\cite{borthwick1999maximum} vorgestellt. ME-Framework operiert grundlegend mit folgenden Begriffen:
 \begin{enumerate}
-\item \textit{Zukunft} (In \cite{borthwick1999maximum} ,,Futures`` genannt) - Eine Menge von Möglichen Ausgaben (Klassifizierungen von möglichen Entitäten) des Algorithmus.
+\item \textit{Zukunft} (In \cite{borthwick1999maximum} ,,Futures`` genannt) - Eine Menge von Möglichen Ausgaben des Algorithmus. Im Fall von Extraktion von Entitäten bezeichnen die ,,Futures`` alle mögliche Entitätsklassen.
 \item \textit{Historie} - diese Bezeichnung könnte verwirrend wirken, da dieser Begriff eigentlich die Umgebung eines Wortes beschreibt (so eine Art vom Fenster, wo das Wort, das analysiert werden muss, in der Mitte steht).
 \item \textit{Features} - wie bei anderen Algorithmen beschreibt dieser Begriff ein Vektor von Eigenschaften eines Wortes.
 \end{enumerate}
-Ähnlich wie bei CRF wird es versucht die Wahrscheinlichkeit $P(Future|Historie)$, deren Kalkulation in der Formel \ref{eq:meeq} beschrieben ist, zu maximieren. 
-
-Ein gravierender Unterschied zum CRF besteht daran, dass in der ,,üblichen`` Implementierung dieses Algorithmus nur binäre Features\cite{berger1996maximum} $g(w,u)$, deren Form in der Formel \ref{eq:binfeat} beschrieben ist, im Kauf genommen werden können. 
-
-\begin{equation} \label{eq:binfeat}
-g(wort, umgebung) = 
-\begin{cases}
-1  & \text{wenn das Token das untersuchte Eigenschaft besitzt} \\
-0 & \text{ansonsten} 
-\end{cases}
-\end{equation}
-
-\begin{equation} \label{eq:meeq}
-p(f|h) = \frac{1}{Z(h)}\prod \alpha_i^{g_i(f,h)}
-\end{equation}
-Das Wert $\alpha_i$ definiert im ME-Algorithmus das Gewicht einer Eigenschaft. Die Funktion $Z(h)$ ist dabei eine Normalisierungsfunktion und spielt dieselbe Rolle wie $Z(x)$ in der Formel \ref{eq:zeteq}, und ist wie folgt definiert:
-
-\begin{equation} \label{eq:zeteqme}
-Z(h) = \sum_f \prod_i \alpha_i^{g_i(f,h)}
-\end{equation}
+Ähnlich wie bei CRF wird es versucht die Wahrscheinlichkeit $P(Future|Historie)$, die Zugehörigkeit des Wortes zu einer Klasse beschreibt, zu maximieren.
 
 Wie es schon erwähnt wurde, hat ME ein gravierender Nachteil, und zwar dass es nur binäre Eigenschaften verwendet werden können. Allerdings ist ein ME-Modell schneller als CRF, besonders was Training angeht, und ist auch leichter zu implementieren, deswegen findet auch dieses Algorithmus sein Platz in heutigen NER-Systemen wie OpenNLP\footnote{\url{http://opennlp.apache.org/}}.
 
-\subsection{SVM}
+\subsection{SVM} \label{sec:SVNGRUND}
 \paragraph{}
 Support Vector Machines (oder Stützvektormaschine) ist eine Methode zur Klassifizierung von Daten, deren Grundidee\cite{meyer2014support} auf der Abbildung \ref{fig:SVM-INTRO} graphisch dargestellt ist. 
 
