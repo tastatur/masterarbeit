@@ -151,6 +151,7 @@ Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
 \item Schnelles Trainieren von Modellen\cite{sha2003shallow}, im Vergleich zu SVM (Siehe die Sektion \ref{sec:SVNGRUND}).
 \item Die Abhängigkeiten zwischen Features können berücksichtigt werden.
 \item Label-Bias-Problem wird im CRF-Algorithmus gelöst.
+\item Im Vergleich zu ME (Siehe Sektion \ref{sec:MEGRUND} können nicht nur binäre, sondern beliebige Features verwendet werden.
 \end{itemize}
 \item Nachteile:
 \begin{itemize}
@@ -168,6 +169,19 @@ Dieses Framework wurde in der Arbeit von Andrew Borthwick\cite{borthwick1999maxi
 \item \textit{Historie} - diese Bezeichnung könnte verwirrend wirken, da dieser Begriff eigentlich die Umgebung eines Wortes beschreibt (so eine Art vom Fenster, wo das Wort, das analysiert werden muss, in der Mitte steht).
 \item \textit{Features} - wie bei anderen Algorithmen beschreibt dieser Begriff ein Vektor von Eigenschaften eines Wortes.
 \end{enumerate}
+
+Wie CRF, ist ME ein graphenbasiertes Modell, das Abhängigkeiten zwischen Features und Entitätsklassen modelliert, mit folgenden Unterschieden:
+\begin{itemize}
+\item Bei der Berechnung von Übergängen wird nur aktueller und vorheriger Zustände berücksichtigt, und nicht die ganze Kette, wie es bei CRF der Fall ist\cite{lafferty2001conditional}\cite{rossler2007korpus}
+\item Es werden nur binäre Features\cite{ratnaparkhi1998maximum}\cite{borthwick1999maximum} eingesetzt.
+\end{itemize}
+
+Aus diesen beiden Merkmalen folgen beide Nachteile dieses Modells:
+\begin{enumerate}
+\item Im Vergleich zu CRF\cite{rossler2007korpus} geringere Genauigkeit.
+\item Label-Bias-Problem wird bei dem Ansatz dieses Algorithmus nicht gelöst\cite{lafferty2001conditional}.
+\end{enumerate}
+Der Vorteil dieses Modells ist die Geschwindigkeit des Algorithmus, die größer als bei der Verwendung von CRF sein soll\cite{Jenny/etal:07}. Aus dem Grund, dass bei der Extraktion von Entitäten aus Suchergebnissen die Geschwindigkeit der Suche wichtig ist, wird die dieses Algorithmus implementierende API\footnote{\url{https://opennlp.apache.org/} (Zuletzt abgerufen am 02. November)} im Rahmen dieser Arbeit mit anderen Algorithmen zusammen verwendet.
 
 \subsection{SVM} \label{sec:SVNGRUND}
 \paragraph{}
