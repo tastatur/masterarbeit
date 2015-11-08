@@ -133,7 +133,9 @@ Sobald die Eigenschaften bestimmt wurden, können mit ihrer Hilfe die am Anfang 
 \paragraph{}
 CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/Andrew:10} beschrieben. Die Grundidee dieses Algorithmus besteht darin, die Abhängigkeit von Ausgängen $Y$ von den Eingängen $X$ mithilfe eines Graph zu modellieren. Die Abhängigkeit eines Ausganges $y$ von dem Eingang $x$ wird mathematisch als die Wahrscheinlichkeit $p(y|x)$, dass das Wort $x$ der Klasse $y$ zugehört, definiert. 
 
-Die Aufbau eines CRF-Graph ist auf der Abbildung \ref{fig:CRF-Modell} dargestellt. Die weiß markierte Knoten $y$ beschreiben in einem CRF-Modell mögliche Ausgänge des Klassifikators, bei einem NER-Klassifikator sind das alle mögliche Entitätsklassen. Features werden durch grau markierte Knoten $x$ dargestellt. Die Verbindungen zwischen Knoten $x$ und $y$ beschreiben dabei Abhängigkeiten zwischen Features und Entitätsklassen. Jeder Übergang $x->y$ besitzt ein Gewicht, das die Wahrscheinlichkeit, dass Wort mit dem Eigenschaft $x$ eine Entität der Klasse $y$ ist, beschreibt.
+Die Aufbau eines CRF-Graph ist auf der Abbildung \ref{fig:CRF-Modell} dargestellt. Die weiß markierte Knoten $y$ beschreiben in einem CRF-Modell mögliche Ausgänge des Klassifikators, bei einem NER-Klassifikator sind das alle mögliche Entitätsklassen. Features werden durch grau markierte Knoten $x$ dargestellt. Die Verbindungen zwischen Knoten $x$ und $y$ beschreiben dabei Abhängigkeiten zwischen Features und Entitätsklassen. Jeder Übergang $x \longrightarrow y$ besitzt ein Gewicht, das die Wahrscheinlichkeit, dass Wort mit dem Eigenschaft $x$ eine Entität der Klasse $y$ ist, beschreibt.
+
+Eine entscheidende Eigenschaft von CRF ist, dass bei der Berechnung von Übergängen die gesamte Zustandskette berücksichtigt wird, und nicht nur aktueller und vorheriger Knoten\cite{rossler2007korpus}, was bedeutet dass auch zukünftige Zustände den Einfluss auf die Klassifizierung vom aktuellen Wort haben, was das sogenannte Label-Bias-problem\cite{lafferty2001conditional} löst.
 
 \begin{figure}[ht]
 \setbox0\vbox{\small}
@@ -147,7 +149,6 @@ Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
 \item Vorteile:
 \begin{itemize}
 \item Schnelles Trainieren von Modellen\cite{sha2003shallow}, im Vergleich zu SVM (Siehe die Sektion \ref{sec:SVNGRUND}).
-\item Die Features können beliebig ausgewählt werden, was ein Vorteil gegenüber des Maximum-Entropy-Modells (siehe Sektion \ref{sec:MITIEGRUND}) darstellt, wo Features nur binär sein können.
 \item Die Abhängigkeiten zwischen Features können berücksichtigt werden.
 \end{itemize}
 \item Nachteile:
@@ -157,7 +158,7 @@ Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
 \end{itemize}
 \end{itemize}
 
-\subsection{Maximum Entropy based NER} \label{sec:MITIEGRUND}
+\subsection{Maximum Entropy based NER} \label{sec:MEGRUND}
 %Was ist ME NER? Wo wird er verwendet? Welche Vor- und Nachteile hat dieser Einsatz im Vergleich zum CRF?
 \paragraph{}
 Dieses Framework wurde in der Arbeit von Andrew Borthwick\cite{borthwick1999maximum} vorgestellt. ME-Framework operiert grundlegend mit folgenden Begriffen:
@@ -166,9 +167,6 @@ Dieses Framework wurde in der Arbeit von Andrew Borthwick\cite{borthwick1999maxi
 \item \textit{Historie} - diese Bezeichnung könnte verwirrend wirken, da dieser Begriff eigentlich die Umgebung eines Wortes beschreibt (so eine Art vom Fenster, wo das Wort, das analysiert werden muss, in der Mitte steht).
 \item \textit{Features} - wie bei anderen Algorithmen beschreibt dieser Begriff ein Vektor von Eigenschaften eines Wortes.
 \end{enumerate}
-Ähnlich wie bei CRF wird es versucht die Wahrscheinlichkeit $P(Future|Historie)$, die Zugehörigkeit des Wortes zu einer Klasse beschreibt, zu maximieren.
-
-Wie es schon erwähnt wurde, hat ME ein gravierender Nachteil, und zwar dass es nur binäre Eigenschaften verwendet werden können. Allerdings ist ein ME-Modell schneller als CRF, besonders was Training angeht, und ist auch leichter zu implementieren, deswegen findet auch dieses Algorithmus sein Platz in heutigen NER-Systemen wie OpenNLP\footnote{\url{http://opennlp.apache.org/}}.
 
 \subsection{SVM} \label{sec:SVNGRUND}
 \paragraph{}
