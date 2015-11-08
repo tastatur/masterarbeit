@@ -131,7 +131,7 @@ Sobald die Eigenschaften bestimmt wurden, können mit ihrer Hilfe die am Anfang 
 \subsection{Conditional Random Field} \label{subsec:crftheory}
 %Was ist CRF? Wie funktioniert dieser Einsatz? Wo wird er verwendet?
 \paragraph{}
-CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/Andrew:10} beschrieben. Die Grundidee dieses Algorithmus besteht darin, die Abhängigkeit von Ausgängen $Y$ von den Eingängen $X$ mithilfe eines Graph zu modellieren. Die Abhängigkeit eines Ausganges $y$ von dem Eingang $x$ wird mathematisch als die Wahrscheinlichkeit $p(y|x)$, dass das Wort $x$ der Klasse $y$ zugehört, definiert. 
+CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/Andrew:10} beschrieben. Die Grundidee dieses Algorithmus besteht darin, die Abhängigkeit einer Sequenz von Ausgängen $y$ von einer gegebenen Sequenz von Eingängen $x$ mithilfe eines Graph zu modellieren.
 
 Die Aufbau eines CRF-Graph ist auf der Abbildung \ref{fig:CRF-Modell} dargestellt. Die weiß markierte Knoten $y$ beschreiben in einem CRF-Modell mögliche Ausgänge des Klassifikators, bei einem NER-Klassifikator sind das alle mögliche Entitätsklassen. Features werden durch grau markierte Knoten $x$ dargestellt. Die Verbindungen zwischen Knoten $x$ und $y$ beschreiben dabei Abhängigkeiten zwischen Features und Entitätsklassen. Jeder Übergang $x \longrightarrow y$ besitzt ein Gewicht, das die Wahrscheinlichkeit, dass Wort mit dem Eigenschaft $x$ eine Entität der Klasse $y$ ist, beschreibt.
 
