@@ -135,7 +135,7 @@ CRFs wurden vom Charles Sutton und Andrew McCallum in ihrer Arbeit\cite{Charles/
 
 Die Aufbau eines CRF-Graph ist auf der Abbildung \ref{fig:CRF-Modell} dargestellt. Die weiß markierte Knoten $y$ beschreiben in einem CRF-Modell mögliche Ausgänge des Klassifikators, bei einem NER-Klassifikator sind das alle mögliche Entitätsklassen. Features werden durch grau markierte Knoten $x$ dargestellt. Die Verbindungen zwischen Knoten $x$ und $y$ beschreiben dabei Abhängigkeiten zwischen Features und Entitätsklassen. Jeder Übergang $x \longrightarrow y$ besitzt ein Gewicht, das die Wahrscheinlichkeit, dass Wort mit dem Eigenschaft $x$ eine Entität der Klasse $y$ ist, beschreibt.
 
-Eine entscheidende Eigenschaft von CRF ist, dass bei der Berechnung von Übergängen die gesamte Zustandskette berücksichtigt wird, und nicht nur aktueller und vorheriger Knoten\cite{rossler2007korpus}, was bedeutet, dass auch zukünftige Zustände den Einfluss auf die Klassifizierung vom aktuellen Wort haben, was das sogenannte Label-Bias-problem\cite{lafferty2001conditional} löst.
+Eine entscheidende Eigenschaft von CRF ist, dass bei der Berechnung von Übergängen die gesamte Zustandskette berücksichtigt wird, und nicht nur aktueller und vorheriger Knoten\cite{rossler2007korpus}, was bedeutet, dass auch zukünftige Zustände den Einfluss auf die Klassifizierung vom aktuellen Wort haben, was das sogenannte Label-Bias-Problem\cite{lafferty2001conditional} löst.
 
 \begin{figure}[ht]
 \setbox0\vbox{\small}
