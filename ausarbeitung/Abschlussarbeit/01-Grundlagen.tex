@@ -196,7 +196,6 @@ Support Vector Machines (oder Stützvektormaschine) ist eine Methode zur Klassif
 
 Der SVM-Klassifikator versucht, für eine Menge von \textbf{linear trennbaren} Punkten in einem Vektorraum eine Hyperebene zu finden, die die Punkte in zwei Klassen aufteilt, und zwar so, dass der Abstand zwischen dieser Trennfläche und den Randpunkten möglichst maximal bleibt.
 
-\paragraph{}
 Damit so eine Hyperebene aufgebaut werden könnte, ist es wichtig, dass die Datenpunkte linear trennbar sind. Wenn das SVM-Algorithmus direkt auf nicht linear trennbare Daten angewendet wird, wird die resultierende Trennebene falsch aufgebaut, was auf der Abbildung \ref{fig:SVM-NONLINEAR-ISSUE} zu sehen ist. 
 
 Allerdings sind meiste Daten, mit denen man in der realen Welt arbeiten muss, nicht linear trennbar, und damit kann das SVM-Algorithmus nicht in seiner ursprünglichen Form verwendet werden. Allerdings gibt es eine Möglichkeit, mit einer Erweiterung von SVM-Einsatz auch nicht linear trennbare Daten zu klassifizieren. Dazu muss das ursprüngliche Eigenschaftensraum $R^n$ mithilfe von sogenannter Kernfunktion auf ein Raum höherer Dimension $R^{n+1}$ abgebildet werden, und zwar so, dass die Datenpunkte im neuen Raum linear trennbar wären\cite{Hearst:98}. Auf diese Art und Weise kann SVM-Algorithmus auf beliebige Merkmalräume angewendet werden, wenn eine passende Kernfunktion ausgewählt wurde\cite{hsu2003practical}.
@@ -215,7 +214,6 @@ Allerdings sind meiste Daten, mit denen man in der realen Welt arbeiten muss, ni
 \label{fig:SVM-NONLINEAR-ISSUE}
 \end{figure}
 
-\paragraph{}
 %Und wie kann man SVMs in NEr einsetzen?
 Der Einsatz von Stützvektoren für Extraktion von Entitäten ist in der Arbeit von Kazama\cite{kazama2002tuning} beschrieben. Obwohl es in dieser Arbeit um Extraktion von Entitäten aus englischsprachigen medizinischen Texten geht, kann dasselbe Prinzip auch auf deutsche Texte angewendet werden, wenn man das richtige Korpus für Training zur Verfügung stellt. Um SVMs für Extraktion von Entitäten einsetzen zu können, muss noch eine Erweiterung zum ursprünglichen Algorithmus gemacht werden, zusätzlich zum Kerneleinsatz - Stützvektoren können generell zwischen zwei Klassen von Objekten unterscheiden (ein Stützvektoreinsatz kann sagen, ob das Objekt der Klasse $C_a$ oder der Klasse $C_b$ gehört), und bei Entitäten gibt es mehr als zwei Klassen. Um diese Beschränkung umzugehen, wird SVM-Algorithmus auf eine der folgenden Arten und Weisen erweitert:
 
@@ -224,7 +222,6 @@ Der Einsatz von Stützvektoren für Extraktion von Entitäten ist in der Arbeit 
 \item Für jede Paar $(C_a, C_b)$ von möglichen Entitätstypen wird ein SVM erzeugt, der feststellen muss, ob das Wort den Typ $C_a$ oder $C_b$ hat. Die Klasse, die von der Mehrheit von SVMs gewählt wurde, gewinnt.
 \end{itemize}
 
-\paragraph{}
 Vorteile des SVM-Ansatzes anderen Methoden gegenüber\cite{joachims1998text}:
 \begin{itemize}
 \item SVMs eignen sich gut für die Bearbeitung von langen Featuresvektoren, was bei Klassifizierung von Wörtern ein großer Vorteil ist.
