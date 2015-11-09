@@ -194,7 +194,7 @@ Support Vector Machines (oder Stützvektormaschine) ist eine Methode zur Klassif
 \label{fig:SVM-INTRO}
 \end{figure}
 
-Der SVM-Klassifikator versucht, für eine Menge von \textbf{linear trennbaren} Punkten in einem Vektorraum eine Hyperebene zu finden, die die Punkte in zwei Klassen aufteilt, und zwar so, dass der Abstand zwischen dieser Trennfläche und den Randpunkten möglichst maximal bleibt.
+Jedes Punkt auf diesem Diagramm entspricht einem Objekt, das klassifiziert werden muss, im Fall von NER stellen die Punkten die Wörter, für die eine entsprechende Entitätsklasse berechnet werden muss, dar. Die Position jedes Punktes in einem $n$-dimensionalen Raum entspricht dem Merkmalsvektor des Wortes. Um die Abbildung \ref{fig:SVM-INTRO} anschaulich gestalten zu können, wird angenommen, dass jedes Wort nur zwei Features besitzt - beide Merkmale werden durch Position des Punktes auf $y$ und $y$ Achsen modelliert.
 
 Damit so eine Hyperebene aufgebaut werden könnte, ist es wichtig, dass die Datenpunkte linear trennbar sind. Wenn das SVM-Algorithmus direkt auf nicht linear trennbare Daten angewendet wird, wird die resultierende Trennebene falsch aufgebaut, was auf der Abbildung \ref{fig:SVM-NONLINEAR-ISSUE} zu sehen ist. 
 
@@ -231,8 +231,8 @@ Vorteile des SVM-Ansatzes anderen Methoden gegenüber\cite{joachims1998text}:
 
 Nachteile von SVMs anderen Algorithmen gegenüber:
 \begin{itemize}
-\item Relativ langsamer Trainingsvorgang - bei größeren Trainigskorpora kann die Erstellung eines Modells bis auf mehrere Tagen in Anspruch nehmen.
-\item Anforderungen zur Größe des Arbeitsspeichers sind üblich auch höher als bei anderen Algorithmen.
+\item Im Vegrleich zu ME oder CRF langsamer Trainingsvorgang - bei größeren Trainigskorpora kann die Erstellung eines Modells bis auf mehrere Tagen in Anspruch nehmen.
+\item Anforderungen zur Größe des Arbeitsspeichers sind üblich auch höher als bei anderen Algorithmen, was während der Implementierung (siehe Sektion \ref{subsec:TRMODELLS}) bestätigt wird.
 \end{itemize}
 
 \section{Trainingskorpora} \label{sec:trcorpora}
