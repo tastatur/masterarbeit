@@ -198,9 +198,7 @@ Jedes Punkt auf diesem Diagramm entspricht einem Objekt, das klassifiziert werde
 
 Das Algorithmus muss eine Trennebene (auf dem Beispieldiagramm ist das die schwarze Gerade im Mitte des Bildes) finden, die die Punkte auf dem Diagramm in zwei Klassen (rote und weiße Hälfte des Diagramms) teilt. Dabei soll diese Trennebene so ausgewählt werde, dass der Abstand zwischen beiden getrennten Klassen möglichst groß bleibt. Dazu werden für jede Klasse sogenannte Stützvektoren (Support Vectors) ausgewählt, die am nächsten zu der Hyberebene liegen sollen. Auf dem Diagramm \ref{fig:SVM-INTRO} sind die Stützvektoren weiß angekreuzt.
 
-Damit so eine Hyperebene aufgebaut werden könnte, ist es wichtig, dass die Datenpunkte linear trennbar sind. Wenn das SVM-Algorithmus direkt auf nicht linear trennbare Daten angewendet wird, wird die resultierende Trennebene falsch aufgebaut, was auf der Abbildung \ref{fig:SVM-NONLINEAR-ISSUE} zu sehen ist. 
-
-Allerdings sind meiste Daten, mit denen man in der realen Welt arbeiten muss, nicht linear trennbar, und damit kann das SVM-Algorithmus nicht in seiner ursprünglichen Form verwendet werden. Allerdings gibt es eine Möglichkeit, mit einer Erweiterung von SVM-Einsatz auch nicht linear trennbare Daten zu klassifizieren. Dazu muss das ursprüngliche Eigenschaftensraum $R^n$ mithilfe von sogenannter Kernfunktion auf ein Raum höherer Dimension $R^{n+1}$ abgebildet werden, und zwar so, dass die Datenpunkte im neuen Raum linear trennbar wären\cite{Hearst:98}. Auf diese Art und Weise kann SVM-Algorithmus auf beliebige Merkmalräume angewendet werden, wenn eine passende Kernfunktion ausgewählt wurde\cite{hsu2003practical}.
+Damit so eine Hyperebene aufgebaut werden könnte, ist es wichtig, dass die Datenpunkte linear trennbar sind. Für ein zweidimensionales Raum bedeute das, dass beide Klassen durch eine Gerade trennbar sein müssen. Wenn die zu klassifizierende Punkte allerdings so angeordnet sind, dass es nicht möglich ist, die linear zu trennen, wird die Klassifizierung falsch durchgeführt, was auf der Abbildung \ref{fig:SVM-NONLINEAR-ISSUE} zu sehen ist.
 
 \begin{figure}
 \centering
@@ -208,6 +206,8 @@ Allerdings sind meiste Daten, mit denen man in der realen Welt arbeiten muss, ni
 \caption{''SVM Algorithmus angewandt auf nicht linear trennbare Daten''}
 \label{fig:SVM-NONLINEAR-ISSUE}
 \end{figure}
+
+Allerdings sind meiste Daten, mit denen man in der realen Welt arbeiten muss, nicht linear trennbar, und damit kann das SVM-Algorithmus nicht in seiner ursprünglichen Form verwendet werden. Allerdings gibt es eine Möglichkeit, mit einer Erweiterung von SVM-Einsatz auch nicht linear trennbare Daten zu klassifizieren. Dazu muss das ursprüngliche Eigenschaftensraum $R^n$ mithilfe von sogenannter Kernfunktion auf ein Raum höherer Dimension $R^{n+1}$ abgebildet werden, und zwar so, dass die Datenpunkte im neuen Raum linear trennbar wären\cite{Hearst:98}. Auf diese Art und Weise kann SVM-Algorithmus auf beliebige Merkmalräume angewendet werden, wenn eine passende Kernfunktion ausgewählt wurde\cite{hsu2003practical}.
 
 \begin{figure}
 \centering
