@@ -209,14 +209,18 @@ Damit so eine Hyperebene aufgebaut werden könnte, ist es wichtig, dass die Date
 \label{fig:SVM-NONLINEAR-ISSUE}
 \end{figure}
 
+Auf der Abbildung \ref{fig:SVM-NONLINEAR-ISSUE} sind die Datenpunkte so angeordnet, dass die Wörter, die zu erster Klasse zugehören, in der Mitte stehen, umkreist von den Wörter, die zu zweiter Klasse zugehören. Da SVM aber nur eine lineare Trennfläche aufbauen kann, werden die Klassen so geteilt, dass die erste Klasse unter der Trennlinie und die zweite oben der Linie liegt, was einer richtigen Unterteilung von Klassen nicht entspricht.
+
 Allerdings sind meiste Daten, mit denen man in der realen Welt arbeiten muss, nicht linear trennbar, und damit kann das SVM-Algorithmus nicht in seiner ursprünglichen Form verwendet werden. Allerdings gibt es eine Möglichkeit, mit einer Erweiterung von SVM-Einsatz auch nicht linear trennbare Daten zu klassifizieren. Dazu muss das ursprüngliche Eigenschaftensraum $R^n$ mithilfe von sogenannter Kernfunktion auf ein Raum höherer Dimension $R^{n+1}$ abgebildet werden, und zwar so, dass die Datenpunkte im neuen Raum linear trennbar wären\cite{Hearst:98}. Auf diese Art und Weise kann SVM-Algorithmus auf beliebige Merkmalräume angewendet werden, wenn eine passende Kernfunktion ausgewählt wurde\cite{hsu2003practical}.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth,angle=90]{Bilder/svm-nonlinear-rbf.png}
 \caption{''SVM-Algorithmus mit einem RBF-Kern angewandt auf nicht linear trennbare Daten''}
-\label{fig:SVM-NONLINEAR-ISSUE}
+\label{fig:SVM-NONLINEAR-ISSUE-FIXED}
 \end{figure}
+
+Die Abbildung \ref{fig:SVM-NONLINEAR-ISSUE-FIXED} zeigt, wie sich ursprünglich nicht-linear-trennbare Daten durch Einsatz einer Kernfunktion korrekt trennen lassen. Die Datenpunkte werden genau so wie auf der Abbildung \ref{fig:SVM-NONLINEAR-ISSUE} angeordnet, die erste Klasse in der Mitte, umkreist von der zweiten Klasse, diesmal werden beide Klassen aber korrekt getrennt, durch eine ovale Trennfläche, die in einem Raum höherer Dimension linear ist.
 
 %Und wie kann man SVMs in NEr einsetzen?
 Der Einsatz von Stützvektoren für Extraktion von Entitäten ist in der Arbeit von Kazama\cite{kazama2002tuning} beschrieben. Obwohl es in dieser Arbeit um Extraktion von Entitäten aus englischsprachigen medizinischen Texten geht, kann dasselbe Prinzip auch auf deutsche Texte angewendet werden, wenn man das richtige Korpus für Training zur Verfügung stellt. Um SVMs für Extraktion von Entitäten einsetzen zu können, muss noch eine Erweiterung zum ursprünglichen Algorithmus gemacht werden, zusätzlich zum Kerneleinsatz - Stützvektoren können generell zwischen zwei Klassen von Objekten unterscheiden (ein Stützvektoreinsatz kann sagen, ob das Objekt der Klasse $C_a$ oder der Klasse $C_b$ gehört), und bei Entitäten gibt es mehr als zwei Klassen. Um diese Beschränkung umzugehen, wird SVM-Algorithmus auf eine der folgenden Arten und Weisen erweitert:
