@@ -14,16 +14,16 @@ Ein Beispiel für angesprochenes Problem ist auf der Abbildung \ref{fig:bing-iss
 \label{fig:bing-issue}
 \end{figure}
 
-Es existieren bereits mehrere Ansätze, die den Benutzer bei der Suche und bei der Präzision seiner Suchanfragen unterstützen und die die Websuche beschleunigen können:
+Es existieren bereits mehrere Ansätze, die den Benutzer bei der Suche und bei der Präzisierung seiner Suchanfragen unterstützen und die Websuche beschleunigen können:
 \begin{itemize}
 \item Personalisierung der Suche\cite{noll2007web} - es wird versucht, mithilfe von Suchhistorie des Benutzers, seines Verhaltens im Netz oder seinen ,,Likes``-Einträgen in sozialen Netzwerken die Ergebnisse, die für diesen Benutzer relevant wären, ,,vorherzusagen`` und den entsprechenden Dokumenten ein höheres Gewicht bei der Suche zu geben.
 \item Automatische Vervollständigung der Anfrage - sobald man anfängt den Text der Anfrage zu tippen, werden dem Benutzer Vorschläge bezüglich des Restes der Anfrage gemacht. Ein Beispiel für diese Methode der Benutzerunterstützung findet man in der Arbeit von Bast et al\cite{bast2006you}.
-\item Autokorrektur der Anfrage - falls es keine Dokumenten gefunden wurden, könnte die Anfrage bei Bedarf automatisch korrigiert werden, wie es von den Suchmaschinen wie Google oder Bing\cite{gao2010large} schon gemacht wird.
+\item Autokorrektur der Anfrage - falls es keine Dokumente gefunden wurden, könnte die Anfrage bei Bedarf automatisch korrigiert werden, wie es von den Suchmaschinen wie Google oder Bing\cite{gao2010large} schon gemacht wird.
 \end{itemize}
 
-In Rahmen dieser Arbeit soll ein anderer Einsatz implementiert und erforscht werden: die Extraktion von Entitäten aus Suchergebnissen. 
+In Rahmen dieser Arbeit soll ein anderer Ansatz implementiert und erforscht werden: die Extraktion von Entitäten aus Suchergebnissen. 
 
-Eine Skizze der erwähntes Ansatzes ist auf der Abbildung \ref{fig:bing-and-entity} zu sehen. Die Idee dieses Ansatzes besteht daran, dass dem Benutzer zusätzlich zu den Links eine Liste von Entitäten angezeigt wird, die aus den Snippets (kurzen Textausschnitten der gefundenen Webseiten) extrahiert wurden. Der Ansatzes könnte die Suche beschleunigen, da der Benutzer im besten Fall die verlinkte Dokumente gar nicht mehr öffnen muss, sondern sich lediglich die extrahierte Entitäten anschauen muss.
+Eine Skizze des erwähnten Ansatzes ist auf der Abbildung \ref{fig:bing-and-entity} zu sehen. Die Idee dieses Ansatzes besteht daran, dass dem Benutzer zusätzlich zu den Links eine Liste von Entitäten angezeigt wird, die aus den Snippets (kurzen Textausschnitten der gefundenen Webseiten) extrahiert wurden. Dieser Ansatz könnte die Suche beschleunigen, da der Benutzer im besten Fall die verlinkte Dokumente gar nicht mehr öffnen muss, sondern sich lediglich die extrahierte Entitäten anschauen muss.
 
 \begin{figure}
 \centering
@@ -43,9 +43,9 @@ Zweitens, es ist nicht klar, ob die kurze Textsnippets, die die Suchmaschinen li
 
 Außerdem kann der zusätzliche Schritt der Erkennung von Entitäten kann große Verzögerungen in die Suche bringen, was die Nutzbarkeit dieses Einsatzes zunichte machen könnte, wenn die Suche viel länger dauern wird, als die ohne der Extraktion von Entitäten.
 
-Eine weitere Herausforderung wäre, dass jede natürliche Sprache ein besonderes an diese Sprache angepasstes Verfahren braucht, um erkennen zu können, welche Entitäten in dem Text vorkommen. Für englische Sprache existieren schon jetzt Verfahren und Modellen, mit deren Hilfe die englischsprachige Entitäten extrahiert werden können. Allerdings fehlt solches Modell für die deutsche Sprache, deswegen findet die Extraktion von deutschsprachigen Entitäten zurzeit nicht statt.
+Eine weitere Herausforderung wäre, dass jede natürliche Sprache ein besonderes an diese Sprache angepasstes Verfahren braucht, um erkennen zu können, welche Entitäten in dem Text vorkommen. Für englische Sprache existieren schon jetzt Verfahren und Modellen, mit deren Hilfe englischsprachige Entitäten extrahiert werden können. Allerdings fehlt solches Modell für die deutsche Sprache, deswegen findet die Extraktion von deutschsprachigen Entitäten zurzeit nicht statt.
 
-Zusätzlich zu den oben genannten Herausforderungen kann man folgendes Problem, das sich als eine getrennte Unteraufgabe definieren lässt, erkennen: wenn man dem Benutzer \textbf{nur} die Entitäten zeigt, ohne dazugehörigen Daten wie Geburtsort, Todesdatum oder Muttersprache, wird solcher Einsatz für den Benutzer kaum nützlich sein können. Deswegen sollen für die im Text erkannte Entitäten auch die dazugehörige Informationen extrahiert werden. Dieser Schritt nennt man ,,Verlinkung`` von Ontologien (eine Darstellung von ,,Wissen`` über ein Objekt), weil hier die Entität mit den Daten aus einer Datenbank verlinkt werden.
+Zusätzlich zu den oben genannten Herausforderungen kann man folgendes Problem, das sich als eine getrennte Unteraufgabe definieren lässt, erkennen: wenn man dem Benutzer \textbf{nur} die Entitäten zeigt, ohne dazugehörigen Daten wie Geburtsort, Todesdatum oder Muttersprache, wird solcher Einsatz für den Benutzer kaum nützlich sein können. Deswegen sollen für die im Text erkannte Entitäten auch dazugehörige Informationen extrahiert werden. Dieser Schritt nennt man ,,Verlinkung`` von Ontologien (eine Darstellung von ,,Wissen`` über ein Objekt), weil hier die Entität mit den Daten aus einer Datenbank verlinkt werden.
 
 Bei der Verlinkung von Entitäten soll folgendes beachtet werden:
 \begin{itemize}
@@ -54,9 +54,9 @@ Bei der Verlinkung von Entitäten soll folgendes beachtet werden:
 \item Was macht man, wenn der Name der Entität im Text mit in der Datenbank vorhandenen Namen nicht übereinstimmt? Wie wählt man den am besten passenden Datenbankeintrag? Wie wird die Suche generell durchgeführt?
 \end{itemize}
 
-Aber auch wenn alle Entitäten aus dem Text extrahiert wurden, hat man das Problem, dass einige Entitäten ,,irrelevant`` sein könnten. Solche Entitäten, die dem Benutzer nicht weiter helfen können, sollen bei Möglichkeit rausgefiltert werden, damit die dem Benutzer nicht angezeigt werden. 
+Aber auch wenn alle Entitäten aus dem Text extrahiert wurden, hat man das Problem, dass einige Entitäten ,,irrelevant`` sein könnten. Solche Entitäten, die dem Benutzer nicht weiter helfen können, sollen bei Möglichkeit herausgefiltert werden, damit die dem Benutzer nicht angezeigt werden. 
 
-Damit die Extraktion von Entitäten auch in Drittaplikationen wie Software für Gamification der Websuche\cite{Karatassis:15} integriert werden könnte, muss nachgedacht werden, wie für den Entwickler am besten passende API implementiert werden könnte.
+Damit die Extraktion von Entitäten auch in Drittapplikationen wie Software für Gamification der Websuche\cite{Karatassis:15} integriert werden könnte, muss nachgedacht werden, wie für den Entwickler am besten passende API implementiert werden könnte.
 
 Eine andere Frage wäre, wie kann die Effizienz dieses Einsatzes beurteilt werden? Wie kann festgestellt werden, ob die Extraktion von Entitäten aus Suchergebnisseiten für den Benutzer hilfreich sein könnte?
 
@@ -65,18 +65,18 @@ Alle diese Fragen sollen im Rahmen dieser Arbeit angegangen und gegebenenfalls g
 \section{Aufgabenstellung}
 \label{sec:Aufgabenstellung}
 \paragraph{}
-Nachdem die Ziele dieser Arbeit definiert wurden, können die dazugehörige Abschnitte genauer definiert werden: 
+Nachdem die Ziele dieser Arbeit beschrieben wurden, können dazugehörige Abschnitte genauer definiert werden: 
 \begin{itemize}
 \item Es soll ein Framework entwickelt werden, das die Extraktion von Entitäten aus deutschsprachigen Texten ermöglicht:
 \begin{enumerate}
 \item Zuerst sollen Algorithmen zur Extraktion von Entitäten aus Texten erforscht werden.
 \item Danach soll auf Basis von diesen Algorithmen die Extraktion von Entitäten aus Texten implementiert werden.
-\item Die irrelevante Entitäten sollen rausgefiltert werden (es soll außerdem definiert werden, wie eine ,,unwichtige`` Entität bestimmt wird).
+\item Die irrelevante Entitäten sollen herausgefiltert werden (es soll außerdem definiert werden, wie eine ,,unwichtige`` Entität bestimmt wird).
 \item Es soll gegebenenfalls eine Applikation für Training von Extraktionsmodellen implementiert werden, falls noch keine vorhanden ist.
-\item Im letzten Unterschritt soll die passende Datenquelle ausgewählt und die Verlinkung von Daten aus dieser Datenbank mit im vorherigen Schritt extrahierten Entitäten implementiert werden 
+\item Im letzten Unterschritt soll die passende Datenquelle ausgewählt und die Verlinkung von Daten aus dieser Datenbank mit im vorherigen Schritt extrahierten Entitäten implementiert werden. 
 \end{enumerate}
 
-\item Danach soll eine Bibliothek entwickelt werden, die dem Entwickler einfache API zur Anreicherung von Suchergebnissen zur Verfügung stellt. Der Entwickler soll idealerweise keine Wissen und Kenntnisse über Extraktion von Entitäten besitzen müssen - die Schnittstelle soll dabei im einfachsten Fall nur eine Funktion zur Verfügung stellen, die ein Suchsnippet als Eingabe und Liste von Ontologien (Namen und Eigenschaften von Entitäten) als Ausgabe verwendet.
+\item Danach soll eine Bibliothek entwickelt werden, die dem Entwickler einfache API zur Anreicherung von Suchergebnissen zur Verfügung stellt. Der Entwickler soll idealerweise kein Vorwissen über Extraktion von Entitäten besitzen müssen - die Schnittstelle soll dabei im einfachsten Fall nur eine Funktion zur Verfügung stellen, die ein Suchsnippet als Eingabe und Liste von Ontologien (Namen und Eigenschaften von Entitäten) als Ausgabe verwendet.
 
 \item Es soll anschließend eine Evaluierung durchgeführt werden, um feststellen zu können, ob aus den Suchergebnissen gewonnene Entitäten für den Benutzer tatsächlich relevant sind. Außerdem soll die Evaluierung die in der Sektion \ref{sec:Problemstellung} gestellte Fragen zu beantworten helfen können. Zusätzlich dient dieser Schritt zum Austesten der entwickelten API, die in der Evaluierungsapplikation eingesetzt werden soll.
 \end{itemize}
