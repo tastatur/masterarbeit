@@ -155,7 +155,7 @@ Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
 \end{itemize}
 \item Nachteile:
 \begin{itemize}
-\item Die Implementierung von einem CRF-basiertem NER-Extraktor kann komplizierter als die von anderen Algorithmen sein.
+\item Die Implementierung von einem auf CRF basierten NER-Extraktor kann komplizierter als die von anderen Algorithmen sein.
 \item Die Präzision von einem CRF-Modell soll geringer als die vom SVM sein, was während der Evaluierung (Sektion \ref{sec:sysevalsec}) bestätigt wird.
 \end{itemize}
 \end{itemize}
@@ -165,14 +165,14 @@ Das CRF-Algorithmus zeigt folgende Vor- und Nachteile auf:
 \paragraph{}
 Dieses Framework wurde in der Arbeit von Andrew Borthwick\cite{borthwick1999maximum} vorgestellt. ME-Framework operiert grundlegend mit folgenden Begriffen:
 \begin{enumerate}
-\item \textit{Zukunft} (In \cite{borthwick1999maximum} ,,Futures`` genannt) - Eine Menge von Möglichen Ausgaben des Algorithmus. Im Fall von Extraktion von Entitäten bezeichnen die ,,Futures`` alle mögliche Entitätsklassen.
+\item \textit{Zukunft} (In \cite{borthwick1999maximum} ,,Futures`` genannt) - Eine Menge von möglichen Ausgaben des Algorithmus. Im Fall von Extraktion von Entitäten bezeichnen die ,,Futures`` alle mögliche Entitätsklassen.
 \item \textit{Historie} - diese Bezeichnung könnte verwirrend wirken, da dieser Begriff eigentlich die Umgebung eines Wortes beschreibt (so eine Art vom Fenster, wo das Wort, das analysiert werden muss, in der Mitte steht).
 \item \textit{Features} - wie bei anderen Algorithmen beschreibt dieser Begriff ein Vektor von Eigenschaften eines Wortes.
 \end{enumerate}
 
 Wie CRF, ist ME ein graphenbasiertes Modell, das Abhängigkeiten zwischen Features und Entitätsklassen modelliert, mit folgenden Unterschieden:
 \begin{itemize}
-\item Bei der Berechnung von Übergängen wird nur aktueller und vorheriger Zustände berücksichtigt, und nicht die ganze Kette, wie es bei CRF der Fall ist\cite{lafferty2001conditional}\cite{rossler2007korpus}
+\item Bei der Berechnung von Übergängen wird nur aktueller und vorheriger Zustände berücksichtigt, und nicht die ganze Kette, wie es bei CRF der Fall ist\cite{lafferty2001conditional}\cite{rossler2007korpus}.
 \item Es werden nur binäre Features\cite{ratnaparkhi1998maximum}\cite{borthwick1999maximum} eingesetzt.
 \end{itemize}
 
