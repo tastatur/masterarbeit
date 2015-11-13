@@ -292,9 +292,9 @@ Aber wie können dann ,,Wissen`` über die Entitäten gespeichert werden? Welche
 
 Für die Darstellung von Wissen wurde von dem W3-Konsortium\cite{klyne2006resource} eine spezielle auf XML basierende Datenstruktur RDF (Resource Description Framework) entworfen, die Speicherung von vage strukturierten Daten ermöglicht, was für die Speicherung von Informationen über Entitäten am besten passt. Dieses Format basiert sich auf gerichteten Graphen (siehe die Abbildung \ref{fig:graph-rdf}) und umfasst folgende Grundbegriffe:
 \begin{itemize}
-\item Subjekt - die Entität, deren Eigenschaft beschrieben werden muss (z.B. eine Person).
-\item Prädikat sagt, welche Eigenschaft der Entität beschrieben wird (z.B. Alter einer Person kann ein Prädikat sein).
-\item Objekt - das Wert der Eigenschaft. Dabei kann Objekt eine weitere Entität sein, und eigene Eigenschaften besitzen. 
+\item Subjekt - die Entität, deren Eigenschaft beschrieben werden muss (z. B. eine Person).
+\item Prädikat sagt, welche Eigenschaft der Entität beschrieben wird (z. B. Alter einer Person kann ein Prädikat sein).
+\item Objekt - der Wert der Eigenschaft. Dabei kann Objekt eine weitere Entität sein, und eigene Eigenschaften besitzen. 
 \end{itemize}
 Ein Objekt kann also auch die Rolle eines Subjektes spielen und umgekehrt, was die Speicherung von komplexen Strukturen ermöglicht.
 
@@ -317,7 +317,7 @@ Als Backend für die Speicherung von diesen Graphen wird eine Erweiterung von XM
 \lstset{language=XML}
 \lstinputlisting[captionpos=b,label={lst:RDFBEISPIEL},caption={Beispiel einer Ontologie im RDF-Format}]{Listings/examplerdf.xml}
 
-Nachdem das Format für die Datenspeicherung definiert wurde, muss auch eine Anfragesprache definiert werden, mit deren Hilfe auf Informationen in einer Wissendatenbank zugegriffen werden kann. Es ist natürlich klar, dass es hierfür kein SQL verwendet werden kann, da es mit Graphen, und nicht mit relationalen Datenbanken gearbeitet wird. Für die Abfrage von RDF-Daten wird SPARQL (SPARQL Protocol And RDF Query Language) - verwendet. Diese Sprache wurde genau wie RDF-Datenformat vom W3-Consortium entworfen, und ist in der Arbeit von Quilitz\cite{quilitz2008querying} näher beschrieben.
+Nachdem das Format für die Datenspeicherung definiert wurde, muss eine Abfragesprache definiert werden, mit deren Hilfe auf Informationen in einer Wissensdatenbank zugegriffen werden kann. Da es mit Graphen, und nicht mit relationalen Datenbanken gearbeitet wird, kann SQL hierfür nicht eingesetzt werden. Für die Abfrage von RDF-Daten wird SPARQL (SPARQL Protocol And RDF Query Language) verwendet. Diese Sprache wurde genau wie RDF-Datenformat vom W3-Konsortium entworfen, und ist in der Arbeit von Quilitz\cite{quilitz2008querying} näher beschrieben.
 
 Am besten kann diese Sprache anhand des auf der Auflistung \ref{lst:SPARQLBEISPIEL} abgebildetes Beispiels erklärt werden.
 \lstset{language=SPARQL}
