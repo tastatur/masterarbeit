@@ -33,12 +33,12 @@ Zusätzlich dazu wurde von Hai\cite{chieu2002named} die Verteilung in lokale und
 \begin{enumerate}
 \item Globale Eigenschaften:
 \begin{enumerate}
-\item Personenpräfixe für bestimmtes Wort in anderen Sätzen des Dokumentes: z.B. wenn wir im Text zuerst die Tokens ,,Frau Sony`` treffen, und dann einfach ,,Sony``, dann soll angenommen werden, dass ,,Sony`` eine Entität der Klasse ,,Person`` ist.
+\item Personenpräfixe für bestimmtes Wort in anderen Sätzen des Dokumentes: z. B. wenn wir im Text zuerst die Tokens ,,Frau Sony`` treffen, und dann einfach ,,Sony``, dann soll angenommen werden, dass ,,Sony`` eine Entität der Klasse ,,Person`` ist.
 \item Abkürzungen: wenn in einem Satz mehr Wörter nacheinander groß geschrieben werden, wie z.B. ,,Deutsche Demokratische Republik``, dann wird in dem Text nach entsprechender Abkürzung gesucht: ,,DDR``, und wenn Abkürzung eine Entität ist, können auch alle entsprechende Tokens als eine Entität markiert werden.
 \end{enumerate}
 \item Lokale Eigenschaften:
 \begin{enumerate}
-\item Ob das Wort groß geschrieben wird.
+\item Ob das Wort großgeschrieben wird.
 \item Ob vorheriges oder nächstes Wort großgeschrieben wird.
 \item Ob alle Zeichen im Wort großgeschrieben werden.
 \item Ob es ein Punkt am Ende des Wortes steht.
@@ -46,7 +46,7 @@ Zusätzlich dazu wurde von Hai\cite{chieu2002named} die Verteilung in lokale und
 \item Ob das Wort das Prozent- oder Dollarzeichen beinhaltet.
 \item Bestimmte Hilfswörter (wie ,,Frau`` oder ,,GmbH``), die entweder vor oder nach dem Wort, das untersucht werden muss, stehen.
 \item Ob das Wort nur aus Zahlen besteht.
-\item POS-Tag des Wortes (ob das Wort ein Substantiv oder ein Verb ist)
+\item POS\footnote{Part Of Speech - Wortart}-Tag des Wortes (ob das Wort ein Substantiv oder ein Verb ist).
 \item POS-Tags der Wörter, die vor dem ausgewählten Wort stehen.
 \end{enumerate}
 \end{enumerate}
@@ -60,7 +60,7 @@ Das oben genannte Features werden ,,supervised Features`` genannt, weil die von 
 \end{enumerate}
 
 \paragraph{}
-Der Vorgang zum Aufbau eines ,,Distributional Features``-Modells wurde in der Arbeit von Sahlgren\cite{sahlgren2006word} beschrieben. Als Basisdatenstruktur wird die Co-occurence-Matrix verwendet, die beschreibt, welche Wörter zusammen in einem Context gesehen werden. Die Anzahl von Zeilen und Spalten in dieser Matrix ist dabei der Anzahl von Wörtern im zu analysierenden Korpus gleich. Ein Beispiel solcher Matrix für den Satz ,,Leela mag dramatische Filme und Bücher`` finde man in der Abbildung \ref{fig:COOC-MAT}
+Der Vorgang zum Aufbau eines ,,Distributional Features``-Modells wurde in der Arbeit von Sahlgren\cite{sahlgren2006word} beschrieben. Als Basisdatenstruktur wird die Co-occurence-Matrix verwendet, die beschreibt, welche Wörter zusammen in einem Kontext gesehen werden. Die Anzahl von Zeilen und Spalten in dieser Matrix ist dabei der Anzahl von Wörtern im zu analysierenden Korpus gleich. Ein Beispiel solcher Matrix für den Satz ,,Leela mag dramatische Filme und Bücher`` findet man in der Abbildung \ref{fig:COOC-MAT}.
 
 \begin{figure}[ht]
 \setbox0\vbox{\small}
