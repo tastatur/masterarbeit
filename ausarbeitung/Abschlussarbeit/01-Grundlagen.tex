@@ -323,17 +323,17 @@ Am besten kann diese Sprache anhand des auf der Auflistung \ref{lst:SPARQLBEISPI
 \lstset{language=SPARQL}
 \lstinputlisting[captionpos=b,label={lst:SPARQLBEISPIEL},caption={Beispiel einer SPARQL-Anfrage}]{Listings/sparqlexample.sql}
 
-Wie es schon beschrieben wurde, arbeitet SPARQL mit RDF-Graphen. Obwohl diese Abfrage einer SQL-Anfrage ähnlich ist, darf man beide Sprachen nicht verwechseln, da die mit ganz verschiedenen Datentypen arbeiten. 
+Wie es schon beschrieben wurde, arbeitet SPARQL mit den RDF-Graphen. Obwohl diese Abfrage einer SQL-Anfrage ähnlich ist, darf man beide Sprachen nicht verwechseln, da die mit ganz verschiedenen Datentypen arbeiten. 
 
-Eine typische SPARQL-Anfrage ist wie folgt aufgebaut:
+Eine typische SPARQL-Abfrage ist wie folgt aufgebaut:
 \begin{itemize}
-\item Der erste Teil der Anfrage - das Schlüsselwort ,,SELECT`` beschreibt, welche Eigenschaften (oder Prädikate in der Terminologie von RDF) einer Entität aus der Datenbank gelesen werden müssen. In dem Beispiel werden die Prädikaten ,,Fläche`` und ,,Bundesland`` benötigt.
-\item Der zweite Teil der Anfrage beschreibt, welche Entitäten ausgewählt werden müssen. Auf den ersten Blick sieht die Konstruktion im WHERE-Teil der Anfrage ziemlich kompliziert aus, aber wenn man sich die Abbildung \ref{fig:graph-rdf} anguckt, dann wird es klar, dass es nur so eine Art von einem Muster angegeben wird, das beschreibt, wie Subjekt, Prädikat und Objekt zusammen aussehen müssen, um in der Liste von Ergebnissen aufzutauchen. Die Anfrage im Beispiel \ref{lst:SPARQLBEISPIEL} sagt, dass alle Entitäten, deren Prädikat ,,rdfs:label`` das Wert ,,Duisburg`` hat, und die  außerdem die Eigenschaften ,,dbo:areaTotal`` und ,,dbo:federalState`` besitzen (deren Werte beliebig sein dürfen), aus der Datenbank ausgelesen werden müssen.
+\item Der erste Teil der Abfrage - das Schlüsselwort ,,SELECT`` beschreibt, welche Eigenschaften (oder Prädikate in der Terminologie von RDF) einer Entität aus der Datenbank gelesen werden müssen. In dem Beispiel werden die Prädikate ,,Fläche`` und ,,Bundesland`` benötigt.
+\item Der zweite Teil der Abfrage beschreibt, welche Entitäten ausgewählt werden müssen. 
 \end{itemize}
 
-Optional können die Ergebnisse auch sortiert werden, mithilfe von der ,,ORDER BY``-Operation. Die Ergebnisse lassen sich außerdem mithilfe von regulären Ausdrücken präziser rausfiltern,
+Optional können die Ergebnisse auch sortiert werden, mithilfe von der ,,ORDER BY``-Operation. Die Ergebnisse lassen sich außerdem mithilfe von regulären Ausdrücken präziser herausfiltern,
 
-Als Antwort auf eine SPARQL-Anfrage wird üblicherweise ein RDF-Graph geliefert. Ein Beispiel für die Antwort auf vorher eingegebene Anfrage findet man in der Auflistung \ref{lst:SPARQLRESULT}.
+Als Antwort auf eine SPARQL-Abfrage wird üblicherweise ein RDF-Graph geliefert. Ein Beispiel für die Antwort auf vorher eingegebene Anfrage findet man in der Auflistung \ref{lst:SPARQLRESULT}.
 
 \lstset{language=XML}
 \lstinputlisting[captionpos=b,label={lst:SPARQLRESULT},caption={Beispiel der Antwort auf eine SPARQL-Anfrage}]{Listings/sparqlresult.xml}
@@ -342,7 +342,7 @@ Als Antwort auf eine SPARQL-Anfrage wird üblicherweise ein RDF-Graph geliefert.
 Nachdem die Grundlagen dieser Arbeit erklärt wurden, können schon folgende Bemerkungen für den Implementierungsschritt erläutert werden:
 \begin{itemize}
 \item Training eines Modells stellt eine getrennte Aufgabe dar, und wird deswegen gesondert implementiert werden müssen.
-\item Da nur wenige Korpora frei verfügbar sind, wird es unter anderem auf automatisch erzeugte Korpora zugegriffen, was die Qualität der Extration beeinflussen wird.
+\item Da nur wenige Korpora frei verfügbar sind, wird es unter anderem auf automatisch erzeugte Korpora zugegriffen, was die Qualität der Extraktion beeinflussen wird.
 \item Für den Vergleich zwischen verschiedenen Algorithmen sollen verschiedene Backends implementiert werden, die über eine universale Schnittstelle erreichbar werden müssen.
 \item Es muss für die Verlinkung von Entitäten nachgedacht werden, wo genau die Daten über die Entitäten gefunden werden können.
 \end{itemize}
