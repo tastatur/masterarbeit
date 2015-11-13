@@ -194,11 +194,11 @@ Support Vector Machines (oder Stützvektormaschine) ist eine Methode zur Klassif
 \label{fig:SVM-INTRO}
 \end{figure}
 
-Jedes Punkt auf diesem Diagramm entspricht einem Objekt, das klassifiziert werden muss, im Fall von NER stellen die Punkten die Wörter, für die eine entsprechende Entitätsklasse berechnet werden muss, dar. Die Position jedes Punktes in einem $n$-dimensionalen Raum entspricht dem Merkmalsvektor des Wortes. Um die Abbildung \ref{fig:SVM-INTRO} anschaulich gestalten zu können, wird angenommen, dass jedes Wort nur zwei Features besitzt - beide Merkmale werden durch Position des Punktes auf $y$ und $x$ Achsen modelliert.
+Jeder Punkt auf diesem Diagramm entspricht einem Objekt, das klassifiziert werden muss, im Fall von NER stellen die Punkten die Wörter, für die eine entsprechende Entitätsklasse berechnet werden muss, dar. Die Position jedes Punktes in einem $n$-dimensionalen Raum entspricht dem Merkmalsvektor des Wortes. Um die Abbildung \ref{fig:SVM-INTRO} anschaulich gestalten zu können, wird angenommen, dass jedes Wort nur zwei Features besitzt - beide Merkmale werden durch Position des Punktes auf $y$ und $x$ Achsen modelliert.
 
 Das Algorithmus muss eine Trennebene (auf dem Beispieldiagramm ist das die schwarze Gerade im Mitte des Bildes) finden, die die Punkte auf dem Diagramm in zwei Klassen (rote und weiße Hälfte des Diagramms) teilt. Dabei soll diese Trennebene so ausgewählt werden, dass der Abstand zwischen beiden getrennten Klassen möglichst groß bleibt. Dazu werden für jede Klasse sogenannte Stützvektoren (Support Vectors) ausgewählt, die am nächsten zu der Hyberebene liegen sollen. Auf dem Diagramm \ref{fig:SVM-INTRO} sind die Stützvektoren weiß angekreuzt.
 
-Der Abstand zu der Trennebene beschreibt dabei die Wahrscheinlichkeit, dass ein Wort zu der ausgewählten Klasse gehört - je weiter von der Trennebene das Wort liegt desto größer ist die Wahrscheinlichkeit, dass das Wort korrekt klassifiziert wurde.
+Der Abstand zu der Trennebene beschreibt dabei die Wahrscheinlichkeit, dass ein Wort zu der ausgewählten Klasse gehört - je weiter von der Trennebene das Wort liegt, desto größer ist die Wahrscheinlichkeit, dass das Wort korrekt klassifiziert wurde.
 
 Damit so eine Hyperebene aufgebaut werden könnte, ist es wichtig, dass die Datenpunkte linear trennbar wären. Für ein zweidimensionales Raum bedeute das, dass beide Klassen durch eine Gerade trennbar sein müssen. Wenn die zu klassifizierende Punkte allerdings so angeordnet sind, dass es nicht möglich ist, die linear zu trennen, wird die Klassifizierung falsch durchgeführt, was auf der Abbildung \ref{fig:SVM-NONLINEAR-ISSUE} zu sehen ist.
 
