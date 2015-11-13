@@ -86,7 +86,7 @@ Ein Beispiel für auf Cluster basierte Features wäre Brown-Algorithmus\cite{sun
 \begin{enumerate}
 \item Zuerst wird jedem Wort eine eigene Klasse zugeordnet
 \item Die Clusters werden paarweise iterativ zusammengefügt.
-\item Dabei werden die Zwischenschritte der Clusterisierung gespeichert, so dass man am Ende alle Schritte nachverfolgen kann, und ein binäres Baum aufbauen könnte, wo jeder Endknoten ein Wort darstellt.  
+\item Dabei werden die Zwischenschritte der Aufbau von Clusters gespeichert, so dass man am Ende alle Schritte nachverfolgen kann, und ein binäres Baum aufbauen könnte, wo jeder Endknoten ein Wort darstellt.
 \end{enumerate}
 
 Eine graphische Darstellung des Brown-Algorithmus findet man auf der Abbildung \ref{fig:BROWN-CLUSTER}.
@@ -115,11 +115,11 @@ Eine graphische Darstellung des Brown-Algorithmus findet man auf der Abbildung \
 \end{figure}
 
 \paragraph{}
-Ein sehr interessanter Einsatz fürs ,,Word Embedding`` wird in der Arbeit von Xin\cite{rong2014word2vec} ausführlich erklärt. Wie in ,,Distributional Features``-Modellen wird für die Wörter ein Vektor berechnet, und geometrischer Abstand zwischen zwei Punkten im Feature-Raum bestimmt die Ähnlichkeit von Wörtern, zusätzlich dazu kann auch die Ausrichtung des Vektors berücksichtigt werden. Die entsprechende Vektoren werden mit Hilfe eines neuronales Netzes berechnet, das auf zwei verschiedene Art und Weisen implementiert werden kann: \textit{CBOW} und \textit{Skip-gram}\cite{wang2014introduction}:
+Ein sehr interessanter Ansatz fürs ,,Word Embedding`` wird in der Arbeit von Xin\cite{rong2014word2vec} ausführlich erklärt. Wie in ,,Distributional Features``-Modellen wird für die Wörter ein Merkmalsvektor berechnet. Dabei bestimmt der geometrische Abstand zwischen zwei Punkten im Feature-Raum die Ähnlichkeit von Wörtern, zusätzlich dazu kann auch die Ausrichtung des Vektors berücksichtigt werden. Die entsprechende Vektoren werden mit Hilfe von einem neuralen Netz berechnet, das auf zwei verschiedene Art und Weisen implementiert werden kann: \textit{CBOW} und \textit{Skip-gram}\cite{wang2014introduction}:
 
-Die erste Methode - CBOW (Continuous Bag Of Words\cite{garcia2014word}) - gibt dem Entwickler die Möglichkeit, die Features für ein Wort anhand von Wörtern in seiner Umgebung zu berechnen, es wird also versucht, die Wahrscheinlichkeit $P(Wort|Context)$ zu maximieren.
+Die erste Methode - CBOW (Continuous Bag Of Words\cite{garcia2014word}) - gibt dem Entwickler die Möglichkeit, die Features für ein Wort anhand von Wörtern in seiner Umgebung zu berechnen, es wird also versucht, die Wahrscheinlichkeit $P(Wort|Kontext)$ zu maximieren.
 
-Der zweite Einsatz - Skip-gramm - wird in der Arbeit von Mikolov\cite{mikolov2013distributed} beschrieben. Dieser Einsatz lässt sich als eine Inversion von CBOW  definieren - es wird hier versucht, die Features für Umgebungswörter zu berechnen, und die Wahrscheinlichkeit $P(Context|Wort)$ zu maximieren.
+Der zweite Ansatz - Skip-gramm - wird in der Arbeit von Mikolov\cite{mikolov2013distributed} beschrieben. Dieser Einsatz lässt sich als eine Inversion von CBOW  definieren - es wird hier versucht, die Features für Umgebungswörter zu berechnen, und die Wahrscheinlichkeit $P(Kontext|Wort)$ zu maximieren.
 
 Für die Analyse von großen Textmengen soll CBOW bevorzugt werden, da dieses Algorithmus bessere Geschwindigkeit aufzeigt\cite{wang2014introduction}. 
 
