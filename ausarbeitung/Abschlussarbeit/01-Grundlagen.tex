@@ -227,19 +227,19 @@ Der Einsatz von Stützvektoren für Extraktion von Entitäten ist in der Arbeit 
 
 \begin{itemize}
 \item Für jede mögliche Entitätsklasse wird ein SVM aufgebaut, der entscheidet, ob das Token der Klasse $C_a$ oder dem Rest der Klassen gehört.
-\item Für jede Paar $(C_a, C_b)$ von möglichen Entitätstypen wird ein SVM erzeugt, der feststellen muss, ob das Wort den Typ $C_a$ oder $C_b$ hat. Die Klasse, die von der Mehrheit von SVMs gewählt wurde, gewinnt.
+\item Für jedes Paar $(C_a, C_b)$ von möglichen Klassen von Entitäten wird ein SVM erzeugt, der feststellen muss, ob das Wort die Klasse $C_a$ oder $C_b$ hat. Die Klasse, die von der Mehrheit von SVMs gewählt wurde, gewinnt.
 \end{itemize}
 
 Vorteile des SVM-Ansatzes anderen Methoden gegenüber\cite{joachims1998text}:
 \begin{itemize}
-\item SVMs eignen sich gut für die Bearbeitung von langen Featuresvektoren, was bei Klassifizierung von Wörtern ein großer Vorteil ist.
+\item SVMs eignen sich gut für die Bearbeitung von langen Merkmalsvektoren, was bei Klassifizierung von Wörtern ein großer Vorteil ist.
 \item Dieses Algorithmus funktioniert mehr oder weniger gleich auf allen Domänen von Texten.
-\item Es ist üblicherweise kein Tuning von Traininsparametern notwendig.
+\item Es ist üblicherweise kein Tuning von Trainingsparametern notwendig.
 \end{itemize}
 
 Nachteile von SVMs anderen Algorithmen gegenüber:
 \begin{itemize}
-\item Im Vegrleich zu ME oder CRF langsamer Trainingsvorgang - bei größeren Trainigskorpora kann die Erstellung eines Modells bis auf mehrere Tagen in Anspruch nehmen.
+\item Im Vergleich zu ME oder CRF langsamer Trainingsvorgang - bei größeren Trainingskorpora kann die Erstellung eines Modells bis auf mehrere Tage in Anspruch nehmen.
 \item Anforderungen zur Größe des Arbeitsspeichers sind üblich auch höher als bei anderen Algorithmen, was während der Implementierung (siehe Sektion \ref{subsec:TRMODELLS}) bestätigt wird.
 \end{itemize}
 
