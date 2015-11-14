@@ -46,7 +46,7 @@ Apache Stanbol stellt dem Entwickler eine Plugin-API zur Verfügung, mit deren H
 Im Rahmen dieser Arbeit werden nur Engines und EntityHub gebraucht, andere Module sind für die Extraktion von Entitäten irrelevant.
 
 \paragraph{}
-Die grundlegende Idee, die die Architektur von Stanbol prägt, heißt ,,Pipelining`` - ein Fließband, das mehrere Textverarbeitungsschritte miteinander verknüpft, und eine flexible Konfiguration von Kontentanreicherung ermöglicht. Jedes Element dieses Fließbandes wird ,,Engine`` genannt. Von dem Blickwinkel der Architektur wird jedes Engine als selbstständiges BlackBox implementiert, der am Eingang den Text, der angereichert werden soll, mit den von anderen Engines hinzugefügten Annotationen zusammen, bekommt, und am Ausgang neue Annotationen liefert. 
+Die grundlegende Idee, die die Architektur von Stanbol prägt, heißt ,,Pipelining`` - ein Fließband, das mehrere Textverarbeitungsschritte miteinander verknüpft, und eine flexible Konfiguration von Contentanreicherung ermöglicht. Jedes Element dieses Fließbandes wird ,,Engine`` genannt. Von dem Blickwinkel der Architektur wird jedes Engine als eine selbstständige Blackbox implementiert, die am Eingang den Text, der angereichert werden soll, mit den von anderen Engines hinzugefügten Annotationen zusammen, bekommt, und am Ausgang neue Annotationen liefert. 
 
 Die Engines werden in sogenannte Ketten zusammengebunden - der Ausgang von einem Engine wird mit dem Eingang von einem anderen Engine verbunden, und so wird eine virtuelle Kette gebaut. Das erste Element in dieser Kette bekommt dabei als Eingang den Text eines mithilfe von einer Suchmaschine gefundenen Snippets, und der Ausgang des letztes Element wird zu dem Benutzer geschickt. 
 
