@@ -73,7 +73,7 @@ Als Entwickler muss man aber gleich beachten, dass die interne Implementierung v
 \end{figure}
 Der Nachteil solcher Architektur ist, dass mehrere Engines unter Umständen auf dieselbe Instanz von ,,ContentItem`` \textbf{gleichzeitig} zugreifen können, was bei Schreibzugriffen zur Beschädigung von Daten führen kann. Deswegen soll jedes Engine die Instanz von ,,ContentItem`` während des Schreibzugriffs sperren lassen.
 
-Der Vorteil dieser Architektur besteht darin, dass bei Bedarf mehrere Engines parallel für den gleichen Content ausgeführt werden können. Dies kann z. B. dann nützlich sein, wenn es in mehreren Wissensdatenbanken gleichzeitig nach den Informationen über eine Entität gesucht werden muss. Da das ,,ContentItem``-Objekt nur dann mit einem Lock gesperrt werden muss, wenn die Daten \textbf{geschrieben} werden, könnte \textbf{die Suche} in mehreren Wissensdatenbanken gleichzeitig durchgeführt werden.
+Der Vorteil dieser Architektur besteht darin, dass bei Bedarf mehrere Engines parallel für den gleichen Content ausgeführt werden können. Dies kann z. B. dann nützlich sein, wenn es in mehreren Wissensdatenbanken gleichzeitig nach den Informationen über eine Entität gesucht werden muss. Da das ,,ContentItem``-Objekt nur dann mit einem Lock gesperrt werden muss, wenn die Daten \textbf{geschrieben} werden, könnte \textbf{die Suche} in mehreren Wissensdatenbanken parallel durchgeführt werden.
 
 Um sicherstellen zu können, dass nur die Engines, die eine parallele Ausführung unterstützen, parallel gestartet werden, muss der Entwickler in der Konfiguration des Engines explizit eingeben, ob eine parallele Ausführung für das entwickelte Engine möglich ist.
 
