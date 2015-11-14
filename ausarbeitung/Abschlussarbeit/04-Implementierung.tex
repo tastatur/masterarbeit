@@ -139,9 +139,9 @@ Das weitere Algorithmus, das im Rahmen dieser Arbeit verwendet wurde, ist Maximu
 
 Der Vorteil dieses Engines ist, dass es als Teil vom Stanbol dem Entwickler zur Verfügung steht, und muss deswegen nicht manuell integriert werden. Allerdings müssen die entsprechende ME-Modelle für die Extraktion von deutschsprachigen Entitäten vom Entwickler trainiert werden, worauf in der Sektion \ref{subsec:decor} angegangen wird.
 
-Die Klassendiagramm für OpenNLP-Engine ist auf der Abbildung \ref{fig:onlpuml} definiert. Es werden insgesamt nur drei Klassen verwendet:
+Das Klassendiagramm für das OpenNLP-Engine ist auf der Abbildung \ref{fig:onlpuml} definiert. Es werden insgesamt nur drei Klassen verwendet:
 \begin{itemize}
-\item Basisklasse \textit{NEREngineCore}, die die Extraktion von Entitäten mithilfe von ME-Algorithmus implementiert.
+\item Die Basisklasse \textit{NEREngineCore}, die die Extraktion von Entitäten mithilfe vom ME-Algorithmus implementiert.
 \item Die Klasse \textit{CustomNERModelEnhancementEngine}, die von der Basisklasse erbt, und für Behandlung von benutzerdefinierten Modellen zuständig ist.
 \item Die Konfigurationsklasse \textit{NEREngineConfig}.
 \end{itemize}
