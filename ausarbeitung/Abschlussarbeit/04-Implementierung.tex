@@ -61,7 +61,7 @@ Nachdem der Text, der angereichert werden soll, über REST API ausgelesen wurde,
 
 Falls die Sprache von der Kette unterstützt wird, werden die Sätze und Tokens extrahiert. Die Engines für die Erkennung von Sätzen und Tokens, die deutsche Sprache unterstützen, sind als Standardteil der API verfügbar.
 
-Anschließend können aus dem Text, der vorverarbeitet wurde, Entitäten extrahiert werden. Nach den Extraktion-, Verlinkung- und Filterungsschritten wird der mit Annotationen angereicherte Text über REST-Schnittstelle zurückgegeben.
+Anschließend können aus dem Text, der vorverarbeitet wurde, Entitäten extrahiert werden. Nach den Extraktion-, Verlinkung- und Filterungsschritten wird der mit Annotationen angereicherte Text über eine REST-Schnittstelle zurückgegeben.
 
 Als Entwickler muss man aber gleich beachten, dass die interne Implementierung von Ketten diese Architektur leider nicht anschaulich abbildet. Wie es auf der Abbildung \ref{fig:REALPIPELINE} zu sehen ist, gibt es intern kein Pipeline - stattdessen wird es für jeden Text, der angereichert werden soll, eine Instanz der Data-Klasse ,,ContentItem`` erzeugt, die zwischen allen Engines der Kette geteilt wird. Die Implementierung eines Engines hat technisch gesehen weder Ein- noch Ausgang, und benutzt diese Instanz von ,,ContentItem``, um die Informationen mit anderen Engines auszutauschen. Die Reihenfolge von Elementen in der Engine-Kette bestimmt deswegen eigentlich nicht, wie die Ein- und Ausgänge von Engines verbunden werden sollen, sondern die Reihenfolge, in der die ausgeführt werden müssen.
 
