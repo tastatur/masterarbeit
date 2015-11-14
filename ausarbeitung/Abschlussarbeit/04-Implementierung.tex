@@ -157,9 +157,19 @@ Das Klassendiagramm für das OpenNLP-Engine ist auf der Abbildung \ref{fig:onlpu
 \paragraph{}
 Der dritte Ansatz, der implementiert werden soll, ist SVM-Algorithmus. Als Basis wurde für diese Unteraufgabe MITIE\footnote{\url{https://github.com/mit-nlp/MITIE} (Zuletzt abgerufen am 03. November)}-Framework ausgewählt. MITIE steht für ,,MIT Information Extraction`` - ein Framework zur Extraktion von Entitäten und zur Erkennung von binären Relationen. Wie erwähnt, verwendet dieses Framework SVM als Basisalgorithmus für Erkennung von Entitäten, und soll deswegen auch bessere Ergebnisse als OpenNLP oder StanfordNER aufzeigen können (siehe Sektion \ref{sec:SVNGRUND}).
 
+Die Aufbau dieses Engines ähnelt sich der vom Stanford-NER-Engine, und kann auf der Abbildung \ref{fig:mitieclasses} betrachtet werden.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{Bilder/mitie-classes.png}
+\caption{''Klassendiagramm  des MITIE-Engines''}
+\label{fig:mitieclasses}
+\end{figure}
+Die Klassen in diesem Engine spielen ähnliche Rollen, wie bei Stanford-NER mit einer gravierender Ausnahme: die Klasse \textit{NamedEntityExtractor}, die für die Extraktion von Entitäten verantwortlich ist, wird automatisch aus C++-Code erzeugt, und nicht manuell entwickelt.
+
 \paragraph{Vor- und Nachteile}
 \begin{itemize}
-\item Vorteile des MITIE-Einsatzes:
+\item Vorteile des MITIE-Frameworks:
 \begin{enumerate}
 \item Höhere Qualität der Extraktion, im Vergleich zu Maximum Entropy oder CRF.
 \item Die Geschwindigkeit der Extraktion ist nicht viel kleiner, als die bei anderen Einsätzen.
@@ -175,16 +185,6 @@ Der dritte Ansatz, der implementiert werden soll, ist SVM-Algorithmus. Als Basis
 \end{enumerate}
 \end{enumerate}
 \end{itemize}
-
-Die Aufbau dieses Engines ähnelt sich der vom Stanford-NER-Engine, und kann auf der Abbildung \ref{fig:mitieclasses} betrachtet werden.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=\textwidth]{Bilder/mitie-classes.png}
-\caption{''Klassendiagramm  des MITIE-Engines''}
-\label{fig:mitieclasses}
-\end{figure}
-Die Klassen in diesem Engine spielen ähnliche Rollen, wie bei Stanford-NER mit einer gravierender Ausnahme: die Klasse \textit{NamedEntityExtractor}, die für die Extraktion von Entitäten verantwortlich ist, wird automatisch aus C++-Code erzeugt, und nicht manuell entwickelt.
 
 \subsection{Deutcshe Korpora} \label{subsec:decor}
 Nachdem die Engines, die nach Entitäten in Texten suchen sollen, entwickelt wurden, müssen die entsprechende NER-Modelle trainiert werden, wie es in der Sektion \ref{sec:trcorpora} beschrieben wurde. Und obwohl fällt dieser Schritt fürs auf Stanford-NER basierten Engine komplett aus, da dort ein vortrainiertes Modell verwendet wird, muss für weitere zwei Engines eigene Modelle trainiert werden.
