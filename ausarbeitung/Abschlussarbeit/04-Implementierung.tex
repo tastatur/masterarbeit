@@ -227,11 +227,10 @@ Es wird für jede ununterbrochene Reihenfolge von NE-Markierungen ein OpenNLP-Ta
 
 \subsubsection{Wikipedia-basiertes Korpus}
 \paragraph{}
-Leider kann man nicht immer einen manuell aufgebauten Korpus verwenden, entweder aus Lizenz- oder Kostengründen. Viele Korpusse sind nur für Forschung frei verfügbar, was bedeutet, dass 
-die auf keinen Fall in einem Geschäftsprojekt verwendet werden dürfen. Und einen eigenen Korpus aufzubauen ist auch nicht immer möglich, da dazu die Linguisten eingesetzt werden müssen, die nicht jede Firma zur Verfügung hat, und es kann Monaten dauern, bis man ein eigenes Korpus erstellt. Was könnte in diesem Fall unternommen werden?
+Ein manuell aufgebautes Korpus kann nicht immer eingesetzt werden, entweder aus Lizenz- oder Kostengründen. Viele Korpora sind nur für Forschung frei verfügbar, was bedeutet, dass die auf keinen Fall in einem Geschäftsprojekt verwendet werden dürfen. Und ein eigenes Korpus aufzubauen ist auch nicht immer möglich, da dazu die Linguisten eingesetzt werden müssen, die nicht jede Firma zur Verfügung hat, und es kann Monaten dauern, bis ein eigenes Korpus erstellt wurde. Was könnte in diesem Fall unternommen werden?
 
 \paragraph{}
-Oliver Grisel\footnote{\url{http://www.nuxeo.com/blog/mining-wikipedia-with-hadoop-and-pig-for-natural-language-processing/}} hat einen interessanten Einsatz zur automatischer Aufbau von Korpus vorgeschlagen. Es wird vorgeschlagen, Wikipedia als Textbasis zu nehmen, und die interne Links, die auf andere Wikipediaseiten führen, sollen als  Entitäten markiert werden. Es soll anschließlich ein Korpus aufgebaut werden, auf dessen Basis ein NER-Modell trainiert werden kann. Da Wikipedia auch auf deutscher Sprache verfügbar ist, soll dieser Einsatz auch für Zwecke dieser Arbeit nützlich sein.
+Oliver Grisel\footnote{\url{http://www.nuxeo.com/blog/mining-wikipedia-with-hadoop-and-pig-for-natural-language-processing/} (Zuletzt abgerufen am 20. Oktober)} hat einen interessanten Ansatz zur automatischen Aufbau von einem NER-Korpus vorgeschlagen. Es wird vorgeschlagen, Wikipedia als Textbasis zu nehmen, und die interne Links, die auf andere Wikipedia-Seiten führen, als Entitäten zu markieren. Die Klasse der Entität wird dabei direkt aus der Wikipedia extrahiert. Es soll anschließend ein Korpus aufgebaut werden, auf dessen Basis ein NER-Modell trainiert werden kann. Da Wikipedia auch in deutscher Sprache verfügbar ist, soll dieser Ansatz auch für Zwecke dieser Masterarbeit eingesetzt werden können.
 
 \paragraph{}
 Um den Korpus aufzubauen, wird Apache Pig\footnote{\url{http://pig.apache.org/}} verwendet - ein Framework für Big-Data-Analyse, der eine Skript-Sprache und JavaAPI zur Verfügung stellt. Die Aufbau vom Korpus umfasst folgende Schritte:
