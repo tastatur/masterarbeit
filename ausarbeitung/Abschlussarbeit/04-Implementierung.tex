@@ -124,20 +124,20 @@ Das Klassendiagramm für dieses Engine ist auf der Abbildung \ref{fig:stanfclass
 
 \subsection{OpenNLP}
 %Beschreibung des OpenNLP-Einsatzes.
-Das weitere Algorithmus, das im Rahmen dieser Arbeit verwendet wurde, ist MaximumEntropy. Es wurde als Teil von OpenNLP\footnote{\url{http://opennlp.apache.org/}}-API implementiert. OpenNLP ist ein quelltextoffenes Framework für maschinelle Sprachverarbeitung. Das Framework ist genau wie Stanbol modular aufgebaut, und stellt folgende Funktionalität zur Verfügung:
+Das weitere Algorithmus, das im Rahmen dieser Arbeit verwendet wurde, ist MaximumEntropy. Es wurde als Teil der OpenNLP\footnote{\url{http://opennlp.apache.org/} (Zuletzt abgerufen am 30. Oktober)}-API implementiert. OpenNLP ist ein quelltextoffenes Framework für maschinelle Sprachverarbeitung. Das Framework ist genau wie Stanbol modular aufgebaut, und stellt folgende Funktionalität zur Verfügung:
 
 \begin{itemize}
-\item Erkennung von Sätzen. Genau wie für die Extraktion von Entitäten wird für die Satzerkennung ein Maximum-Entropy-Modell verwendet, das vorher trainiert werden muss. Ein Modell für die deutsche Sprache, trainiert auf der Basis von TIGER-Korpus, der in nachfolgendem Kapitel beschrieben ist, ist aber bereits ein Teil des Frameworkes.
-\item Zerlegung von Sätzen in Tokens:
+\item Erkennung von Sätzen. Genau wie für die Extraktion von Entitäten wird für die Satzerkennung ein Maximum-Entropy-Modell verwendet, das vorher trainiert werden muss. Ein Modell für die deutsche Sprache, trainiert auf der Basis von TIGER-Korpus, das in nachfolgendem Kapitel beschrieben ist, ist bereits als Teil des Frameworkes verfügbar.
+\item Zerlegung von Sätzen in Tokens, die auf zwei Arten und Weisen durchgeführt werden kann:
 \begin{itemize}
-\item Die Zerlegung ohne Modell, nur anhand in dem Text vorhandenen Leerzeichen erfolgen. Diese Methode soll aber nicht verwendet werden, da die Fehlerwahrscheinlichkeit zu groß ist.
-\item Es kann ein ME-Modell verwendet werden, um Tokens zu erkennen. Der Nachteil dieser Methode ist, dass das Modell zuerst trainiert werden soll, wozu ein Korpus gebraucht wird.
+\item Die Zerlegung kann ohne vortrainiertes Modell, nur anhand von den in dem Text vorhandenen Leerzeichen, erfolgen.
+\item Es kann ein ME-Modell verwendet werden, um Tokens zu erkennen. Der Nachteil dieser Methode ist, dass das Modell zuerst trainiert werden muss, wozu ein Korpus gebraucht wird. Da ein Modell für die Tokenisierung von deutschen Texten als Teil des OpenNLP-Frameworks verfügbar ist, wird im Rahmen dieser Arbeit die modellbasierte Methode verwendet.
 \end{itemize}
 \item POS-Tagging - die Erkennung und Annotierung von Wortarten - während dieses Vorgangs wird jedem Token eine entsprechende Wortart zugeordnet.
-\item Erkennung von Entitäten.
+\item Erkennung von Entitäten mithilfe von einem vortrainierten ME-Modell. Hierfür stellt OpenNLP kein vortrainiertes Modell für die deutsche Sprache zur Verfügung.
 \end{itemize}
 
-Der Vorteil dieses Engines ist, dass es schon als Teil von Stanbol dem Entwickler zur Verfügung stellt, und so muss nicht neu entwickelt werden. Allerdings müssen für die Extraktion von deutschsprachigen Entitäten die entsprechende ME-Modelle trainiert werden, worauf in der Sektion \ref{subsec:decor} angegangen wird.
+Der Vorteil dieses Engines ist, dass es als Teil vom Stanbol dem Entwickler zur Verfügung steht, und muss deswegen nicht manuell integriert werden. Allerdings müssen die entsprechende ME-Modelle für die Extraktion von deutschsprachigen Entitäten vom Entwickler trainiert werden, worauf in der Sektion \ref{subsec:decor} angegangen wird.
 
 Die Klassendiagramm für OpenNLP-Engine ist auf der Abbildung \ref{fig:onlpuml} definiert. Es werden insgesamt nur drei Klassen verwendet:
 \begin{itemize}
