@@ -253,17 +253,17 @@ Für den Aufbau des Korpus aus deutscher Wikipedia können die Scripts von Olive
 Der Code, der für die Erzeugung eines Wikipedia-basierten Korpus verantwortlich ist, ist in der Auflistung \ref{app:pigcorpus} repräsentiert.
 
 \paragraph{}
-Aber welche Vor- und Nachteile hat automatische Erzeugung vom Korpus? Kann das trainierte Modell später auch tatsächlich für sinnvolle Entitätserkennung eingesetzt werden?
+Aber welche Vor- und Nachteile hat automatische Erzeugung vom Korpus? Kann das trainierte Modell später auch tatsächlich für sinnvolle Erkennung von Entitäten eingesetzt werden?
 \begin{itemize}
 \item Vorteile
 \begin{itemize}
-\item Die Erzeugung von Korpus braucht höchstens eine Stunde, im Vergleich zu manuell annotierten Korpora.
-\item Es werden keine Fachleute gebraucht, um Korpus zu erzeugen.
+\item Die Erzeugung vom Korpus braucht höchstens eine Stunde, im Vergleich zu manuell annotierten Korpora.
+\item Es werden keine Fachleute gebraucht, um das Korpus zu erzeugen.
 \end{itemize}
 \item Nachteile
 \begin{itemize}
-\item Nicht alle interne Links stellen eine Entität dar, und nicht alle Entitäten sind ein Link - als Folge ist die Qualität des Korpusses deutlich niedriger, als die von manuell aufgebauten.
-\item Eine sehr niedrige Varianz - alle Wikipediaartikel sind mehr oder weniger in gleicher Sprache geschrieben, was bedeutet, dass wenn man dem trainierten Modell einen Text zeigt, der sich von einem durchschnittlichen Wikipedia-Artikel deutlich unterscheidet, werden da höchstwahrscheinlich keine Entitäten gefunden.
+\item Nicht alle interne Links stellen eine Entität dar, und nicht alle Entitäten sind ein Link - als Folge ist die Qualität des Korpus deutlich niedriger, als die von manuell aufgebauten Korpora.
+\item Eine sehr niedrige Varianz - alle Wikipedia-Artikel sind in einer mehr oder weniger gleicher Sprache geschrieben, was bedeutet, dass wenn man dem trainierten Modell einen Text zeigt, der sich von einem durchschnittlichen Wikipedia-Artikel deutlich unterscheidet, werden in dem Text höchstwahrscheinlich keine Entitäten gefunden.
 \end{itemize}
 \end{itemize}
 
