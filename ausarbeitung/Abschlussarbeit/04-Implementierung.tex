@@ -235,11 +235,11 @@ Oliver Grisel\footnote{\url{http://www.nuxeo.com/blog/mining-wikipedia-with-hado
 \paragraph{}
 Für den Aufbau des Korpus wird Apache Pig\footnote{\url{http://pig.apache.org/} (Zuletzt abgerufen am 23. Oktober)} verwendet - ein Framework für Big-Data-Analyse, das eine Skript-Sprache und eine JavaAPI zur Verfügung stellt. Der Aufbau vom Korpus umfasst folgende Schritte:
 \begin{enumerate}
-\item Es wird Dump von Wikipediaartikeln heruntergeladen.
-\item Es werden die Listen von Wikipedia-Links und Typen von Entitäten von DBpedia heruntergeladen. Diese Informationen braucht man später, um jeder Entität in dem erzeugten Korpus die richtige Entitätstyp zuordnen zu können.
-\item Es werden Links auf interne Wikipedia-Artikeln aus Wikipedia-Dump extrahiert, mit der Positionsinformation zusammen.
-\item Jeder Link wird mithilfe von DBpedia-Daten einen Entitätstyp zugeordnet.
-\item Es wird ein Trainingskorpus im OpenNLP-Format erzeugt.
+\item Zuerst wird der Dump von den Wikipedia-Artikeln heruntergeladen.
+\item Danach werden die Listen von Wikipedia-Links und Klassen von Entitäten von DBpedia heruntergeladen. Diese Informationen werden später gebraucht, um jeder Entität in dem erzeugten Korpus eine richtige Entitätsklasse zuordnen zu können.
+\item Im dritten Schritt werden aus dem heruntergeladenen Wikipedia-Dump die Links auf interne Wikipedia-Artikel extrahiert, mit der Positionsinformationen zusammen.
+\item Danach wird jedem Link, das eine Entität beschreibt, die entsprechende Entitätsklasse mithilfe von den DBpedia-Daten zugeordnet.
+\item Anschließend werden die in vorherigen Schritten gewonnene Informationen in einem Trainingskorpus im OpenNLP-Format zusammengefasst.
 \end{enumerate}
 
 \paragraph{} 
