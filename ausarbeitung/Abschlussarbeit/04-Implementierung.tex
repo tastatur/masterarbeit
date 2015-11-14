@@ -5,19 +5,27 @@
 Um eine richtige Architektur des Systems auswählen zu können, fassen wir kurz die benötigte Komponenten zusammen:
 \begin{itemize}
 \item Eine Komponente für Training eines NER-Modells.
-\item Eine Komponente für Extraktion von Entitäten aus Texten.
-\item Ein Filter für ,,unpassende`` Entitäten.
-\item Eine Komponente für Verlinkung von extrahierten Entitäten mit den Eigenschaften aus einer Wissendatenbank.
+\item Eine Komponente für Extraktion von Entitäten aus deutschsprachigen Texten.
+\item Ein Filter für ,,unpassende`` Entitäten, der alle Entitäten, die bestimmte Kriterien nicht erfüllen, herausfiltert.
+\item Eine Komponente für Verlinkung von extrahierten Entitäten mit den Eigenschaften aus einer Wissensdatenbank.
 \item Eine API für Anreicherung von Suchergebnissen.
 \end{itemize}
 
-Damit alle aufgelistete Anforderungen im Rahmen dieser Arbeit implementiert werden könnten, muss ein Framework verwendet werden, das eine API für die Arbeit mit semantischen Daten ermöglicht. Im Rahmen dieser Arbeit wurde als solches Framework Apache Stanbol\footnote{\url{http://stanbol.apache.org/}} ausgewählt. Obwohl es andere Systeme, wie Alchemy API \footnote{\url{http://www.alchemyapi.com/}} gibt, die auch deutsche Sprache unterstützen, hat Stanbol gravierende Vorteile anderen Frameworks gegenüber:
+Damit alle aufgelistete Anforderungen im Rahmen dieser Arbeit implementiert werden könnten, muss ein Framework verwendet werden, das eine API für die Arbeit mit semantischen Daten ermöglicht, und folgende Voraussetzungen erfüllt:
+\begin{enumerate}
+\item Quelltexte des Frameworks müssen frei verfügbar sein, damit die entsprechende Erweiterung implementiert werden könnte.
+\item Das Framework muss dem Entwickler die Möglichkeit geben, mehrere Algorithmen für Extraktion von Entitäten gleichzeitig einzusetzen, damit alle im Kapitel ,,Grundlagen`` beschriebene Algorithmen implementiert werden könnten.
+\item Das Framework soll dem Entwickler eine REST-API zur Verfügung stellen, mit deren Hilfe auf Funktionen des Systems zugegriffen werden könnte, damit eine Integration mit Drittapplikationen (Siehe Sektion \ref{sec:Problemstellung}) implementiert werden könnte. Die zur Verfügung gestellte REST-API kann dabei von der Anreicherung-API direkt verwendet werden.
+\end{enumerate}
+
+Im Rahmen dieser Arbeit wurde als solches Framework Apache Stanbol\footnote{\url{http://stanbol.apache.org/} (Zuletzt abgerufen am 04. November)} ausgewählt. Obwohl es andere Systeme, wie Alchemy API \footnote{\url{http://www.alchemyapi.com/}} gibt, die auch deutsche Sprache unterstützen, hat Stanbol gravierende Vorteile anderen Frameworks gegenüber:
 \begin{itemize}
 \item Die Quelltexte von Stanbol sind frei verfügbar, was die Entwicklung einer Erweiterung einfacher macht. Im Gegenteil dazu ist Alchemy API ein ,,Black Box`` - es gibt keine Möglichkeit, sich die in diesem Framework verwendete Algorithmen anzugucken oder die zu ändern, es gibt keine Möglichkeit, eigene Anpassungen durchzuführen.
 \item Stanbol stellt dem Entwickler eine eingebettete REST-API zur Verfügung, was eine Ankopplung an Drittsysteme erleichtert.
-\item Stanbol hat eine modulare Architektur, was bedeutet, dass die in dieser Arbeit benötigte Komponente sich genau so implementieren lassen, wie die beschrieben wurden, als Module.
-\item Außerdem wird dem Entwickler eine interne Wissendatenbank zur Verfügung gestellt, was die Benutzung einer getrennter Software für die Implementierung der Verlinkung unnötig macht. 
+\item Stanbol hat eine modulare Architektur, was bedeutet, dass die in dieser Arbeit benötigte Komponente sich genau so implementieren lassen, wie die beschrieben wurden, als voneinander getrennte Module.
+\item Außerdem wird dem Entwickler eine interne Wissensdatenbank zur Verfügung gestellt, was die Benutzung einer getrennter Software für die Implementierung der Verlinkung unnötig macht. 
 \end{itemize}
+Durch die beschriebene Vorteile erfüllt Apache Stanbol alle im letzten Paragraph erwähnte Bedingungen.
 
 \section{Apache stanbol}
 Apache Stanbol stellt dem Entwickler eine Plugin-API zur Verfügung, mit deren Hilfe neue Features wie Extraktion von Entitäten aus deutschen Texten leicht implementiert werden können. Die Liste von verfügbaren Modulen ist auf der Abbildung \ref{fig:komponenten} zusammengefasst.
