@@ -268,7 +268,7 @@ Aber welche Vor- und Nachteile hat automatische Erzeugung vom Korpus? Kann das t
 \end{itemize}
 
 \subsection{Training von Modellen} \label{subsec:TRMODELLS}
-Sowohl für OpenNLP als auch für MITIE wird Training von Modellen außerhalb von Stanbol durchgeführt. Die Ergebnisse werden dabei in den binären Dateien serialisiert, und später von entsprechenden Engines innerhalb von Stanbol geladen. Der Grund, warum es so gemacht wurde, ist die Geschwindigkeit des Trainings - wie erwähnt, erfordert Training üblich viel größere Rechnerkapazitäten als die Verwendung von Modellen selbst, bei MITIE-Engine sind das mindestens 24 GB RAM, und Training dauert aber trotzdem bis auf eine Woche. Deswegen wurde Training auf getrennten Rechnern durchgeführt.
+Sowohl für OpenNLP als auch für MITIE wird Training von Modellen außerhalb von Stanbol durchgeführt. Die Ergebnisse werden dabei in den binären Dateien gespeichert, und später von den entsprechenden Engines innerhalb von Stanbol geladen. Der Grund, warum es so gemacht wurde, ist die Geschwindigkeit des Trainings - wie erwähnt, erfordert Training üblicherweise viel größere Rechnerkapazitäten als die Verwendung von den trainierten Modellen. Das MITIE-Engine braucht z. B. mindestens 24 GB Arbeitsspeicher, und das Training eines Modells dauert bis auf eine Woche. Deswegen wurde Training auf den getrennten Rechnern durchgeführt.
 
 Die Implementierung von Training an sich selbst ist relativ einfach: 
 \begin{enumerate}
