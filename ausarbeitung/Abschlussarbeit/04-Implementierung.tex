@@ -195,19 +195,19 @@ Im Rahmen dieser Arbeit wurden zwei Trainingskoprora verwendet: von den Linguist
 \item Wikipedia wurde als Basis für automatisch aufgebautes Korpus ausgewählt, da die Dumps von Wikipedia frei verfügbar sind und eine große Anzahl von Daten (215841 Sätzen) beinhalten.
 \end{itemize}
 
-Für Training von Modellen für beide Engines (MITIE und OpenNLP) wird dasselbe Datenformat verwendet, das in der Auflistung \ref{lst:TIGEROPENBEISPIEL} beschrieben ist. Dadurch wird erreicht, dass der Code fürs Training von beiden Engines wiederverwendet werden kann.
+Für das Training von Modellen für beide Engines (MITIE und OpenNLP) wird dasselbe Datenformat verwendet, das in der Auflistung \ref{lst:TIGEROPENBEISPIEL} beschrieben ist. Dadurch wird erreicht, dass der Code fürs Training von beiden Engines wiederverwendet werden kann.
 
 \lstinputlisting[captionpos=b,label={lst:TIGEROPENBEISPIEL},caption={Ausschnitt aus einem Korpus im OpenNLP-Format.}]{Listings/tiger-opennlp.txt}
 
 \subsubsection{TIGER Korpus}
 \paragraph{}
-TIGER-Korpus wurde von dem Institut für Maschinelle Sprachverarbeitung\cite{brants2004tiger} auf der Basis von Zeitungen aufgebaut, und beinhaltet 50474 Sätzen. Außer markierten Entitäten beinhaltet dieser Korpus auch die Informationen über POS (Part Of Speech - ob das Wort ein Verb oder ein Substantiv ist), Lemma (Infinitiv für Verben oder Nominativ Singular für Substantive) und andere Informationen über die annotierte Tokens, wie Kasus oder Genus. Der Ausschnitt des Korpuses findet man in der Auflistung \ref{lst:TIGERBEISPIEL}.
+TIGER-Korpus wurde von dem Institut für maschinelle Sprachverarbeitung\cite{brants2004tiger} auf der Basis von Zeitungen aufgebaut, und beinhaltet 50474 Sätzen. Außer markierten Entitäten beinhaltet dieses Korpus auch die Informationen über POS (Part Of Speech - Wortart), Lemma (Infinitiv für Verben oder Nominativ Singular für Substantive) und andere Informationen über die annotierte Tokens, wie Kasus oder Genus. Der Ausschnitt des Korpus findet man in der Auflistung \ref{lst:TIGERBEISPIEL}.
 
 \lstinputlisting[captionpos=b,label={lst:TIGERBEISPIEL},caption={Ausschnitt aus dem TIGER-Korpus. Die Informationen, die in dieser Arbeit nicht gebraucht werden, wurden wegen Platzmangel weggelassen.}]{Listings/tiger-example.txt}
-Jeder Satz ist dabei auf einer getrennter Zeile gespeichert, die Tokens werden mit Leerzeichen getrennt, und mithilfe von HTML-ähnlichen Tags werden die Entitäten markiert.
+Jeder Satz ist dabei auf einer getrennter Zeile gespeichert, die Tokens werden mit einem Leerzeichen getrennt, und mithilfe von HTML-ähnlichen Tags werden die Entitäten markiert.
 
 \paragraph{}
-Der Korpus ist wie folgt aufgebaut:
+Das Korpus ist wie folgt aufgebaut:
 \begin{itemize}
 \item Die Sätze werden mit einer leeren Zeile getrennt.
 \item Jeder Token und seine Annotationen werden in einer Zeile geschrieben. Die Spalten werden mit einem Leerzeichen getrennt.
@@ -215,10 +215,10 @@ Der Korpus ist wie folgt aufgebaut:
 \item Die zweite Spalte ist der Token selbst, so wie er auch im Satz vorkommt.
 \item In der dritten Spalte steht Lemma des Tokens.
 \item Die vierte Spalte wird nicht verwendet.
-\item Und die fünfte Spalte beinhaltet POS-Tag des Tokens. Falls dieser Tag den Typ \textit{NE} hat, ist das eine Entität.
+\item Und die fünfte Spalte beinhaltet POS-Tag des Tokens. Falls dieser Tag den Wert \textit{NE} hat, ist das entsprechende Token eine Entität.
 \end{itemize}
 
-Der Nachteil dieses Korpuses besteht darin, dass es zwischen verschiedenen Typen von Entitäten nicht unterschieden wird, und die alle den Typ \textit{NE} (NamedEntity) haben.
+Der Nachteil dieses Korpus besteht darin, dass es zwischen verschiedenen Klassen von Entitäten nicht unterschieden wird, und die alle die Klasse \textit{NE} (NamedEntity) haben.
 
 \paragraph{}
 Die Logik, die für die Umwandlung von Tiger Korpuseinträgen in OpenNLP-Format verantwortlich ist, ist in der Auflistung \ref{lst:LOGICOFCONVERTER} zu sehen.
