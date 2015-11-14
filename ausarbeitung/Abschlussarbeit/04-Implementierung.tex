@@ -50,14 +50,14 @@ Die grundlegende Idee, die die Architektur von Stanbol prägt, heißt ,,Pipelini
 
 Die Engines werden in sogenannte Ketten zusammengebunden - der Ausgang von einem Engine wird mit dem Eingang von einem anderen Engine verbunden, und so wird eine virtuelle Kette aufgebaut. Das erste Element in dieser Kette bekommt dabei als Eingang den Text eines mithilfe von einer Suchmaschine gefundenen Snippets, und der Ausgang von dem letzten Element wird zu dem Benutzer geschickt.
 
-Auf der Abbildung \ref{fig:ENGINEPIPELINE} wird die Aufbau der in dieser Arbeit verwendeter Engine-Kette noch einmal grafisch dargestellt.
+Auf der Abbildung \ref{fig:ENGINEPIPELINE} wird der Aufbau der in dieser Arbeit verwendeter Engine-Kette noch einmal grafisch dargestellt.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\textwidth]{Bilder/enchancer.png}
 \caption{''Graphische Darstellung des Anreicherungspipelines''}
 \label{fig:ENGINEPIPELINE}
 \end{figure}
-Nachdem der Text, der angereichert werden soll, über REST API ausgelesen wurde, werden zuerst rohe Textdaten aus HTML extrahiert, was für Anreicherung von Webseiten notwendig ist. Falls die Daten aber schon im Plaintext gesendet wurden, wird dieser Schritt ignoriert. Danach muss die Sprache des Textes erkannt werden, anhand deren entschieden wird, ob der Text angereichert werden kann. Für die Erkennung der Sprache stellt Stanbol bereits ein Engine \footnote{\url{https://stanbol.apache.org/docs/trunk/components/enhancer/engines/langidengine.html}} zur Verfügung.
+Nachdem der Text, der angereichert werden soll, über REST API ausgelesen wurde, werden zuerst rohe Textdaten aus HTML extrahiert, was für Anreicherung von Webseiten notwendig ist. Falls die Daten aber schon im Plaintext gesendet wurden, wird dieser Schritt ignoriert. Danach muss die Sprache des Textes erkannt werden, anhand deren entschieden wird, ob der Text angereichert werden kann. Für die Erkennung der Sprache stellt Stanbol bereits ein Engine \footnote{\url{https://stanbol.apache.org/docs/trunk/components/enhancer/engines/langidengine.html} (zuletzt abgerufen am 10. November)} zur Verfügung.
 
 Falls die Sprache von der Kette unterstützt wird, werden die Sätze und Tokens extrahiert. Die Engines für Satz- und Tokenserkennung, die auch deutsche Sprache unterstützen, sind als Standardteil der API auch verfügbar.
 
