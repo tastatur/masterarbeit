@@ -288,7 +288,7 @@ Aus den verschiedenen Werken über relationale Algebra\cite{meier2013relationale
 \caption{Beispiel von zyklischen Verlinkungen zwischen Entitäten}
 \label{fig:cyclent}
 \end{figure}
-Aber wie können dann ,,Wissen`` über die Entitäten gespeichert werden? Welche Datenbanken und Datenstrukturen können hierfür verwendet werden? Gibt es bereits eine Lösung oder muss ein eigenes Konzept entwickelt werden?
+Aber wie können ,,Wissen`` über die Entitäten gespeichert werden, wenn ein relationales Datenmodell nicht eingesetzt werden kann? Welche Datenbanken und Datenstrukturen können hierfür verwendet werden? Gibt es bereits eine Lösung oder muss ein eigenes Konzept entwickelt werden?
 
 Für die Darstellung von Wissen wurde von dem W3-Konsortium\cite{klyne2006resource} eine spezielle auf XML basierende Datenstruktur RDF (Resource Description Framework) entworfen, die Speicherung von vage strukturierten Daten ermöglicht, was für die Speicherung von Informationen über Entitäten am besten passt. Dieses Format basiert sich auf gerichteten Graphen (siehe die Abbildung \ref{fig:graph-rdf}) und umfasst folgende Grundbegriffe:
 \begin{itemize}
@@ -296,7 +296,7 @@ Für die Darstellung von Wissen wurde von dem W3-Konsortium\cite{klyne2006resour
 \item Prädikat sagt, welche Eigenschaft der Entität beschrieben wird (z. B. Alter einer Person kann ein Prädikat sein).
 \item Objekt - der Wert der Eigenschaft. Dabei kann Objekt eine weitere Entität sein, und eigene Eigenschaften besitzen. 
 \end{itemize}
-Ein Objekt kann also auch die Rolle eines Subjektes spielen und umgekehrt, was die Speicherung von komplexen Strukturen ermöglicht.
+Ein Objekt kann auch die Rolle eines Subjektes spielen und umgekehrt, was die Speicherung von komplexen Strukturen ermöglicht.
 
 \tikzset{main node/.style={circle,fill=blue!20,draw,minimum size=1cm,inner sep=0pt}}
 \begin{figure}[ht]
@@ -317,26 +317,24 @@ Als Backend für die Speicherung von diesen Graphen wird eine Erweiterung von XM
 \lstset{language=XML}
 \lstinputlisting[captionpos=b,label={lst:RDFBEISPIEL},caption={Beispiel einer Ontologie im RDF-Format}]{Listings/examplerdf.xml}
 
-Nachdem das Format für die Datenspeicherung definiert wurde, muss eine Abfragesprache definiert werden, mit deren Hilfe auf Informationen in einer Wissensdatenbank zugegriffen werden kann. Da es mit Graphen, und nicht mit relationalen Datenbanken gearbeitet wird, kann SQL hierfür nicht eingesetzt werden. Für die Abfrage von RDF-Daten wird SPARQL (SPARQL Protocol And RDF Query Language) verwendet. Diese Sprache wurde genau wie RDF-Datenformat vom W3-Konsortium entworfen, und ist in der Arbeit von Quilitz\cite{quilitz2008querying} näher beschrieben.
+Nachdem das Format für die Speicherung von Informationen über die Entitäten beschrieben wurde, muss eine Abfragesprache definiert werden, mit deren Hilfe auf die Informationen in einer Wissensdatenbank zugegriffen werden kann. Da es mit Graphen, und nicht mit relationalen Datenbanken gearbeitet wird, kann SQL hierfür nicht eingesetzt werden. Für die Abfrage von RDF-Daten wird SPARQL (SPARQL Protocol And RDF Query Language) verwendet. Diese Sprache wurde wie RDF-Datenformat vom W3-Konsortium entworfen, und ist in der Arbeit von Quilitz\cite{quilitz2008querying} näher beschrieben.
 
-Am besten kann diese Sprache anhand des auf der Auflistung \ref{lst:SPARQLBEISPIEL} abgebildetes Beispiels erklärt werden.
+Ein Beispiel einer SPARQL-Abfrage ist in der Auflistung \ref{lst:SPARQLBEISPIEL} zu sehen. Diese Anfrage besteht aus folgenden Bausteinen:
+\begin{itemize}
+\item Eine Liste von Entitätseigenschaften, die für jede gefundene Entität ausgegeben werden müssen.
+\item Ein Muster, das beschreibt, welche Prädikaten, Subjekten und Objekten eine Entität besitzen muss, um in die Liste von Ergebnissen hinzugefügt werden zu können. Das Muster ,,?entity dbo:areaTotal ?areaTotal`` sagt z. B., dass nur die Entitäten, die die Eigenschaft ,,dbo:areaTotal`` mit einem beliebigen Wert besitzen, zurückgegeben werden müssen.
+\end{itemize}
+
 \lstset{language=SPARQL}
 \lstinputlisting[captionpos=b,label={lst:SPARQLBEISPIEL},caption={Beispiel einer SPARQL-Anfrage}]{Listings/sparqlexample.sql}
 
-Wie es schon beschrieben wurde, arbeitet SPARQL mit den RDF-Graphen. Obwohl diese Abfrage einer SQL-Anfrage ähnlich ist, darf man beide Sprachen nicht verwechseln, da die mit ganz verschiedenen Datentypen arbeiten. 
-
-Eine typische SPARQL-Abfrage ist wie folgt aufgebaut:
+Bei der Auswahl von einer für die Extraktion von Entitäten passender Wissensdatenbank müssen folgende Bedingungen erfüllt werden:
 \begin{itemize}
-\item Der erste Teil der Abfrage - das Schlüsselwort ,,SELECT`` beschreibt, welche Eigenschaften (oder Prädikate in der Terminologie von RDF) einer Entität aus der Datenbank gelesen werden müssen. In dem Beispiel werden die Prädikate ,,Fläche`` und ,,Bundesland`` benötigt.
-\item Der zweite Teil der Abfrage beschreibt, welche Entitäten ausgewählt werden müssen. 
+\item Die Informationen müssen für deutschsprachige Entitäten verfügbar sein, da die vorliegende Arbeit auf deutsche Webseiten orientiert ist.
+\item Da die Entitäten aus den Suchergebnisseiten extrahiert werden müssen, die Informationen aus verschiedenen Domains (Politik, Wissenschaft, Informatik usw.) beinhalten können, muss diese Datenbank Informationen über Entitäten aus verschiedenen Domains beinhalten. Es darf keine fachspezifische Datenbank wie DrugBank\footnote{\url{http://www.drugbank.ca/} (Zuletzt abgerufen am 01. November)} verwendet werden.
+\item Aus der zweiten Bedingung folgt, dass die Datenbank so viel Entitäten beinhalten muss wie möglich.
 \end{itemize}
-
-Optional können die Ergebnisse auch sortiert werden, mithilfe von der ,,ORDER BY``-Operation. Die Ergebnisse lassen sich außerdem mithilfe von regulären Ausdrücken präziser herausfiltern,
-
-Als Antwort auf eine SPARQL-Abfrage wird üblicherweise ein RDF-Graph geliefert. Ein Beispiel für die Antwort auf vorher eingegebene Anfrage findet man in der Auflistung \ref{lst:SPARQLRESULT}.
-
-\lstset{language=XML}
-\lstinputlisting[captionpos=b,label={lst:SPARQLRESULT},caption={Beispiel der Antwort auf eine SPARQL-Anfrage}]{Listings/sparqlresult.xml}
+Eine genaue Auswahl der Wissensdatenbank, die für Extraktion von Entitäten aus Suchergebnissen verwendet werden kann, wird im Kapitel ,,Implementierung`` (Sektion \ref{sec:VERLINKUNGSEC}) erklärt.
 
 \section{Zwischenfazit}
 Nachdem die Grundlagen dieser Arbeit erklärt wurden, können schon folgende Bemerkungen für den Implementierungsschritt erläutert werden:
@@ -344,5 +342,5 @@ Nachdem die Grundlagen dieser Arbeit erklärt wurden, können schon folgende Bem
 \item Training eines Modells stellt eine getrennte Aufgabe dar, und wird deswegen gesondert implementiert werden müssen.
 \item Da nur wenige Korpora frei verfügbar sind, wird es unter anderem auf automatisch erzeugte Korpora zugegriffen, was die Qualität der Extraktion beeinflussen wird.
 \item Für den Vergleich zwischen verschiedenen Algorithmen sollen verschiedene Backends implementiert werden, die über eine universale Schnittstelle erreichbar werden müssen.
-\item Es muss für die Verlinkung von Entitäten nachgedacht werden, wo genau die Daten über die Entitäten gefunden werden können.
+\item Es muss für die Verlinkung von Entitäten nachgedacht werden, wo genau die Daten über die Entitäten gefunden werden können - es muss eine passende Wissensdatenbank ausgewählt werden.
 \end{itemize}
