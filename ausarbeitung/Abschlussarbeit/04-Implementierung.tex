@@ -172,16 +172,16 @@ Die Klassen, die in diesem Engine verwendet werden, spielen ähnliche Rollen, wi
 \item Vorteile des MITIE-Frameworks:
 \begin{enumerate}
 \item Höhere Qualität der Extraktion, im Vergleich zu Maximum Entropy oder CRF.
-\item Die Geschwindigkeit der Extraktion ist nicht viel kleiner, als die bei anderen Einsätzen.
+\item Die Geschwindigkeit der Extraktion ist nicht viel kleiner, als die bei den anderen Engines.
 \end{enumerate}
-\item Nachteile des MITIE-Einsatzes:
+\item Nachteile des MITIE-Engines:
 \begin{enumerate}
-\item Die Größe des Modells ist im Vergleich zu ME oder CRF-Modellen relativ hoch(323 Mb im Vergleich zu 3 Mb für ein OpenNLP-Modell)
+\item Die Größe des Modells ist im Vergleich zu den ME- oder CRF-Modellen relativ hoch(323 Mb im Vergleich zu 3 Mb für ein OpenNLP-Modell)
 \item Das Training eines SVM-Modells kann bis auf mehrere Tage dauern.
 \item Ein rein technischer Nachteil - die MITIE-Implementierung ist in C++ geschrieben und ist außerdem nicht thread-sicher, was zu folgenden Einschränkungen führt:
 \begin{enumerate}
-\item Der Aufruf des Engines muss mit einem Lock gesichert werden, was die Geschwindigkeit bei mehreren gleichzeitigen Benutzer beeinträchtigt.
-\item Jeder Fehler in dem Engine kann potentiell zum Absturz der ganzen JVM-Software führen.
+\item Der Aufruf des Engines muss mit einem Lock gesichert werden, was die Geschwindigkeit bei mehreren Benutzern, die auf das Engine gleichzeitig zugreifen, beeinträchtigt.
+\item Jeder Fehler in dem Engine kann potentiell zum Absturz der JVM-Software führen.
 \end{enumerate}
 \end{enumerate}
 \end{itemize}
