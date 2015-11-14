@@ -83,8 +83,8 @@ Da die Vorverarbeitungsschritte bereits als Teil von Stanbol implementiert sind,
 \item Ein Engine wird als ein Objekt der Klasse ,,AbstractEnhancementEngine`` implementiert. 
 \item Diese Klasse soll dem Framework folgende Methoden zur Verfügung stellen, die die Integration des Engines in eine Enginekette ermöglichen:
 \begin{itemize}
-\item Aktivierungsmethode, die ein mal beim Starten des Engines aufgerufen wird. Diese Methode soll das für das Engine benötigte Modell aus einer Datei laden (ein vortraniertes SVM, z.B.).
-\item Die Methode, die für den angegebenen Text sagt, ob das Engine diesen Text anreichern kann. Dadurch wird sichergestellt, dass nur die Sprache, die ENgine tatsächlich versteht, bearbeitet wird.
+\item Eine Aktivierungsmethode, die ein mal beim Start des Engines aufgerufen wird. Diese Methode soll das für das Engine benötigte Modell aus einer Datei laden (ein vortrainiertes SVM-Modell, z. B.).
+\item Die Methode, die für den angegebenen Text sagt, ob das Engine diesen Text anreichern kann. Dadurch wird sichergestellt, dass nur die Sprache, die Engine tatsächlich unterstützt, bearbeitet wird.
 \item Die Hauptmethode, die für den angegebenen Text Annotationen berechnet.
 \end{itemize}
 \item Die Ketten, die Engines miteinander verbinden, können sowohl während der Laufzeit als auch vor dem Kompilieren des Systems in einer Konfigurationsdatei definiert werden.
