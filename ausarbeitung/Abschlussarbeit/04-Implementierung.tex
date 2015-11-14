@@ -101,13 +101,13 @@ Die erste Anreicherungskette wurde auf Basis von StanfordNER\cite{Jenny/etal:07}
 
 Dieses Framework stellt außerdem die Möglichkeit zur Verknüpfung von mehreren Modellen miteinander zur Verfügung. Deswegen kann es im Rahmen dieser Arbeit neben dem Austesten von oben genannten Modellen auch ein kombiniertes Modell getestet werden - es ist möglich, dass ein kombiniertes Modell mehr Entitäten im Text finden könnte, andererseits steigt dabei die Wahrscheinlichkeit von False-Positive-Antworten.
 
-Dieses Framework ist auch für Vorverarbeitung - Zerlegung des Textes in einzelne Sätze und Zerlegung von Sätzen in einzelne Tokens - verantwortlich. Deswegen sind für den auf Stanford-NER basierten Einsatz nur zwei Vorverarbeitung-Engines notwendig:
+Dieses Framework ist auch für die Vorverarbeitung - Zerlegung des Textes in einzelne Sätze und Zerlegung von Sätzen in einzelne Tokens - verantwortlich. Deswegen sind für den auf Stanford-NER basierten Ansatz nur zwei Vorverarbeitung-Engines notwendig:
 \begin{enumerate}
-\item Tika-Engine für Extraktion von rohen Textdaten aus HTML.
+\item Tika-Engine für die Extraktion von rohen Textdaten aus HTML.
 \item Spracherkennungsmodul, mit deren Hilfe sichergestellt wird, dass die Analyse nur für deutsche Sprache gestartet wird.
 \end{enumerate}
 
-Die Klassendiagramm für dieses Engine ist auf der Abbildung \ref{fig:stanfclasses} zu sehen.
+Das Klassendiagramm für dieses Engine ist auf der Abbildung \ref{fig:stanfclasses} zu sehen.
 
 \begin{figure}[ht]
 \centering
@@ -119,7 +119,7 @@ Die Klassendiagramm für dieses Engine ist auf der Abbildung \ref{fig:stanfclass
 \item Die Klasse \textit{StanfordNEREnhancementEngine} ist die Hauptklasse, die nach den Entitäten im Text sucht.
 \item \textit{NERClassifierCombiner} ist die interne Klasse des StanfordNER-Frameworks und stellt die Schnittstelle zum Kombinieren von mehreren NER-Modellen zur Verfügung.
 \item \textit{NameOccurenceUtility} ist eine Hilfsklasse, die die Daten zwischen StanfordNER- und Stanbol-Format umwandelt.
-\item \textit{StanfordTextAnnotationService} ist ein Hilfsservice, das die vom Engine gefundene Entitäten	zum ,,ContentItem`` als Annotationen hinzufügt.
+\item \textit{StanfordTextAnnotationService} ist ein Hilfsservice, das die vom Engine gefundene Entitäten zum ,,ContentItem`` als Annotationen hinzufügt.
 \end{itemize}
 
 \subsection{OpenNLP}
