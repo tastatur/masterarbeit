@@ -157,7 +157,7 @@ Das Klassendiagramm für das OpenNLP-Engine ist auf der Abbildung \ref{fig:onlpu
 \paragraph{}
 Der dritte Ansatz, der implementiert werden soll, ist SVM-Algorithmus. Als Basis für diese Unteraufgabe wurde MITIE\footnote{\url{https://github.com/mit-nlp/MITIE} (Zuletzt abgerufen am 03. November)}-Framework ausgewählt. MITIE steht für ,,MIT Information Extraction`` - ein Framework zur Extraktion von Entitäten und zur Erkennung von binären Relationen. Wie erwähnt, verwendet dieses Framework SVM als Basisalgorithmus für Erkennung von Entitäten, und soll deswegen auch bessere Ergebnisse als OpenNLP oder StanfordNER aufzeigen können (siehe Sektion \ref{sec:SVNGRUND}).
 
-Die Aufbau dieses Engines ähnelt sich der vom Stanford-NER-Engine, und kann auf der Abbildung \ref{fig:mitieclasses} betrachtet werden.
+Der Aufbau dieses Engines ähnelt sich dem vom Stanford-NER-Engine, und ist auf der Abbildung \ref{fig:mitieclasses} vorgestellt.
 
 \begin{figure}[ht]
 \centering
@@ -165,7 +165,7 @@ Die Aufbau dieses Engines ähnelt sich der vom Stanford-NER-Engine, und kann auf
 \caption{''Klassendiagramm  des MITIE-Engines''}
 \label{fig:mitieclasses}
 \end{figure}
-Die Klassen in diesem Engine spielen ähnliche Rollen, wie bei Stanford-NER mit einer gravierender Ausnahme: die Klasse \textit{NamedEntityExtractor}, die für die Extraktion von Entitäten verantwortlich ist, wird automatisch aus C++-Code erzeugt, und nicht manuell entwickelt.
+Die Klassen, die in diesem Engine verwendet werden, spielen ähnliche Rollen, wie bei dem Stanford-NER Engine, mit folgender Ausnahme: die Klasse \textit{NamedEntityExtractor}, die für die Extraktion von Entitäten zuständig ist, wird automatisch aus den C++-Quelltexten erzeugt, und nicht manuell entwickelt.
 
 \paragraph{Vor- und Nachteile}
 \begin{itemize}
