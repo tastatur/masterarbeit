@@ -221,9 +221,9 @@ Das Korpus ist wie folgt aufgebaut:
 Der Nachteil dieses Korpus besteht darin, dass es zwischen verschiedenen Klassen von Entitäten nicht unterschieden wird, und die alle die Klasse \textit{NE} (NamedEntity) haben.
 
 \paragraph{}
-Die Logik, die für die Umwandlung von Tiger Korpuseinträgen in OpenNLP-Format verantwortlich ist, ist in der Auflistung \ref{lst:LOGICOFCONVERTER} zu sehen.
+Die Logik, die für die Umwandlung von TIGER-Korpuseinträgen in das OpenNLP-Format verantwortlich ist, ist in der Auflistung \ref{lst:LOGICOFCONVERTER} zu sehen.
 \lstinputlisting[captionpos=b,label={lst:LOGICOFCONVERTER},caption={Ausschnitt aus den Quelltexten des Konverters, der die Logik der Umwandlung beschreibt}]{Listings/tiger-to-onlp.java}
-Es wird praktisch für jede ununterbrochene Reihenfolge von NE-Merkierungen ein OpenNLP-Tag erzeugt, und alle Wörter, die keine Entitäten sind, werden ohne Umwandlung kopiert.
+Es wird für jede ununterbrochene Reihenfolge von NE-Markierungen ein OpenNLP-Tag erzeugt, und alle Wörter, die keine Entitäten sind, werden ohne weitere Umwandlung kopiert.
 
 \subsubsection{Wikipedia-basiertes Korpus}
 \paragraph{}
