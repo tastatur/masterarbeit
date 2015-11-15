@@ -5,7 +5,7 @@ Im Rahmen dieser Arbeit wurden verschiedene Methoden zur Extraktion von Entität
 
 Die Untersuchung von möglichen Algorithmen der Extraktion von Entitäten hat gezeigt, dass die Algorithmen, die sonst für Klassifizierung verwendet werden, auch für die NER-Aufgabe eingesetzt werden können - es müssen lediglich korrekte ,,Eigenschaften`` von Wörtern (Features) ausgewählt werden, mit deren Hilfe dem Wort eine Klasse zugeordnet werden könnte. Dabei müssen die Eigenschaften nicht unbedingt von Menschen definiert werden (supervised Features), sondern können auch automatisch berechnet werden (unsupervised Features).
 
-Bei der Aufgabe von Erkennung von Entitäten lässt sich die Wichtigkeit von einem richtigen Training-Korpus nicht von der Hand zu weisen - da das Korpus für Training des Modells für den späteren Einsatz verwendet wird, ist es sehr wichtig, dass das verwendete Korpus:
+Die Wichtigkeit von einem richtigen Training-Korpus für eine erfolgreiche Erkennung von den Entitäten lässt sich nicht von der Hand zu weisen - es ist sehr wichtig, dass das verwendete Korpus folgende Eigenschaften besitzt:
 \begin{enumerate}
 \item Groß genug ist, damit das Modell genug Daten fürs Training hat.
 \item Gute Qualität hat - das bedeutet, dass alle Entitäten, die im Korpus vorkommen, auch wirklich markiert sind, und zwar richtig (eine Person soll als eine Person, und nicht als eine Firma annotiert werden), dass die Sätze korrekt getrennt sind, dass es keine nicht-Entitäten markiert werden.
