@@ -141,12 +141,12 @@ Der Vorteil dieser Architektur ist, dass die sich auf mehrere Rechner verteilen 
 Technische Details des Ablaufs der Evaluierung werden auf dem Diagramm \ref{fig:eval-ablauf} abgebildet. Der Vorgang der Evaluierung lässt sich in folgende Schritte aufteilen:
 \begin{enumerate}
 \item Zuerst wird die Anfrage des Benutzers an Web-Frontend gesendet.
-\item Danach wird diese Anfrage an Bing weitergeleitet. Der BingAPI wird dabei mitgeteilt, dass bei Möglichkeit nur nach deutschsprachigen Webseiten gesucht werden muss.
-\item Die Liste von Links auf gefundene Webseiten mit den Texten von Snippets zusammen, die vom Bing erhalten wurden, wird über ExtraktionAPI an Stanbol weitergeleitet.
+\item Danach wird diese Anfrage an Bing weitergeleitet. Dabei wird es der Bing-API mitgeteilt, dass es bei Möglichkeit nur nach deutschsprachigen Webseiten gesucht werden muss.
+\item Die vom Bing erhaltene Liste von Links zu den gefundenen Webseiten wird mit den Texten von Snippets zusammen über die ExtraktionAPI an Stanbol weitergeleitet.
 \item Die von dem Stanbol erhaltene Antwort wird mithilfe von der ExtraktionAPI aus RDF in Java-Objekte transformiert.
-\item Die Evaluierungsseite serialisiert extrahierte Entitäten, fügt die der vom Bing erhaltener Liste von Snippets zu und sendet die Ergebnisse an den Benutzer.
-\item Der Benutzer benutzt Webseite-UI um das Engine zu bewerten.
-\item Die Bewertung wird in der Datenbank gespeichert, und Benutzer kann mit dem nächsten Engine fortfahren.
+\item Die Evaluierungsseite serialisiert extrahierte Entitäten, fügt die zu der vom Bing erhaltenen Liste von Snippets hinzu und sendet die Ergebnisse zu dem Benutzer.
+\item Der Benutzer benutzt die Webseite-UI um das Engine zu bewerten.
+\item Die Bewertung wird in der Datenbank gespeichert, und der Benutzer kann mit dem nächsten Engine fortfahren.
 \end{enumerate}
 
 \begin{figure}
