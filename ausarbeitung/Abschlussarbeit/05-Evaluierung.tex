@@ -183,13 +183,13 @@ Genau wie Stanbol kann die Evaluierungsseite auf jedem Java Applikationsserver g
 
 \section{Systemorientierte Evaluierung von Qualität der Extraktion} \label{sec:sysevalsec}
 \paragraph{}
-Bevor die Ergebnisse der Benutzervaluierung bewertet werden können, muss geprüft werden, wie präzis die Engines Entitäten erkennen können. Da ein Engine in seiner Funktionsweise ein Klassifikator ist (siehe Kapitel ,,Grundlagen``, Sektion \ref{sec:Grundlagen}), kann die Präzision eines Engines anhand von folgenden Metriken bestimmt werden\footnote{\url{https://de.wikipedia.org/wiki/Beurteilung_eines_Klassifikators\#Wahrheitsmatrix:_Richtige_und_falsche_Klassifikationen} (Zuletzt abgerufen am 05. November)}
+Bevor die Ergebnisse der Benutzerevaluierung bewertet werden können, muss geprüft werden, wie präzis die Engines Entitäten erkennen können. Da ein Engine in seiner Funktionsweise ein Klassifikator ist (siehe Kapitel ,,Grundlagen``, Sektion \ref{sec:Grundlagen}), kann die Präzision eines Engines anhand von folgenden Metriken bestimmt werden\footnote{\url{https://de.wikipedia.org/wiki/Beurteilung_eines_Klassifikators\#Wahrheitsmatrix:_Richtige_und_falsche_Klassifikationen} (Zuletzt abgerufen am 05. November)}:
 \begin{enumerate}
 % dund  (die Wörter, die keine Entitäten sind, und die nicht als Entitäten annotiert wurde) definiert werden.
-\item Anzahl von False-Positive-Treffer - die von dem Engine als Entitäten erkannte Wörter, die keine Entitäten sind.
-\item Anzahl von True-Positive-Treffer - die Entitäten, die von dem Engine als solche erkannt wurden.
-\item Anzahl von True-Negative-Treffer - die Wörter, die keine Entitäten sind, und die als solche nicht annotiert wurden.
-\item Anzahl von False-Negative-Treffer - die von dem Engine nicht erkannte Entitäten.
+\item Anzahl von den False-Positive-Treffer - die von dem Engine als Entitäten erkannte Wörter, die keine Entitäten sind.
+\item Anzahl von den True-Positive-Treffer - die Entitäten, die von dem Engine als solche erkannt wurden.
+\item Anzahl von den True-Negative-Treffer - die Wörter, die keine Entitäten sind, und die als solche nicht annotiert wurden.
+\item Anzahl von den False-Negative-Treffer - die von dem Engine nicht erkannte Entitäten.
 \end{enumerate}
 
 Die oben genannte Zahlen können mithilfe von folgenden Metriken zusammengefasst werden\cite{och2003systematic}:
