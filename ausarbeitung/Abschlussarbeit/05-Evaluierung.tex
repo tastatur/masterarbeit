@@ -31,7 +31,14 @@ Diese Einschränkung wurde eingeführt, da einige Benutzer (7 Sessionen insgesam
 
 Die Aufbau der Evaluierungsseite lässt sich in vier Bereiche teilen:
 
-Im ersten Bereich (siehe die Abbildung \ref{fig:eval-select-question}) soll die Anfrage, die Benutzer stellen möchte, ausgewählt werden. Um die Streuung von Bewertungen so klein wie möglich zu halten, wird eine festgesetzte Liste von vorgegebenen Fragen benutzt - der Benutzer kann also in diesem Schritt keine beliebige Frage angeben, sondern nur eine der verfügbaren Möglichkeiten auswählen.
+Im ersten Bereich (siehe die Abbildung \ref{fig:eval-select-question}) soll die Anfrage, die Benutzer stellen möchte, ausgewählt werden. Dabei kann der Benutzer in diesem Schritt keine beliebige Frage stellen. Stattdessen muss eine der vorgegebenen Fragen ausgewählt werden. Dadurch wird erreicht, dass jeder Benutzer die gleiche Fragen zum Auswahl hat, was bedeutet, dass auch die Antworten, die der Server dem Benutzer anzeigt, für jeden Benutzer gleich sein werden. Damit wird sichergestellt, dass jeder Benutzer die gleiche Ausgangsdaten bewertet, ansonsten hat man die Situation, wenn die Benutzer anfangen, die Fragen und nicht das Engine zu bewerten. Außerdem soll die Anzahl von den für den Benutzer verfügbaren Freiheitsgrade so klein wie möglich sein, damit die Wahrscheinlichkeit, dass der Benutzer einen Fehler macht, gering gehalten werden könnte.
+
+\begin{figure}
+\centering
+\includegraphics[width=.6\textwidth]{Bilder/select-question.png}
+\caption{''Auswahl einer Frage''}
+\label{fig:eval-select-question}
+\end{figure}
 
 Dabei wurden die Fragen in zwei Gruppen geteilt, um mögliche Abhängigkeit der Ergebnissen von dem Domain erkennen zu können - da verschiedene Engines und Modelle auf verschiedenen Korpora trainiert wurden, kann es vorkommen, dass z.B. die Modelle, die auf Zeitungen trainiert wurden (TIGER Korpus), auch bei Zeitung-ähnlichen Texten besser abschneiden werden. Es wurden folgende Fragengruppen verwendet:
 \begin{enumerate}
