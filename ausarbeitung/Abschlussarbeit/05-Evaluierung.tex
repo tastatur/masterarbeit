@@ -164,12 +164,12 @@ Die auf der Abbildung \ref{fig:evalcomponents} dargestellte Komponenten werden d
 \item Sie sind für das Wechseln von Engines nach der Abgabe der Bewertung zuständig.
 \item Diese Klassen sind für die Weiterleitung von den Bewertungen und Anfragen zu den anderen Komponenten zuständig.
 \end{itemize}
-\item \textit{EingineRatingService} ist für die Speicherung von Benutzerbewertungen zuständig. Dabei definiert das Interface nicht, wie genau die Daten gespeichert werden - es muss also nicht unbedingt eine NoSQL datenbank sein - es wird nur eine generische Schnittstelle für Abgabe von Bewertungen zur Verfügung gestellt.
-\item Die Klasse \textit{EingineRatingServiceMongoImpl} ist die Implementierung der \textit{EingineRatingService}-Schnittstelle für MongoDB.
-\item \textit{MongoDbClient} stellt eine Abstraktion über die Mongo Java API zur Verfügung, damit es weniger Code für andere Klassen geschrieben werden müsste.
-\item Die Klassen \textit{MongoFeedbackService} und \textit{AvailableQueriesFromDatabaseServiceMongoImpl} sind entsprechend für die Speicherung von Benutzerfeedbacks und möglichen Evaluierungsanfragen zuständig. 
-\item \textit{EntityExtractionService} ruft zuerst Bing API (implementiert durch die Klasse \textit{BingSearchService}) auf, um die Liste von gefundenen Snippets für die angegebene Suchanfrage liefern zu lassen. Danach wird die Extraktion-API aufgerufen, um die gefundene Snippets mit Entitäten anzureichern. Die Ergebnisse werden zurück an \textit{EvaluationSessionService} geschickt.
-\item Die Schnittstelle \textit{QueryLogService} und ihre Implementierung \textit{QueryLogServiceMongoImpl} sichern die Anfragen, die Benutzer im letzten Schritt der Evaluierung gesendet haben.
+\item Das Interface \textit{EingineRatingService} ist für die Speicherung von Benutzerbewertungen zuständig. Dabei definiert dieses Interface nicht, wie genau die Daten gespeichert werden - es muss also nicht unbedingt eine NoSQL-Datenbank verwendet werden - es wird nur eine generische Schnittstelle für Abgabe von Bewertungen zur Verfügung gestellt.
+\item Die Klasse \textit{EingineRatingServiceMongoImpl} ist die Implementierung der \textit{EingineRatingService}-Schnittstelle für die MongoDB.
+\item Die Komponente \textit{MongoDbClient} stellt eine Abstraktion über die Mongo Java API zur Verfügung, damit es für andere Klassen weniger Code geschrieben werden müsste.
+\item Die Klassen \textit{MongoFeedbackService} und \textit{AvailableQueriesFromDatabaseServiceMongoImpl} sind entsprechend für die Speicherung von den Benutzerfeedbacks und möglichen Evaluierungsanfragen zuständig. 
+\item Die Klasse \textit{EntityExtractionService} ruft zuerst Bing API (implementiert durch die Klasse \textit{BingSearchService}) auf, um die Liste von gefundenen Snippets für die angegebene Suchanfrage liefern zu lassen. Danach wird die Extraktion-API aufgerufen, um die gefundene Snippets mit den extrahierten Entitäten anzureichern. Die Ergebnisse werden zurück zu dem \textit{EvaluationSessionService} geschickt.
+\item Die Schnittstelle \textit{QueryLogService} und ihre Implementierung \textit{QueryLogServiceMongoImpl} speichern die Anfragen, die der Benutzer im letzten Schritt der Evaluierung gesendet hat, in einer Datenbank.
 \end{itemize}
 
 %\begin{figure}
