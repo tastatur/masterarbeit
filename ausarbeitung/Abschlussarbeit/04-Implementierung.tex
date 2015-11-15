@@ -293,12 +293,12 @@ Für die Verlinkung von Entitäten wird Engine ,,EntityLinkingEngine`` verwendet
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\textwidth]{Bilder/classes-linking.png}
-\caption{''UML-Klassendiagramm für EntityLinkingEngine''}
+\caption{''Klassendiagramm für EntityLinkingEngine''}
 \label{fig:linking}
 \end{figure}
 \begin{itemize}
-\item Die Klasse \textit{EntityHubSearcher}, die Interface \textit{TrackingEntitySearcher} implementiert, ist für die Suche in der Wissendatenbank zuständig.
-\item Die Klasse \textit{EntityHubEntity} stellt eine Entität und ihre Eigenschaften dar. Das Parameter ,,entityRank`` zeigt, wie wichtig die Entität ist, was für die Rausfilterung von ,,unpassenden`` Entitäten helfen könnte.
+\item Die Klasse \textit{EntityHubSearcher}, die Interface \textit{TrackingEntitySearcher} implementiert, ist für die Suche in der Wissensdatenbank zuständig.
+\item Die Klasse \textit{EntityHubEntity} stellt eine Entität und ihre Eigenschaften dar. Der Parameter ,,entityRank`` zeigt, wie wichtig die Entität im Vergleich zu anderen Entitäten in der Datenbank ist, was für das Herausfiltern von ,,unpassenden`` Entitäten helfen könnte.
 \item \textit{EntityhubLinkingEngine} ist die Hauptklasse, die die Informationen über extrahierte Entitäten verlinkt.
 \end{itemize}
 
