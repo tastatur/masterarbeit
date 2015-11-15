@@ -160,9 +160,9 @@ Die auf der Abbildung \ref{fig:evalcomponents} dargestellte Komponenten werden d
 \begin{itemize}
 \item Das Interface \textit{EvaluationSessionService} und implementierende Klasse \textit{EvaluationSessionServiceImpl} sind für die Steuerung des Evaluierungsvorgangs zuständig:
 \begin{itemize}
-\item Die starten und beendet die Evaluierung für einen bestimmten Benutzer.
-\item Die wechseln zum nächsten Engine, wenn der Benutzer die Bewertung abgeschickt hat.
-\item Die leiten die Benutzerbewertungen und Anfragen zu anderen Komponenten weiter.
+\item Diese Klassen starten und beendet die Evaluierung für einen bestimmten Benutzer.
+\item Sie sind für das Wechseln von Engines nach der Abgabe der Bewertung zuständig.
+\item Diese Klassen sind für die Weiterleitung von den Bewertungen und Anfragen zu den anderen Komponenten zuständig.
 \end{itemize}
 \item \textit{EingineRatingService} ist für die Speicherung von Benutzerbewertungen zuständig. Dabei definiert das Interface nicht, wie genau die Daten gespeichert werden - es muss also nicht unbedingt eine NoSQL datenbank sein - es wird nur eine generische Schnittstelle für Abgabe von Bewertungen zur Verfügung gestellt.
 \item Die Klasse \textit{EingineRatingServiceMongoImpl} ist die Implementierung der \textit{EingineRatingService}-Schnittstelle für MongoDB.
