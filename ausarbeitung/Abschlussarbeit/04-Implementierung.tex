@@ -318,7 +318,7 @@ Deswegen soll auch für die Dereferenzierung das EntityHub eingesetzt werden. F�
 \caption{''UML-Klassendiagramm für EntityhubDereferenceEngine''}
 \label{fig:deref}
 \end{figure}
-Theoretisch können hier auch SQL-Datenbanke für die Dereferenzierung verwendet werden - es muss nur eine eigene Klasse, die vor dem Interface \textit{ENtityDereferenceEngine} erbt, implementiert werden, aber wegen der möglichen Problemen, die in der Einleitung (\ref{sec:wiss}) beschrieben wurden, wäre es nicht empfohlen.
+Die Klasse \textit{EntityDereferenceEngine} ist die Hauptklasse, die für die Dereferenzierung zuständig ist, und die die Eingabedaten mit entsprechenden Annotationen anreichert. Diese Klasse verwendet zwei Konfigurationsklassen \textit{DereferenceEngineConfig} und \textit{DereferenceConstants}, die die verfügbare Indexe von den Wissensdatenbanken und andere Einstellungen definieren. Die Klasse \textit{EntityhubDereferenceEngine} stellt eine Abstraktion zur EntityHub-API zur Verfügung.
 
 \section{Herausfilterung von für den Benutzer irrelevanten Entitäten}
 Wie in der Aufgabenstellung (\ref{sec:Aufgabenstellung}) gesagt wurde, müssen nur relevante Entitäten dem Benutzer angezeigt werden, damit der Benutzer sich nicht verwirrend fühlt. Die beste Lösung dieses Problems wäre eventuell eine semantische Analyse der Benutzeranfrage, und ein Matching von Entitäten mit den Ergebnissen solcher Analyse, aber wegen Zeitmangel und einem zu großen Aufwand, der außer Rahmen dieser Masterarbeit stünde, konnte diese Lösung nicht implementiert werden. Statdessen werden folgende Gewichte verwendet, um zu entscheiden, ob eine Entität wichtig genug ist:
