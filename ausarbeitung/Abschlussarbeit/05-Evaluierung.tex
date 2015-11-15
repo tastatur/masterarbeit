@@ -2,18 +2,16 @@
 
 \section{Benutzerevaluierung}
 \paragraph{}
-Damit es festgestellt werden könnte, ob die Anreicherung von Suchergebnissen mit aus den Snippets extrahierten Entitäten für den Benutzer auch tatsächlich hilfreich sein könnte, wurde eine Benutzerevaluierung durchgeführt. Die Evaluierung sollte folgende Fragen beantworten:
+Damit es festgestellt werden könnte, ob die Anreicherung von Suchergebnissen mit aus den Snippets extrahierten Entitäten für den Benutzer auch tatsächlich hilfreich sein könnte, wurde eine Benutzerevaluierung durchgeführt. Die Evaluierung soll bei der Überprüfung von folgenden Hypothesen helfen:
 
 \begin{itemize}
-\item Können extrahierte Entitäten den Benutzer bei der Suche tatsächlich unterstützen?
-\item Welcher Einsatz liefert dem Benutzer die zu der Anfrage am besten passende Entitäten?
-\item Sind die aus DBpedia extrahierte Daten ausreichend?
-\item Ob die Entitäten aus den kleinen Suchsnippets überhaupt extrahiert werden können? Oder ob es gelegentlich auf die volle Texte der Webseite zugegriffen werden muss?
-\item Wird die Geschwindigkeit der Suche durch den zusätzlichen Schritt der Extraktion von Entitäten stark beeinträchtigt? Ist die Beeinträchtigung der Geschwindigkeit groß genug, um den Benutzer bei der Suche zu stören?
-\item Gibt es Korrelationen zwischen ,,standarten`` Metriken wie F-Measure und Precision/Recall und der Zufriedenheit der Benutzer, oder kann man aus der rein numerischen Metriken keine Aussage treffen, ob der Engine in der Lage ist, eine genügende Benutzerunterstützung zu leisten?
+\item Die in den kurzen Suchsnippets vorhandene Informationen könnten für die Extraktion von Entitäten nicht ausreichend sein, und es müsste eventuell auf den kompletten Text der referenzierten Webseite zugegriffen werden.
+\item Die Präzision und Sensitivität des Engines könnten einen großen Einfluss darauf haben, wie gut sich das Engine für die Benutzerunterstützung eignet.
+\item Die in den verlinkten Entitäten vorhandene Informationen, die aus der DBpedia extrahiert wurden, könnten einen größeren Einfluss auf die Zufriedenheit des Benutzers haben als die Präzision des Engines.
+\item Die Geschwindigkeit der Suche könnte durch den zusätzlichen Schritt der Extraktion von Entitäten stark beeinträchtigt werden, was den Benutzer bei der Suche stören würde.
 \end{itemize}
 
-Um diese Fragen beantworten zu können, wurde eine Webseite aufgebaut, die dem Benutzer die Möglichkeit gibt, alle im Rahmen dieser Arbeit entwickelte Engines und alle Modellen, die im Rahmen dieser Arbeit verwendet wurden, zu bewerten. 
+Um diese Hypothesen bestätigen oder widerlegen zu können, wurde eine Webseite aufgebaut, die dem Benutzer die Möglichkeit gibt, alle im Rahmen dieser Arbeit entwickelte Engines und alle Modellen, die im Rahmen dieser Arbeit verwendet wurden, zu bewerten. 
 
 Für jedes Engine sollen insgesamt drei Charakteristiken bewertet werden:
 \begin{enumerate}
