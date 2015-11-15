@@ -238,22 +238,22 @@ Für den Aufbau des Korpus wird Apache Pig\footnote{\url{http://pig.apache.org/}
 \item Zuerst wird der Dump von den Wikipedia-Artikeln heruntergeladen.
 \item Danach werden die Listen von Wikipedia-Links und Klassen von Entitäten von DBpedia heruntergeladen. Diese Informationen werden später gebraucht, um jeder Entität in dem erzeugten Korpus eine richtige Entitätsklasse zuordnen zu können.
 \item Im dritten Schritt werden aus dem heruntergeladenen Wikipedia-Dump die Links auf interne Wikipedia-Artikel extrahiert, mit der Positionsinformationen zusammen.
-\item Danach wird jedem Link, das eine Entität beschreibt, die entsprechende Entitätsklasse mithilfe von den DBpedia-Daten zugeordnet.
+\item Danach wird jedem Link, das eine Entität beschreibt, eine entsprechende Entitätsklasse mithilfe von den DBpedia-Daten zugeordnet.
 \item Anschließend werden die in vorherigen Schritten gewonnene Informationen in einem Trainingskorpus im OpenNLP-Format zusammengefasst.
 \end{enumerate}
 
 \paragraph{} 
-Für den Aufbau des Korpus aus deutscher Wikipedia können die Scripts von Oliver Grisel genommen werden, die allerdings angepasst werden müssen:
+Für den Aufbau des Korpus aus deutscher Wikipedia können die Scripts von Oliver Grisel\footnote{\url{https://github.com/tastatur/pignlproc} (Zuletzt abgerufen am 30. Oktober)} genommen werden, die allerdings angepasst werden müssen:
 \begin{itemize}
 \item Es soll deutsche Dbpedia\footnote{\url{http://de.dbpedia.org/} (Zuletzt abgerufen am 10. Oktober)}, und nicht englische verwendet werden.
 \item Es soll deutsches Modell für Satzerkennung eingesetzt werden, und nicht englisches.
-\item Herunterladen von Wikipedia- und Dbpediadaten soll automatisiert werden.
+\item Das Herunterladen von den Wikipedia- und Dbpediadaten soll automatisiert werden.
 \end{itemize}
 
 Der Code, der für die Erzeugung eines Wikipedia-basierten Korpus verantwortlich ist, ist in der Auflistung \ref{app:pigcorpus} repräsentiert.
 
 \paragraph{}
-Aber welche Vor- und Nachteile hat automatische Erzeugung vom Korpus? Kann das trainierte Modell später auch tatsächlich für sinnvolle Erkennung von Entitäten eingesetzt werden?
+Aber welche Vor- und Nachteile hat eine automatische Erzeugung vom Korpus? Kann das trainierte Modell später auch tatsächlich für sinnvolle Erkennung von Entitäten eingesetzt werden?
 \begin{itemize}
 \item Vorteile
 \begin{itemize}
