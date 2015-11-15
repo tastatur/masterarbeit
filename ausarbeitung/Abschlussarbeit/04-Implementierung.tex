@@ -339,7 +339,7 @@ Als Eingabedaten wird die Liste von URLs der gefundenen Webseiten mit dazugehör
 
 Die API wurde außerdem so entworfen, dass bei Bedarf nicht nur Stanbol, sondern jedes beliebiges System als Backend verwendet werden kann - für jedes neues Backend muss nur die Klasse ,,EnhancementClient`` erweitert werden, und in der abgeleiteten Klasse die Schnittstelle zum neuen System implementiert werden. Gegebenenfalls sollen auch neue Konverter geschrieben werden, falls neues Backend keine RDF-Daten zurückgibt, und ein eigenes Datenformat verwendet.
 
-Eine UML-Klassendiagramm für die Stanbol-API ist auf der Abbildung \ref{fig:apiuml} zu sehen. Es soll beachtet werden, dass die Schnitstelle zur Suchmaschine absichtlich außer Acht gelassen wurde - um die API so generisch wie möglich zu gestalten, wird die Anbindung an Suchmaschine dem Entwickler, der die API verwendet, überlassen. 
+Das Klassendiagramm für die Stanbol-API ist auf der Abbildung \ref{fig:apiuml} zu sehen. Es soll beachtet werden, dass die Schnittstelle zur Suchmaschine absichtlich außer Acht gelassen wurde - um die API so generisch wie möglich gestalten zu können, wird die Anbindung an die Suchmaschine dem Entwickler, der die API verwendet, überlassen.
 
 \begin{figure}[ht]
 \centering
