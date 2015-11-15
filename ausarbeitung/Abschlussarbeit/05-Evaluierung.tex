@@ -205,11 +205,11 @@ Die Variable $\beta$ bestimmt dabei, was ein höheres Gewicht für die Kalkulati
 
 Nachdem die Werte, die für jedes Engine berechnet werden sollen, definiert wurden, muss ein Verfahren zur Beurteilung von Engines bestimmt werden. In der Arbeit von Kovahi et al.\cite{kohavi1995study} wurde erwähnt, dass zur Bewertung von den Klassifikatoren die Kreuzvalidierung verwendet werden soll. Allerdings kann die Kreuzvalidierung nicht auf alle Engines angewendet werden, da es für einige Engines keine Trainingskorpora zur Verfügung stehen, wie es im Kapitel ,,Implementierung`` (Sektion \ref{subsec:stanfordner}) erwähnt wurde. Aus diesem Grund wird in dieser Masterarbeit folgende Evaluierungsmethodik verwendet:
 \begin{itemize}
-\item Als Musterdaten für die Evaluierung wurden TIGER- und PIG-Korpora verwendet:
+\item Als die Musterdaten für die Evaluierung wurden TIGER- und PIG-Korpora verwendet:
 \begin{itemize}
-\item Die Engines, die mithilfe von PIG trainiert wurden, werden mit dem TIGER-Korpus ausgetestet.
-\item Die Engines, die mithilfe von TIGER trainiert wurden, werden mit dem PIG-Korpus ausgetestet.
-\item Auf Stanford-NER aufgebaute Engines wurden mithilfe von PIG-Korpus getestet, da er größer ist, und da die Varianz von Daten dort größer sein soll, und so theoretisch genauere Ergebnisse liefern könnte.
+\item Die Engines, die mithilfe von dem PIG-Korpus trainiert wurden, werden mit dem TIGER-Korpus ausgetestet.
+\item Die Engines, die mithilfe von dem TIGER-Korpus trainiert wurden, werden mit dem PIG-Korpus ausgetestet.
+\item Auf der Basis vom Stanford-NER-Framework aufgebaute Engines wurden mithilfe vom PIG-Korpus getestet, da es größer ist, und da die Varianz von Daten in diesem Korpus größer sein soll, und so müssten theoretisch genauere Ergebnisse erzielt werden können.
 \end{itemize}
 \item Die Anfragen werden direkt an eine Stanbol-Instanz mithilfe der REST-API gesendet.
 \end{itemize}
