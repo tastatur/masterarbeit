@@ -59,11 +59,18 @@ Nachdem der Benutzer die gewünschte Frage ausgewählt und gestellt hat, wird ih
 
 Die Links und dazugehörige Snippets kommen dabei direkt vom Bing, und werden damit von der Implementierung eines Engines nicht beeinflusst. Die Liste von den extrahierten Entitäten wird dagegen von dem Stanbol erstellt. Die Snippets, wo keine Entitäten gefunden werden konnten, werden in der Liste nicht angezeigt.
 
-Im dritten Bereich (siehe die Abbildung \ref{fig:eval-props}) werden die Eigenschaften der ausgewählten Entität angezeigt. In der linken Spalte wird der Name der Eigenschaft abgebildet und rechts das Wert. Es gibt dabei zwei verschiedene Typen von Werten:
+Im dritten Bereich (siehe die Abbildung \ref{fig:eval-props}) werden die Eigenschaften der ausgewählten Entität angezeigt. In der linken Spalte wird der Name der Eigenschaft abgebildet und rechts der Wert. Es gibt dabei zwei verschiedene Klassen von Werten:
 \begin{itemize}
-\item ,,Rohe`` Eigenschaften, wie Geburts- oder Todesdatum oder Kurzbeschreibung. Diese sind im Prinzip Zeichenketten und können dem Benutzer ohne weiteres angezeigt werden.
-\item ,,Links`` - das sind die Eigenschaften, die eigentlich nur Links auf andere Entitäten sind, die ihre eigene Eigenschaften besitzen. Zum Beispiel ist Geburtsort einer Person ein Link auf entsprechendes DBpedia-Eintrag, dasselbe gilt auch für Sprache oder sogar Zeitzonen.
+\item ,,Rohe`` Eigenschaften, wie Geburts- oder Todesdatum oder Kurzbeschreibung. Diese Eigenschaften sind im Prinzip Zeichenketten und können dem Benutzer ohne weitere Umwandlungen angezeigt werden.
+\item ,,Links`` - das sind die Eigenschaften, die eigentlich nur Links auf andere Entitäten sind, die ihre eigene Eigenschaften besitzen. Zum Beispiel ist Geburtsort einer Person ein Link auf entsprechendes DBpedia-Eintrag, dasselbe gilt auch für Sprache oder Zeitzonen.
 \end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{Bilder/eval-step03.png}
+\caption{''Liste von Eigenschaften einer Entität''}
+\label{fig:eval-props}
+\end{figure}
 
 Im letzten Bereich soll das getestete Engine bewertet werden, wie es auf der Abbildung \ref{fig:bewertung} angezeigt wird.
 
