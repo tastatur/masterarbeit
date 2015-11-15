@@ -47,7 +47,15 @@ Dabei wurden die Fragen in zwei Gruppen geteilt, um mögliche Abhängigkeit der 
 \end{enumerate} 
 Um gleiche Bedeckung von allen möglichen Kombinationen von Domains und Fragegruppen zu gewährleisten, wird es bei jedem Engine zwischen verfügbaren Fragegruppen zyklisch gewechselt - für den ersten Benutzer wird die Reihenfolge 'Domain1/Engine1 $\longrightarrow$ Domain2/Engine2 $\longrightarrow$ Domain1/Engine3 ...' verwendet, für den zweiten 'Domain2/Engine1 $\longrightarrow$ Domain1/Engine2 $\longrightarrow$ Domain2/Engine3 ...' usw.
 
-Nachdem Benutzer die gewünschte Frage ausgewählt und gestellt hat, wird ihm im zweiten Bereich, deren Schnappschuss auf der Abbildung \ref{fig:eval-entitylist} zu sehen ist, eine Liste von gefundenen Snippets mit den verlinkten Entitäten zusammen angezeigt.
+Nachdem der Benutzer die gewünschte Frage ausgewählt und gestellt hat, wird ihm im zweiten Bereich, dessen Screenshot auf der Abbildung \ref{fig:eval-entitylist} zu sehen ist, eine Liste von gefundenen Snippets mit den verlinkten Entitäten zusammen angezeigt.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{Bilder/evalstep02-step1.png}
+\includegraphics[width=0.5\textwidth]{Bilder/evalstep02-step1-2.png}
+\caption{''Liste von Snippets und gefundenen Entitäten''}
+\label{fig:eval-entitylist}
+\end{figure}
 
 Die Links auf die Webseiten und Snippets kommen dabei direkt von Bing, und werden damit von der Implementierung eines Engines nicht beeinflusst. Die Liste von Entitäten wird dagegen von dem Stanbol erstellt. Die Snippets, wo keine Entitäten gefunden werden konnten, werden in der Liste nicht angezeigt.
 
