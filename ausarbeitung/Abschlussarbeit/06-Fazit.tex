@@ -37,12 +37,12 @@ Um das Problem von individuellen Vorstellungen des Benutzers bezüglich ,,Qualit
 \end{enumerate}
 In beiden Fällen könnte der Schwellwert mithilfe von der Frage, welche aus den gefundenen Entitäten der Benutzer für relevant und welche für irrelevant hält, angepasst werden. Die Frage könnte dem Benutzer entweder nach jeder Suche oder über eine gesonderte Einstellungsseite gestellt werden.
 
-Ein dynamisches Schwellwert für Entitätsfilter hätte das Problem von entweder überflüssigen oder fehlenden Daten, die mit den extrahierten Entitäten verlinkt werden, aber nicht lösen können. Um diesen Mangel zu beseitigen, könnten eventuell folgende Schritte unternommen werden:
+Ein dynamischer Schwellwert für den Entitätsfilter hätte das Problem von den entweder überflüssigen oder fehlenden Daten, die mit den extrahierten Entitäten verlinkt werden, aber nicht lösen können. Um diesen Mangel zu beseitigen, könnten eventuell folgende Schritte unternommen werden:
 \begin{itemize}
-\item Die offensichtlichste Lösung für fehlende Daten würde die Erweiterung von Wissendatenbank sein. Da Stanbol Framework dem Entwickler die Möglichkeit gibt, mehrere Datenbanken als Quelle für Ontologien einzusetzen, wäre eine Anbindung von neuen Wissendatenbanken leicht realisierbar. Dabei kann auch bei Bedarf das Domain der Suche, das für die Benutzer relevant ist, im Kauf genommen werden, und eine spezialisierte Wissendatenbank (z.B. für Krankheitsnamen oder für Arzneimittel) eingesetzt werden.
-\item Um das Problem von überflüssigen Informationen lösen zu können, würde Analyse der Suchanfrage des Benutzers nützlich sein können, damit man anhand aus der \textbf{Suchanfrage} extrahierten Informationen auswählen könnte, welche Eigenschaften der Entität angezeigt werden müssen. Zum Beispiel, wenn der Benutzer in seiner Anfrage nach Alter einer Person fragt, müssen:
+\item Die offensichtlichste Lösung für fehlende Daten würde die Erweiterung von der Wissensdatenbank sein. Da Stanbol-Framework dem Entwickler die Möglichkeit gibt, mehrere Datenbanken als Quelle für die Ontologien einzusetzen, wäre eine Anbindung von neuen Wissensdatenbanken leicht realisierbar. Dabei kann auch bei Bedarf das Domain der Suche, das für die Benutzer relevant ist, berücksichtigt werden, und eine spezialisierte Wissensdatenbank (z. B. für die Krankheitsnamen oder für die Arzneimittel) eingesetzt werden.
+\item Um das Problem von überflüssigen Informationen lösen zu können, würde Analyse der Suchanfrage des Benutzers nützlich sein können, damit man anhand aus der \textbf{Suchanfrage} extrahierten Informationen auswählen könnte, welche Eigenschaften der Entität angezeigt werden müssen. Zum Beispiel, wenn der Benutzer in seiner Anfrage nach dem Alter einer Person fragt, müssen:
 \begin{itemize}
-\item Möglicherweise nur Entitäten angezeigt werden, die den Typ ,,Person`` haben.
+\item Möglicherweise nur Entitäten angezeigt werden, die die Klasse ,,Person`` haben.
 \item Für jede Entität sollen nur Eigenschaften ,,,Geburts- und Todesdatum`` angezeigt werden.
 \end{itemize}
 \end{itemize}
