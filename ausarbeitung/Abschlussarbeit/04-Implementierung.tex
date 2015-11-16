@@ -329,7 +329,12 @@ Wie es in der Aufgabenstellung (\ref{sec:Aufgabenstellung}) gesagt wurde, müsse
 
 Das Engine, das diesen Filter implementiert, besteht nur aus einer Klasse, die schrittweise überprüft ob die Confidence- und Rank-Werte kleiner als in einer Konfigurationsdatei vordefinierte Schwellwerte sind. Falls ein von den beiden Werten kleiner als Schwellwert ist, wird die Entität aus der Liste von Ergebnissen gelöscht.
 
-Die Schwellwerte wurden für beide Filter (0.7 für Confidence und 0.2 für den Rank) nach einem manuellen Austesten von Engines anhand der persönlichen Erfahrungen des Entwicklers ausgewählt.
+Die Schwellwerte wurden für beide Filter (0.7 für Confidence und 0.2 für den Rank) nach einem manuellen Austesten von Engines anhand der persönlichen Erfahrungen des Entwicklers wie folgt ausgewählt:
+\begin{enumerate}
+\item Zuerst wurden beide Schwellwerte auf 0 gesetzt, was bedeutet, dass es keine Entitäten herausgefiltert werden.
+\item Danach wurden Snippets von verschiedenen Webseiten ins System eingegeben, und die Ergebnisse der Extraktion bewertet: falls es zu viele False-Positive-Treffer gab, wurde der Schwellwert um 0.1 erhöht, falls zu viele wichtige Entitäten nicht erkannt wurden, wurde der Schwellwert um 0.1 gesenkt.
+\end{enumerate}
+Die Auswirkungen solches statisch ausgewählten Schwellwertes auf das entwickelte Produkt sind im Ausblick (die Sektion \ref{sec:AUUV}) beschrieben.
 
 \section{API f{\"{u}}r Anreicherung von Suchergebnissen}
 \paragraph{}
