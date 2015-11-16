@@ -116,7 +116,7 @@ Das Klassendiagramm für dieses Engine ist auf der Abbildung \ref{fig:stanfclass
 \label{fig:stanfclasses}
 \end{figure}
 \begin{itemize}
-\item Die Klasse \textit{StanfordNEREnhancementEngine} ist die Hauptklasse, die nach den Entitäten im Text sucht.
+\item Die Klasse \textit{StanfordNEREnhancementEngine} ist die Hauptklasse, die nach den Entitäten im Text sucht. Die Methode ,,canEnhance`` entscheidet, ob das Engine den Text anreichern kann, und die Methode ,,computeEnhancements`` triggert die Suche nach den Entitäten und reichert den eingegebenen Text mit den Annotationen an.
 \item \textit{NERClassifierCombiner} ist die interne Klasse des StanfordNER-Frameworks und stellt die Schnittstelle zum Kombinieren von mehreren NER-Modellen zur Verfügung.
 \item \textit{NameOccurenceUtility} ist eine Hilfsklasse, die die Daten zwischen StanfordNER- und Stanbol-Format umwandelt.
 \item \textit{StanfordTextAnnotationService} ist ein Hilfsservice, das die vom Engine gefundene Entitäten zum ,,ContentItem`` als Annotationen hinzufügt.
