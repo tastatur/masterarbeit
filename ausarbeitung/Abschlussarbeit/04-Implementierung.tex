@@ -298,7 +298,7 @@ Für die Verlinkung von Entitäten wird Engine ,,EntityLinkingEngine`` verwendet
 \end{figure}
 \begin{itemize}
 \item Die Klasse \textit{EntityHubSearcher}, die das Interface \textit{TrackingEntitySearcher} implementiert, ist für die Suche in der Wissensdatenbank zuständig. Die Hauptmethode ,,lookup`` gibt für eine eingegebene Zeichenkette und Sprache die Liste von gefundenen Entitäten zurück, und die Methode ,,supportsOfflineMode`` sagt, ob es ein lokaler Index verwendet wird, oder ob das EntityHub für jede Anfrage auf ein entsprechendes Drittsystem zugreifen muss.
-\item Die Klasse \textit{EntityHubEntity} stellt eine Entität und ihre Eigenschaften dar. Der Parameter ,,entityRank`` zeigt, wie wichtig die Entität im Vergleich zu anderen Entitäten in der Datenbank ist, was für das Herausfiltern von ,,unpassenden`` Entitäten helfen könnte.
+\item Die Klasse \textit{EntityHubEntity} stellt eine Entität und ihre Eigenschaften dar. Der Parameter ,,entityRanking`` zeigt, wie wichtig die Entität im Vergleich zu anderen Entitäten in der Datenbank ist, was für das Herausfiltern von ,,unpassenden`` Entitäten helfen könnte.
 \item \textit{EntityhubLinkingEngine} ist die Hauptklasse, die die Informationen über extrahierte Entitäten verlinkt.
 \end{itemize}
 
